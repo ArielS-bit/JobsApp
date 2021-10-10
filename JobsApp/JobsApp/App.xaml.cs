@@ -2,6 +2,7 @@
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using JobsApp.Models;
+using JobsApp.Views;
 //using JobsApp.Views;
 using System.Collections.Generic;
 
@@ -22,7 +23,7 @@ namespace JobsApp
             
         InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new ExPage();
         }
 
         protected override void OnStart()

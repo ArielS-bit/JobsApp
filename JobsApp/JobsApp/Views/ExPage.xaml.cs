@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
+using JobsApp.ViewModels;
+
 namespace JobsApp.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
@@ -14,6 +16,7 @@ namespace JobsApp.Views
     {
         public ExPage()
         {
+            this.BindingContext = new ExPageViewModel();
             InitializeComponent();
         }
     }
