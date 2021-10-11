@@ -9,12 +9,14 @@ using JobsApp.Services;
 using JobsApp.Models;
 using Xamarin.Essentials;
 using System.Linq;
+using JobsApp.ViewModels;
 
 namespace JobsApp.ViewModels
 {
-    class ExPageViewModel : INotifyPropertyChanged
+    class ExPageViewModel : ViewModelBase
     {
         private string str;
+        
         public string Str
         {
             get => str;
@@ -48,11 +50,12 @@ namespace JobsApp.ViewModels
             ShowCommand = new Command(OnShow);
         }
 
-        public async void OnShow()
+        public void OnShow()
         {
-            JobsAPIProxy proxy = JobsAPIProxy.CreateProxy();
-            str = await proxy.ExFuncAsync();
-           
+            //JobsAPIProxy proxy = JobsAPIProxy.CreateProxy();
+            //str = await proxy.ExFuncAsync();
+
+            str = "Here!";
         }
 
        

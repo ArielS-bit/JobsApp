@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using JobsApp.ViewModels;
 
 namespace JobsApp.Views
 {
@@ -15,6 +16,11 @@ namespace JobsApp.Views
         public ExPage()
         {
             InitializeComponent();
+
+            ExPageViewModel w = new ExPageViewModel();
+            w.Push += (p) => Navigation.PushAsync(p);
+            this.BindingContext = w;
+
         }
     }
 }

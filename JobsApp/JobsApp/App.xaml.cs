@@ -3,7 +3,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using JobsApp.Models;
 using JobsApp.Views;
-//using JobsApp.Views;
+
 using System.Collections.Generic;
 
 namespace JobsApp
@@ -21,9 +21,9 @@ namespace JobsApp
         public App()
         {
             
-        InitializeComponent();
+            InitializeComponent();
 
-            MainPage = new ExPage();
+            MainPage = new NavigationPage(new ExPage());
         }
 
         protected override void OnStart()
