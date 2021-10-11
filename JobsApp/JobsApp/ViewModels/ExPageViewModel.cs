@@ -53,7 +53,6 @@ namespace JobsApp.ViewModels
             JobsAPIProxy proxy = JobsAPIProxy.CreateProxy();
             str = await proxy.ExFuncAsync();
            
-            
         }
 
        

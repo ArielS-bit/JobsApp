@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local ="clr-namespace:JobsApp.ViewModels"
-             x:Class="JobsApp.Views.ExPage">
+             x:Class="JobsApp.Views.ExPage"
+             BackgroundColor="#e67e22">
 
     <ContentPage.BindingContext>
         <local:ExPageViewModel>
@@ -14,17 +15,10 @@
 
         <Label Text="{Binding Str}" FontSize="30" TextColor="#bdc3c7" HorizontalOptions="Center" Margin="40,40,40,20"></Label>
 
-        <RelativeLayout>
-            <Button x:Name="btn" Text="Lets go!" Command="{Binding ShowCommand}" CornerRadius="18" Opacity="0.8" BackgroundColor="#e67e22" BorderWidth="0.5"  
-                    RelativeLayout.XConstraint="{ConstraintExpression Type=Constant, 
-                                                                    Property=Height, 
-                                                                     Factor=0.75,
-                                                                     Constant=90}"
-                   RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, 
-                                                                     Property=Width, 
-                                                                     Factor=0.75,
-                                                                     Constant=110}" />
-        </RelativeLayout>
+
+        <Button x:Name="btn" Text="Go!" Command="{Binding ShowCommand}" CornerRadius="18" Opacity="0.8" BackgroundColor="#Black" BorderWidth="0.5" HorizontalOptions="Center"/>
+
+
 
 
     </StackLayout>
