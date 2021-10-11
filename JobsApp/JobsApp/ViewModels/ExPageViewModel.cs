@@ -17,17 +17,20 @@ namespace JobsApp.ViewModels
         private string str;
         public string Str
         {
-            get
-            {
-                return str;
-            }
+            get => str;
+            
 
             set
             {
-                str = value;
+                if (value != str)
+                {
+                    str = value;
+                    OnPropertyChanged("Str");
+                }
             }
 
         }
+        
 
         #region INotifyPropertyChanged
         public event PropertyChangedEventHandler PropertyChanged;
@@ -41,6 +44,7 @@ namespace JobsApp.ViewModels
 
         public ExPageViewModel()
         {
+            str = "Hello World!!!";
             ShowCommand = new Command(OnShow);
         }
 
