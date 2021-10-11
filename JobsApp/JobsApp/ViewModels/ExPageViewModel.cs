@@ -32,30 +32,23 @@ namespace JobsApp.ViewModels
             }
 
         }
-        
+       
+        public ICommand ShowCommand => new Command(OnShow);
 
-        #region INotifyPropertyChanged
-        public event PropertyChangedEventHandler PropertyChanged;
-        protected void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-        #endregion
+      
 
-        public ICommand ShowCommand { get; set; }
 
         public ExPageViewModel()
         {
             str = "Hello World!!!";
-            ShowCommand = new Command(OnShow);
+            
         }
 
-        public void OnShow()
+        public async void OnShow()
         {
-            //JobsAPIProxy proxy = JobsAPIProxy.CreateProxy();
-            //str = await proxy.ExFuncAsync();
+            JobsAPIProxy proxy = JobsAPIProxy.CreateProxy();
+            str = await proxy.ExFuncAsync();
 
-            str = "Here!";
         }
 
        

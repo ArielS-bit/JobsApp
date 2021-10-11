@@ -4,7 +4,7 @@ using System.Text;
 using System.ComponentModel;
 using JobsApp.Services;
 
-namespace JobsApp.ViewModel
+namespace JobsApp.ViewModels
 {
     public class ViewModelBase : INotifyPropertyChanged
     {

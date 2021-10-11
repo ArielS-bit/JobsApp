@@ -18,7 +18,7 @@ namespace JobsApp.Views
             InitializeComponent();
 
             ExPageViewModel w = new ExPageViewModel();
-            w.Push += (p) => Navigation.PushAsync(p);
+            
             this.BindingContext = w;
 
         }
