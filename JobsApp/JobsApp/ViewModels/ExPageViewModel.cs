@@ -40,7 +40,7 @@ namespace JobsApp.ViewModels
 
         public ExPageViewModel()
         {
-            Str = "Tell me what time is it?!!";
+            Str = "Tell me what time is it?!?!";
             
         }
 
