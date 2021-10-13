@@ -87,7 +87,7 @@ namespace JobsApp.Services
         {
             try
             {
-                HttpResponseMessage response = await this.client.GetAsync($"{this.baseUri}/Lucas");
+                HttpResponseMessage response = await this.client.GetAsync($"{this.baseUri}/Time");
                 if (response.IsSuccessStatusCode)
                 {
                     JsonSerializerOptions options = new JsonSerializerOptions
