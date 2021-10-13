@@ -40,20 +40,16 @@ namespace JobsApp.ViewModels
 
         public ExPageViewModel()
         {
-            str = "Hello World!!!";
+            Str = "Hello World!!!";
             
         }
 
         public async void OnShow()
         {
             JobsAPIProxy proxy = JobsAPIProxy.CreateProxy();
-            str = await proxy.ExFuncAsync();
+            Str = await proxy.ExFuncAsync();
 
         }
-
-       
-
-
 
     }
 }
