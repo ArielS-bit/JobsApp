@@ -11,7 +11,7 @@ namespace JobsApp.Models
             Employees = new List<Employee>();
         }
 
-        public int Id { get; set; }
+        public int RatingId { get; set; }
         public int Rating1 { get; set; }
 
         public virtual List<Employee> Employees { get; set; }

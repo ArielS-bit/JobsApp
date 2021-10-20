@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 
-
 namespace JobsApp.Models
 {
     public partial class Comment
@@ -16,7 +15,7 @@ namespace JobsApp.Models
         public int Content { get; set; }
         public int JobOfferId { get; set; }
         public int JobRequestId { get; set; }
-        public int LikeAmount { get; set; }
+        public int Likes { get; set; }
 
         public virtual List<JobOffer> JobOffers { get; set; }
         public virtual List<JobRequest> JobRequests { get; set; }
