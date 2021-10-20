@@ -112,7 +112,7 @@ namespace JobsApp.Services
         }
 
         //Login!
-        public async Task<Employee> LoginAsync(string email, string pass)
+        public async Task<User> LoginAsync(string email, string pass)
         {
             try
             {
@@ -125,7 +125,7 @@ namespace JobsApp.Services
                         PropertyNameCaseInsensitive = true
                     };
                     string content = await response.Content.ReadAsStringAsync();
-                    Employee e = JsonSerializer.Deserialize<Employee>(content, options);
+                    User e = JsonSerializer.Deserialize<User>(content, options);
                     return e;
                 }
                 else

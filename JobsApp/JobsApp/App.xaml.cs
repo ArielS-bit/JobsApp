@@ -10,6 +10,7 @@ namespace JobsApp
 {
     public partial class App : Application
     {
+        public User CurrentUser { get; set; }
         public static bool IsDevEnv
         {
             get
