@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using JobsApp.ViewModels;
 
 namespace JobsApp.Views
 {
@@ -14,7 +15,13 @@ namespace JobsApp.Views
     {
         public LoginScreen()
         {
+            this.BindingContext = new LoginViewModel();
             InitializeComponent();
+        }
+        private void Password_Focused(object sender, FocusEventArgs e)
+        {
+            Entry entry = (Entry)sender;
+            entry.IsPassword = true;
         }
     }
 }
