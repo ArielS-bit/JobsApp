@@ -10,8 +10,8 @@ using JobsApp.Models;
 using Xamarin.Essentials;
 using System.Linq;
 using JobsApp.ViewModels;
-using JobsApp.Services;
-using JobsApp.Models;
+//using JobsApp.Services;
+//using JobsApp.Models;
 
 
 namespace JobsApp.ViewModels
@@ -77,15 +77,15 @@ namespace JobsApp.ViewModels
                 //bool success = await LoadPhoneTypes(theApp);
                 //if (!success)
                 //{
-                    //await App.Current.MainPage.Navigation.PopModalAsync();
-                    //await App.Current.MainPage.DisplayAlert("שגיאה", "קריאת נתונים נכשלה. נסה שוב מאוחר יותר", "בסדר");
+                //await App.Current.MainPage.Navigation.PopModalAsync();
+                //await App.Current.MainPage.DisplayAlert("שגיאה", "קריאת נתונים נכשלה. נסה שוב מאוחר יותר", "בסדר");
                 //}
-                  //Initiate all phone types refrence to the same objects of PhoneTypes
+                //Initiate all phone types refrence to the same objects of PhoneTypes
 
 
-                    Page p = new NavigationPage(new HomeScreen());
-                    App.Current.MainPage = p;
-                
+                Page p = new NavigationPage(new Views.FeedScreen());
+                App.Current.MainPage = p;
+
 
 
             }

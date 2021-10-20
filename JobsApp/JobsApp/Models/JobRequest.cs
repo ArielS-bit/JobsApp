@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 
-
 namespace JobsApp.Models
 {
     public partial class JobRequest
     {
         public JobRequest()
         {
+            Comments = new List<Comment>();
             InterstedInRequests = new List<InterstedInRequest>();
         }
 
@@ -23,7 +23,10 @@ namespace JobsApp.Models
 
         public virtual Category Category { get; set; }
         public virtual Comment Comment { get; set; }
+        public virtual Employee Employee { get; set; }
+        public virtual Employer Employer { get; set; }
         public virtual JobOfferStatus JobOfferStatus { get; set; }
+        public virtual List<Comment> Comments { get; set; }
         public virtual List<InterstedInRequest> InterstedInRequests { get; set; }
     }
 }

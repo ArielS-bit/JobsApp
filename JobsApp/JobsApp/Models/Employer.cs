@@ -9,6 +9,7 @@ namespace JobsApp.Models
         public Employer()
         {
             JobApplications = new List<JobApplication>();
+            JobRequests = new List<JobRequest>();
         }
 
         public int EmployerId { get; set; }
@@ -17,5 +18,6 @@ namespace JobsApp.Models
 
         public virtual JobOffer JobOffer { get; set; }
         public virtual List<JobApplication> JobApplications { get; set; }
+        public virtual List<JobRequest> JobRequests { get; set; }
     }
 }

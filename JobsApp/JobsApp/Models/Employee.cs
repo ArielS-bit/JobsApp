@@ -17,6 +17,7 @@ namespace JobsApp.Models
         public int RatingId { get; set; }
 
         public virtual Rating Rating { get; set; }
+        public virtual JobRequest JobRequest { get; set; }
         public virtual List<JobApplication> JobApplications { get; set; }
     }
 }

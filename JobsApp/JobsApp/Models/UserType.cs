@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 
 
-
 namespace JobsApp.Models
 {
     public partial class UserType

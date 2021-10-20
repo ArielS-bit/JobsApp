@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace JobsApp.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Login : ContentPage
+    public partial class LoginScreen : ContentPage
     {
-        public Login()
+        public LoginScreen()
         {
             InitializeComponent();
         }

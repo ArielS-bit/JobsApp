@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 
-
 namespace JobsApp.Models
 {
     public partial class Category
@@ -13,7 +12,7 @@ namespace JobsApp.Models
         }
 
         public int CategoryId { get; set; }
-        public int CategoryName { get; set; }
+        public string CategoryName { get; set; }
 
         public virtual List<JobOffer> JobOffers { get; set; }
         public virtual List<JobRequest> JobRequests { get; set; }

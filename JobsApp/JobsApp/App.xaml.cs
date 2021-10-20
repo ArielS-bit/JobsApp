@@ -23,8 +23,9 @@ namespace JobsApp
         {
             
             InitializeComponent();
-
-            MainPage = new NavigationPage(new ExPage());
+            CurrentUser = null;
+            //MainPage = new NavigationPage(new ExPage());
+            MainPage = new LoginScreen();
         }
 
         protected override void OnStart()
