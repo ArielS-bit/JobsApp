@@ -24,7 +24,7 @@
             <Setter Property="FontSize" Value="Large"/>
             <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
             <Setter Property="TextColor" Value="White"/>
-            <Setter Property="BackgroundColor" Value="#088da5"/>
+            <Setter Property="BackgroundColor" Value="#e84118"/>
         </Style>
     </ContentPage.Resources>
     <ContentPage.Content>
@@ -32,6 +32,7 @@
             
             <Frame BackgroundColor="#BF043055" HasShadow="False">
                 <StackLayout>
+                    <Label Text="Login"/>
                     <Entry x:Name="Email" Text="{Binding Email}" Placeholder="Email"   
                            Keyboard="Email"  
                            Style="{StaticResource LoginEntry}"/>
@@ -39,7 +40,7 @@
                            Style="{StaticResource LoginEntry}"/>
                 </StackLayout>
             </Frame>
-            <Button Command="{Binding SubmitCommand}" Text="התחבר" Style="{StaticResource LoginButton}" />
+            <Button Command="{Binding SubmitCommand}" Text="Log In" Style="{StaticResource LoginButton}" />
 
         </StackLayout>
     </ContentPage.Content>
