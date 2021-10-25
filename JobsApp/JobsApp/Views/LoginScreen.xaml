@@ -1,13 +1,70 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="JobsApp.Views.LoginScreen">
-    <ContentPage.Resources>
+             x:Class="JobsApp.Views.LoginScreen" Title="Log In"
+             xmlns:local="clr-namespace:JobsApp.ViewModels">
+
+    <ContentPage.BindingContext>
+        <local:LoginViewModel></local:LoginViewModel>
+    </ContentPage.BindingContext>
+
+
+    <StackLayout Padding="10" Spacing="5">
+
+        <Label Text="Log In" FontSize="25" TextColor="#f5f6fa" HorizontalTextAlignment="Center" Margin="40"/>
+
+        <Frame CornerRadius="0" Padding="28" Margin="-10" BackgroundColor="#4cd137">
+
+            <Entry Placeholder="Email" FontSize="20" Text="{Binding Email}" Opacity="0.7" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand" MaxLength="30" WidthRequest="1" Keyboard="Chat"  PlaceholderColor="Wheat"/>
+
+        </Frame>
+        <Frame CornerRadius="0" Padding="20" Margin="-10" BackgroundColor="#4cd137">
+
+            <Entry Placeholder="Password" FontSize="20" Text="{Binding Pass}" Opacity="0.7" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand" MaxLength="10" Keyboard="Chat"  PlaceholderColor="Wheat" IsPassword="True"/>
+
+        </Frame>
+
+        <Button x:Name="LogInBtn" Text="Log In!" Margin="110,30,110,0" TextColor="White" BackgroundColor="#4bcffa" Font="16" CornerRadius="15" Command="{Binding LoginCommand}" />
+
+        <Label x:Name="SignUp" HorizontalOptions="CenterAndExpand" Margin="20,70,0,0" TextColor="#b33939" FontSize="20" Text="Don't have an acount yet?"/>
+
+        <Button x:Name="SignUpBtn" Margin="110,30,110,0" TextColor="White" BackgroundColor="#4bcffa" Font="16" CornerRadius="15" Text="Sign Up" Command="{Binding SignUpCommand}"></Button>
+
+    </StackLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!--<ContentPage.Resources>
         <Style TargetType="StackLayout" x:Key="LoginStack">
             <Setter Property="Orientation" Value="Vertical"/>
             <Setter Property="Padding" Value="30"/>
             <Setter Property="Spacing" Value="40"/>
             <Setter Property="FlowDirection" Value="RightToLeft"/>
+        </Style>
+        <Style TargetType="StackLayout" x:Key="SignUpStack">
+            <Setter Property="Orientation" Value="Vertical"/>
+            <Setter Property="Padding" Value="30"/>
+            <Setter Property="Spacing" Value="40"/>
+            <Setter Property="FlowDirection" Value="RightToLeft"/>
+            <Setter Property="BackgroundColor" Value="#457b9d"/>
+
         </Style>
         <Style TargetType="Label" x:Key="FormTitle">
             <Setter Property="HorizontalOptions" Value="Center"/>
@@ -26,8 +83,10 @@
             <Setter Property="TextColor" Value="White"/>
             <Setter Property="BackgroundColor" Value="#e84118"/>
         </Style>
-    </ContentPage.Resources>
-    <ContentPage.Content>
+    </ContentPage.Resources>-->
+    
+    
+    <!--<ContentPage.Content>
         <StackLayout Style="{StaticResource LoginStack}">
             
             <Frame BackgroundColor="#BF043055" HasShadow="False">
@@ -43,6 +102,15 @@
             <Button Command="{Binding SubmitCommand}" Text="Log In" Style="{StaticResource LoginButton}" />
 
         </StackLayout>
-    </ContentPage.Content>
+
+        <StackLayout Style="{StaticResource SignUpStack}">
+            <Label Text="Don't have an account yet?!"/>
+            
+            <Button Margin="110,30,110,0" TextColor="White" BackgroundColor="#4bcffa" Font="16" CornerRadius="15" Text="Sign Up" Command="{Binding SignUpCommand}"/>
+            
+        </StackLayout>
+    
+    </ContentPage.Content>-->
+    
 
 </ContentPage>

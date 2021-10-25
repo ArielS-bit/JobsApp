@@ -67,7 +67,7 @@ namespace JobsApp.ViewModels
             User user = await proxy.LoginAsync(Email, Password);
             if (user == null)
             {
-                await App.Current.MainPage.DisplayAlert("שגיאה", "התחברות נכשלה, בדוק שם משתמש וסיסמה ונסה שוב", "בסדר");
+                await App.Current.MainPage.DisplayAlert("Alert!", "Log in failed, username or password invalid", "OK");
             }
             else
             {
