@@ -10,14 +10,14 @@ using JobsApp.Models;
 using Xamarin.Essentials;
 using System.Linq;
 using JobsApp.ViewModels;
-//using JobsApp.Services;
-//using JobsApp.Models;
+using JobsApp.Views;
 
 
 namespace JobsApp.ViewModels
 {
     class LoginViewModel:ViewModelBase
     {
+        
         private string email;
 
         public string Email
@@ -40,56 +40,81 @@ namespace JobsApp.ViewModels
                 OnPropertyChanged("Password");
             }
         }
-        public ICommand SubmitCommand { protected set; get; }
+        
 
         public LoginViewModel()
         {
-            SubmitCommand = new Command(OnSubmit);
+            
         }
+        public event Action<Page> Push;
+        public ICommand LoginCommand => new Command(Login);
 
-        private string serverStatus;
-        public string ServerStatus
-        {
-            get { return serverStatus; }
-            set
-            {
-                serverStatus = value;
-                OnPropertyChanged("ServerStatus");
-            }
-        }
+        //private string serverStatus;
+        //public string ServerStatus
+        //{
+        //    get { return serverStatus; }
+        //    set
+        //    {
+        //        serverStatus = value;
+        //        OnPropertyChanged("ServerStatus");
+        //    }
+        //}
 
-        public async void OnSubmit()
+        public async void Login()
         {
-            //עיגול שמסמן את טעינת האפליקציה יש להוסיף בהקדם!
-            //ServerStatus = "מתחבר לשרת...";
-            //await App.Current.MainPage.Navigation.PushModalAsync(new Views.ServerStatusPage(this));
             JobsAPIProxy proxy = JobsAPIProxy.CreateProxy();
-            User user = await proxy.LoginAsync(Email, Password);
-            if (user == null)
+
+            User u = await proxy.LoginAsync(Email, Password);
+
+            if (u == null)
             {
-                await App.Current.MainPage.DisplayAlert("Alert!", "Log in failed, username or password invalid", "OK");
+                await Application.Current.MainPage.DisplayAlert("Login Failed!", "Email or username invalid", "OK");
             }
             else
             {
-                //ServerStatus = "קורא נתונים...";
-                App theApp = (App)App.Current;
-                theApp.CurrentUser = user;
-                //bool success = await LoadPhoneTypes(theApp);
-                //if (!success)
-                //{
-                //await App.Current.MainPage.Navigation.PopModalAsync();
-                //await App.Current.MainPage.DisplayAlert("שגיאה", "קריאת נתונים נכשלה. נסה שוב מאוחר יותר", "בסדר");
-                //}
-                //Initiate all phone types refrence to the same objects of PhoneTypes
-
-
-                Page p = new NavigationPage(new Views.FeedScreen());
-                App.Current.MainPage = p;
-
-
-
+                ((App)App.Current).CurrentUser = u;
+                //App theApp = (App)App.Current;
+                //theApp.CurrentUser = user;
+                Push?.Invoke(new FeedScreen());
             }
+
+
+            //עיגול שמסמן את טעינת האפליקציה יש להוסיף בהקדם!
+            //ServerStatus = "מתחבר לשרת...";
+            //await App.Current.MainPage.Navigation.PushModalAsync(new Views.ServerStatusPage(this));
+            //JobsAPIProxy proxy = JobsAPIProxy.CreateProxy();
+            //User user = await proxy.LoginAsync(Email, Password);
+            //if (user == null)
+            //{
+            //    await App.Current.MainPage.DisplayAlert("Alert!", "Log in failed, username or password invalid", "OK");
+            //}
+            //else
+            //{
+            //    //ServerStatus = "קורא נתונים...";
+            //    //App theApp = (App)App.Current;
+            //    //theApp.CurrentUser = user;
+            //    //bool success = await LoadPhoneTypes(theApp);
+            //    //if (!success)
+            //    //{
+            //    //await App.Current.MainPage.Navigation.PopModalAsync();
+            //    //await App.Current.MainPage.DisplayAlert("שגיאה", "קריאת נתונים נכשלה. נסה שוב מאוחר יותר", "בסדר");
+            //    //}
+            //    //Initiate all phone types refrence to the same objects of PhoneTypes
+
+
+            //    Page p = new NavigationPage(new Views.FeedScreen());
+            //    App.Current.MainPage = p;
+
+
+
+            //}
         }
+        public ICommand SignUpCommand => new Command(SignUp);
+        private void SignUp()
+        {
+            Push?.Invoke(new SignUpScreen());
+        }
+
     }
 }
 

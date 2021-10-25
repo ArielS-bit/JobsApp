@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="JobsApp.Views.LoginScreen" Title="Log In"
-             xmlns:local="clr-namespace:JobsApp.ViewModels">
+             x:Class="JobsApp.Views.LoginScreen" 
+             xmlns:local="clr-namespace:JobsApp.ViewModels" BackgroundColor="#9d0208">
 
     <ContentPage.BindingContext>
         <local:LoginViewModel></local:LoginViewModel>
@@ -11,24 +11,24 @@
 
     <StackLayout Padding="10" Spacing="5">
 
-        <Label Text="Log In" FontSize="25" TextColor="#f5f6fa" HorizontalTextAlignment="Center" Margin="40"/>
+        <Label Text="Log In" FontSize="15" TextColor="Black" Margin="20" HorizontalTextAlignment="Center"/>
 
-        <Frame CornerRadius="0" Padding="28" Margin="-10" BackgroundColor="#4cd137">
+        <Frame CornerRadius="0" Padding="20" Margin="-10" BackgroundColor="#4cd137">
 
-            <Entry Placeholder="Email" FontSize="20" Text="{Binding Email}" Opacity="0.7" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand" MaxLength="30" WidthRequest="1" Keyboard="Chat"  PlaceholderColor="Wheat"/>
+            <Entry Placeholder="Email" FontSize="10" Text="{Binding Email}" Opacity="0.7" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand" MaxLength="30" WidthRequest="1" Keyboard="Chat"  PlaceholderColor="Wheat"/>
 
         </Frame>
         <Frame CornerRadius="0" Padding="20" Margin="-10" BackgroundColor="#4cd137">
 
-            <Entry Placeholder="Password" FontSize="20" Text="{Binding Pass}" Opacity="0.7" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand" MaxLength="10" Keyboard="Chat"  PlaceholderColor="Wheat" IsPassword="True"/>
+            <Entry Placeholder="Password" FontSize="10" Text="{Binding Password}" Opacity="0.7" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand" MaxLength="10" Keyboard="Chat"  PlaceholderColor="Wheat" IsPassword="True"/>
 
         </Frame>
 
-        <Button x:Name="LogInBtn" Text="Log In!" Margin="110,30,110,0" TextColor="White" BackgroundColor="#4bcffa" Font="16" CornerRadius="15" Command="{Binding LoginCommand}" />
+        <Button x:Name="LogInBtn" Padding="-20" Text="Log In!" WidthRequest="30" HeightRequest="50" TextColor="Black" BackgroundColor="#4bcffa" Font="5" CornerRadius="15" Command="{Binding LoginCommand}" />
 
-        <Label x:Name="SignUp" HorizontalOptions="CenterAndExpand" Margin="20,70,0,0" TextColor="#b33939" FontSize="20" Text="Don't have an acount yet?"/>
+        <Label x:Name="SignUp" TextColor="#b33939" FontSize="5" Text="Don't have an acount yet?"/>
 
-        <Button x:Name="SignUpBtn" Margin="110,30,110,0" TextColor="White" BackgroundColor="#4bcffa" Font="16" CornerRadius="15" Text="Sign Up" Command="{Binding SignUpCommand}"></Button>
+        <Button x:Name="SignUpBtn" Margin="60,60,60,60" TextColor="Black" WidthRequest="150" HeightRequest="50" BackgroundColor="#4bcffa" Font="16" CornerRadius="15" Text="Sign Up" Command="{Binding SignUpCommand}"></Button>
 
     </StackLayout>
 

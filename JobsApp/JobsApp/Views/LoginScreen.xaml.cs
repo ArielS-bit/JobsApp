@@ -15,8 +15,12 @@ namespace JobsApp.Views
     {
         public LoginScreen()
         {
-            this.BindingContext = new LoginViewModel();
+            
             InitializeComponent();
+
+            LoginViewModel l = new LoginViewModel();
+            l.Push += (p) => Navigation.PushAsync(p);
+            this.BindingContext = l;
         }
         private void Password_Focused(object sender, FocusEventArgs e)
         {
