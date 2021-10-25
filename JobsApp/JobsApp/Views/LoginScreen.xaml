@@ -13,22 +13,21 @@
 
         <Label Text="Log In" FontSize="15" TextColor="Black" Margin="20" HorizontalTextAlignment="Center"/>
 
-        <Frame CornerRadius="0" Padding="20" Margin="-10" BackgroundColor="#4cd137">
+      
+            <Entry Placeholder="Email" FontSize="10" Text="{Binding Email}" Margin="40,10,40,10" Opacity="0.7" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand" MaxLength="30" WidthRequest="1" Keyboard="Chat"  PlaceholderColor="Wheat"/>
+            <Label Text="invalid email" IsVisible="{Binding EmailShown}" ></Label>
 
-            <Entry Placeholder="Email" FontSize="10" Text="{Binding Email}" Opacity="0.7" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand" MaxLength="30" WidthRequest="1" Keyboard="Chat"  PlaceholderColor="Wheat"/>
 
-        </Frame>
-        <Frame CornerRadius="0" Padding="20" Margin="-10" BackgroundColor="#4cd137">
 
-            <Entry Placeholder="Password" FontSize="10" Text="{Binding Password}" Opacity="0.7" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand" MaxLength="10" Keyboard="Chat"  PlaceholderColor="Wheat" IsPassword="True"/>
+        <Entry Placeholder="Password" FontSize="10" Text="{Binding Password}" Margin="40,10,40,10" Opacity="0.7" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand" MaxLength="10" Keyboard="Chat"  PlaceholderColor="Wheat" IsPassword="True"/>
 
-        </Frame>
+        
 
-        <Button x:Name="LogInBtn" Padding="-20" Text="Log In!" WidthRequest="30" HeightRequest="50" TextColor="Black" BackgroundColor="#4bcffa" Font="5" CornerRadius="15" Command="{Binding LoginCommand}" />
+        <Button x:Name="LogInBtn" Padding="-20" Text="Log In!" WidthRequest="30" HeightRequest="10" TextColor="Black" BackgroundColor="#4bcffa" Font="5" CornerRadius="15" Command="{Binding LoginCommand}" />
 
         <Label x:Name="SignUp" TextColor="#b33939" FontSize="5" Text="Don't have an acount yet?"/>
 
-        <Button x:Name="SignUpBtn" Margin="60,60,60,60" TextColor="Black" WidthRequest="150" HeightRequest="50" BackgroundColor="#4bcffa" Font="16" CornerRadius="15" Text="Sign Up" Command="{Binding SignUpCommand}"></Button>
+        <Button x:Name="SignUpBtn" Margin="60,60,60,60" TextColor="Black" WidthRequest="150" HeightRequest="10" BackgroundColor="#4bcffa" Font="16" CornerRadius="15" Text="Sign Up" Command="{Binding SignUpCommand}"></Button>
 
     </StackLayout>
 
