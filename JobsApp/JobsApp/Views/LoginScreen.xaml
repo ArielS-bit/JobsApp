@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="JobsApp.Views.LoginScreen" 
-             xmlns:local="clr-namespace:JobsApp.ViewModels" BackgroundColor="#9d0208">
+             xmlns:local="clr-namespace:JobsApp.ViewModels" BackgroundColor="#F1FAEE">
 
     <ContentPage.BindingContext>
         <local:LoginViewModel></local:LoginViewModel>
@@ -10,25 +10,32 @@
 
 
     <StackLayout Padding="10" Spacing="5">
+        <Label Text="Logo" FontFamily="'Zen Kaku Gothic Antique', sans-serif" FontSize="25" TextColor="Black" Margin="0,12,20,30"/>
 
-        <Label Text="Log In" FontSize="15" TextColor="Black" Margin="20" HorizontalTextAlignment="Center"/>
+        <Button x:Name="SignUpBtn" Text="Join US" Margin="290,-70,0,0" HeightRequest="45" WidthRequest="40" TextColor="#F1FAEE" BackgroundColor="#1D3557" Font="12" CornerRadius="50" Command="{Binding SignUpCommand}"></Button>
 
-      
-            <Entry Placeholder="Email" FontSize="10" Text="{Binding Email}" Margin="40,10,40,10" Opacity="0.7" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand" MaxLength="30" WidthRequest="1" Keyboard="Chat"  PlaceholderColor="Wheat"/>
-            <Label Text="invalid email" IsVisible="{Binding EmailShown}" ></Label>
+        <Label Text="Login" FontFamily="'Zen Kaku Gothic Antique', sans-serif" FontSize="25" TextColor="Black" Margin="20,30" HorizontalTextAlignment="Start"/>
+        
+
+            <Entry Placeholder="Email" FontFamily="'Zen Kaku Gothic Antique', sans-serif" PlaceholderColor="#1D3557" TextColor="#1D3557" FontSize="18" Text="{Binding Email}" Margin="0,30,0,10" Opacity="0.7" HorizontalTextAlignment="Start" HorizontalOptions="FillAndExpand" MaxLength="30" WidthRequest="1" Keyboard="Chat"/>
+        <Label Text="*invalid email" TextColor="#E63946" IsVisible="{Binding EmailShown}" />
 
 
 
-        <Entry Placeholder="Password" FontSize="10" Text="{Binding Password}" Margin="40,10,40,10" Opacity="0.7" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand" MaxLength="10" Keyboard="Chat"  PlaceholderColor="Wheat" IsPassword="True"/>
+        <Entry Placeholder="Password" FontSize="18" PlaceholderColor="#1D3557" TextColor="#1D3557" Text="{Binding Password}" Margin="0,20,0,10" Opacity="0.7" HorizontalTextAlignment="Start" HorizontalOptions="FillAndExpand" MaxLength="10" Keyboard="Chat" IsPassword="True"/>
+<!--Add an eye and its functions-->
+
+        <CheckBox/>
+        <Label Text="Remember me" TextColor="#457B9D"/>
+
+        <!--Add functionality-->
+        <Button Text="Forgot password?!" HorizontalOptions="Start" BackgroundColor="#F1FAEE" Command="{Binding ForgotPassCommand}"/>
+
+        <Button x:Name="LogInBtn" Padding="-20" Text="Continue" Margin="80,25,80,10" HeightRequest="45" CornerRadius="50" TextColor="#F1FAEE" BackgroundColor="#457B9D" Font="15" Command="{Binding LoginCommand}" />
 
         
 
-        <Button x:Name="LogInBtn" Padding="-20" Text="Log In!" WidthRequest="30" HeightRequest="10" TextColor="Black" BackgroundColor="#4bcffa" Font="5" CornerRadius="15" Command="{Binding LoginCommand}" />
-
-        <Label x:Name="SignUp" TextColor="#b33939" FontSize="5" Text="Don't have an acount yet?"/>
-
-        <Button x:Name="SignUpBtn" Margin="60,60,60,60" TextColor="Black" WidthRequest="150" HeightRequest="10" BackgroundColor="#4bcffa" Font="16" CornerRadius="15" Text="Sign Up" Command="{Binding SignUpCommand}"></Button>
-
+        
     </StackLayout>
 
 

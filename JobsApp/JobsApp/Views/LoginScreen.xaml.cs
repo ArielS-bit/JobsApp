@@ -15,12 +15,14 @@ namespace JobsApp.Views
     {
         public LoginScreen()
         {
-            
+            //((NavigationPage)Application.Current.MainPage).BarBackgroundColor = Color.Red;
             InitializeComponent();
 
             LoginViewModel l = new LoginViewModel();
             l.Push += (p) => Navigation.PushAsync(p);
             this.BindingContext = l;
+            //((NavigationPage)Application.Current.MainPage).BarBackgroundColor = Color.Black;
+            //((NavigationPage)Application.Current.MainPage).BarTextColor = Color.OrangeRed;
         }
         private void Password_Focused(object sender, FocusEventArgs e)
         {

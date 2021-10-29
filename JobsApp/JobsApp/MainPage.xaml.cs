@@ -10,9 +10,13 @@ namespace JobsApp
 {
     public partial class MainPage : ContentPage
     {
+
         public MainPage()
         {
+            //MainPage.BarBackgroundColorProperty = Color.Red;
+           
             InitializeComponent();
+            
         }
     }
 }

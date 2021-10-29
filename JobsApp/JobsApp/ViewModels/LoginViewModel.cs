@@ -115,6 +115,12 @@ namespace JobsApp.ViewModels
             Push?.Invoke(new SignUpScreen());
         }
 
+        public ICommand ForgotPassCommand => new Command(ForgotPassword);
+        private void ForgotPassword()
+        {
+            Push?.Invoke(new ForgotPasswordScreen());
+        }
+
     }
 }
 
