@@ -29,5 +29,10 @@ namespace JobsApp.Views
             Entry entry = (Entry)sender;
             entry.IsPassword = true;
         }
-    }
+
+        private void ForgotPassButton_Clicked(object sender, EventArgs e)
+        {
+            ForgotPassBtn.BackgroundColor = Color.Accent; //(236, 245, 233);
+        }
+    }//צריך להיות עם דברים אינטראקטיבים בכל האפליקציה 
 }
