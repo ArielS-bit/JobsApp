@@ -26,6 +26,7 @@ namespace JobsApp.ViewModels
             set
             {
                 email = value;
+                EmailVaidation();
                 OnPropertyChanged("Email");
             }
         }
@@ -53,21 +54,11 @@ namespace JobsApp.ViewModels
             }
         }
 
-        private string emailError;
-
-        public string EmailError
-        {
-            get => emailError;
-            set
-            {
-                emailError = "*Invalid Email";
-                OnPropertyChanged("EmailError");
-            }
-        }
 
         private void EmailVaidation()
         {
-            this.emailErrorShown = (string.IsNullOrEmpty(Email)||!(Email.Contains('@')&&email.Contains('.')));
+            this.EmailErrorShown = (string.IsNullOrEmpty(Email)||!(Email.Contains('@')&&email.Contains('.')));
+            
         }
 
         public LoginViewModel()
@@ -107,7 +98,7 @@ namespace JobsApp.ViewModels
                 Push?.Invoke(new FeedScreen());
             }
 
-            EmailVaidation();
+            
 
             //עיגול שמסמן את טעינת האפליקציה יש להוסיף בהקדם!
             //ServerStatus = "מתחבר לשרת...";

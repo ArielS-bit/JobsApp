@@ -18,7 +18,7 @@
         
 
             <Entry Placeholder="Email" FontFamily="'Zen Kaku Gothic Antique', sans-serif" PlaceholderColor="#1D3557" TextColor="#1D3557" FontSize="18" Text="{Binding Email}" Margin="0,30,0,10" Opacity="0.7" HorizontalTextAlignment="Start" HorizontalOptions="FillAndExpand" MaxLength="30" WidthRequest="1" Keyboard="Chat"/>
-        <Label Text="{Binding EmailError}" TextColor="#E63946" IsVisible="true" />
+        <Label Text="*Invalid email" TextColor="#E63946" IsVisible="{Binding EmailErrorShown}"/>
         <!--https://docs.microsoft.com/en-us/dotnet/desktop/wpf/data/how-to-implement-binding-validation?view=netframeworkdesktop-4.8-->
 
 
