@@ -60,7 +60,7 @@ namespace JobsApp.ViewModels
             get => emailError;
             set
             {
-                emailError = "*Invalid Email";
+                emailError = "*Invalid Emaill";
                 OnPropertyChanged("EmailError");
             }
         }
