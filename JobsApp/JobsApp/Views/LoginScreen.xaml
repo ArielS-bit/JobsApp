@@ -18,15 +18,15 @@
         
 
             <Entry Placeholder="Email" FontFamily="'Zen Kaku Gothic Antique', sans-serif" PlaceholderColor="#1D3557" TextColor="#1D3557" FontSize="18" Text="{Binding Email}" Margin="0,30,0,10" Opacity="0.7" HorizontalTextAlignment="Start" HorizontalOptions="FillAndExpand" MaxLength="30" WidthRequest="1" Keyboard="Chat"/>
-        <Label Text="*invalid email" TextColor="#E63946" IsVisible="{Binding EmailShown}" />
-
+        <Label Text="{Binding EmailError}" TextColor="#E63946" IsVisible="true" />
+        <!--https://docs.microsoft.com/en-us/dotnet/desktop/wpf/data/how-to-implement-binding-validation?view=netframeworkdesktop-4.8-->
 
 
         <Entry Placeholder="Password" FontSize="18" PlaceholderColor="#1D3557" TextColor="#1D3557" Text="{Binding Password}" Margin="0,20,0,10" Opacity="0.7" HorizontalTextAlignment="Start" HorizontalOptions="FillAndExpand" MaxLength="10" Keyboard="Chat" IsPassword="True"/>
 <!--Add an eye and its functions-->
 
         <CheckBox IsChecked="False" />
-        <Label Text="Remember me" Margin="40,-32,80,0" TextColor="#457B9D"/>
+        <Label Text="Remember me" Margin="40,-32,0,0" TextColor="#457B9D"/>
 
         <!--Add functionality-->
         <!--Add isMouseOver/hover-->

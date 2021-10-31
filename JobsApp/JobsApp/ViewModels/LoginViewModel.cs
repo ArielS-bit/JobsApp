@@ -40,7 +40,35 @@ namespace JobsApp.ViewModels
                 OnPropertyChanged("Password");
             }
         }
-        
+
+        private bool emailErrorShown;
+
+        public bool EmailErrorShown
+        {
+            get => emailErrorShown;
+            set
+            {
+                emailErrorShown = value;
+                OnPropertyChanged("EmailErrorShown");
+            }
+        }
+
+        private string emailError;
+
+        public string EmailError
+        {
+            get => emailError;
+            set
+            {
+                emailError = "*Invalid Email";
+                OnPropertyChanged("EmailError");
+            }
+        }
+
+        private void EmailVaidation()
+        {
+            this.emailErrorShown = (string.IsNullOrEmpty(Email)||!(Email.Contains('@')&&email.Contains('.')));
+        }
 
         public LoginViewModel()
         {
@@ -49,6 +77,7 @@ namespace JobsApp.ViewModels
         public event Action<Page> Push;
         public ICommand LoginCommand => new Command(Login);
 
+       
         //private string serverStatus;
         //public string ServerStatus
         //{
@@ -78,6 +107,7 @@ namespace JobsApp.ViewModels
                 Push?.Invoke(new FeedScreen());
             }
 
+            EmailVaidation();
 
             //עיגול שמסמן את טעינת האפליקציה יש להוסיף בהקדם!
             //ServerStatus = "מתחבר לשרת...";
