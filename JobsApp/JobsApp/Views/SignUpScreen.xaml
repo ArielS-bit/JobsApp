@@ -1,12 +1,65 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="JobsApp.Views.SignUpScreen">
+             x:Class="JobsApp.Views.SignUpScreen"
+              xmlns:local="clr-namespace:JobsApp.ViewModels" BackgroundColor="#F1FAEE">
+    
+    <ContentPage.BindingContext>
+        <local:LoginViewModel></local:LoginViewModel>
+    </ContentPage.BindingContext>
+
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Sign Up!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout Padding="10" Spacing="5">
+            <Label Text="Logo" FontFamily="'Zen Kaku Gothic Antique', sans-serif" FontSize="25" TextColor="Black" Margin="0,12,20,30"/>
+
+            <Button x:Name="LoginBtn" Text="Login" Margin="290,-70,0,0" HeightRequest="45" WidthRequest="40" TextColor="#F1FAEE" BackgroundColor="#1D3557" Font="12" CornerRadius="50" Command="{Binding SignUpCommand}"></Button>
+
+            <Label Text="Sign Up" FontFamily="'Zen Kaku Gothic Antique', sans-serif" FontSize="25" TextColor="Black" Margin="10,30" HorizontalTextAlignment="Start"/>
+
+            <!-- First stage -->
+            <Entry Placeholder="First Name" FontFamily="'Zen Kaku Gothic Antique', sans-serif" PlaceholderColor="#1D3557" TextColor="#1D3557" FontSize="18" Text="{Binding Email}" Margin="0,30,0,10" Opacity="0.7" HorizontalTextAlignment="Start" HorizontalOptions="FillAndExpand" MaxLength="30" WidthRequest="1" Keyboard="Chat"/>
+            <Label Text="Must enter your first name" TextColor="#E63946" IsVisible="{Binding EmailErrorShown}"/>
+
+            <Entry Placeholder="Last Name" FontFamily="'Zen Kaku Gothic Antique', sans-serif" PlaceholderColor="#1D3557" TextColor="#1D3557" FontSize="18" Text="{Binding Email}" Margin="0,30,0,10" Opacity="0.7" HorizontalTextAlignment="Start" HorizontalOptions="FillAndExpand" MaxLength="30" WidthRequest="1" Keyboard="Chat"/>
+            <Label Text="Must enter your last name" TextColor="#E63946" IsVisible="{Binding EmailErrorShown}"/>
+
+            <!-- Second stage -->
+            <Entry Placeholder="Email" FontFamily="'Zen Kaku Gothic Antique', sans-serif" PlaceholderColor="#1D3557" TextColor="#1D3557" FontSize="18" Text="{Binding Email}" Margin="0,30,0,10" Opacity="0.7" HorizontalTextAlignment="Start" HorizontalOptions="FillAndExpand" MaxLength="30" WidthRequest="1" Keyboard="Chat"/>
+            <Label Text="*Invalid email" TextColor="#E63946" IsVisible="{Binding EmailErrorShown}"/>
+
+            <Entry Placeholder="Nickname" FontFamily="'Zen Kaku Gothic Antique', sans-serif" PlaceholderColor="#1D3557" TextColor="#1D3557" FontSize="18" Text="{Binding Email}" Margin="0,30,0,10" Opacity="0.7" HorizontalTextAlignment="Start" HorizontalOptions="FillAndExpand" MaxLength="30" WidthRequest="1" Keyboard="Chat"/>
+            <Label Text="Nickname already exists!" TextColor="#E63946" IsVisible="{Binding EmailErrorShown}"/>
+
+            <!-- Third stage -->
+            <Entry Placeholder="Gender" FontFamily="'Zen Kaku Gothic Antique', sans-serif" PlaceholderColor="#1D3557" TextColor="#1D3557" FontSize="18" Text="{Binding Email}" Margin="0,30,0,10" Opacity="0.7" HorizontalTextAlignment="Start" HorizontalOptions="FillAndExpand" MaxLength="30" WidthRequest="1" Keyboard="Chat"/>
+            <Label Text="*Invalid email" TextColor="#E63946" IsVisible="{Binding EmailErrorShown}"/>
+
+            <Entry Placeholder="Email" FontFamily="'Zen Kaku Gothic Antique', sans-serif" PlaceholderColor="#1D3557" TextColor="#1D3557" FontSize="18" Text="{Binding Email}" Margin="0,30,0,10" Opacity="0.7" HorizontalTextAlignment="Start" HorizontalOptions="FillAndExpand" MaxLength="30" WidthRequest="1" Keyboard="Chat"/>
+            <Label Text="*Invalid email" TextColor="#E63946" IsVisible="{Binding EmailErrorShown}"/>
+
+            <Entry Placeholder="Email" FontFamily="'Zen Kaku Gothic Antique', sans-serif" PlaceholderColor="#1D3557" TextColor="#1D3557" FontSize="18" Text="{Binding Email}" Margin="0,30,0,10" Opacity="0.7" HorizontalTextAlignment="Start" HorizontalOptions="FillAndExpand" MaxLength="30" WidthRequest="1" Keyboard="Chat"/>
+            <Label Text="*Invalid email" TextColor="#E63946" IsVisible="{Binding EmailErrorShown}"/>
+
+            <Entry Placeholder="Email" FontFamily="'Zen Kaku Gothic Antique', sans-serif" PlaceholderColor="#1D3557" TextColor="#1D3557" FontSize="18" Text="{Binding Email}" Margin="0,30,0,10" Opacity="0.7" HorizontalTextAlignment="Start" HorizontalOptions="FillAndExpand" MaxLength="30" WidthRequest="1" Keyboard="Chat"/>
+            <Label Text="*Invalid email" TextColor="#E63946" IsVisible="{Binding EmailErrorShown}"/>
+
+            <!-- You must a rubric for their choice of being an employee or so and if so give them the oppurtunity to decide what to do -->
+
+            <Entry Placeholder="Password" FontSize="18" PlaceholderColor="#1D3557" TextColor="#1D3557" Text="{Binding Password}" Margin="0,20,0,10" Opacity="0.7" HorizontalTextAlignment="Start" HorizontalOptions="FillAndExpand" MaxLength="10" Keyboard="Chat" IsPassword="True"/>
+            <!--Add an eye and its functions-->
+
+            <CheckBox IsChecked="False" />
+            <Label Text="Remember me" Margin="40,-32,0,0" TextColor="#457B9D"/>
+
+            <!--Add functionality-->
+            <!--Add isMouseOver/hover-->
+            <Button x:Name="ForgotPassBtn" Text="Forgot password?!" BackgroundColor="#F1FAEE" BorderColor="Green" HorizontalOptions="Start" Clicked="ForgotPassButton_Clicked" Command="{Binding ForgotPassCommand}"/>
+
+            <Button x:Name="LogInBtn" Padding="-20" Text="Continue" Margin="80,25,80,10" HeightRequest="45" CornerRadius="50" TextColor="#F1FAEE" BackgroundColor="#457B9D" Font="15" Command="{Binding LoginCommand}" />
+
+
+
+
         </StackLayout>
-    </ContentPage.Content>
+    </ContentPage.Content><!--check why there isnt such thing in login-->
 </ContentPage>
