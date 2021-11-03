@@ -18,5 +18,7 @@ namespace JobsApp.ViewModels
     class SignUpViewModel:ViewModelBase
     {
         public event Action<Page> Push;
+
+
     }
 }

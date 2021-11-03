@@ -25,7 +25,7 @@
         <Entry Placeholder="Password" FontSize="18" PlaceholderColor="#1D3557" TextColor="#1D3557" Text="{Binding Password}" Margin="0,20,0,10" Opacity="0.7" HorizontalTextAlignment="Start" HorizontalOptions="FillAndExpand" MaxLength="10" Keyboard="Chat" IsPassword="True"/>
 <!--Add an eye and its functions-->
 
-        <CheckBox IsChecked="False" />
+        <CheckBox IsChecked="True" />
         <Label Text="Remember me" Margin="40,-32,0,0" TextColor="#457B9D"/>
 
         <!--Add functionality-->
