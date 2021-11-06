@@ -10,7 +10,9 @@
 
 
     <StackLayout Padding="10" Spacing="5">
-        <Label Text="Logo" FontFamily="'Zen Kaku Gothic Antique', sans-serif" FontSize="25" TextColor="Black" Margin="0,12,20,30"/>
+        <!--<Label Text="Logo" FontFamily="'Zen Kaku Gothic Antique', sans-serif" FontSize="25" TextColor="Black" Margin="0,12,20,30"/>-->
+        <!--Do it-->         <!--<Button ImageSource="logo_inside_app.png" WidthRequest="50" HeightRequest="0" Margin="0,170,0,10"/>--> 
+        <Image Source="logo_inside_app.png" WidthRequest="90" HeightRequest="85" Margin="0,0,320,0"/>
 
         <Button x:Name="SignUpBtn" Text="Join US" Margin="290,-70,0,0" HeightRequest="45" WidthRequest="40" TextColor="#F1FAEE" BackgroundColor="#1D3557" Font="12" CornerRadius="50" Command="{Binding SignUpCommand}"></Button>
 
