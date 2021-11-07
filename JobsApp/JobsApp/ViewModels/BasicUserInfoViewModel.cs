@@ -26,7 +26,6 @@ namespace JobsApp.ViewModels
             set
             {
                 firstName = value;
-                
                 OnPropertyChanged("FirstName");
             }
         }
@@ -39,7 +38,6 @@ namespace JobsApp.ViewModels
             set
             {
                 lastName = value;
-
                 OnPropertyChanged("LastName");
             }
         }
@@ -56,25 +54,43 @@ namespace JobsApp.ViewModels
             }
         }
 
-        private DateTime birthday;
+        private DateTime bday;
 
-        public DateTime Birthday
+        public DateTime Bday
         {
-            get { return birthday; }
+            get { return bday; }
             set
             {
-                birthday = value;
-                OnPropertyChanged("Birthday");
+                bday = value;
+                BdayValidation();
+                OnPropertyChanged("Bday");
             }
         }
 
-        
+        private bool bdayErrorShown;
+
+        public bool BdayErrorShown
+        {
+            get => bdayErrorShown;
+            set
+            {
+                bdayErrorShown = value;
+                OnPropertyChanged("BdayErrorShown");
+            }
+        }
+
 
 
 
 
         public BasicUserInfoViewModel()
         {
+
+        }
+
+        private void BdayValidation()
+        {
+            this.BdayErrorShown = (Bday == DateTime.Now || bday.Year>2011);
 
         }
 

@@ -31,6 +31,18 @@ namespace JobsApp.ViewModels
             }
         }
 
+        private bool emailErrorShown;
+
+        public bool EmailErrorShown
+        {
+            get => emailErrorShown;
+            set
+            {
+                emailErrorShown = value;
+                OnPropertyChanged("EmailErrorShown");
+            }
+        }
+
         private string pass;
 
         public string Pass
@@ -44,6 +56,18 @@ namespace JobsApp.ViewModels
             }
         }
 
+        private bool passErrorShown;
+
+        public bool PassErrorShown
+        {
+            get => passErrorShown;
+            set
+            {
+                passErrorShown = value;
+                OnPropertyChanged("PassErrorShown");
+            }
+        }
+
         private string nickname;
 
         public string Nickname
@@ -54,6 +78,17 @@ namespace JobsApp.ViewModels
                 nickname = value;
                 EmailVaidation();
                 OnPropertyChanged("Nickname");
+            }
+        }
+        private bool nicknameErrorShown;
+
+        public bool NicknameErrorShown
+        {
+            get => nicknameErrorShown;
+            set
+            {
+                nicknameErrorShown = value;
+                OnPropertyChanged("NicknameErrorShown");
             }
         }
 
@@ -71,8 +106,16 @@ namespace JobsApp.ViewModels
 
         public event Action<Page> Push;
 
+
+
         public UserCredentialsViewModel()
         {
+        }
+
+        private void EmailVaidation()
+        {
+            this.EmailErrorShown = (string.IsNullOrEmpty(Email) || !(Email.Contains('@') && email.Contains('.')));
+
         }
     }
 }
