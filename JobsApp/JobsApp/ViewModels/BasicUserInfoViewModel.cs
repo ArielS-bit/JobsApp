@@ -75,23 +75,140 @@ namespace JobsApp.ViewModels
             set
             {
                 bdayErrorShown = value;
+                BdayValidation();
                 OnPropertyChanged("BdayErrorShown");
             }
         }
+        private int userTypeID;
 
+        private string email;
 
-
-
-
-        public BasicUserInfoViewModel()
+        public string Email
         {
+            get { return email; }
+            set
+            {
+                email = value;
+                EmailVaidation();
+                OnPropertyChanged("Email");
+            }
+        }
 
+        private bool emailErrorShown;
+
+        public bool EmailErrorShown
+        {
+            get => emailErrorShown;
+            set
+            {
+                emailErrorShown = value;
+                OnPropertyChanged("EmailErrorShown");
+            }
+        }
+
+        private string pass;
+
+        public string Pass
+        {
+            get { return pass; }
+            set
+            {
+                pass = value;
+                PassValidation();
+                OnPropertyChanged("Pass");
+            }
+        }
+
+        private bool passErrorShown;
+
+        public bool PassErrorShown
+        {
+            get => passErrorShown;
+            set
+            {
+                passErrorShown = value;
+                OnPropertyChanged("PassErrorShown");
+            }
+        }
+
+        private string nickname;
+
+        public string Nickname
+        {
+            get { return nickname; }
+            set
+            {
+                nickname = value;
+                NicknameValidation();
+                OnPropertyChanged("Nickname");
+            }
+        }
+        private bool nicknameErrorShown;
+
+        public bool NicknameErrorShown
+        {
+            get => nicknameErrorShown;
+            set
+            {
+                nicknameErrorShown = value;
+                OnPropertyChanged("NicknameErrorShown");
+            }
+        }
+
+        public int UserTypeID
+        {
+            get { return userTypeID; }
+            set
+            {
+                userTypeID = value;
+                OnPropertyChanged("UserTypeID");
+            }
         }
 
         private void BdayValidation()
         {
             this.BdayErrorShown = (Bday == DateTime.Now || bday.Year>2011);
 
+        }
+        private void EmailVaidation()
+        {
+            this.EmailErrorShown = (string.IsNullOrEmpty(Email) || !(Email.Contains('@') && email.Contains('.')));
+            //this.EmailErrorShown = Check it's not already exist and change the label accordng it 
+
+        }
+
+        private void PassValidation()
+        {
+            this.PassErrorShown = (pass.Length < 8);
+
+
+        }
+
+        private void NicknameValidation()
+        {
+            //this.NicknameErrorShown = if already exists
+        }
+
+
+        public ICommand CountinueCommand => new Command(Continue);
+
+        public async void Continue()
+        {
+            //JobsAPIProxy proxy = JobsAPIProxy.CreateProxy();
+
+            //User u = await proxy.SignUpAsync(Email, Password);
+
+            //if (u == null)
+            //{
+            //    await Application.Current.MainPage.DisplayAlert("Login Failed!", "Email or username invalid", "OK");
+            //}
+            //else
+            //{
+            //    ((App)App.Current).CurrentUser = u;
+            //    //App theApp = (App)App.Current;
+            //    //theApp.CurrentUser = user;
+                Push?.Invoke(new UserCredentialsScreen());
+            //}
         }
 
 

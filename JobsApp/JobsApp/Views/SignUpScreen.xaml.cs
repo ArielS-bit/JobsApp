@@ -17,9 +17,9 @@ namespace JobsApp.Views
         {
             InitializeComponent();
 
-            SignUpViewModel l = new SignUpViewModel();
-            l.Push += (p) => Navigation.PushAsync(p);
-            this.BindingContext = l;
+            //SignUpViewModel l = new SignUpViewModel();
+            //l.Push += (p) => Navigation.PushAsync(p);
+            //this.BindingContext = l;
         }
     }
 }

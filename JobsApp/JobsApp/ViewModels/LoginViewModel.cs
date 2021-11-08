@@ -133,7 +133,7 @@ namespace JobsApp.ViewModels
         public ICommand SignUpCommand => new Command(SignUp);
         private void SignUp()
         {
-            Push?.Invoke(new SignUpScreen());
+            Push?.Invoke(new BasicUserInfoScreen());
         }
 
         public ICommand ForgotPassCommand => new Command(ForgotPassword);

@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="JobsApp.Views.LoginScreen" 
+             NavigationPage.HasNavigationBar="False"
              xmlns:local="clr-namespace:JobsApp.ViewModels" BackgroundColor="#F1FAEE">
 
     <ContentPage.BindingContext>
@@ -9,7 +10,7 @@
     </ContentPage.BindingContext>
 
 
-    <StackLayout Padding="10" Spacing="5">
+    <StackLayout Padding="5" Spacing="5">
         <!--<Label Text="Logo" FontFamily="'Zen Kaku Gothic Antique', sans-serif" FontSize="25" TextColor="Black" Margin="0,12,20,30"/>-->
         <!--Do it-->         <!--<Button ImageSource="logo_inside_app.png" WidthRequest="50" HeightRequest="0" Margin="0,170,0,10"/>--> 
         <Image Source="logo_inside_app.png" WidthRequest="90" HeightRequest="85" Margin="0,0,320,0"/>

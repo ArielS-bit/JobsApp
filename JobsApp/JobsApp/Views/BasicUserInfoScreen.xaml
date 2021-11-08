@@ -1,10 +1,35 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="JobsApp.Views.BasicUserInfoScreen">
+             x:Class="JobsApp.Views.BasicUserInfoScreen"
+             NavigationPage.HasNavigationBar="False"
+             xmlns:local="clr-namespace:JobsApp.ViewModels" BackgroundColor="#F1FAEE">
+
+    <ContentPage.BindingContext>
+        <local:BasicUserInfoViewModel></local:BasicUserInfoViewModel>
+    </ContentPage.BindingContext>
+
     <ContentPage.Content>
-        <StackLayout>
-            <!--Every time the user enters one input another inout is shown up and so on till the basic info is all done -->
-        </StackLayout>
+        <ScrollView>
+            <StackLayout>
+                <!--Every time the user enters one input another inout is shown up and so on till the basic info is all done -->
+
+                <Label Text="Sign Up"/>
+                <Entry Placeholder="First Name" Text="{Binding FirstName}"/>
+
+                <Entry Placeholder="Last Name" Text="{Binding LastName}"/>
+
+                <Label Text="Gender"/>
+                <RadioButton/>
+
+                <DatePicker Date="{Binding Bday}"/>
+                <Label Text="Invalid date!" IsVisible="{Binding BdayErrorShown}"/>
+
+                <Button Text="CONTINUE!" Command="{Binding CountinueCommand}"/>
+
+
+
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
