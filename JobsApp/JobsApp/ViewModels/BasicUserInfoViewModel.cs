@@ -79,7 +79,7 @@ namespace JobsApp.ViewModels
                 OnPropertyChanged("BdayErrorShown");
             }
         }
-        private int userTypeID;
+        
 
         private string email;
 
@@ -155,6 +155,7 @@ namespace JobsApp.ViewModels
             }
         }
 
+        private int userTypeID;
         public int UserTypeID
         {
             get { return userTypeID; }
@@ -165,6 +166,17 @@ namespace JobsApp.ViewModels
             }
         }
 
+        private string privateAnswer;
+        public string PrivateAnswer
+        {
+            get => privateAnswer;
+            set
+            {
+                privateAnswer = value;
+                AnswerValidation();
+                OnPropertyChanged("PrivateAnswer");
+            }
+        }
         private void BdayValidation()
         {
             this.BdayErrorShown = (Bday == DateTime.Now || bday.Year>2011);
@@ -191,6 +203,18 @@ namespace JobsApp.ViewModels
 
 
         public ICommand CountinueCommand => new Command(Continue);
+
+        public BasicUserInfoViewModel(string first, string last, string nickname, string email, string gender, DateTime bday, string pass, string privateAnswer)
+        {
+            this.firstName = first;
+            this.lastName = last;
+            this.nickname = nickname;
+            this.email = email;
+            this.gender = gender;
+            this.bday = bday;
+            this.pass = pass;
+            this.privateAnswer = privateAnswer;
+        }
 
         public async void Continue()
         {
