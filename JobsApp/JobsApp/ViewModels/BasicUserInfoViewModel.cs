@@ -62,7 +62,7 @@ namespace JobsApp.ViewModels
             set
             {
                 bday = value;
-                BdayValidation();
+                //BdayValidation();
                 OnPropertyChanged("Bday");
             }
         }
@@ -75,7 +75,7 @@ namespace JobsApp.ViewModels
             set
             {
                 bdayErrorShown = value;
-                BdayValidation();
+                //BdayValidation();
                 OnPropertyChanged("BdayErrorShown");
             }
         }
@@ -89,7 +89,7 @@ namespace JobsApp.ViewModels
             set
             {
                 email = value;
-                EmailVaidation();
+                //EmailVaidation();
                 OnPropertyChanged("Email");
             }
         }
@@ -114,7 +114,7 @@ namespace JobsApp.ViewModels
             set
             {
                 pass = value;
-                PassValidation();
+                //PassValidation();
                 OnPropertyChanged("Pass");
             }
         }
@@ -139,7 +139,7 @@ namespace JobsApp.ViewModels
             set
             {
                 nickname = value;
-                NicknameValidation();
+                //NicknameValidation();
                 OnPropertyChanged("Nickname");
             }
         }
@@ -173,7 +173,7 @@ namespace JobsApp.ViewModels
             set
             {
                 privateAnswer = value;
-                AnswerValidation();
+                //AnswerValidation();
                 OnPropertyChanged("PrivateAnswer");
             }
         }
@@ -203,36 +203,30 @@ namespace JobsApp.ViewModels
 
 
         public ICommand CountinueCommand => new Command(Continue);
+        public ICommand SignUpCommand => new Command(SignUp);
 
-        public BasicUserInfoViewModel(string first, string last, string nickname, string email, string gender, DateTime bday, string pass, string privateAnswer)
+        public BasicUserInfoViewModel()
         {
-            this.firstName = first;
-            this.lastName = last;
-            this.nickname = nickname;
-            this.email = email;
-            this.gender = gender;
-            this.bday = bday;
-            this.pass = pass;
-            this.privateAnswer = privateAnswer;
+            this.firstName = "";
+            this.lastName = "";
+            this.nickname = "";
+            this.email = "";
+            this.gender = "";
+            this.bday = DateTime.Today;
+            this.pass = "";
+            this.privateAnswer = "";
         }
 
         public async void Continue()
         {
-            //JobsAPIProxy proxy = JobsAPIProxy.CreateProxy();
+            
+            Push?.Invoke(new UserCredentialsScreen());
+            
+        }
 
-            //User u = await proxy.SignUpAsync(Email, Password);
-
-            //if (u == null)
-            //{
-            //    await Application.Current.MainPage.DisplayAlert("Login Failed!", "Email or username invalid", "OK");
-            //}
-            //else
-            //{
-            //    ((App)App.Current).CurrentUser = u;
-            //    //App theApp = (App)App.Current;
-            //    //theApp.CurrentUser = user;
-                Push?.Invoke(new UserCredentialsScreen());
-            //}
+        public async void SignUp()
+        {
+            Push?.Invoke(new FeedScreen());
         }
 
 

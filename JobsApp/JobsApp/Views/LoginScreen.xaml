@@ -27,6 +27,8 @@
 
         <Entry Placeholder="Password" FontSize="18" PlaceholderColor="#1D3557" TextColor="#1D3557" Text="{Binding Password}" Margin="0,20,0,10" Opacity="0.7" HorizontalTextAlignment="Start" HorizontalOptions="FillAndExpand" MaxLength="10" Keyboard="Chat" IsPassword="True"/>
 <!--Add an eye and its functions-->
+        <Image Source="OpenEyePass.png" HeightRequest="17" WidthRequest="17" IsVisible="false" Margin="320,-45,20,10"/>
+        <Image Source="CloseEyePass.png" HeightRequest="17" WidthRequest="17" IsVisible="true" Margin="320,-45,20,10"/>
 
         <CheckBox IsChecked="True" />
         <Label Text="Remember me" Margin="40,-32,0,0" TextColor="#457B9D"/>
