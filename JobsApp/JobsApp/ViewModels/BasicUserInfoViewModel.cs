@@ -219,8 +219,8 @@ namespace JobsApp.ViewModels
 
         public async void Continue()
         {
-            
-            Push?.Invoke(new UserCredentialsScreen());
+
+            Push?.Invoke(new UserCredentialsScreen() { BindingContext = this });
             
         }
 
