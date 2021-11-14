@@ -19,9 +19,9 @@
 
                 <Label Text="Let's get to know you" TextColor="Blue"/>
 
-                <Entry Placeholder="First Name" FontFamily="'Zen Kaku Gothic Antique', sans-serif" PlaceholderColor="#1D3557" TextColor="#1D3557" FontSize="18" Text="{Binding FirstName}" Margin="30,30,240,10" Opacity="0.7" HorizontalTextAlignment="Start" HorizontalOptions="FillAndExpand" MaxLength="30" WidthRequest="1" Keyboard="Chat"/>
+                <Entry Placeholder="First Name" Text="{Binding FirstName}" Margin="30,30,240,10" WidthRequest="1" Keyboard="Chat"/>
 
-                <Entry Placeholder="Last Name" FontFamily="'Zen Kaku Gothic Antique', sans-serif" PlaceholderColor="#1D3557" TextColor="#1D3557" FontSize="18" Text="{Binding LastName}" Margin="220,-62,50,10" Opacity="0.7" HorizontalTextAlignment="Start" HorizontalOptions="FillAndExpand" MaxLength="30" WidthRequest="1" Keyboard="Chat"/>
+                <Entry Placeholder="Last Name" Text="{Binding LastName}" Margin="220,-62,50,10" WidthRequest="1" Keyboard="Chat"/>
 
 
                 <Label Text="Gender" Margin="0,30,0,0"/>
@@ -34,7 +34,7 @@
                 <DatePicker Margin="100,10,170,0" Date="{Binding Bday}"/>
                 <Label Text="Invalid date!" IsVisible="{Binding BdayErrorShown}"/>
 
-                <Button Text="CONTINUE!" Margin="80,25,80,10" HeightRequest="45" CornerRadius="50" TextColor="#F1FAEE" BackgroundColor="#457B9D" Font="15" Command="{Binding CountinueCommand}"/>
+                <Button Text="CONTINUE!" Margin="80,25,80,10" HeightRequest="45" CornerRadius="50" TextColor="#F1FAEE" BackgroundColor="#457B9D" Command="{Binding CountinueCommand}"/>
 
 
 

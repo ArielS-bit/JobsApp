@@ -63,7 +63,9 @@ namespace JobsApp.ViewModels
 
         public LoginViewModel()
         {
-            
+            email = "";
+            password = "";
+
         }
         public event Action<Page> Push;
         public ICommand LoginCommand => new Command(Login);
