@@ -34,7 +34,7 @@
                 <DatePicker Margin="100,10,170,0" Date="{Binding Bday}"/>
                 <Label Text="Invalid date!" IsVisible="{Binding BdayErrorShown}"/>
 
-                <Button Text="CONTINUE!" Margin="80,25,80,10" HeightRequest="45" CornerRadius="50" TextColor="#F1FAEE" BackgroundColor="#457B9D" Command="{Binding CountinueCommand}"/>
+                <Button Text="CONTINUE!" IsEnabled="{Binding EnableBtn}" Margin="80,25,80,10" HeightRequest="45" CornerRadius="50" TextColor="#F1FAEE" BackgroundColor="#457B9D" Command="{Binding CountinueCommand}"/>
 
 
 

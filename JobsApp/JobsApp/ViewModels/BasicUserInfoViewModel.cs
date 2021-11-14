@@ -18,6 +18,7 @@ namespace JobsApp.ViewModels
     {
         public event Action<Page> Push;
 
+        #region Propreties
         private string firstName;
 
         public string FirstName
@@ -26,7 +27,20 @@ namespace JobsApp.ViewModels
             set
             {
                 firstName = value;
-                OnPropertyChanged("FirstName");
+              ((Command) SignUpCommand).ChangeCanExecute();
+                    OnPropertyChanged("FirstName");
+            }
+        }
+
+        private bool firstNameErrorShown;
+
+        public bool FirstNameErrorShown
+        {
+            get => firstNameErrorShown;
+            set
+            {
+                firstNameErrorShown = value;
+                OnPropertyChanged("FirstNameErrorShown");
             }
         }
 
@@ -42,6 +56,18 @@ namespace JobsApp.ViewModels
             }
         }
 
+        private bool lastNameErrorShown;
+
+        public bool LastNameErrorShown
+        {
+            get => lastNameErrorShown;
+            set
+            {
+                lastNameErrorShown = value;
+                OnPropertyChanged("LastNameErrorShown");
+            }
+        }
+
         private string gender;
 
         public string Gender
@@ -53,6 +79,19 @@ namespace JobsApp.ViewModels
                 OnPropertyChanged("Gender");
             }
         }
+
+        private bool genderNameErrorShown;
+
+        public bool GenderNameErrorShown
+        {
+            get => genderNameErrorShown;
+            set
+            {
+                genderNameErrorShown = value;
+                OnPropertyChanged("GenderNameErrorShown");
+            }
+        }
+
 
         private DateTime bday;
 
@@ -166,6 +205,18 @@ namespace JobsApp.ViewModels
             }
         }
 
+        private bool userTypeIDNameErrorShown;
+
+        public bool UserTypeIDNameErrorShown
+        {
+            get => userTypeIDNameErrorShown;
+            set
+            {
+                userTypeIDNameErrorShown = value;
+                OnPropertyChanged("UserTypeIDNameErrorShown");
+            }
+        }
+
         private string privateAnswer;
         public string PrivateAnswer
         {
@@ -177,6 +228,32 @@ namespace JobsApp.ViewModels
                 OnPropertyChanged("PrivateAnswer");
             }
         }
+
+        private bool privateAnswerIDNameErrorShown;
+
+        public bool PrivateAnswerIDNameErrorShown
+        {
+            get => privateAnswerIDNameErrorShown;
+            set
+            {
+                privateAnswerIDNameErrorShown = value;
+                OnPropertyChanged("PrivateAnswerIDNameErrorShown");
+            }
+        }
+
+        private bool enableBtn;
+        public bool EnableBtn
+        {
+            get => enableBtn;
+            set
+            {
+                enableBtn = value;
+
+                OnPropertyChanged("EnableBtn");
+            }
+        }
+        #endregion Properties
+
         private void BdayValidation()
         {
             this.BdayErrorShown = (Bday == DateTime.Now || bday.Year>2011);
@@ -187,6 +264,11 @@ namespace JobsApp.ViewModels
             this.EmailErrorShown = (string.IsNullOrEmpty(Email) || !(Email.Contains('@') && email.Contains('.')));
             //this.EmailErrorShown = Check it's not already exist and change the label accordng it 
 
+        }
+
+        public bool EnableBtnValidation()
+        {
+            return (this.EmailErrorShown && this.PassErrorShown&& this.NicknameErrorShown&& this.BdayErrorShown && this.FirstNameErrorShown && this.LastNameErrorShown && this.GenderNameErrorShown && this.UserTypeIDNameErrorShown);
         }
 
         private void PassValidation()
@@ -201,9 +283,10 @@ namespace JobsApp.ViewModels
             //this.NicknameErrorShown = if already exists
         }
 
+        public User MyUser {get;set;}
 
         public ICommand CountinueCommand => new Command(Continue);
-        public ICommand SignUpCommand => new Command(SignUp);
+        public ICommand SignUpCommand { get; set; }
 
         public BasicUserInfoViewModel()
         {
@@ -215,6 +298,7 @@ namespace JobsApp.ViewModels
             this.bday = DateTime.Today;
             this.pass = "";
             this.privateAnswer = "";
+            SignUpCommand = new Command(SignUp, EnableBtnValidation);
         }
 
         public async void Continue()
@@ -224,7 +308,27 @@ namespace JobsApp.ViewModels
 
         public async void SignUp()
         {
+            
+            JobsAPIProxy proxy = JobsAPIProxy.CreateProxy();
+
+            User MyUser = new User() { FirstName = firstName, LastName = lastName, Birthday = bday, Email = email, Gender = gender, Nickname = nickname, Pass = pass, PrivateAnswer = privateAnswer };  
+            User u = await proxy.SignUpAsync(MyUser);
+
+
+            if (u == null)
+            {
+                await Application.Current.MainPage.DisplayAlert("Sign Up Failed!", "Email or username invalid", "OK");
+            }
+            else
+            {
+                ((App)App.Current).CurrentUser = u;
+                //App theApp = (App)App.Current;
+                //theApp.CurrentUser = user;
+                Push?.Invoke(new FeedScreen());
+            }
+
             Push?.Invoke(new FeedScreen());
+
         }
 
 

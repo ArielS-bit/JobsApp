@@ -140,20 +140,29 @@ namespace JobsApp.Services
             }
         }
 
-        public async Task<User> SignUpAsync()
+        public async Task<User> SignUpAsync(User u)
         {
             try
             {
-                HttpResponseMessage response = await this.client.GetAsync($"{this.baseUri}/SignUp");
+                JsonSerializerOptions options = new JsonSerializerOptions
+                {
+                    ReferenceHandler = ReferenceHandler.Preserve,
+                    Encoder = JavaScriptEncoder.Create(UnicodeRanges.Hebrew, UnicodeRanges.BasicLatin),
+                    PropertyNameCaseInsensitive = true
+                };
+                string jsonObject = JsonSerializer.Serialize<User>(u, options);
+                StringContent content = new StringContent(jsonObject, Encoding.UTF8, "application/json");
+
+                HttpResponseMessage response = await this.client.PostAsync($"{this.baseUri}/SignUp", content);
                 if (response.IsSuccessStatusCode)
                 {
-                    JsonSerializerOptions options = new JsonSerializerOptions
+                    options = new JsonSerializerOptions
                     {
                         ReferenceHandler = ReferenceHandler.Preserve, //avoid reference loops!
                         PropertyNameCaseInsensitive = true
                     };
-                    string content = await response.Content.ReadAsStringAsync();
-                    User e = JsonSerializer.Deserialize<User>(content, options);
+                    string contentU = await response.Content.ReadAsStringAsync();
+                    User e = JsonSerializer.Deserialize<User>(contentU, options);
                     return e;
                 }
                 else
