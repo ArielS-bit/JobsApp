@@ -27,8 +27,8 @@ namespace JobsApp.ViewModels
             set
             {
                 firstName = value;
-              ((Command) SignUpCommand).ChangeCanExecute();
-                    OnPropertyChanged("FirstName");
+                ((Command) SignUpCommand).ChangeCanExecute();
+                OnPropertyChanged("FirstName");
             }
         }
 
@@ -80,15 +80,15 @@ namespace JobsApp.ViewModels
             }
         }
 
-        private bool genderNameErrorShown;
+        private bool genderErrorShown;
 
-        public bool GenderNameErrorShown
+        public bool GenderErrorShown
         {
-            get => genderNameErrorShown;
+            get => genderErrorShown;
             set
             {
-                genderNameErrorShown = value;
-                OnPropertyChanged("GenderNameErrorShown");
+                genderErrorShown = value;
+                OnPropertyChanged("GenderErrorShown");
             }
         }
 
@@ -114,7 +114,7 @@ namespace JobsApp.ViewModels
             set
             {
                 bdayErrorShown = value;
-                //BdayValidation();
+                
                 OnPropertyChanged("BdayErrorShown");
             }
         }
@@ -205,15 +205,15 @@ namespace JobsApp.ViewModels
             }
         }
 
-        private bool userTypeIDNameErrorShown;
+        private bool userTypeIDErrorShown;
 
-        public bool UserTypeIDNameErrorShown
+        public bool UserTypeIDErrorShown
         {
-            get => userTypeIDNameErrorShown;
+            get => userTypeIDErrorShown;
             set
             {
-                userTypeIDNameErrorShown = value;
-                OnPropertyChanged("UserTypeIDNameErrorShown");
+                userTypeIDErrorShown = value;
+                OnPropertyChanged("UserTypeIDErrorShown");
             }
         }
 
@@ -229,15 +229,15 @@ namespace JobsApp.ViewModels
             }
         }
 
-        private bool privateAnswerIDNameErrorShown;
+        private bool privateAnswerErrorShown;
 
-        public bool PrivateAnswerIDNameErrorShown
+        public bool PrivateAnswerErrorShown
         {
-            get => privateAnswerIDNameErrorShown;
+            get => privateAnswerErrorShown;
             set
             {
-                privateAnswerIDNameErrorShown = value;
-                OnPropertyChanged("PrivateAnswerIDNameErrorShown");
+                privateAnswerErrorShown = value;
+                OnPropertyChanged("PrivateAnswerErrorShown");
             }
         }
 
@@ -254,11 +254,36 @@ namespace JobsApp.ViewModels
         }
         #endregion Properties
 
+        private void FirstNameValidation()
+        {
+            this.FirstNameErrorShown = string.IsNullOrEmpty(FirstName); 
+        }
+
+        private void LastNameValidation()
+        {
+            this.LastNameErrorShown = string.IsNullOrEmpty(LastName);
+        }
+
+        private void GenderValidation()
+        {
+            this.GenderErrorShown = string.IsNullOrEmpty(Gender);
+        }
+        private void UserTypeIDValidation()
+        {
+            if (userTypeID == 0)
+                this.UserTypeIDErrorShown = true;
+
+        }
+        public void PrivateAnswerValidation()
+        {
+            this.PrivateAnswerErrorShown = string.IsNullOrEmpty(PrivateAnswer);//שתהיה מילה הגיונית 
+        }
         private void BdayValidation()
         {
             this.BdayErrorShown = (Bday == DateTime.Now || bday.Year>2011);
 
         }
+
         private void EmailVaidation()
         {
             this.EmailErrorShown = (string.IsNullOrEmpty(Email) || !(Email.Contains('@') && email.Contains('.')));
@@ -266,21 +291,22 @@ namespace JobsApp.ViewModels
 
         }
 
-        public bool EnableBtnValidation()
-        {
-            return (this.EmailErrorShown && this.PassErrorShown&& this.NicknameErrorShown&& this.BdayErrorShown && this.FirstNameErrorShown && this.LastNameErrorShown && this.GenderNameErrorShown && this.UserTypeIDNameErrorShown);
-        }
-
         private void PassValidation()
         {
             this.PassErrorShown = (pass.Length < 8);
-
 
         }
 
         private void NicknameValidation()
         {
-            //this.NicknameErrorShown = if already exists
+            this.NicknameErrorShown = false;// check if already exists
+            
+
+        }
+
+        public bool EnableBtnValidation()
+        {
+            return (this.EmailErrorShown && this.PassErrorShown && this.NicknameErrorShown && this.BdayErrorShown && this.FirstNameErrorShown && this.LastNameErrorShown && this.GenderNameErrorShown && this.UserTypeIDNameErrorShown);
         }
 
         public User MyUser {get;set;}
