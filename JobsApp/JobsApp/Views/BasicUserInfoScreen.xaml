@@ -15,10 +15,17 @@
             <StackLayout>
                 <Image Source="logo_inside_app.png" WidthRequest="40" HeightRequest="35" Margin="0,0,350,0"/>
                 <!--Every time the user enters one input another inout is shown up and so on till the basic info is all done -->
-                <Label Text="You met us and our vision but now..." TextColor="Blue"/>
+                <Frame>
+                    <Grid RowSpacing="4">
+                        <Label Text="You met us and our vision but now..." TextColor="Blue"/>
+                        
 
-                <Label Text="Let's get to know you" TextColor="Blue"/>
+                        <Label Text="Let's get to know you" TextColor="Blue"/>
+                    </Grid>
+                </Frame>
 
+                
+                    
                 <Entry Placeholder="First Name" Text="{Binding FirstName}" Margin="30,30,240,10" WidthRequest="1" Keyboard="Chat"/>
 
                 <Entry Placeholder="Last Name" Text="{Binding LastName}" Margin="220,-62,50,10" WidthRequest="1" Keyboard="Chat"/>
@@ -33,6 +40,9 @@
                 <Label Text=" When's your birthday?" Margin="0,30,0,0"/>
                 <DatePicker Margin="100,10,170,0" Date="{Binding Bday}"/>
                 <Label Text="Invalid date!" IsVisible="{Binding BdayErrorShown}"/>
+
+                <Label Text="Who are you?"/>
+                
 
                 <Button Text="CONTINUE!" IsEnabled="{Binding EnableBtn}" Margin="80,25,80,10" HeightRequest="45" CornerRadius="50" TextColor="#F1FAEE" BackgroundColor="#457B9D" Command="{Binding CountinueCommand}"/>
 

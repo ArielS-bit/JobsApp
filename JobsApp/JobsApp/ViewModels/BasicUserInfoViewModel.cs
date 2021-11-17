@@ -27,6 +27,7 @@ namespace JobsApp.ViewModels
             set
             {
                 firstName = value;
+                FirstNameValidation();
                 ((Command) SignUpCommand).ChangeCanExecute();
                 OnPropertyChanged("FirstName");
             }
@@ -52,6 +53,8 @@ namespace JobsApp.ViewModels
             set
             {
                 lastName = value;
+                LastNameValidation();
+                ((Command)SignUpCommand).ChangeCanExecute();
                 OnPropertyChanged("LastName");
             }
         }
@@ -76,6 +79,8 @@ namespace JobsApp.ViewModels
             set
             {
                 gender = value;
+                GenderValidation();
+                ((Command)SignUpCommand).ChangeCanExecute();
                 OnPropertyChanged("Gender");
             }
         }
@@ -101,7 +106,8 @@ namespace JobsApp.ViewModels
             set
             {
                 bday = value;
-                //BdayValidation();
+                BdayValidation();
+                ((Command)SignUpCommand).ChangeCanExecute();
                 OnPropertyChanged("Bday");
             }
         }
@@ -128,7 +134,8 @@ namespace JobsApp.ViewModels
             set
             {
                 email = value;
-                //EmailVaidation();
+                EmailVaidation();
+                ((Command)SignUpCommand).ChangeCanExecute();
                 OnPropertyChanged("Email");
             }
         }
@@ -153,7 +160,8 @@ namespace JobsApp.ViewModels
             set
             {
                 pass = value;
-                //PassValidation();
+                PassValidation();
+                ((Command)SignUpCommand).ChangeCanExecute();
                 OnPropertyChanged("Pass");
             }
         }
@@ -178,7 +186,8 @@ namespace JobsApp.ViewModels
             set
             {
                 nickname = value;
-                //NicknameValidation();
+                NicknameValidation();
+                ((Command)SignUpCommand).ChangeCanExecute();
                 OnPropertyChanged("Nickname");
             }
         }
@@ -201,6 +210,8 @@ namespace JobsApp.ViewModels
             set
             {
                 userTypeID = value;
+                UserTypeIDValidation();
+                ((Command)SignUpCommand).ChangeCanExecute();
                 OnPropertyChanged("UserTypeID");
             }
         }
@@ -224,7 +235,8 @@ namespace JobsApp.ViewModels
             set
             {
                 privateAnswer = value;
-                //AnswerValidation();
+                PrivateAnswerValidation();
+                ((Command)SignUpCommand).ChangeCanExecute();
                 OnPropertyChanged("PrivateAnswer");
             }
         }
@@ -250,10 +262,12 @@ namespace JobsApp.ViewModels
                 enableBtn = value;
 
                 OnPropertyChanged("EnableBtn");
+                
             }
         }
         #endregion Properties
 
+        #region Validation Functions
         private void FirstNameValidation()
         {
             this.FirstNameErrorShown = string.IsNullOrEmpty(FirstName); 
@@ -306,8 +320,12 @@ namespace JobsApp.ViewModels
 
         public bool EnableBtnValidation()
         {
-            return (this.EmailErrorShown && this.PassErrorShown && this.NicknameErrorShown && this.BdayErrorShown && this.FirstNameErrorShown && this.LastNameErrorShown && this.GenderNameErrorShown && this.UserTypeIDNameErrorShown);
+            return (this.EmailErrorShown && this.PassErrorShown && this.NicknameErrorShown && this.BdayErrorShown && this.FirstNameErrorShown
+                && this.LastNameErrorShown && this.GenderErrorShown && this.UserTypeIDErrorShown && this.FirstNameErrorShown
+                && this.LastNameErrorShown && this.UserTypeIDErrorShown && this.PrivateAnswerErrorShown);
         }
+
+        #endregion
 
         public User MyUser {get;set;}
 
@@ -339,6 +357,7 @@ namespace JobsApp.ViewModels
 
             User MyUser = new User() { FirstName = firstName, LastName = lastName, Birthday = bday, Email = email, Gender = gender, Nickname = nickname, Pass = pass, PrivateAnswer = privateAnswer };  
             User u = await proxy.SignUpAsync(MyUser);
+
 
 
             if (u == null)
