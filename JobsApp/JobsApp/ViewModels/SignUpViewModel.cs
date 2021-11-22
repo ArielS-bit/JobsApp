@@ -14,7 +14,7 @@ using JobsApp.Views;
 
 namespace JobsApp.ViewModels
 {
-    class BasicUserInfoViewModel:ViewModelBase
+    class SignUpViewModel:ViewModelBase
     {
         public event Action<Page> Push;
 
@@ -332,7 +332,7 @@ namespace JobsApp.ViewModels
         public ICommand CountinueCommand => new Command(Continue);
         public ICommand SignUpCommand { get; set; }
 
-        public BasicUserInfoViewModel()
+        public SignUpViewModel()
         {
             this.firstName = "";
             this.lastName = "";

@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:JobsApp.ViewModels" BackgroundColor="#F1FAEE">
 
     <ContentPage.BindingContext>
-        <local:BasicUserInfoViewModel></local:BasicUserInfoViewModel>
+        <local:SignUpViewModel></local:SignUpViewModel>
     </ContentPage.BindingContext>
 
     <ContentPage.Content>
@@ -33,9 +33,9 @@
 
                 <Label Text="Gender" Margin="0,30,0,0"/>
 
-                <RadioButton FontSize="16" Content="Female" />
-                <RadioButton FontSize="16" Content="Male"/>
-                <RadioButton FontSize="16" Content="Other"/>
+                <RadioButton x:Name="femaleBtn" GroupName="Genders" FontSize="16"  Content="Female" />
+                <RadioButton x:Name="maleBtn" GroupName="Genders" FontSize="16" Content="Male"/>
+                <RadioButton x:Name="otherBtn" GroupName="Genders" FontSize="16" Content="Other"/>
 
                 <Label Text=" When's your birthday?" Margin="0,30,0,0"/>
                 <DatePicker Margin="100,10,170,0" Date="{Binding Bday}"/>
