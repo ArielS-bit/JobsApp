@@ -13,12 +13,11 @@
         <ScrollView>
             
             <StackLayout>
-                <Image Source="logo_inside_app.png" WidthRequest="40" HeightRequest="35" Margin="0,0,350,0"/>
+                <Image Source="logo_inside_app.png" WidthRequest="60" HeightRequest="50" Margin="0,0,350,0"/>
                 <!--Every time the user enters one input another inout is shown up and so on till the basic info is all done -->
                 <Frame>
                     <Grid RowSpacing="4">
                         <Label Grid.Row="0" Text="You met us and our vision but now..." TextColor="Blue"/>
-
 
                         <Label Grid.Row="1" Text="Let's get to know you" TextColor="Blue"/>
                     </Grid>
@@ -27,24 +26,24 @@
                 
                     
                 <Entry Placeholder="First Name" Text="{Binding FirstName}" Margin="30,30,240,10" WidthRequest="1" Keyboard="Chat"/>
-                <Label Text="*Must enter your name" TextColor="#E63946" IsVisible="{Binding FirstNameErrorShown}" Style="{StaticResource InvalidWarning}"/>
+                <Label Text="*Must enter your name" IsVisible="{Binding FirstNameErrorShown}" Style="{StaticResource InvalidWarning}"/>
 
                 <Entry Placeholder="Last Name" Text="{Binding LastName}" Margin="220,-62,50,10" WidthRequest="1" Keyboard="Chat"/>
+                <Label Text="*Must enter your name" IsVisible="{Binding LastNameErrorShown}" Style="{StaticResource InvalidWarning}"/>
 
 
                 <Label Text="Gender" Margin="0,30,0,0"/>
 
-                <RadioButton x:Name="femaleBtn" GroupName="Genders" FontSize="16"  Content="Female" />
+                <RadioButton x:Name="femaleBtn" GroupName="Genders" FontSize="16" Content="Female" />
                 <RadioButton x:Name="maleBtn" GroupName="Genders" FontSize="16" Content="Male"/>
                 <RadioButton x:Name="otherBtn" GroupName="Genders" FontSize="16" Content="Other"/>
+                
 
                 <Label Text=" When's your birthday?" Margin="0,30,0,0"/>
                 <DatePicker Margin="100,10,170,0" Date="{Binding Bday}"/>
-                <Label Text="Invalid date!" IsVisible="{Binding BdayErrorShown}"/>
+                <Label Text="Invalid date!" Style="{StaticResource InvalidWarning}" IsVisible="{Binding BdayErrorShown}"/>
 
-                <!--<Label Text="Who are you?"/>-->
-                
-
+               
                 <Button Text="CONTINUE!" IsEnabled="{Binding EnableBtn}" Margin="80,25,80,10" HeightRequest="45" CornerRadius="50" TextColor="#F1FAEE" BackgroundColor="#457B9D" Command="{Binding CountinueCommand}"/>
 
 

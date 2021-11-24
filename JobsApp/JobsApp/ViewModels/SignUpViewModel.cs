@@ -331,6 +331,7 @@ namespace JobsApp.ViewModels
 
         public ICommand CountinueCommand => new Command(Continue);
         public ICommand SignUpCommand { get; set; }
+        public Command<string> GetGenderCommand { get; set; }
 
         public SignUpViewModel()
         {
@@ -343,6 +344,7 @@ namespace JobsApp.ViewModels
             this.pass = "";
             this.privateAnswer = "";
             SignUpCommand = new Command(SignUp, EnableBtnValidation);
+            GetGenderCommand = new Command<string>(GenderInput, );
         }
 
         public async void Continue()
@@ -357,8 +359,6 @@ namespace JobsApp.ViewModels
 
             User MyUser = new User() { FirstName = firstName, LastName = lastName, Birthday = bday, Email = email, Gender = gender, Nickname = nickname, Pass = pass, PrivateAnswer = privateAnswer };  
             User u = await proxy.SignUpAsync(MyUser);
-
-
 
             if (u == null)
             {
@@ -376,6 +376,12 @@ namespace JobsApp.ViewModels
 
         }
 
-
+        public async void GenderInput(string g)
+        {
+            if (g != "NotPicked")
+            {
+                this.gender = g;
+            }
+        }
     }
 }
