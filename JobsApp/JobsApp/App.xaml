@@ -16,6 +16,16 @@
             <Setter Property="Keyboard" Value="Email"/>
 
         </Style>
-        
+
+        <Style TargetType="Label" x:Key="InvalidWarning">
+            <Setter Property="FontFamily" Value="'Zen Kaku Gothic Antique', sans-serif"/>
+            <Setter Property="TextColor" Value="#c23616"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="HorizontalTextAlignment" Value="Start"/>
+            <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+            <Setter Property="Opacity" Value="1"/>
+            
+        </Style>
+
     </Application.Resources>
 </Application>

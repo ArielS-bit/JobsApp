@@ -17,16 +17,17 @@
                 <!--Every time the user enters one input another inout is shown up and so on till the basic info is all done -->
                 <Frame>
                     <Grid RowSpacing="4">
-                        <Label Text="You met us and our vision but now..." TextColor="Blue"/>
-                        
+                        <Label Grid.Row="0" Text="You met us and our vision but now..." TextColor="Blue"/>
 
-                        <Label Text="Let's get to know you" TextColor="Blue"/>
+
+                        <Label Grid.Row="1" Text="Let's get to know you" TextColor="Blue"/>
                     </Grid>
                 </Frame>
 
                 
                     
                 <Entry Placeholder="First Name" Text="{Binding FirstName}" Margin="30,30,240,10" WidthRequest="1" Keyboard="Chat"/>
+                <Label Text="*Must enter your name" TextColor="#E63946" IsVisible="{Binding FirstNameErrorShown}" Style="{StaticResource InvalidWarning}"/>
 
                 <Entry Placeholder="Last Name" Text="{Binding LastName}" Margin="220,-62,50,10" WidthRequest="1" Keyboard="Chat"/>
 
@@ -41,7 +42,7 @@
                 <DatePicker Margin="100,10,170,0" Date="{Binding Bday}"/>
                 <Label Text="Invalid date!" IsVisible="{Binding BdayErrorShown}"/>
 
-                <Label Text="Who are you?"/>
+                <!--<Label Text="Who are you?"/>-->
                 
 
                 <Button Text="CONTINUE!" IsEnabled="{Binding EnableBtn}" Margin="80,25,80,10" HeightRequest="45" CornerRadius="50" TextColor="#F1FAEE" BackgroundColor="#457B9D" Command="{Binding CountinueCommand}"/>
