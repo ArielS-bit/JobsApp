@@ -34,7 +34,7 @@
 
                 <Label Text="Gender" Margin="0,30,0,0"/>
 
-                <RadioButton x:Name="femaleBtn" GroupName="Genders" FontSize="16" Content="Female"/>
+                <RadioButton x:Name="femaleBtn" GroupName="Genders" FontSize="16" Content="{Binding Gender}"/>
                 <RadioButton x:Name="maleBtn" GroupName="Genders" FontSize="16" Content="Male"/>
                 <RadioButton x:Name="otherBtn" GroupName="Genders" FontSize="16" Content="Other"/>
                 

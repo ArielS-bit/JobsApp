@@ -344,11 +344,15 @@ namespace JobsApp.ViewModels
             this.pass = "";
             this.privateAnswer = "";
             SignUpCommand = new Command(SignUp, EnableBtnValidation);
-            GetGenderCommand = new Command<string>(GenderInput, );
+            GetGenderCommand = new Command<string>((g)=>GenderInput(g));//sending a parameter additionly to the function
         }
 
         public async void Continue()
         {
+            if (gender.Length == 0) 
+            {
+                this.genderErrorShown = true;
+            }
             Push?.Invoke(new UserCredentialsScreen() { BindingContext = this });
         }
 
@@ -378,10 +382,8 @@ namespace JobsApp.ViewModels
 
         public async void GenderInput(string g)
         {
-            if (g != "NotPicked")
-            {
-                this.gender = g;
-            }
+            this.gender = g;
+
         }
     }
 }
