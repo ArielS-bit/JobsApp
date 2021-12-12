@@ -28,7 +28,7 @@ namespace JobsApp.ViewModels
             {
                 firstName = value;
                 FirstNameValidation();
-                ((Command) SignUpCommand).ChangeCanExecute();
+                ((Command)CountinueCommand).ChangeCanExecute();
                 OnPropertyChanged("FirstName");
             }
         }
@@ -54,7 +54,7 @@ namespace JobsApp.ViewModels
             {
                 lastName = value;
                 LastNameValidation();
-                ((Command)SignUpCommand).ChangeCanExecute();
+                ((Command)CountinueCommand).ChangeCanExecute();
                 OnPropertyChanged("LastName");
             }
         }
@@ -80,7 +80,7 @@ namespace JobsApp.ViewModels
             {
                 gender = value;
                 GenderValidation();
-                ((Command)SignUpCommand).ChangeCanExecute();
+                ((Command)CountinueCommand).ChangeCanExecute();
                 OnPropertyChanged("Gender");
             }
         }
@@ -107,7 +107,7 @@ namespace JobsApp.ViewModels
             {
                 bday = value;
                 BdayValidation();
-                ((Command)SignUpCommand).ChangeCanExecute();
+                ((Command)CountinueCommand).ChangeCanExecute();
                 OnPropertyChanged("Bday");
             }
         }
@@ -331,7 +331,7 @@ namespace JobsApp.ViewModels
 
         public ICommand CountinueCommand => new Command(Continue);
         public ICommand SignUpCommand { get; set; }
-        public Command<string> GetGenderCommand { get; set; }
+        //public Command<string> GetGenderCommand { get; set; }
 
         public SignUpViewModel()
         {
@@ -344,16 +344,19 @@ namespace JobsApp.ViewModels
             this.pass = "";
             this.privateAnswer = "";
             SignUpCommand = new Command(SignUp, EnableBtnValidation);
-            GetGenderCommand = new Command<string>((g)=>GenderInput(g));//sending a parameter additionly to the function
+            //GetGenderCommand = new Command<string>((g)=>GenderInput(g));//sending a parameter additionly to the function
         }
 
         public async void Continue()
         {
+
             if (gender.Length == 0) 
             {
                 this.genderErrorShown = true;
             }
             Push?.Invoke(new UserCredentialsScreen() { BindingContext = this });
+
+          
         }
 
         public async void SignUp()
@@ -380,10 +383,10 @@ namespace JobsApp.ViewModels
 
         }
 
-        public async void GenderInput(string g)
-        {
-            this.gender = g;
+        //public async void GenderInput(string g)
+        //{
+        //    this.gender = g;
 
-        }
+        //}
     }
 }

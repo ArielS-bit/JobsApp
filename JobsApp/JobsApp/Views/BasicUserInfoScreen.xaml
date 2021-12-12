@@ -12,7 +12,8 @@
     <ContentPage.Content>
         <ScrollView>
             
-            <StackLayout>
+            <StackLayout RadioButtonGroup.GroupName="Genders"
+                         RadioButtonGroup.SelectedValue="{Binding Gender}">
                 <Image Source="logo_inside_app.png" WidthRequest="60" HeightRequest="50" Margin="0,0,350,0"/>
                 <!--Every time the user enters one input another inout is shown up and so on till the basic info is all done -->
                 <Frame>
@@ -31,20 +32,21 @@
                 <Entry Placeholder="Last Name" Text="{Binding LastName}" Margin="220,-62,50,10" WidthRequest="1" Keyboard="Chat"/>
                 <Label Text="*Must enter your name" IsVisible="{Binding LastNameErrorShown}" Style="{StaticResource InvalidWarning}"/>
 
-
+                
                 <Label Text="Gender" Margin="0,30,0,0"/>
 
-                <RadioButton x:Name="femaleBtn" GroupName="Genders" FontSize="16" Content="{Binding Gender}"/>
-                <RadioButton x:Name="maleBtn" GroupName="Genders" FontSize="16" Content="Male"/>
-                <RadioButton x:Name="otherBtn" GroupName="Genders" FontSize="16" Content="Other"/>
-                
+                <RadioButton x:Name="femaleBtn" GroupName="Genders" FontSize="16" Content="Female" Value="Female"/>
+                <RadioButton x:Name="maleBtn" GroupName="Genders" FontSize="16" Content="Male" Value="Male"/>
+                <RadioButton x:Name="otherBtn" GroupName="Genders" FontSize="16" Content="Other" Value="Other"/>
+                <Label Text="*Must enter your gender" IsVisible="{Binding GenderErrorShown}" Style="{StaticResource InvalidWarning}"/>
+
 
                 <Label Text=" When's your birthday?" Margin="0,30,0,0"/>
                 <DatePicker Margin="100,10,170,0" Date="{Binding Bday}"/>
                 <Label Text="Invalid date!" Style="{StaticResource InvalidWarning}" IsVisible="{Binding BdayErrorShown}"/>
 
-               
-                <Button Text="CONTINUE!" IsEnabled="{Binding EnableBtn}" Margin="80,25,80,10" HeightRequest="45" CornerRadius="50" TextColor="#F1FAEE" BackgroundColor="#457B9D" Command="{Binding CountinueCommand}"/>
+
+                <Button Text="CONTINUE!" IsEnabled="{Binding EnableBtn}" Command="{Binding CountinueCommand}" Margin="80,25,80,10" HeightRequest="45" CornerRadius="50" TextColor="#F1FAEE" BackgroundColor="#457B9D" />
 
 
 
