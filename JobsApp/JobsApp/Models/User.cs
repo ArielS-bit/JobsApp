@@ -18,5 +18,7 @@ namespace JobsApp.Models
         public string PrivateAnswer { get; set; }
 
         public virtual UserType UserType { get; set; }
+
+        //לבדוק האם ניתן להוסיף ידני לכאן את הרשימה של תחומי עניין 
     }
 }

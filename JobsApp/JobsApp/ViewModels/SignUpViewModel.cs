@@ -265,6 +265,34 @@ namespace JobsApp.ViewModels
                 
             }
         }
+
+        private bool employeeQuestionsShown;
+        public bool EmployeeQuestionsShown
+        {
+            get => employeeQuestionsShown;
+
+            set
+            {
+                employeeQuestionsShown = value;
+                EmployeeQuestionsShownValidation();
+                
+                OnPropertyChanged("EmployeeQuestionsShown");
+            }
+        } 
+        
+        private bool employerQuestionsShown;
+        public bool EmployerQuestionsShown
+        {
+            get => employerQuestionsShown;
+
+            set
+            {
+                employerQuestionsShown = value;
+                EmployerQuestionsShownValidation();
+                
+                OnPropertyChanged("EmployerQuestionsShown");
+            }
+        }
         #endregion Properties
 
         #region Validation Functions
@@ -323,6 +351,22 @@ namespace JobsApp.ViewModels
             return (this.EmailErrorShown && this.PassErrorShown && this.NicknameErrorShown && this.BdayErrorShown && this.FirstNameErrorShown
                 && this.LastNameErrorShown && this.GenderErrorShown && this.UserTypeIDErrorShown && this.FirstNameErrorShown
                 && this.LastNameErrorShown && this.UserTypeIDErrorShown && this.PrivateAnswerErrorShown);
+        }
+
+        public void EmployeeQuestionsShownValidation()
+        {
+            if (this.userTypeID == 3)
+            {
+                employeeQuestionsShown = true;
+            }
+        }
+
+        public void EmployerQuestionsShownValidation()
+        {
+            if (this.userTypeID == 2)
+            {
+                employerQuestionsShown = true;
+            }
         }
 
         #endregion
