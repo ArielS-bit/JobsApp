@@ -371,7 +371,7 @@ namespace JobsApp.ViewModels
 
         #endregion
 
-        public User MyUser {get;set;}
+        public User MyUser { get; set; }
 
         public ICommand CountinueCommand => new Command(Continue);
         public ICommand SignUpCommand { get; set; }
@@ -391,9 +391,10 @@ namespace JobsApp.ViewModels
             this.pass = "";
             this.privateAnswer = "";
             SignUpCommand = new Command(SignUp, EnableBtnValidation);
+            enableBtn = false;
             //GetGenderCommand = new Command<string>((g)=>GenderInput(g));//sending a parameter additionly to the function
-            GetEmployeeInterests = new Command<string>((g)=>EmployeeInterests(g));//sending a parameter additionly to the function
-            GetEmployerInterests = new Command<string>((g)=>EmployerInterests(g));//sending a parameter additionly to the function
+            //GetEmployeeInterests = new Command<string>((g)=>EmployeeInterests(g));//sending a parameter additionly to the function
+            //GetEmployerInterests = new Command<string>((g)=>EmployerInterests(g));//sending a parameter additionly to the function
 
         }
 
