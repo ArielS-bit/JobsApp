@@ -46,8 +46,8 @@
                 <Label Text="Invalid date!" Style="{StaticResource InvalidWarning}" IsVisible="{Binding BdayErrorShown}"/>
 
 
-                <Button Text="CONTINUE!" IsEnabled="{Binding EnableBtn}" Command="{Binding CountinueCommand}" Margin="80,25,80,10" HeightRequest="45" CornerRadius="50" TextColor="#F1FAEE" BackgroundColor="#457B9D" />
-
+                <Button Text="CONTINUE!" IsEnabled="False" Command="{Binding CountinueCommand}" Margin="80,25,80,10" HeightRequest="45" CornerRadius="50" TextColor="#F1FAEE" BackgroundColor="#457B9D" />
+                <Button IsEnabled="False" BackgroundColor="Blue"/>
 
 
             </StackLayout>

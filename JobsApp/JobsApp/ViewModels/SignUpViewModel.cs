@@ -392,10 +392,17 @@ namespace JobsApp.ViewModels
             this.privateAnswer = "";
             SignUpCommand = new Command(SignUp, EnableBtnValidation);
             enableBtn = false;
+
+            Push += NavigateToPage;
             //GetGenderCommand = new Command<string>((g)=>GenderInput(g));//sending a parameter additionly to the function
             //GetEmployeeInterests = new Command<string>((g)=>EmployeeInterests(g));//sending a parameter additionly to the function
             //GetEmployerInterests = new Command<string>((g)=>EmployerInterests(g));//sending a parameter additionly to the function
 
+        }
+
+        private async void NavigateToPage(Page obj)
+        {
+            await ((App)Application.Current).MainPage.Navigation.PushAsync(obj);
         }
 
         public async void Continue()
