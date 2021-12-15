@@ -28,7 +28,7 @@ namespace JobsApp.ViewModels
             {
                 firstName = value;
                 FirstNameValidation();
-                ((Command)CountinueCommand).ChangeCanExecute();
+                CountinueCommand.ChangeCanExecute();
                 OnPropertyChanged("FirstName");
             }
         }
@@ -54,7 +54,7 @@ namespace JobsApp.ViewModels
             {
                 lastName = value;
                 LastNameValidation();
-                ((Command)CountinueCommand).ChangeCanExecute();
+                CountinueCommand.ChangeCanExecute();
                 OnPropertyChanged("LastName");
             }
         }
@@ -80,7 +80,7 @@ namespace JobsApp.ViewModels
             {
                 gender = value;
                 GenderValidation();
-                ((Command)CountinueCommand).ChangeCanExecute();
+                CountinueCommand.ChangeCanExecute();
                 OnPropertyChanged("Gender");
             }
         }
@@ -107,7 +107,7 @@ namespace JobsApp.ViewModels
             {
                 bday = value;
                 BdayValidation();
-                ((Command)CountinueCommand).ChangeCanExecute();
+                CountinueCommand.ChangeCanExecute();
                 OnPropertyChanged("Bday");
             }
         }
@@ -346,12 +346,7 @@ namespace JobsApp.ViewModels
 
         }
 
-        public bool EnableBtnValidation()
-        {
-            return (this.EmailErrorShown && this.PassErrorShown && this.NicknameErrorShown && this.BdayErrorShown && this.FirstNameErrorShown
-                && this.LastNameErrorShown && this.GenderErrorShown && this.UserTypeIDErrorShown && this.FirstNameErrorShown
-                && this.LastNameErrorShown && this.UserTypeIDErrorShown && this.PrivateAnswerErrorShown);
-        }
+        
 
         public void EmployeeQuestionsShownValidation()
         {
@@ -373,7 +368,7 @@ namespace JobsApp.ViewModels
 
         public User MyUser { get; set; }
 
-        public ICommand CountinueCommand => new Command(Continue);
+        public Command CountinueCommand { get; }
         public ICommand SignUpCommand { get; set; }
         //public Command<string> GetGenderCommand { get; set; }
         public Command<string> GetEmployeeInterests { get; set; }
@@ -390,7 +385,9 @@ namespace JobsApp.ViewModels
             this.bday = DateTime.Today;
             this.pass = "";
             this.privateAnswer = "";
-            SignUpCommand = new Command(SignUp, EnableBtnValidation);
+
+            SignUpCommand = new Command(SignUp, IsSignUpEnabled);
+            CountinueCommand = new Command(Continue, IsContinueEnabled);
             enableBtn = false;
 
             Push += NavigateToPage;
@@ -415,6 +412,16 @@ namespace JobsApp.ViewModels
             Push?.Invoke(new UserCredentialsScreen() { BindingContext = this });
 
           
+        }
+
+        private bool IsContinueEnabled()
+        {
+            return !(BdayErrorShown || FirstNameErrorShown || GenderErrorShown || LastNameErrorShown);
+        }
+
+        private bool IsSignUpEnabled()
+        {
+            return !(PrivateAnswerErrorShown || NicknameErrorShown || PassErrorShown || UserTypeIDErrorShown || EmailErrorShown);
         }
 
         public async void SignUp()
@@ -451,10 +458,6 @@ namespace JobsApp.ViewModels
             //Adding to employer list 
         }
 
-        //public async void GenderInput(string g)
-        //{
-        //    this.gender = g;
-
-        //}
+        
     }
 }
