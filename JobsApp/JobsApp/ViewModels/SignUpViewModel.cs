@@ -421,7 +421,7 @@ namespace JobsApp.ViewModels
 
         private bool IsSignUpEnabled()
         {
-            return !(PrivateAnswerErrorShown || NicknameErrorShown || PassErrorShown || UserTypeIDErrorShown || EmailErrorShown);
+            return PrivateAnswerErrorShown && NicknameErrorShown && PassErrorShown && UserTypeIDErrorShown && EmailErrorShown;
         }
 
         public async void SignUp()
