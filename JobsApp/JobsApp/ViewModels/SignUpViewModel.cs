@@ -447,7 +447,7 @@ namespace JobsApp.ViewModels
             
             JobsAPIProxy proxy = JobsAPIProxy.CreateProxy();
 
-            User MyUser = new User() { FirstName = firstName, LastName = lastName, Birthday = bday, Email = email, Gender = gender, Nickname = nickname, Pass = pass, PrivateAnswer = privateAnswer };  
+            User MyUser = new User() { FirstName = firstName, LastName = lastName, Birthday = bday , UserTypeId=userTypeID, Email = email, Gender = gender, Nickname = nickname, Pass = pass, PrivateAnswer = privateAnswer };  
             User u = await proxy.SignUpAsync(MyUser);
 
             if (u == null)
@@ -462,7 +462,7 @@ namespace JobsApp.ViewModels
                 Push?.Invoke(new FeedScreen());
             }
 
-            Push?.Invoke(new FeedScreen());
+            //Push?.Invoke(new FeedScreen());
 
         }
 
