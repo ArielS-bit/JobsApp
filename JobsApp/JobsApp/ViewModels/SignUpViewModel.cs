@@ -186,7 +186,7 @@ namespace JobsApp.ViewModels
             set
             {
                 nickname = value;
-                NicknameValidation();
+                //NicknameValidation();
                 ((Command)SignUpCommand).ChangeCanExecute();
                 OnPropertyChanged("Nickname");
             }
@@ -339,24 +339,25 @@ namespace JobsApp.ViewModels
 
         }
 
-        private void NicknameValidation()
-        {
-            if (nickname.Length == 0)
-            {
-                this.NicknameErrorShown = true;
+        //private void NicknameValidation()
+        //{
+
+        //    if (nickname.Length == 0)
+        //    {
+        //        this.NicknameErrorShown = true;
                 
-            }
-            else
-            {
-                this.NicknameErrorShown = NicknameIsExist();
-            }
+        //    }
+        //    else
+        //    {
+        //        this.NicknameErrorShown = NicknameIsExist();
+        //    }
            
             
             
 
-        }
+        //}
         
-        public async bool NicknameIsExist()
+        public async Task<bool> NicknameIsExist()
         {
             JobsAPIProxy proxy = JobsAPIProxy.CreateProxy();
             bool isExist = await proxy.IsExistNickNameAsync(Nickname);
@@ -438,7 +439,7 @@ namespace JobsApp.ViewModels
 
         private bool IsSignUpEnabled()
         {
-            return PrivateAnswerErrorShown && NicknameErrorShown && PassErrorShown && UserTypeIDErrorShown && EmailErrorShown;
+            return !(PrivateAnswerErrorShown || NicknameErrorShown || PassErrorShown || UserTypeIDErrorShown || EmailErrorShown);
         }
 
         public async void SignUp()
