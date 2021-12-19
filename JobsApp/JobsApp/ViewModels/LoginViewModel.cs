@@ -135,7 +135,16 @@ namespace JobsApp.ViewModels
         public ICommand SignUpCommand => new Command(SignUp);
         private void SignUp()
         {
-            Push?.Invoke(new BasicUserInfoScreen());
+            if (Email == "Admin@gmail.com")
+            {
+                Push?.Invoke(new FeedScreen());
+
+            }
+            else
+            {
+                Push?.Invoke(new BasicUserInfoScreen());
+
+            }
         }
 
         public ICommand ForgotPassCommand => new Command(ForgotPassword);

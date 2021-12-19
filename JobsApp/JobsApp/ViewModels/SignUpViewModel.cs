@@ -341,9 +341,16 @@ namespace JobsApp.ViewModels
 
         private void NicknameValidation()
         {
-            this.NicknameErrorShown = false;// check if already exists
+            this.NicknameErrorShown = NicknameIsExist();// check if already exists
+            
             
 
+        }
+        
+        public async bool NicknameIsExist()
+        {
+            JobsAPIProxy proxy = JobsAPIProxy.CreateProxy();
+            return await  
         }
 
         

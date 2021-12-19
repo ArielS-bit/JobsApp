@@ -177,6 +177,11 @@ namespace JobsApp.Services
             }
         }
 
+        public async Task<bool> IsExistAsync(string nickname)
+        {
+
+        }
+
     }
 }
 
