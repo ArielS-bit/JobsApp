@@ -322,7 +322,7 @@ namespace JobsApp.ViewModels
         }
         private void BdayValidation()
         {
-            this.BdayErrorShown = (Bday == DateTime.Now || bday.Year>2011);
+            this.BdayErrorShown = Bday.Year > 2011;
 
         }
 
@@ -400,7 +400,8 @@ namespace JobsApp.ViewModels
             this.nickname = "";
             this.email = "";
             this.gender = "";
-            this.bday = DateTime.Today;
+            this.bday = DateTime.Now;
+            BdayValidation();
             this.pass = "";
             this.privateAnswer = "";
 
@@ -423,13 +424,9 @@ namespace JobsApp.ViewModels
         public async void Continue()
         {
 
-            if (gender.Length == 0) 
-            {
-                this.genderErrorShown = true;
-            }
+            GenderValidation();
             Push?.Invoke(new UserCredentialsScreen() { BindingContext = this });
 
-          
         }
 
         private bool IsContinueEnabled()
