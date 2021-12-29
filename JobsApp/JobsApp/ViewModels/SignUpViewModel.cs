@@ -135,7 +135,7 @@ namespace JobsApp.ViewModels
             {
                 email = value;
                 EmailVaidation();
-                ((Command)SignUpCommand).ChangeCanExecute();
+                SignUpCommand.ChangeCanExecute();
                 OnPropertyChanged("Email");
             }
         }
@@ -161,7 +161,7 @@ namespace JobsApp.ViewModels
             {
                 pass = value;
                 PassValidation();
-                ((Command)SignUpCommand).ChangeCanExecute();
+                SignUpCommand.ChangeCanExecute();
                 OnPropertyChanged("Pass");
             }
         }
@@ -186,8 +186,8 @@ namespace JobsApp.ViewModels
             set
             {
                 nickname = value;
-                //NicknameValidation();
-                ((Command)SignUpCommand).ChangeCanExecute();
+                NicknameValidation();
+               SignUpCommand.ChangeCanExecute();
                 OnPropertyChanged("Nickname");
             }
         }
@@ -211,7 +211,7 @@ namespace JobsApp.ViewModels
             {
                 userTypeID = value;
                 UserTypeIDValidation();
-                ((Command)SignUpCommand).ChangeCanExecute();
+               SignUpCommand.ChangeCanExecute();
                 OnPropertyChanged("UserTypeID");
             }
         }
@@ -236,7 +236,7 @@ namespace JobsApp.ViewModels
             {
                 privateAnswer = value;
                 PrivateAnswerValidation();
-                ((Command)SignUpCommand).ChangeCanExecute();
+               SignUpCommand.ChangeCanExecute();
                 OnPropertyChanged("PrivateAnswer");
             }
         }
@@ -339,24 +339,23 @@ namespace JobsApp.ViewModels
 
         }
 
-        //private void NicknameValidation()
-        //{
+        private async void NicknameValidation()
+        {
 
-        //    if (nickname.Length == 0)
-        //    {
-        //        this.NicknameErrorShown = true;
-                
-        //    }
-        //    else
-        //    {
-        //        this.NicknameErrorShown = NicknameIsExist();
-        //    }
-           
-            
-            
+            if (nickname.Length == 0 || nickname.Contains(' '))
+            {
+                this.NicknameErrorShown = true;
 
-        //}
-        
+            }
+            else
+            {
+                this.NicknameErrorShown = await NicknameIsExist();
+            }
+
+
+
+        }
+
         public async Task<bool> NicknameIsExist()
         {
             JobsAPIProxy proxy = JobsAPIProxy.CreateProxy();
@@ -421,7 +420,7 @@ namespace JobsApp.ViewModels
             await ((App)Application.Current).MainPage.Navigation.PushAsync(obj);
         }
 
-        public async void Continue()
+        public void Continue()
         {
 
             GenderValidation();
@@ -463,15 +462,15 @@ namespace JobsApp.ViewModels
 
         }
 
-        public async void EmployeeInterests(string profession)
-        {
-            //Adding to employee list 
-        }
+        //public async void EmployeeInterests(string profession)
+        //{
+        //    //Adding to employee list 
+        //}
 
-        public async void EmployerInterests(string profession)
-        {
-            //Adding to employer list 
-        }
+        //public async void EmployerInterests(string profession)
+        //{
+        //    //Adding to employer list 
+        //}
 
         
     }

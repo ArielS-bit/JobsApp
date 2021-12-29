@@ -41,7 +41,7 @@
                 <Label Text="*Must enter your gender" IsVisible="{Binding GenderErrorShown}" Style="{StaticResource InvalidWarning}"/>
 
 
-                <Label Text=" When's your birthday?" Margin="0,30,0,0"/>
+                <Label Text="When's your birthday?" Margin="0,30,0,0"/>
                 <DatePicker Margin="100,10,170,0" Date="{Binding Bday}"/>
                 <Label Text="Invalid date!" Style="{StaticResource InvalidWarning}" IsVisible="{Binding BdayErrorShown}"/>
 
