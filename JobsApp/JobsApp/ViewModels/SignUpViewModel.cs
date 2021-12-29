@@ -387,7 +387,7 @@ namespace JobsApp.ViewModels
         public User MyUser { get; set; }
 
         public Command CountinueCommand { get; }
-        public ICommand SignUpCommand { get; set; }
+        public Command SignUpCommand { get; }
         //public Command<string> GetGenderCommand { get; set; }
         public Command<string> GetEmployeeInterests { get; set; }
         public Command<string> GetEmployerInterests { get; set; }
