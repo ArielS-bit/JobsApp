@@ -181,7 +181,7 @@ namespace JobsApp.Services
         {
             try
             {
-                HttpResponseMessage response = await this.client.GetAsync($"{this.baseUri}/IsNickNameExist?nickname='{nickname}'");
+                HttpResponseMessage response = await this.client.GetAsync($"{this.baseUri}/IsNickNameExist?nickname={nickname}");
                 if (response.IsSuccessStatusCode)
                 {
                     JsonSerializerOptions options = new JsonSerializerOptions

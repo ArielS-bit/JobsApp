@@ -187,7 +187,7 @@ namespace JobsApp.ViewModels
             {
                 nickname = value;
                 NicknameValidation();
-               SignUpCommand.ChangeCanExecute();
+                SignUpCommand.ChangeCanExecute();
                 OnPropertyChanged("Nickname");
             }
         }
@@ -403,6 +403,15 @@ namespace JobsApp.ViewModels
             BdayValidation();
             this.pass = "";
             this.privateAnswer = "";
+            this.bdayErrorShown = false;
+            this.emailErrorShown = false;
+            this.firstNameErrorShown = false;
+            this.genderErrorShown = false;
+            this.lastNameErrorShown = false;
+            this.nicknameErrorShown = false;
+            this.passErrorShown = false;
+            this.privateAnswerErrorShown = false;
+            
 
             SignUpCommand = new Command(SignUp, IsSignUpEnabled);
             CountinueCommand = new Command(Continue, IsContinueEnabled);
