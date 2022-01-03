@@ -241,13 +241,9 @@ namespace JobsApp.ViewModels
 
                 OnPropertyChanged("PrivateAnswerErrorShown");
             }
-        }
-
-        public bool IsFirstRun
-        {
-
-        }
-
+        } 
+        
+      
         private bool enableBtn;
         public bool EnableBtn
         {
@@ -318,11 +314,25 @@ namespace JobsApp.ViewModels
 
         }
 
-        private void EmailVaidation()
+        private async void EmailVaidation()
         {
-            this.EmailErrorShown = (string.IsNullOrEmpty(Email) || !(Email.Contains('@') && email.Contains('.')));
-            //this.EmailErrorShown = Check it's not already exist and change the label accordng it 
+           if(string.IsNullOrEmpty(Email) || !(Email.Contains('@') && email.Contains('.')))
+            {
+                this.EmailErrorShown = true;
+            }
+            else //check if it already exists
+            {
+                this.EmailErrorShown = await EmailIsExist();
+            }
+            
 
+        }
+
+        public async Task<bool> EmailIsExist()
+        {
+            JobsAPIProxy proxy = JobsAPIProxy.CreateProxy();
+            bool isExist = await proxy.IsExistEmailAsync(Email);
+            return isExist;
         }
 
         private void PassValidation()
@@ -396,6 +406,7 @@ namespace JobsApp.ViewModels
             BdayValidation();
             this.pass = "";
             this.privateAnswer = "";
+           
             this.emailErrorShown = false;
             this.firstNameErrorShown = false;
             
@@ -427,7 +438,7 @@ namespace JobsApp.ViewModels
             this.nicknameErrorShown = false;
             this.passErrorShown = false;
             this.privateAnswerErrorShown = false;
-
+            
         }
 
         private async void NavigateToPage(Page obj)
@@ -445,12 +456,23 @@ namespace JobsApp.ViewModels
 
         private bool IsContinueEnabled()
         {
-            return !(BdayErrorShown || FirstNameErrorShown || LastNameErrorShown);
+            bool b = !(BdayErrorShown || FirstNameErrorShown || LastNameErrorShown);
+            if (this.FirstName.Length==0 || this.LastName.Length == 0)//מכסה מצב ראשוני 
+            {
+                b = false;
+            }
+            return b;
         }
 
-        private bool IsSignUpEnabled()
+        private bool IsSignUpEnabled()//change to a better algorithem that covers all situations
         {
-            return  || !(PrivateAnswerErrorShown || NicknameErrorShown || PassErrorShown || UserTypeIDErrorShown || EmailErrorShown);
+           bool b= !(PrivateAnswerErrorShown || NicknameErrorShown || PassErrorShown || UserTypeIDErrorShown || EmailErrorShown);
+            if (this.userTypeID==default)
+            {
+                b = false;
+            }
+            return b;
+        
         }
 
         public async void SignUp()
@@ -458,7 +480,7 @@ namespace JobsApp.ViewModels
             
             JobsAPIProxy proxy = JobsAPIProxy.CreateProxy();
 
-            User MyUser = new User() { FirstName = firstName, LastName = lastName, Birthday = bday , UserTypeId=userTypeID, Email = email, Gender = gender, Nickname = nickname, Pass = pass, PrivateAnswer = privateAnswer };  
+            User MyUser = new User() {FirstName = firstName, LastName = lastName, Birthday = bday, UserTypeId=userTypeID, Email = email, Gender = gender, Nickname = nickname, Pass = pass, PrivateAnswer = privateAnswer };  
             User u = await proxy.SignUpAsync(MyUser);
 
             if (u == null)
