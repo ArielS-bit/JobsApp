@@ -243,6 +243,11 @@ namespace JobsApp.ViewModels
             }
         }
 
+        public bool IsFirstRun
+        {
+
+        }
+
         private bool enableBtn;
         public bool EnableBtn
         {
@@ -423,7 +428,6 @@ namespace JobsApp.ViewModels
             this.passErrorShown = false;
             this.privateAnswerErrorShown = false;
 
-
         }
 
         private async void NavigateToPage(Page obj)
@@ -446,7 +450,7 @@ namespace JobsApp.ViewModels
 
         private bool IsSignUpEnabled()
         {
-            return !(PrivateAnswerErrorShown || NicknameErrorShown || PassErrorShown || UserTypeIDErrorShown || EmailErrorShown);
+            return  || !(PrivateAnswerErrorShown || NicknameErrorShown || PassErrorShown || UserTypeIDErrorShown || EmailErrorShown);
         }
 
         public async void SignUp()
