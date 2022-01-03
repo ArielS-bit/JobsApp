@@ -79,23 +79,12 @@ namespace JobsApp.ViewModels
             set
             {
                 gender = value;
-                GenderValidation();
+                
                 CountinueCommand.ChangeCanExecute();
                 OnPropertyChanged("Gender");
             }
         }
 
-        private bool genderErrorShown;
-
-        public bool GenderErrorShown
-        {
-            get => genderErrorShown;
-            set
-            {
-                genderErrorShown = value;
-                OnPropertyChanged("GenderErrorShown");
-            }
-        }
 
 
         private DateTime bday;
@@ -236,7 +225,7 @@ namespace JobsApp.ViewModels
             {
                 privateAnswer = value;
                 PrivateAnswerValidation();
-               SignUpCommand.ChangeCanExecute();
+                SignUpCommand.ChangeCanExecute();
                 OnPropertyChanged("PrivateAnswer");
             }
         }
@@ -249,6 +238,7 @@ namespace JobsApp.ViewModels
             set
             {
                 privateAnswerErrorShown = value;
+
                 OnPropertyChanged("PrivateAnswerErrorShown");
             }
         }
@@ -306,10 +296,7 @@ namespace JobsApp.ViewModels
             this.LastNameErrorShown = string.IsNullOrEmpty(LastName);
         }
 
-        private void GenderValidation()
-        {
-            this.GenderErrorShown = string.IsNullOrEmpty(Gender);
-        }
+        
         private void UserTypeIDValidation()
         {
             if (userTypeID == 0)
@@ -399,19 +386,21 @@ namespace JobsApp.ViewModels
             this.nickname = "";
             this.email = "";
             this.gender = "";
-            this.bday = DateTime.Now;
+            this.bday = new DateTime(2010,1,3);
+           
             BdayValidation();
             this.pass = "";
             this.privateAnswer = "";
-            this.bdayErrorShown = false;
             this.emailErrorShown = false;
             this.firstNameErrorShown = false;
-            this.genderErrorShown = false;
+            
+            this.bdayErrorShown = false;
             this.lastNameErrorShown = false;
             this.nicknameErrorShown = false;
             this.passErrorShown = false;
             this.privateAnswerErrorShown = false;
-            
+
+
 
             SignUpCommand = new Command(SignUp, IsSignUpEnabled);
             CountinueCommand = new Command(Continue, IsContinueEnabled);
@@ -424,6 +413,19 @@ namespace JobsApp.ViewModels
 
         }
 
+        public void ChangeBools()
+        {
+            this.emailErrorShown = false;
+            this.firstNameErrorShown = false;
+            this.bdayErrorShown = false;
+            this.lastNameErrorShown = false;
+            this.nicknameErrorShown = false;
+            this.passErrorShown = false;
+            this.privateAnswerErrorShown = false;
+
+
+        }
+
         private async void NavigateToPage(Page obj)
         {
             await ((App)Application.Current).MainPage.Navigation.PushAsync(obj);
@@ -432,14 +434,14 @@ namespace JobsApp.ViewModels
         public void Continue()
         {
 
-            GenderValidation();
+            
             Push?.Invoke(new UserCredentialsScreen() { BindingContext = this });
 
         }
 
         private bool IsContinueEnabled()
         {
-            return !(BdayErrorShown || FirstNameErrorShown || GenderErrorShown || LastNameErrorShown);
+            return !(BdayErrorShown || FirstNameErrorShown || LastNameErrorShown);
         }
 
         private bool IsSignUpEnabled()

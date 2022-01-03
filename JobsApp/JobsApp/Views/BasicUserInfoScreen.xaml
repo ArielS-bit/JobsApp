@@ -36,10 +36,9 @@
                 <Label Text="Gender" Margin="0,30,0,0"/>
 
                 <RadioButton x:Name="femaleBtn" GroupName="Genders" FontSize="16" Content="Female" Value="Female"/>
-                <RadioButton x:Name="maleBtn" GroupName="Genders" FontSize="16" Content="Male" Value="Male"/>
+                <RadioButton x:Name="maleBtn" GroupName="Genders" FontSize="16" Content="Male" Value="Male" IsChecked="True"/>
                 <RadioButton x:Name="otherBtn" GroupName="Genders" FontSize="16" Content="Other" Value="Other"/>
-                <Label Text="*Must enter your gender" IsVisible="{Binding GenderErrorShown}" Style="{StaticResource InvalidWarning}"/>
-
+               
 
                 <Label Text="When's your birthday?" Margin="0,30,0,0"/>
                 <DatePicker Margin="100,10,170,0" Date="{Binding Bday}"/>

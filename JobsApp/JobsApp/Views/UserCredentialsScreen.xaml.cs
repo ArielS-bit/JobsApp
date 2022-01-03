@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using JobsApp.ViewModels;
 
 namespace JobsApp.Views
 {
@@ -15,6 +16,10 @@ namespace JobsApp.Views
         public UserCredentialsScreen()
         {
             InitializeComponent();
+            
+            SignUpViewModel vm = new SignUpViewModel();
+            this.BindingContext = vm;
+            vm.ChangeBools();
         }
     }
 }
