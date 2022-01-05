@@ -16,9 +16,7 @@ namespace JobsApp.Views
         public BasicUserInfoScreen()
         {
             InitializeComponent();
-            SignUpViewModel vm = new SignUpViewModel();
-            this.BindingContext = vm;
-            vm.ChangeBools();
+          
            
 
         }

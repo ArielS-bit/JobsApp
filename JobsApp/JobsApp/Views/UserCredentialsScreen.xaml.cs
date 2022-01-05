@@ -17,9 +17,9 @@ namespace JobsApp.Views
         {
             InitializeComponent();
             
-            SignUpViewModel vm = new SignUpViewModel();
-            this.BindingContext = vm;
-            vm.ChangeBools();
+           
+            
+            
         }
     }
 }

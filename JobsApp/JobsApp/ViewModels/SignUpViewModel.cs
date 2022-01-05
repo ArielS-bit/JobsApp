@@ -26,10 +26,13 @@ namespace JobsApp.ViewModels
             get { return firstName; }
             set
             {
-                firstName = value;
-                FirstNameValidation();
-                CountinueCommand.ChangeCanExecute();
-                OnPropertyChanged("FirstName");
+                if (firstName != value)
+                {
+                    firstName = value;
+                    FirstNameValidation();
+                    CountinueCommand.ChangeCanExecute();
+                    OnPropertyChanged("FirstName");
+                }
             }
         }
 
@@ -40,6 +43,7 @@ namespace JobsApp.ViewModels
             get => firstNameErrorShown;
             set
             {
+                
                 firstNameErrorShown = value;
                 OnPropertyChanged("FirstNameErrorShown");
             }
@@ -52,10 +56,13 @@ namespace JobsApp.ViewModels
             get { return lastName; }
             set
             {
-                lastName = value;
-                LastNameValidation();
-                CountinueCommand.ChangeCanExecute();
-                OnPropertyChanged("LastName");
+                if (lastName != value)
+                {
+                    lastName = value;
+                    LastNameValidation();
+                    CountinueCommand.ChangeCanExecute();
+                    OnPropertyChanged("LastName");
+                }
             }
         }
 
@@ -122,10 +129,15 @@ namespace JobsApp.ViewModels
             get { return email; }
             set
             {
-                email = value;
-                EmailVaidation();
-                SignUpCommand.ChangeCanExecute();
-                OnPropertyChanged("Email");
+                if (email != value)
+                {
+
+
+                    email = value;
+                    EmailVaidation();
+                    SignUpCommand.ChangeCanExecute();
+                    OnPropertyChanged("Email");
+                }
             }
         }
 
@@ -148,13 +160,16 @@ namespace JobsApp.ViewModels
             get { return pass; }
             set
             {
-                pass = value;
-                PassValidation();
-                SignUpCommand.ChangeCanExecute();
-                OnPropertyChanged("Pass");
+                if (pass != value)
+                {
+                    pass = value;
+                    PassValidation();
+                    SignUpCommand.ChangeCanExecute();
+                    OnPropertyChanged("Pass");
+
+                }
             }
         }
-
         private bool passErrorShown;
 
         public bool PassErrorShown
@@ -174,10 +189,16 @@ namespace JobsApp.ViewModels
             get { return nickname; }
             set
             {
-                nickname = value;
-                NicknameValidation();
-                SignUpCommand.ChangeCanExecute();
-                OnPropertyChanged("Nickname");
+                if (nickname != value)
+                {
+
+
+                    nickname = value;
+                    NicknameValidation();
+                    SignUpCommand.ChangeCanExecute();
+                    OnPropertyChanged("Nickname");
+                }
+
             }
         }
         private bool nicknameErrorShown;
@@ -396,31 +417,32 @@ namespace JobsApp.ViewModels
 
         public SignUpViewModel()
         {
-            this.firstName = "";
-            this.lastName = "";
-            this.nickname = "";
-            this.email = "";
-            this.gender = "";
-            this.bday = new DateTime(2010,1,3);
-           
-            BdayValidation();
-            this.pass = "";
-            this.privateAnswer = "";
-           
-            this.emailErrorShown = false;
-            this.firstNameErrorShown = false;
-            
-            this.bdayErrorShown = false;
-            this.lastNameErrorShown = false;
-            this.nicknameErrorShown = false;
-            this.passErrorShown = false;
-            this.privateAnswerErrorShown = false;
-
-
-
             SignUpCommand = new Command(SignUp, IsSignUpEnabled);
             CountinueCommand = new Command(Continue, IsContinueEnabled);
-            enableBtn = false;
+            //this.FirstName = "";
+            //this.LastName = "";
+          //  this.Nickname = "";
+          //  this.Email = "";
+            this.Gender = "";
+            this.Bday = new DateTime(2010,1,3);
+           
+            BdayValidation();
+            this.Pass = "";
+            this.PrivateAnswer = "";
+           
+            this.EmailErrorShown = false;
+            this.FirstNameErrorShown = false;
+            
+            this.BdayErrorShown = false;
+            this.LastNameErrorShown = false;
+            this.NicknameErrorShown = false;
+            this.PassErrorShown = false;
+            this.PrivateAnswerErrorShown = false;
+
+
+
+            
+            //enableBtn = false;
 
             Push += NavigateToPage;
             //GetGenderCommand = new Command<string>((g)=>GenderInput(g));//sending a parameter additionly to the function
@@ -456,22 +478,15 @@ namespace JobsApp.ViewModels
 
         private bool IsContinueEnabled()
         {
-            bool b = !(BdayErrorShown || FirstNameErrorShown || LastNameErrorShown);
-            if (this.FirstName.Length==0 || this.LastName.Length == 0)//מכסה מצב ראשוני 
-            {
-                b = false;
-            }
-            return b;
+            return !(BdayErrorShown || FirstNameErrorShown || LastNameErrorShown);
+            
+            
         }
 
         private bool IsSignUpEnabled()//change to a better algorithem that covers all situations
         {
-           bool b= !(PrivateAnswerErrorShown || NicknameErrorShown || PassErrorShown || UserTypeIDErrorShown || EmailErrorShown);
-            if (this.userTypeID==default)
-            {
-                b = false;
-            }
-            return b;
+           return !(PrivateAnswerErrorShown || NicknameErrorShown || PassErrorShown || UserTypeIDErrorShown || EmailErrorShown);
+           
         
         }
 
