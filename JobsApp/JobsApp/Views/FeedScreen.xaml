@@ -4,7 +4,7 @@
              x:Class="JobsApp.Views.FeedScreen">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Feed here!"
+            <Label Text="Welcome to fEED!"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
         </StackLayout>
