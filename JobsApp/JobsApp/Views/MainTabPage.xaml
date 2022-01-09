@@ -5,23 +5,47 @@
             NavigationPage.HasNavigationBar="False"
             xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
             android:TabbedPage.ToolbarPlacement="Bottom"
-            android:TabbedPage.BarItemColor="Blue"
-            android:TabbedPage.BarSelectedItemColor="Red">
+            android:TabbedPage.BarItemColor="#5D737E"
+            android:TabbedPage.IsSwipePagingEnabled="True">
+
+<!--Pages can be added as references or inline-->
+<!--android:TabbedPage.BarSelectedItemColor="Red"-->
+
+<ContentPage Title="Feed" IconImageSource="home.png">
+
+    <Label Text="Feed" />
+
+        <!--SearchCommand="{Binding PerformSearch}" 
+           SearchCommandParameter="{Binding Text, Source={x:Reference searchBar}}"-->
+
+    </ContentPage>
+<ContentPage Title="Serach" >
+        <SearchBar Placeholder="Search for people...." HorizontalTextAlignment="Center"
+           FontSize="Medium"
+           FontAttributes="Italic" CancelButtonColor="Red">
+            <ListView>
+                <ListView.ItemsSource>
+                    <x:arr
+                    <x:String>1</x:String>
+                    <x:String>2</x:String>
+                    <x:String>3</x:String>
+                    <x:String>4</x:String>
+                    <x:String>5</x:String>
+                    <x:String>6</x:String>
+                    <x:String>7</x:String>
+                    <x:String>8</x:String>
+
+
+            </ListView>
+            <!--<ListView ItemsSource="{Binding SearchResults}"/>-->
+        </SearchBar>
+
+</ContentPage>
+<ContentPage Title="Profile" >
+    <Label Text="Hi ....."/>
     
-  <!--Pages can be added as references or inline-->
+    
 
-    <ContentPage Title="Feed" IconImageSource="home.png">
-
-        <Label Text="Feed" />
-        
-
-    </ContentPage>
-    <ContentPage Title="Serach" >
-        <Label Text="Serach"/>
-
-    </ContentPage>
-    <ContentPage Title="Profile" >
-        <Label Text="Profile"/>
-
-    </ContentPage>
+</ContentPage>
+    
 </TabbedPage>
