@@ -4,7 +4,9 @@
              x:Class="JobsApp.Views.ProfileScreen">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
+            <Label Text="Welcome here!!!!!!!!!!!"
+              FontSize="35" />
+            <Label Text="Siberian Husky the best" FontSize="35" FontFamily="RegularFont"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
         </StackLayout>

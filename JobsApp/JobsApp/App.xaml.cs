@@ -25,7 +25,7 @@ namespace JobsApp
             InitializeComponent();
             CurrentUser = null;
            
-            MainPage = new NavigationPage(new MainTabPage());
+            MainPage = new NavigationPage(new FeedScreen());
             
         }
 
