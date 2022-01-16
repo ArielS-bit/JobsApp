@@ -1,29 +1,54 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:JobsApp.Views" BackgroundColor="#F1FAEE"
              x:Class="JobsApp.Views.MainTabPage"
             NavigationPage.HasNavigationBar="False"
             xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
             android:TabbedPage.ToolbarPlacement="Bottom"
             android:TabbedPage.BarItemColor="#5D737E"
-            android:TabbedPage.IsSwipePagingEnabled="True">
+            android:TabbedPage.IsSwipePagingEnabled="True"
+            BarBackgroundColor="Black"
+            BarTextColor="White"
+            SelectedTabColor="Green"
+            UnselectedTabColor="Black">
 
+
+
+    <local:FeedScreen Title="Feed" IconImageSource="schedule.png"/>
+
+    <local:ExPage Title="Example"/>
+
+    <local:ProfileScreen Title="Profile" IconImageSource="settings.png"/>
+</TabbedPage>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
 <!--Pages can be added as references or inline-->
-<!--android:TabbedPage.BarSelectedItemColor="Red"-->
+<!--android:TabbedPage.BarSelectedItemColor="Red"--><!--
 
-<ContentPage Title="Feed" IconImageSource="home.png">
+<ContentPage Title="Feed" IconImageSource="">
 
     <Label Text="Feed" />
 
-        <!--SearchCommand="{Binding PerformSearch}" 
-           SearchCommandParameter="{Binding Text, Source={x:Reference searchBar}}"-->
+        --><!--SearchCommand="{Binding PerformSearch}" 
+           SearchCommandParameter="{Binding Text, Source={x:Reference searchBar}}"--><!--
 
     </ContentPage>
 <ContentPage Title="Serach" >
         <SearchBar Placeholder="Search for people...." HorizontalTextAlignment="Center"
            FontSize="Medium"
            FontAttributes="Italic" CancelButtonColor="Red">
-            <ListView>
+            --><!--<ListView>
                 <ListView.ItemsSource>
                     <x:arr
                     <x:String>1</x:String>
@@ -36,8 +61,8 @@
                     <x:String>8</x:String>
 
 
-            </ListView>
-            <!--<ListView ItemsSource="{Binding SearchResults}"/>-->
+            </ListView>-->
+            <!--<ListView ItemsSource="{Binding SearchResults}"/>--><!--
         </SearchBar>
 
 </ContentPage>
@@ -48,4 +73,4 @@
 
 </ContentPage>
     
-</TabbedPage>
+</TabbedPage>-->

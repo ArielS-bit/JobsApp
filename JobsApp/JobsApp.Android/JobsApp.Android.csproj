@@ -69,6 +69,11 @@
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
     <None Include="Properties\AndroidManifest.xml" />
+    <EmbeddedResource Include="Resources\Fonts\ZenKakuGothicAntique-Black.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\ZenKakuGothicAntique-Bold.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\ZenKakuGothicAntique-Light.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\ZenKakuGothicAntique-Medium.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\ZenKakuGothicAntique-Regular.ttf" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values\styles.xml" />
@@ -104,5 +109,6 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\home.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>
