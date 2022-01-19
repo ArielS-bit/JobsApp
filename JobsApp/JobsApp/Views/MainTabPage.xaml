@@ -6,20 +6,23 @@
             NavigationPage.HasNavigationBar="False"
             xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
             android:TabbedPage.ToolbarPlacement="Bottom"
-            android:TabbedPage.BarItemColor="#5D737E"
             android:TabbedPage.IsSwipePagingEnabled="True"
+    android:TabbedPage.BarItemColor="#5D737E"
             BarBackgroundColor="Black"
             BarTextColor="White"
             SelectedTabColor="Green"
-            UnselectedTabColor="Black">
+            UnselectedTabColor="Yellow">
+
+    
+    <local:FeedScreen Title="Feed" IconImageSource="HomeIcon.png"/>
+
+    <local:ExPage Title="Profile" IconImageSource="ProfileIcon.png"/>
+
+    <local:ProfileScreen Title="Notifications" IconImageSource="BellOffIcon.png"/>
+
+    <local:ExPage Title="Jobs" IconImageSource="JobsIcon.png"/>
 
 
-
-    <local:FeedScreen Title="Feed" IconImageSource="schedule.png"/>
-
-    <local:ExPage Title="Example"/>
-
-    <local:ProfileScreen Title="Profile" IconImageSource="settings.png"/>
 </TabbedPage>
         
         

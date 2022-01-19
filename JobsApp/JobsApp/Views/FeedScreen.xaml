@@ -5,6 +5,7 @@
     <ContentPage.Content>
        
             <StackLayout>
+            <Button Text="Profile" ImageSource="" Margin="300,10,10,10" HeightRequest="100" CornerRadius="50"></Button>
             <Label Text="Welcome to fEED!"/>
                 <Grid>
 

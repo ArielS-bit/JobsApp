@@ -1,7 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="JobsApp.Views.ProfileScreen">
+             x:Class="JobsApp.Views.ProfileScreen"
+             xmlns:local="clr-namespace:JobsApp.ViewModels">
+
+    <ContentPage.BindingContext>
+        <local:SignUpViewModel></local:SignUpViewModel>
+    </ContentPage.BindingContext>
+
     <ContentPage.Content>
         <StackLayout>
             <Label Text="Welcome here!!!!!!!!!!!"
@@ -9,6 +15,8 @@
             <Label Text="Siberian Husky the best" FontSize="35" FontFamily="RegularFont"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
+
+            <Button Command="{Binding}"></Button>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
