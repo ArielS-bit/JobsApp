@@ -42,6 +42,18 @@ namespace JobsApp.ViewModels
             }
         }
 
+        private string isAnswerValid;
+        public string IsAnswerValid
+        {
+            get { return isAnswerValid; }
+            set
+            {
+                isAnswerValid = value;
+                OnPropertyChanged("IsAnswerValid");
+            }
+        }
+
+
         private bool emailErrorShown;
 
         public bool EmailErrorShown
@@ -63,8 +75,9 @@ namespace JobsApp.ViewModels
 
         public LoginViewModel()
         {
-            email = "";
-            password = "";
+            Email = "";
+            Password = "";
+            IsAnswerValid = "";
 
         }
         public event Action<Page> Push;

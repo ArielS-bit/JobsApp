@@ -49,7 +49,7 @@
 
 
             <Entry Placeholder="Email" Text="{Binding Email}" Margin="0,30,0,10" HorizontalTextAlignment="Start" Style="{StaticResource LoginEntry}"/>
-        <Label Text="*Invalid email" TextColor="#E63946" IsVisible="{Binding EmailErrorShown}"/>
+            <Label Text="*Invalid email" TextColor="#E63946" IsVisible="{Binding EmailErrorShown}"/>
         <!--https://docs.microsoft.com/en-us/dotnet/desktop/wpf/data/how-to-implement-binding-validation?view=netframeworkdesktop-4.8-->
 
 
@@ -57,13 +57,14 @@
 <!--Add an eye and its functions-->
         <Image Source="OpenEyePass.png" HeightRequest="17" WidthRequest="17" IsVisible="false" Margin="320,-45,20,10"/>
         <Image Source="CloseEyePass.png" HeightRequest="17" WidthRequest="17" IsVisible="true" Margin="320,-45,20,10"/>
+            <Button x:Name="ForgotPassBtn" Text="Forgot password?!" Clicked="ForgotPassButton_Clicked" BackgroundColor="Transparent" TextColor="Black" Style="{StaticResource LoginButton}" Command="{Binding ForgotPassCommand}"/>
 
-        <CheckBox IsChecked="True" />
+            <CheckBox IsChecked="True" />
         <Label Text="Remember me" Margin="40,-32,0,0" TextColor="#457B9D"/>
 
         <!--Add functionality-->
         <!--Add isMouseOver/hover-->
-            <Button x:Name="ForgotPassBtn" Text="Forgot password?!" Clicked="ForgotPassButton_Clicked" BackgroundColor="Transparent" TextColor="Black" Style="{StaticResource LoginButton}" Command="{Binding ForgotPassCommand}"/>
+          
 
             <Button x:Name="LogInBtn" Padding="-20" Text="Continue" Style="{StaticResource LoginButton}" Margin="150,25,80,10" HeightRequest="45" CornerRadius="50" BackgroundColor="#457B9D" Command="{Binding LoginCommand}" />
 
