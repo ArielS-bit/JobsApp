@@ -83,24 +83,24 @@ namespace JobsApp.ViewModels
 
         }
 
-        public ICommand CheckEmailCommand => new Command(CheckEmailFunc);
-        public ICommand CheckPetNameFunc => new Command(CheckPetNameFunc);
+        //public ICommand CheckEmailCommand => new Command(CheckEmailFunc);
+        //public ICommand CheckPetNameFunc => new Command(CheckPetNameFunc);
 
 
-        private bool CheckEmailFunc()
-        {
-            JobsAPIProxy proxy = JobsAPIProxy.CreateProxy();
-            //bool IsEmailExist = proxy.IsEmailExist(Email);
+        //private bool CheckEmailFunc()
+        //{
+        //    JobsAPIProxy proxy = JobsAPIProxy.CreateProxy();
+        //    //bool IsEmailExist = proxy.IsEmailExistAsync(Email);
 
 
-        }
+        //}
         
-        private bool CheckPetNameFunc()
-        {
-            JobsAPIProxy proxy = JobsAPIProxy.CreateProxy();
-            //bool IsEmailExist = proxy.IsPetNameExist(Email);
+        //private bool CheckPetNameFunc()
+        //{
+        //    JobsAPIProxy proxy = JobsAPIProxy.CreateProxy();
+        //    //bool IsEmailExist = proxy.IsPetNameExist(Email);
 
 
-        }
+        //}
     }
 }
