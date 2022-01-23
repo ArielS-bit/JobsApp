@@ -238,7 +238,7 @@ namespace JobsApp.Services
         {
             try
             {
-                HttpResponseMessage response = await this.client.GetAsync($"{this.baseUri}/IsPetNameExist?email={email},petName={petName}");
+                HttpResponseMessage response = await this.client.GetAsync($"{this.baseUri}/IsPetNameExist?email={email}&petName={petName}");
                 if (response.IsSuccessStatusCode)
                 {
                     JsonSerializerOptions options = new JsonSerializerOptions
@@ -261,6 +261,64 @@ namespace JobsApp.Services
                 return false;
             }
         }
+
+        public async Task<User> GetUserAsync(string email)
+        {
+            try
+            {
+                HttpResponseMessage response = await this.client.GetAsync($"{this.baseUri}/GetUser?email={email}");
+                if (response.IsSuccessStatusCode)
+                {
+                    JsonSerializerOptions options = new JsonSerializerOptions
+                    {
+                        ReferenceHandler = ReferenceHandler.Preserve, //avoid reference loops!
+                        PropertyNameCaseInsensitive = true
+                    };
+                    string content = await response.Content.ReadAsStringAsync();
+                    User e = JsonSerializer.Deserialize<User>(content, options);
+                    return e;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return null;
+            }
+        }
+
+        public async Task<bool> ChangePassAsync(string email, string newPass)
+        {
+            try
+            {
+                HttpResponseMessage response = await this.client.GetAsync($"{this.baseUri}/ChangePass?email={email}&pass={newPass}");
+                if (response.IsSuccessStatusCode)
+                {
+                    JsonSerializerOptions options = new JsonSerializerOptions
+                    {
+                        ReferenceHandler = ReferenceHandler.Preserve, //avoid reference loops!
+                        PropertyNameCaseInsensitive = true
+                    };
+                    string content = await response.Content.ReadAsStringAsync();
+                    User e = JsonSerializer.Deserialize<User>(content, options);
+                    return e;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return null;
+            }
+        }
+
+
 
     }
 }

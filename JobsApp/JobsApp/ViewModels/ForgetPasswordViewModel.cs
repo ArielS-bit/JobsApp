@@ -175,14 +175,34 @@ namespace JobsApp.ViewModels
 
         }
 
-        private async void Submit()
+        private async void CheckPetNameFunc()
         {
             JobsAPIProxy proxy = JobsAPIProxy.CreateProxy();
-            User u = await proxy.ChangePassAsync(Email,NewPass);
-            u.
+            IsVisibleCorrectPetName = await proxy.IsPetNameExistAsync(email,PetName);
+            if (!IsVisibleCorrectEmail)
+            {
+                PetNameErrorShown = true;
+
+            }
+
+
+        }
+
+        private async bool SubmitPermission()
+        {
+            JobsAPIProxy proxy = JobsAPIProxy.CreateProxy();
+            User u = await proxy.GetUserAsync(Email);
+            //change password
+            await proxy.ChangePassAsync(Email,NewPass);
+
             ((App)App.Current).CurrentUser = u;
            
             Push?.Invoke(new MainTabPage());
+
+        }
+
+        private void Submit()
+        { 
 
         }
 
