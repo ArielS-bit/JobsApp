@@ -352,7 +352,7 @@ namespace JobsApp.ViewModels
         public async Task<bool> EmailIsExist()
         {
             JobsAPIProxy proxy = JobsAPIProxy.CreateProxy();
-            bool isExist = await proxy.IsExistEmailAsync(Email);
+            bool isExist = await proxy.IsEmailExistAsync(Email);
             return isExist;
         }
 
@@ -492,7 +492,6 @@ namespace JobsApp.ViewModels
 
         public async void SignUp()
         {
-            
             JobsAPIProxy proxy = JobsAPIProxy.CreateProxy();
 
             User MyUser = new User() {FirstName = firstName, LastName = lastName, Birthday = bday, UserTypeId=userTypeID, Email = email, Gender = gender, Nickname = nickname, Pass = pass, PrivateAnswer = privateAnswer };  

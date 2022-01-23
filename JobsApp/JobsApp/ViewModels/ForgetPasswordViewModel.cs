@@ -10,12 +10,27 @@ using JobsApp.Models;
 using Xamarin.Essentials;
 using System.Linq;
 using JobsApp.ViewModels;
+using JobsApp.Views;
 
 namespace JobsApp.ViewModels
 {
     class ForgetPasswordViewModel : ViewModelBase
     {
         #region Properties
+        private string email;
+
+        public string Email
+        {
+            get { return email; }
+
+            set
+            {
+                email = value;
+                OnPropertyChanged("Email");
+            }
+
+        }
+
         private string newPass;
 
         public string NewPass
@@ -72,6 +87,61 @@ namespace JobsApp.ViewModels
 
         }
 
+        private string emailError;
+
+        public string EmailError
+        {
+            get { return EmailError; }
+
+            set
+            {
+                emailError = value;
+                OnPropertyChanged("EmailError");
+            }
+
+        }
+        private bool emailErrorShown;
+
+        public bool EmailErrorShown
+        {
+            get { return EmailErrorShown; }
+
+            set
+            {
+                emailErrorShown = value;
+                OnPropertyChanged("EmailErrorShown");
+            }
+
+        }
+
+        private string petNameError;
+
+        public string PetNameError
+        {
+            get { return PetNameError; }
+
+            set
+            {
+                petNameError = value;
+                OnPropertyChanged("PetNameError");
+            }
+
+        }
+        private bool petNameErrorShown;
+
+        public bool PetNameErrorShown
+        {
+            get { return PetNameErrorShown; }
+
+            set
+            {
+                petNameErrorShown = value;
+                OnPropertyChanged("PetNameErrorShown");
+            }
+
+        }
+
+
         #endregion
 
         public ForgetPasswordViewModel()
@@ -80,27 +150,44 @@ namespace JobsApp.ViewModels
             IsVisibleCorrectPetName = false;
             IsVisibleCorrectEmail = false;
             PetName = "";
+            EmailErrorShown = false;
+            EmailError = "Invalid Email!";
+            PetNameErrorShown = false;
+            PetNameError = "Invalid Answer";
 
         }
 
-        //public ICommand CheckEmailCommand => new Command(CheckEmailFunc);
-        //public ICommand CheckPetNameFunc => new Command(CheckPetNameFunc);
+        public ICommand CheckEmailCommand => new Command(CheckEmailFunc);
+        public ICommand CheckPetNameCommand => new Command(CheckPetNameFunc);
+        public ICommand SubmitCommand => new Command(Submit);
+        public event Action<Page> Push;
+
+        private async void CheckEmailFunc()
+        {
+            JobsAPIProxy proxy = JobsAPIProxy.CreateProxy();
+            IsVisibleCorrectEmail = await proxy.IsEmailExistAsync(Email);
+            if (!IsVisibleCorrectEmail)
+            {
+                EmailErrorShown = true;
+                
+            }
+            
+
+        }
+
+        private async void Submit()
+        {
+            JobsAPIProxy proxy = JobsAPIProxy.CreateProxy();
+            User u = await proxy.ChangePassAsync(Email,NewPass);
+            u.
+            ((App)App.Current).CurrentUser = u;
+           
+            Push?.Invoke(new MainTabPage());
+
+        }
 
 
-        //private bool CheckEmailFunc()
-        //{
-        //    JobsAPIProxy proxy = JobsAPIProxy.CreateProxy();
-        //    //bool IsEmailExist = proxy.IsEmailExistAsync(Email);
 
 
-        //}
-        
-        //private bool CheckPetNameFunc()
-        //{
-        //    JobsAPIProxy proxy = JobsAPIProxy.CreateProxy();
-        //    //bool IsEmailExist = proxy.IsPetNameExist(Email);
-
-
-        //}
     }
 }
