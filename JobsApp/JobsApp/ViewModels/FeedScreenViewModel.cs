@@ -16,6 +16,6 @@ namespace JobsApp.ViewModels
 {
     class FeedScreenViewModel:ViewModelBase
     {
-
+        //use collection view
     }
 }

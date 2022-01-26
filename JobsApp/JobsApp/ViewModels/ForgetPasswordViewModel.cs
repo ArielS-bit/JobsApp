@@ -26,6 +26,7 @@ namespace JobsApp.ViewModels
             set
             {
                 email = value;
+                CheckEmailFunc();
                 OnPropertyChanged("Email");
             }
 
@@ -54,6 +55,7 @@ namespace JobsApp.ViewModels
             set
             {
                 petName = value;
+                CheckPetNameFunc();
                 OnPropertyChanged("PetName");
             }
 
@@ -160,6 +162,7 @@ namespace JobsApp.ViewModels
         public ICommand CheckEmailCommand => new Command(CheckEmailFunc);
         public ICommand CheckPetNameCommand => new Command(CheckPetNameFunc);
         public ICommand SubmitCommand => new Command(Submit);
+
         public event Action<Page> Push;
 
         private async void CheckEmailFunc()
@@ -168,11 +171,8 @@ namespace JobsApp.ViewModels
             IsVisibleCorrectEmail = await proxy.IsEmailExistAsync(Email);
             if (!IsVisibleCorrectEmail)
             {
-                EmailErrorShown = true;
-                
-            }
-            
-
+                EmailErrorShown = true;              
+            }         
         }
 
         private async void CheckPetNameFunc()
@@ -182,24 +182,22 @@ namespace JobsApp.ViewModels
             if (!IsVisibleCorrectEmail)
             {
                 PetNameErrorShown = true;
-
             }
-
-
         }
 
-        private async bool SubmitPermission()
-        {
-            JobsAPIProxy proxy = JobsAPIProxy.CreateProxy();
-            User u = await proxy.GetUserAsync(Email);
-            //change password
-            await proxy.ChangePassAsync(Email,NewPass);
+        //private async bool SubmitPermission()
+        //{
+        //    JobsAPIProxy proxy = JobsAPIProxy.CreateProxy();
+        //    User u = await proxy.GetUserAsync(Email);
+        //    //change password
+        //    bool success = await proxy.ChangePassAsync(Email,NewPass);
 
-            ((App)App.Current).CurrentUser = u;
+        //    ((App)App.Current).CurrentUser = u;
            
-            Push?.Invoke(new MainTabPage());
+        //    Push?.Invoke(new MainTabPage());
+        //    return success;
 
-        }
+        //}
 
         private void Submit()
         { 
