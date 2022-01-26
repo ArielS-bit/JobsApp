@@ -13,10 +13,12 @@
             SelectedTabColor="Green"
             UnselectedTabColor="Yellow">
 
+    <TabbedPage.ToolbarItems>
+        <ToolbarItem Name="SideMenu" Order="Primary" IconImageSource="bellOffIcon.png" Priority="0"/>
+    </TabbedPage.ToolbarItems>
     
     <local:FeedScreen Title="Feed" IconImageSource="HomeIcon.png"/>
 
-    <local:ExPage Title="Profile" IconImageSource="ProfileIcon.png"/>
 
     <local:ProfileScreen Title="Notifications" IconImageSource="BellOffIcon.png"/>
 
