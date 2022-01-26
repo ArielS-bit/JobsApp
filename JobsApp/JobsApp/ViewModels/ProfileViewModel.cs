@@ -176,16 +176,16 @@ namespace JobsApp.ViewModels
         public ProfileViewModel()
         {
 
-            User u = ((App)Application.Current).CurrentUser;
-            this.FirstName = u.FirstName;
-            this.LastName = u.LastName;
-            this.Gender = u.Gender;
-            this.Bday = u.Birthday;
-            this.Email = u.Email;
-            this.Nickname = u.Nickname;
-            this.Pass = u.Pass;
-            this.UserTypeID = u.UserTypeId;
-            this.PrivateAnswer = u.PrivateAnswer;
+            //User u = ((App)Application.Current).CurrentUser;
+            //this.FirstName = u.FirstName;
+            //this.LastName = u.LastName;
+            //this.Gender = u.Gender;
+            //this.Bday = u.Birthday;
+            //this.Email = u.Email;
+            //this.Nickname = u.Nickname;
+            //this.Pass = u.Pass;
+            //this.UserTypeID = u.UserTypeId;
+            //this.PrivateAnswer = u.PrivateAnswer;
             
 
 

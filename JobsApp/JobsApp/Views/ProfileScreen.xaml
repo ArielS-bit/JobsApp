@@ -2,21 +2,72 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="JobsApp.Views.ProfileScreen"
-             xmlns:local="clr-namespace:JobsApp.ViewModels">
+             xmlns:local="clr-namespace:JobsApp.ViewModels"
+             NavigationPage.HasNavigationBar="False">
 
+    <!--in every icon on every page put three modes of the icons in order to make ux-->
+    
     <ContentPage.BindingContext>
-        <local:SignUpViewModel></local:SignUpViewModel>
+        <local:ProfileViewModel></local:ProfileViewModel>
     </ContentPage.BindingContext>
 
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome here!!!!!!!!!!!"
-              FontSize="35" />
-            <Label Text="Siberian Husky the best" FontSize="35" FontFamily="RegularFont"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <ScrollView>
+            <StackLayout>
 
-            <Button Command="{Binding}"></Button>
-        </StackLayout>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button Grid.Row="0" Grid.Column="3" BackgroundColor="Transparent" ImageSource="EditIcon.png"/>
+                    <Label Text="Here is the info we know about you" Grid.Row="0"/>
+                    <Label Text="First Name" Grid.Row="1"/>
+                    <Entry Placeholder="{Binding FirstName}" Grid.Row="2" Grid.Column="1" BackgroundColor="#427AA1"/>
+                    <Label Text="Last Name" Grid.Row="3"/>
+                    <Entry Placeholder="{Binding LastName}" Grid.Row="4" BackgroundColor="#427AA1"/>
+
+                    <Label Text="Nickname" Grid.Row="5"/>
+                    <Entry Placeholder="{Binding Nickname}" Grid.Row="6" BackgroundColor="#427AA1"/>
+
+                    <Label Text="Email" Grid.Row="7"/>
+                    <Entry Placeholder="{Binding Email}" Grid.Row="8" BackgroundColor="#427AA1"/>
+
+                    <Label Text="Gender" Grid.Row="9"/>
+                    <Entry Placeholder="{Binding Gender}" Grid.Row="10" BackgroundColor="#427AA1"/>
+
+                    <Label Text="Nickname" Grid.Row="11"/>
+                    <Entry Placeholder="{Binding Nickname}" Grid.Row="12" BackgroundColor="#427AA1"/>
+
+                    <Label Text="Birthday" Grid.Row="13"/>
+                    <Entry Placeholder="{Binding Bday}" Grid.Row="14" BackgroundColor="#427AA1"/>
+
+                    <Label Text="Password" Grid.Row="15"/>
+                    <Entry Placeholder="{Binding Pass}" Grid.Row="16" BackgroundColor="#427AA1"/>
+
+                    <Label Text="Private Answer" Grid.Row="17"/>
+                    <Entry Placeholder="{Binding PrivateAnswer}" Grid.Row="18" BackgroundColor="#427AA1"/>
+
+
+
+                </Grid>
+
+                <!--<Button Command="{Binding}"></Button>-->
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
