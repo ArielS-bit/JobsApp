@@ -6,19 +6,15 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using JobsApp.Views;
 
 namespace JobsApp.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class MainTabPage : TabbedPage
+    public partial class MessagesScreen : ContentPage
     {
-        public MainTabPage()
+        public MessagesScreen()
         {
             InitializeComponent();
-
-
-            
         }
     }
 }

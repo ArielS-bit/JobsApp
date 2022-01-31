@@ -6,13 +6,15 @@
     <!--<NavigationPage.TitleView>
         
     </NavigationPage.TitleView>-->
+    
+    
+    
     <ContentPage.Content>
        
             <StackLayout>
-            <Button ImageSource="ProfileIcon.png" Margin="350,10,10,10" HeightRequest="50" CornerRadius="50"></Button>
+                
+              <Button ImageSource="ProfileIcon.png" Margin="350,10,10,10" HeightRequest="50" CornerRadius="50"></Button>
            
-               
-            
         </StackLayout>
           
     </ContentPage.Content>

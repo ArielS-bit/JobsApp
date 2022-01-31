@@ -16,11 +16,17 @@
     <TabbedPage.ToolbarItems>
         <ToolbarItem Name="SideMenu" Order="Primary" IconImageSource="bellOffIcon.png" Priority="0"/>
     </TabbedPage.ToolbarItems>
-    
+
+    <!--<NavigationPage.ToolbarItems>
+        <ToolbarItem Text="Abra" Order="Secondary"></ToolbarItem>
+    </NavigationPage.ToolbarItems>-->
+
     <local:FeedScreen Title="Feed" IconImageSource="HomeIcon.png"/>
 
 
-    <local:ProfileScreen Title="Notifications" IconImageSource="BellOffIcon.png"/>
+    <local:NotificationsScreen Title="Notifications" IconImageSource="BellOffIcon.png"/>
+
+    <local:MessagesScreen Title="Messages" IconImageSource="ChatsIcon.png"/>
 
     <local:ExPage Title="Jobs" IconImageSource="JobsIcon.png"/>
 
