@@ -13,22 +13,74 @@
             SelectedTabColor="Green"
             UnselectedTabColor="Yellow">
 
-    <TabbedPage.ToolbarItems>
+    <!--<TabbedPage.ToolbarItems>
         <ToolbarItem Name="SideMenu" Order="Primary" IconImageSource="bellOffIcon.png" Priority="0"/>
-    </TabbedPage.ToolbarItems>
+    </TabbedPage.ToolbarItems>-->
 
     <!--<NavigationPage.ToolbarItems>
-        <ToolbarItem Text="Abra" Order="Secondary"></ToolbarItem>
+        <ToolbarItem Text="Abra" Order="Secondary"/>
     </NavigationPage.ToolbarItems>-->
 
-    <local:FeedScreen Title="Feed" IconImageSource="HomeIcon.png"/>
+    <NavigationPage>
+        
+        <x:Arguments>
+            
+            <local:FeedScreen Title="Feed" IconImageSource="HomeIcon.png" NavigationPage.HasNavigationBar="True" />
+
+            
+
+        </x:Arguments>
+        
+        
+        <NavigationPage.ToolbarItems>
+            <ToolbarItem Text="Abra" Order="Secondary"></ToolbarItem>
+        </NavigationPage.ToolbarItems>
+
+    </NavigationPage>
+
+    <!--<local:FeedScreen Title="Feed" IconImageSource="HomeIcon.png"/>-->
+
+    <NavigationPage>
+
+        <x:Arguments>
+            <local:NotificationsScreen Title="Notifications" IconImageSource="BellOffIcon.png" NavigationPage.HasNavigationBar="True" />
+        </x:Arguments>
 
 
-    <local:NotificationsScreen Title="Notifications" IconImageSource="BellOffIcon.png"/>
+        <NavigationPage.ToolbarItems>
+            <ToolbarItem Text="Abra" Order="Secondary"></ToolbarItem>
+        </NavigationPage.ToolbarItems>
 
-    <local:MessagesScreen Title="Messages" IconImageSource="ChatsIcon.png"/>
+    </NavigationPage>
 
-    <local:ExPage Title="Jobs" IconImageSource="JobsIcon.png"/>
+    <NavigationPage>
+
+        <x:Arguments>
+            <local:MessagesScreen Title="Messages" IconImageSource="ChatsIcon.png" NavigationPage.HasNavigationBar="True" />
+        </x:Arguments>
+
+
+        <NavigationPage.ToolbarItems>
+            <ToolbarItem Text="Abra" Order="Secondary"></ToolbarItem>
+        </NavigationPage.ToolbarItems>
+
+    </NavigationPage>
+
+    <NavigationPage>
+
+        <x:Arguments>
+            <local:ExPage Title="Jobs" IconImageSource="JobsIcon.png" NavigationPage.HasNavigationBar="True" />
+        </x:Arguments>
+
+
+        <NavigationPage.ToolbarItems>
+            <ToolbarItem Text="Abra" Order="Secondary"></ToolbarItem>
+        </NavigationPage.ToolbarItems>
+
+    </NavigationPage>
+
+    
+
 
 
 </TabbedPage>
