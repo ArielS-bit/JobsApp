@@ -38,15 +38,20 @@
           
            
             
-                    <Image Source="backgroundImg" Margin="0,-100,0,0"></Image>
-                    <Button ImageSource="ProfileIcon.png" Margin="30,-70,300,10" HeightRequest="90" CornerRadius="50"/>
+                    <Image Source="backgroundImg" Margin="0,-80,0,0"></Image>
+                    <Button ImageSource="ProfileIcon.png" Margin="30,-50,300,10" HeightRequest="90" CornerRadius="50"/>
 
 
 
                     <Button  Grid.Column="3" BackgroundColor="Transparent" Margin="330,-45,10,0" ImageSource="EditIcon.png"/>
                     
                     <Frame>
+                    <StackLayout>
                     <Label Text="Here is the info we know about you"/>
+                        <Label Text="Don't worry all the info is secured by Knox"/>
+
+
+                    </StackLayout>
                     </Frame>
 
                 <Label Text="First Name" />
