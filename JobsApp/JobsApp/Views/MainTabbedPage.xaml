@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<FlyoutPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="JobsApp.Views.MainTabbedPage"
+             xmlns:pages="clr-namespace:JobsApp.Views">
+  <FlyoutPage.Flyout>
+    <pages:MainTabbedPageFlyout x:Name="FlyoutPage" />
+  </FlyoutPage.Flyout>
+  <FlyoutPage.Detail>
+    <NavigationPage>
+      <x:Arguments>
+        <pages:MainTabbedPageDetail />
+      </x:Arguments>
+    </NavigationPage>
+  </FlyoutPage.Detail>
+</FlyoutPage>

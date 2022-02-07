@@ -21,65 +21,28 @@
         <ToolbarItem Text="Abra" Order="Secondary"/>
     </NavigationPage.ToolbarItems>-->
 
-    <NavigationPage>
-        
-        <x:Arguments>
-            
-            <local:FeedScreen Title="Feed" IconImageSource="HomeIcon.png" NavigationPage.HasNavigationBar="True" />
-
-            
-
-        </x:Arguments>
-        
-        
-        <NavigationPage.ToolbarItems>
-            <ToolbarItem Text="Abra" Order="Secondary"></ToolbarItem>
-        </NavigationPage.ToolbarItems>
-
-    </NavigationPage>
-
-    <!--<local:FeedScreen Title="Feed" IconImageSource="HomeIcon.png"/>-->
-
-    <NavigationPage>
-
-        <x:Arguments>
-            <local:NotificationsScreen Title="Notifications" IconImageSource="BellOffIcon.png" NavigationPage.HasNavigationBar="True" />
-        </x:Arguments>
+  
+            <!--<local:FeedScreen Title="Feed" IconImageSource="HomeIcon.png" NavigationPage.HasNavigationBar="True" />-->
 
 
-        <NavigationPage.ToolbarItems>
-            <ToolbarItem Text="Abra" Order="Secondary"></ToolbarItem>
-        </NavigationPage.ToolbarItems>
-
-    </NavigationPage>
-
-    <NavigationPage>
-
-        <x:Arguments>
-            <local:MessagesScreen Title="Messages" IconImageSource="ChatsIcon.png" NavigationPage.HasNavigationBar="True" />
-        </x:Arguments>
 
 
-        <NavigationPage.ToolbarItems>
-            <ToolbarItem Text="Abra" Order="Secondary"></ToolbarItem>
-        </NavigationPage.ToolbarItems>
 
-    </NavigationPage>
-
-    <NavigationPage>
-
-        <x:Arguments>
-            <local:ExPage Title="Jobs" IconImageSource="JobsIcon.png" NavigationPage.HasNavigationBar="True" />
-        </x:Arguments>
+    <local:FeedScreen Title="Feed" IconImageSource="HomeIcon.png"/>
 
 
-        <NavigationPage.ToolbarItems>
-            <ToolbarItem Text="Abra" Order="Secondary"></ToolbarItem>
-        </NavigationPage.ToolbarItems>
-
-    </NavigationPage>
+    <local:NotificationsScreen Title="Notifications" IconImageSource="BellOffIcon.png" />
+       
 
     
+ 
+  
+            <local:MessagesScreen Title="Messages" IconImageSource="ChatsIcon.png" />
+       
+
+   
+            <local:ExPage Title="Jobs" IconImageSource="JobsIcon.png" NavigationPage.HasNavigationBar="True" />
+       
 
 
 
