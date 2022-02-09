@@ -15,7 +15,6 @@
 
     
     
-    
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
@@ -26,7 +25,7 @@
                         <RowDefinition Height="auto" />
                         <RowDefinition Height="auto" />
                       
-                    </Grid.RowDefinitions>
+                    </Grid.RowDefinitions>  
                     
                     <Grid.ColumnDefinitions>
 
@@ -34,18 +33,24 @@
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>-->
 
-               
-          
-           
-            
-                    <Image Source="backgroundImg" Margin="0,-80,0,0"></Image>
-                    <Button ImageSource="ProfileIcon.png" Margin="30,-50,300,10" HeightRequest="90" CornerRadius="50"/>
+                <Image Source="backgroundImg" Margin="0,-80,0,0"/>
+                <Button ImageSource="ProfileIcon.png" Margin="30,-50,300,10" HeightRequest="90" CornerRadius="50"/>
 
 
 
                     <Button  Grid.Column="3" BackgroundColor="Transparent" Command="{Binding EditCommand}" Margin="330,-45,10,0" ImageSource="EditIcon.png"/>
+
+                <StackLayout BackgroundColor="#011627">
                     
-                    <Frame>
+                    <Label TextColor="White" Text="{Binding FullName}"/>
+                  
+                    <Label TextColor="White" Text="{Binding Age}"/>
+                    
+                </StackLayout>
+
+
+
+                <Frame>
                     <StackLayout>
                     <Label Text="Here is the info we know about you"/>
                         <Label Text="Don't worry all the info is secured by Knox"/>
@@ -54,63 +59,66 @@
                     </StackLayout>
                     </Frame>
 
-                <Label Text="First Name" />
-                <!--<yummy:PancakeView Margin="16" CornerRadius="60,60,60,60">-->
-                
-                <Frame BorderColor="White" BackgroundColor="Transparent" CornerRadius="30" Margin="90,10">
-                    
-                    <Entry Placeholder="{Binding FirstName}" Margin="-15,-15" BackgroundColor="Transparent"/>
-                </Frame>
-                <!--</yummy:PancakeView>-->
-                <Label Text="Last Name"/>
-                <Frame BorderColor="White" BackgroundColor="Transparent" CornerRadius="30" Margin="90,10">
+                <StackLayout IsVisible="False"><!--change to EditMode WITH BINDING--> 
+                    <Label Text="First Name" />
+                    <!--<yummy:PancakeView Margin="16" CornerRadius="60,60,60,60">-->
 
-                    <Entry Placeholder="{Binding LastName}" Margin="-15,-15" BackgroundColor="Transparent"/>
-                </Frame>
+                    <Frame BorderColor="White" BackgroundColor="Transparent" CornerRadius="30" Margin="90,10">
+
+                        <Entry Placeholder="{Binding FirstName}" Margin="-15,-15" BackgroundColor="Transparent"/>
+                    </Frame>
+                    <!--</yummy:PancakeView>-->
+                    <Label Text="Last Name"/>
+                    <Frame BorderColor="White" BackgroundColor="Transparent" CornerRadius="30" Margin="90,10">
+
+                        <Entry Placeholder="{Binding LastName}" Margin="-15,-15" BackgroundColor="Transparent"/>
+                    </Frame>
 
                     <Label Text="Nickname" />
-                <Frame BorderColor="White" BackgroundColor="Transparent" CornerRadius="30" Margin="90,10">
+                    <Frame BorderColor="White" BackgroundColor="Transparent" CornerRadius="30" Margin="90,10">
 
-                    <Entry Placeholder="{Binding Nickname}" Margin="-15,-15" BackgroundColor="Transparent"/>
-                </Frame>
+                        <Entry Placeholder="{Binding Nickname}" Margin="-15,-15" BackgroundColor="Transparent"/>
+                    </Frame>
 
                     <Label Text="Email" />
-                <Frame BorderColor="White" BackgroundColor="Transparent" CornerRadius="30" Margin="90,10">
+                    <Frame BorderColor="White" BackgroundColor="Transparent" CornerRadius="30" Margin="90,10">
 
-                    <Entry Placeholder="{Binding Email}" Margin="-15,-15" BackgroundColor="Transparent"/>
-                </Frame>
+                        <Entry Placeholder="{Binding Email}" Margin="-15,-15" BackgroundColor="Transparent"/>
+                    </Frame>
 
                     <Label Text="Gender"/>
-                <Frame BorderColor="White" BackgroundColor="Transparent" CornerRadius="30" Margin="90,10">
+                    <Frame BorderColor="White" BackgroundColor="Transparent" CornerRadius="30" Margin="90,10">
 
-                    <Entry Placeholder="{Binding Gender}" Margin="-15,-15" BackgroundColor="Transparent"/>
-                </Frame>
+                        <Entry Placeholder="{Binding Gender}" Margin="-15,-15" BackgroundColor="Transparent"/>
+                    </Frame>
 
                     <Label Text="Nickname" />
-                <Frame BorderColor="White" BackgroundColor="Transparent" CornerRadius="30" Margin="90,10">
+                    <Frame BorderColor="White" BackgroundColor="Transparent" CornerRadius="30" Margin="90,10">
 
-                    <Entry Placeholder="{Binding Nickname}" Margin="-15,-15" BackgroundColor="Transparent"/>
-                </Frame>
+                        <Entry Placeholder="{Binding Nickname}" Margin="-15,-15" BackgroundColor="Transparent"/>
+                    </Frame>
 
                     <Label Text="Birthday"/>
-                <Frame BorderColor="White" BackgroundColor="Transparent" CornerRadius="30" Margin="90,10">
+                    <Frame BorderColor="White" BackgroundColor="Transparent" CornerRadius="30" Margin="90,10">
 
-                    <Entry Placeholder="{Binding Bday}" Margin="-15,-15" BackgroundColor="Transparent"/>
-                </Frame>
+                        <Entry Placeholder="{Binding Bday}" Margin="-15,-15" BackgroundColor="Transparent"/>
+                    </Frame>
 
                     <Label Text="Password" />
-                <Frame BorderColor="White" BackgroundColor="Transparent" CornerRadius="30" Margin="90,10">
+                    <Frame BorderColor="White" BackgroundColor="Transparent" CornerRadius="30" Margin="90,10">
 
-                    <Entry Placeholder="{Binding Pass}" Margin="-15,-15" BackgroundColor="Transparent"/>
-                </Frame>
+                        <Entry Placeholder="{Binding Pass}" Margin="-15,-15" BackgroundColor="Transparent"/>
+                    </Frame>
 
                     <Label Text="Private Answer" />
-                <Frame BorderColor="White" BackgroundColor="Transparent" CornerRadius="30" Margin="90,10">
+                    <Frame BorderColor="White" BackgroundColor="Transparent" CornerRadius="30" Margin="90,10">
 
-                    <Entry Placeholder="{Binding PrivateAnswer}" Margin="-15,-15" BackgroundColor="Transparent"/>
-                </Frame>
+                        <Entry Placeholder="{Binding PrivateAnswer}" Margin="-15,-15" BackgroundColor="Transparent"/>
+                    </Frame>
 
-                <Image Source="divider.png"/>
+                </StackLayout>
+
+                <Image Source="DividerBright.png" HorizontalOptions="CenterAndExpand"/>
 
 
                 <!--<Button Command="{Binding}"></Button>-->

@@ -77,6 +77,7 @@
     <EmbeddedResource Include="Resources\Fonts\ZenKakuGothicAntique-Light.ttf" />
     <EmbeddedResource Include="Resources\Fonts\ZenKakuGothicAntique-Medium.ttf" />
     <EmbeddedResource Include="Resources\Fonts\ZenKakuGothicAntique-Regular.ttf" />
+    <AndroidResource Include="Resources\drawable\DividerBright.fbx" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values\styles.xml" />

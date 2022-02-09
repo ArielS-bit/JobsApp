@@ -131,6 +131,20 @@ namespace JobsApp.ViewModels
             }
         }
 
+        private int age;
+        public int Age
+        {
+            get { return age; }
+            set
+            {
+                if (age != value)
+                {
+                    age = value;
+                    OnPropertyChanged("Age");
+                }
+            }
+        }
+
         private string privateAnswer;
         public string PrivateAnswer
         {
@@ -145,6 +159,33 @@ namespace JobsApp.ViewModels
             }
         }
 
+        private string fullName;
+        public string FullName
+        {
+            get { return fullName; }
+            set
+            {
+                if (fullName != value)
+                {
+                    fullName = value;
+                    OnPropertyChanged("FullName");
+                }
+            }
+        }
+
+        private bool editMode;
+        public bool EditMode
+        {
+            get { return editMode; }
+            set
+            {
+                if (editMode != value)
+                {
+                    editMode = value;
+                    OnPropertyChanged("EditMode");
+                }
+            }
+        }
         #endregion
 
 
@@ -170,6 +211,8 @@ namespace JobsApp.ViewModels
             this.Password = u.Pass;
             this.UserTypeID = u.UserTypeId;
             this.PrivateAnswer = u.PrivateAnswer;
+            this.FullName = u.FirstName +" "+ u.LastName;
+            this.Age = DateTime.Today.Year - u.Birthday.Year;
 
            // EditCommand = new Command(EditUser);
 
