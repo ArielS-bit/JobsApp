@@ -17,14 +17,11 @@ namespace JobsApp.ViewModels
 {
     class ProfileViewModel:ViewModelBase
     {
-        public event Action<Page> Push;
-
-        #region Propreties
+        #region Properties
         private string firstName;
-
         public string FirstName
         {
-            get { return firstName; }
+            get{return firstName; }
             set
             {
                 if (firstName != value)
@@ -35,9 +32,7 @@ namespace JobsApp.ViewModels
             }
         }
 
-
         private string lastName;
-
         public string LastName
         {
             get { return lastName; }
@@ -46,82 +41,12 @@ namespace JobsApp.ViewModels
                 if (lastName != value)
                 {
                     lastName = value;
-                  
-                   
                     OnPropertyChanged("LastName");
                 }
             }
         }
 
-     
-        private string gender;
-
-        public string Gender
-        {
-            get { return gender; }
-            set
-            {
-                gender = value;
-                OnPropertyChanged("Gender");
-            }
-        }
-
-
-
-        private DateTime bday;
-
-        public DateTime Bday
-        {
-            get { return bday; }
-            set
-            {
-                bday = value;
-                OnPropertyChanged("Bday");
-            }
-        }
-
-       
-
-        private string email;
-
-        public string Email
-        {
-            get { return email; }
-            set
-            {
-                if (email != value)
-                {
-
-
-                    email = value;
-                 
-                    OnPropertyChanged("Email");
-                }
-            }
-        }
-
-      
-
-        private string pass;
-
-        public string Pass
-        {
-            get { return pass; }
-            set
-            {
-                if (pass != value)
-                {
-                    pass = value;
-                  
-                    OnPropertyChanged("Pass");
-
-                }
-            }
-        }
-      
-
         private string nickname;
-
         public string Nickname
         {
             get { return nickname; }
@@ -129,68 +54,133 @@ namespace JobsApp.ViewModels
             {
                 if (nickname != value)
                 {
-
-
                     nickname = value;
-                   
                     OnPropertyChanged("Nickname");
                 }
-
             }
         }
-     
+
+        private string password;
+        public string Password
+        {
+            get { return password; }
+            set
+            {
+                if (password != value)
+                {
+                    password = value;
+                    OnPropertyChanged("Password");
+                }
+            }
+        }
+
+        private string email;
+        public string Email
+        {
+            get { return email; }
+            set
+            {
+                if (email != value)
+                {
+                    email = value;
+                    OnPropertyChanged("Email");
+                }
+            }
+        }
+
+        private DateTime bday;
+        public DateTime Bday 
+        {
+            get { return bday; }
+            set
+            {
+                if (bday != value)
+                {
+                    bday = value;
+                    OnPropertyChanged("Bday");
+                }
+            }
+        }
+
+        private string gender;
+
+        public string Gender
+        {
+            get { return gender; }
+            set
+            {
+                if (gender != value)
+                {
+                    gender = value;
+                    OnPropertyChanged("Gender");
+                }
+            }
+        }
+
         private int userTypeID;
         public int UserTypeID
         {
             get { return userTypeID; }
             set
             {
-                userTypeID = value;
-               
-                OnPropertyChanged("UserTypeID");
+                if (userTypeID != value)
+                {
+                    userTypeID = value;
+                    OnPropertyChanged("UserTypeID");
+                }
             }
         }
 
-     
         private string privateAnswer;
         public string PrivateAnswer
         {
-            get => privateAnswer;
+            get { return privateAnswer; }
             set
             {
-                privateAnswer = value;
-               
-                OnPropertyChanged("PrivateAnswer");
+                if (privateAnswer != value)
+                {
+                    privateAnswer = value;
+                    OnPropertyChanged("PrivateAnswer");
+                }
             }
         }
 
-        //Ad an image
-
-      
+        #endregion
 
 
 
-       
-        #endregion Properties
+        public event Action<Page> Push;
+
+        #region Commands
+
+
+        public Command EditCommand { get; }
+
+        #endregion
 
         public ProfileViewModel()
         {
+            User u = ((App)Application.Current).CurrentUser;
+            this.FirstName = u.FirstName;
+            this.LastName = u.LastName;
+            this.Gender = u.Gender;
+            this.Bday = u.Birthday;
+            this.Email = u.Email;
+            this.Nickname = u.Nickname;
+            this.Password = u.Pass;
+            this.UserTypeID = u.UserTypeId;
+            this.PrivateAnswer = u.PrivateAnswer;
 
-            //User u = ((App)Application.Current).CurrentUser;
-            //this.FirstName = u.FirstName;
-            //this.LastName = u.LastName;
-            //this.Gender = u.Gender;
-            //this.Bday = u.Birthday;
-            //this.Email = u.Email;
-            //this.Nickname = u.Nickname;
-            //this.Pass = u.Pass;
-            //this.UserTypeID = u.UserTypeId;
-            //this.PrivateAnswer = u.PrivateAnswer;
-            
+           // EditCommand = new Command(EditUser);
+
 
 
 
 
         }
+
+
+
+
     }
 }

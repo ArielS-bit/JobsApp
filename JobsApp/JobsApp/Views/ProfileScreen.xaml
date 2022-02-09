@@ -43,7 +43,7 @@
 
 
 
-                    <Button  Grid.Column="3" BackgroundColor="Transparent" Margin="330,-45,10,0" ImageSource="EditIcon.png"/>
+                    <Button  Grid.Column="3" BackgroundColor="Transparent" Command="{Binding EditCommand}" Margin="330,-45,10,0" ImageSource="EditIcon.png"/>
                     
                     <Frame>
                     <StackLayout>
@@ -110,7 +110,8 @@
                     <Entry Placeholder="{Binding PrivateAnswer}" Margin="-15,-15" BackgroundColor="Transparent"/>
                 </Frame>
 
-            
+                <Image Source="divider.png"/>
+
 
                 <!--<Button Command="{Binding}"></Button>-->
                

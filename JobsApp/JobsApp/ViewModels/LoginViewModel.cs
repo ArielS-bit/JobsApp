@@ -110,7 +110,7 @@ namespace JobsApp.ViewModels
                 ((App)App.Current).CurrentUser = u;
                 //App theApp = (App)App.Current;
                 //theApp.CurrentUser = user;
-                Push?.Invoke(new FeedScreen());
+                Push?.Invoke(new ProfileScreen());//Change to profile screen
             }
 
             
