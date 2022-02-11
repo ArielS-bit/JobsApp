@@ -15,13 +15,13 @@ using JobsApp.Views;
 
 namespace JobsApp.ViewModels
 {
-    class ProfileViewModel:ViewModelBase
+    class EditViewModel:ViewModelBase
     {
         #region Properties
         private string firstName;
         public string FirstName
         {
-            get{return firstName; }
+            get { return firstName; }
             set
             {
                 if (firstName != value)
@@ -89,7 +89,7 @@ namespace JobsApp.ViewModels
         }
 
         private DateTime bday;
-        public DateTime Bday 
+        public DateTime Bday
         {
             get { return bday; }
             set
@@ -158,78 +158,34 @@ namespace JobsApp.ViewModels
                 }
             }
         }
-
-        private string fullName;
-        public string FullName
-        {
-            get { return fullName; }
-            set
-            {
-                if (fullName != value)
-                {
-                    fullName = value;
-                    OnPropertyChanged("FullName");
-                }
-            }
-        }
-
-        private bool editMode;
-        public bool EditMode
-        {
-            get { return editMode; }
-            set
-            {
-                if (editMode != value)
-                {
-                    editMode = value;
-                    OnPropertyChanged("EditMode");
-                }
-            }
-        }
         #endregion
-
-
-
-        public event Action<Page> Push;
 
         #region Commands
-
-
-        public ICommand EditCommand => new Command(EditUser);
-
+        public ICommand EditCommand => new Command(EditUserDetails);
         #endregion
+        public event Action<Page> Push;
 
-        public ProfileViewModel()
+        public EditViewModel()
         {
             User u = ((App)Application.Current).CurrentUser;
-            //this.FirstName = u.FirstName;
-            //this.LastName = u.LastName;
-            //this.Gender = u.Gender;
-            //this.Bday = u.Birthday;
-            //this.Email = u.Email;
-            //this.Nickname = u.Nickname;
-            //this.Password = u.Pass;
-            //this.UserTypeID = u.UserTypeId;
-            //this.PrivateAnswer = u.PrivateAnswer;
-            //this.FullName = u.FirstName +" "+ u.LastName;
-            //this.Age = DateTime.Today.Year - u.Birthday.Year;
-            //this.EditMode = false;//Change here
-           // EditCommand = new Command(EditUser);
-
-
-
-
+            this.FirstName = u.FirstName;
+            this.LastName = u.LastName;
+            this.Gender = u.Gender;
+            this.Bday = u.Birthday;
+            this.Email = u.Email;
+            this.Nickname = u.Nickname;
+            this.Password = u.Pass;
+            this.UserTypeID = u.UserTypeId;
+            this.PrivateAnswer = u.PrivateAnswer;
 
         }
 
-        public async void EditUser()
+        #region Functions
+        public void EditUserDetails()
         {
 
-            Push?.Invoke(new EditScreen());
         }
-
-
-
+        #endregion
 
     }
 }

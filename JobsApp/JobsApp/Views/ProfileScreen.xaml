@@ -3,9 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="JobsApp.Views.ProfileScreen"
              xmlns:local="clr-namespace:JobsApp.ViewModels"
-             NavigationPage.HasNavigationBar="False" 
-             BackgroundImageSource="backgroundFeed.jpg"
-             xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView">
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="#f1faee"
+             xmlns:pv="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView">
 
     <!--in every icon on every page put three modes of the icons in order to make ux-->
     
@@ -16,7 +16,7 @@
     
     
     <ContentPage.Content>
-        <ScrollView>
+        
             <StackLayout>
                 <!--<Grid>
                
@@ -38,92 +38,59 @@
 
 
 
-                    <Button  Grid.Column="3" BackgroundColor="Transparent" Command="{Binding EditCommand}" Margin="330,-45,10,0" ImageSource="EditIcon.png"/>
+                 <Button  ImageSource="EditIcon.png"  BackgroundColor="Transparent" Command="{Binding EditCommand}" Margin="330,-45,10,0"/>
 
-                <StackLayout BackgroundColor="#011627">
-                    
-                    <Label TextColor="White" Text="{Binding FullName}"/>
-                  
-                    <Label TextColor="White" Text="{Binding Age}"/>
-                    
-                </StackLayout>
+            <StackLayout Margin="150,-50,20,20" BackgroundColor="Transparent">
 
 
+                <Label TextColor="Black" Text="Full Name"/>
+                <!--{Binding FullName}"/>-->
 
-                <Frame>
-                    <StackLayout>
-                    <Label Text="Here is the info we know about you"/>
-                        <Label Text="Don't worry all the info is secured by Knox"/>
+                <Label TextColor="Black" Text="Age"/>
+                <!--{Binding Age}"/>-->
+
+                <Label Text="Connections"/>
+                <!--{Binding Connections}"/>-->
+
+
+                <Image Source="social.png" Margin="-10,-25,30,30"/>
+
+                <Image Source="starsDemo.png" Margin="-80,-100,30,0"/>
+
+            </StackLayout>
+            <Image Source="divider.png" HorizontalOptions="CenterAndExpand"/>
+            <pv:PancakeView CornerRadius="60">
+                <!--Info-->
+                <ScrollView>
+
+                    <StackLayout Margin="30" BackgroundColor="#A8DADC" >
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+
+                            </Grid.RowDefinitions>
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Label Text="Professions" Grid.Column="0" Grid.Row="0"/>
+
+
+                        </Grid>
+
 
 
                     </StackLayout>
-                    </Frame>
 
-                <StackLayout IsVisible="False"><!--change to EditMode WITH BINDING--> 
-                    <Label Text="First Name" />
-                    <!--<yummy:PancakeView Margin="16" CornerRadius="60,60,60,60">-->
+                </ScrollView>
+            </pv:PancakeView>
 
-                    <Frame BorderColor="White" BackgroundColor="Transparent" CornerRadius="30" Margin="90,10">
-
-                        <Entry Placeholder="{Binding FirstName}" Margin="-15,-15" BackgroundColor="Transparent"/>
-                    </Frame>
-                    <!--</yummy:PancakeView>-->
-                    <Label Text="Last Name"/>
-                    <Frame BorderColor="White" BackgroundColor="Transparent" CornerRadius="30" Margin="90,10">
-
-                        <Entry Placeholder="{Binding LastName}" Margin="-15,-15" BackgroundColor="Transparent"/>
-                    </Frame>
-
-                    <Label Text="Nickname" />
-                    <Frame BorderColor="White" BackgroundColor="Transparent" CornerRadius="30" Margin="90,10">
-
-                        <Entry Placeholder="{Binding Nickname}" Margin="-15,-15" BackgroundColor="Transparent"/>
-                    </Frame>
-
-                    <Label Text="Email" />
-                    <Frame BorderColor="White" BackgroundColor="Transparent" CornerRadius="30" Margin="90,10">
-
-                        <Entry Placeholder="{Binding Email}" Margin="-15,-15" BackgroundColor="Transparent"/>
-                    </Frame>
-
-                    <Label Text="Gender"/>
-                    <Frame BorderColor="White" BackgroundColor="Transparent" CornerRadius="30" Margin="90,10">
-
-                        <Entry Placeholder="{Binding Gender}" Margin="-15,-15" BackgroundColor="Transparent"/>
-                    </Frame>
-
-                    <Label Text="Nickname" />
-                    <Frame BorderColor="White" BackgroundColor="Transparent" CornerRadius="30" Margin="90,10">
-
-                        <Entry Placeholder="{Binding Nickname}" Margin="-15,-15" BackgroundColor="Transparent"/>
-                    </Frame>
-
-                    <Label Text="Birthday"/>
-                    <Frame BorderColor="White" BackgroundColor="Transparent" CornerRadius="30" Margin="90,10">
-
-                        <Entry Placeholder="{Binding Bday}" Margin="-15,-15" BackgroundColor="Transparent"/>
-                    </Frame>
-
-                    <Label Text="Password" />
-                    <Frame BorderColor="White" BackgroundColor="Transparent" CornerRadius="30" Margin="90,10">
-
-                        <Entry Placeholder="{Binding Pass}" Margin="-15,-15" BackgroundColor="Transparent"/>
-                    </Frame>
-
-                    <Label Text="Private Answer" />
-                    <Frame BorderColor="White" BackgroundColor="Transparent" CornerRadius="30" Margin="90,10">
-
-                        <Entry Placeholder="{Binding PrivateAnswer}" Margin="-15,-15" BackgroundColor="Transparent"/>
-                    </Frame>
-
-                </StackLayout>
-
-                <Image Source="DividerBright.png" HorizontalOptions="CenterAndExpand"/>
-
-
-                <!--<Button Command="{Binding}"></Button>-->
+            <!--<Button Command="{Binding}"></Button>-->
                
             </StackLayout>
-        </ScrollView>
+       
     </ContentPage.Content>
 </ContentPage>

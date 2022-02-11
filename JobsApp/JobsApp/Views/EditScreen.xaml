@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="JobsApp.Views.EditScreen"
+             xmlns:local="clr-namespace:JobsApp.ViewModels"
+             xmlns:pv="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView">
+
+    <ContentPage.BindingContext>
+        <local:EditViewModel></local:EditViewModel>
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Content>
+        <pv:PancakeView>
+            <StackLayout>
+            <Frame>
+                <StackLayout>
+                    <Label Text="Here is the info we know about you"/>
+                    <Label Text="Don't worry all the info is secured by Knox"/>
+
+
+                </StackLayout>
+            </Frame>
+
+
+            <Label Text="First Name" />
+            <!--<yummy:PancakeView Margin="16" CornerRadius="60,60,60,60">-->
+
+            <Frame BorderColor="White" BackgroundColor="Transparent" CornerRadius="30" Margin="90,10">
+
+                <Entry Placeholder="{Binding FirstName}" Margin="-15,-15" BackgroundColor="Transparent"/>
+            </Frame>
+            <!--</yummy:PancakeView>-->
+            <Label Text="Last Name"/>
+            <Frame BorderColor="White" BackgroundColor="Transparent" CornerRadius="30" Margin="90,10">
+
+                <Entry Placeholder="{Binding LastName}" Margin="-15,-15" BackgroundColor="Transparent"/>
+            </Frame>
+
+            <Label Text="Nickname" />
+            <Frame BorderColor="White" BackgroundColor="Transparent" CornerRadius="30" Margin="90,10">
+
+                <Entry Placeholder="{Binding Nickname}" Margin="-15,-15" BackgroundColor="Transparent"/>
+            </Frame>
+
+            <Label Text="Email" />
+            <Frame BorderColor="White" BackgroundColor="Transparent" CornerRadius="30" Margin="90,10">
+
+                <Entry Placeholder="{Binding Email}" Margin="-15,-15" BackgroundColor="Transparent"/>
+            </Frame>
+
+            <Label Text="Gender"/>
+            <Frame BorderColor="White" BackgroundColor="Transparent" CornerRadius="30" Margin="90,10">
+
+                <Entry Placeholder="{Binding Gender}" Margin="-15,-15" BackgroundColor="Transparent"/>
+            </Frame>
+
+            <Label Text="Nickname" />
+            <Frame BorderColor="White" BackgroundColor="Transparent" CornerRadius="30" Margin="90,10">
+
+                <Entry Placeholder="{Binding Nickname}" Margin="-15,-15" BackgroundColor="Transparent"/>
+            </Frame>
+
+            <Label Text="Birthday"/>
+            <Frame BorderColor="White" BackgroundColor="Transparent" CornerRadius="30" Margin="90,10">
+
+                <Entry Placeholder="{Binding Bday}" Margin="-15,-15" BackgroundColor="Transparent"/>
+            </Frame>
+
+            <Label Text="Password" />
+            <Frame BorderColor="White" BackgroundColor="Transparent" CornerRadius="30" Margin="90,10">
+
+                <Entry Placeholder="{Binding Pass}" Margin="-15,-15" BackgroundColor="Transparent"/>
+            </Frame>
+
+            <Label Text="Private Answer" />
+            <Frame BorderColor="White" BackgroundColor="Transparent" CornerRadius="30" Margin="90,10">
+
+                <Entry Placeholder="{Binding PrivateAnswer}" Margin="-15,-15" BackgroundColor="Transparent"/>
+            </Frame>
+
+                <!--Do it as a pop up once the user tapped the first time on this button-->
+                <Label/>
+                <!--till here-->
+                <Button CornerRadius="30" Command="{Binding Edit}" Text="Finish!"/>
+
+        </StackLayout>
+        </pv:PancakeView>
+    </ContentPage.Content>
+</ContentPage>

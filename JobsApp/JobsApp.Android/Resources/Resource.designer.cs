@@ -14378,13 +14378,13 @@ namespace JobsApp.Droid
 			public const int divider = 2131165301;
 			
 			// aapt resource value: 0x7F070076
-			public const int DividerBright = 2131165302;
+			public const int EditIcon = 2131165302;
 			
 			// aapt resource value: 0x7F070077
-			public const int EditIcon = 2131165303;
+			public const int HomeIcon = 2131165303;
 			
 			// aapt resource value: 0x7F070078
-			public const int HomeIcon = 2131165304;
+			public const int HugePicture = 2131165304;
 			
 			// aapt resource value: 0x7F070079
 			public const int ic_mtrl_checked_circle = 2131165305;
@@ -14504,13 +14504,19 @@ namespace JobsApp.Droid
 			public const int SideMenuHamburger = 2131165343;
 			
 			// aapt resource value: 0x7F0700A0
-			public const int test_custom_background = 2131165344;
+			public const int Social = 2131165344;
 			
 			// aapt resource value: 0x7F0700A1
-			public const int tooltip_frame_dark = 2131165345;
+			public const int starsDemo = 2131165345;
 			
 			// aapt resource value: 0x7F0700A2
-			public const int tooltip_frame_light = 2131165346;
+			public const int test_custom_background = 2131165346;
+			
+			// aapt resource value: 0x7F0700A3
+			public const int tooltip_frame_dark = 2131165347;
+			
+			// aapt resource value: 0x7F0700A4
+			public const int tooltip_frame_light = 2131165348;
 			
 			static Drawable()
 			{

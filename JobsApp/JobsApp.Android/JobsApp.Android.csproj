@@ -77,7 +77,6 @@
     <EmbeddedResource Include="Resources\Fonts\ZenKakuGothicAntique-Light.ttf" />
     <EmbeddedResource Include="Resources\Fonts\ZenKakuGothicAntique-Medium.ttf" />
     <EmbeddedResource Include="Resources\Fonts\ZenKakuGothicAntique-Regular.ttf" />
-    <AndroidResource Include="Resources\drawable\DividerBright.fbx" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values\styles.xml" />
@@ -154,6 +153,15 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\divider.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\Social.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\HugePicture.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\starsDemo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>
