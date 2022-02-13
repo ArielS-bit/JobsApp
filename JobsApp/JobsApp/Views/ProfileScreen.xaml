@@ -16,7 +16,7 @@
     
     
     <ContentPage.Content>
-        
+        <ScrollView>
             <StackLayout>
                 <!--<Grid>
                
@@ -33,41 +33,50 @@
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>-->
 
-                <Image Source="backgroundImg" Margin="0,-80,0,0"/>
+                <!--make the top smaller when is scrolled down-->
+                <Button Text="Contact Info" ImageSource="ContactIcon.png" WidthRequest="40" HeightRequest="40" BackgroundColor="#f1faee" HorizontalOptions="End" CornerRadius="20"/>
+                <Image Source="backgroundImg" Margin="0,-120,0,0"/>
                 <Button ImageSource="ProfileIcon.png" Margin="30,-50,300,10" HeightRequest="90" CornerRadius="50"/>
 
+                <!--Should be only when others watch this profile-->
+                <!--Like a card coming out from the edge or a pop up-->
 
 
-                 <Button  ImageSource="EditIcon.png"  BackgroundColor="Transparent" Command="{Binding EditCommand}" Margin="330,-45,10,0"/>
+                <Button ImageSource="EditIcon.png"  BackgroundColor="Transparent" Command="{Binding EditCommand}" Margin="330,-45,10,0"/>
 
-            <StackLayout Margin="150,-50,20,20" BackgroundColor="Transparent">
-
-
-                <Label TextColor="Black" Text="Full Name"/>
-                <!--{Binding FullName}"/>-->
-
-                <Label TextColor="Black" Text="Age"/>
-                <!--{Binding Age}"/>-->
-
-                <Label Text="Connections"/>
-                <!--{Binding Connections}"/>-->
+                <StackLayout>
+                    <StackLayout Margin="150,-50,20,20" BackgroundColor="Transparent">
 
 
-                <Image Source="social.png" Margin="-10,-25,30,30"/>
+                        <Label TextColor="Black" Text="Full Name"/>
+                        <!--{Binding FullName}"/>-->
 
-                <Image Source="starsDemo.png" Margin="-80,-100,30,0"/>
+                        <Label TextColor="Black" Text="Age"/>
+                        <!--{Binding Age}"/>-->
 
-            </StackLayout>
-            <Image Source="divider.png" HorizontalOptions="CenterAndExpand"/>
-            <pv:PancakeView CornerRadius="60">
-                <!--Info-->
-                <ScrollView>
+                        <Label Text="Connections"/>
+                        <!--{Binding Connections}"/>-->
+                        <Label Text="4.5/10"/>
+                        
 
-                    <StackLayout Margin="30" BackgroundColor="#A8DADC" >
-                        <Grid>
+                        <Image Source="social.png" Margin="-10,-50,30,30"/>
+                        <Image Source="starRating.png" Margin="-180,-38,100,0" WidthRequest="20" HeightRequest="20"/>
+
+                    </StackLayout>
+                    <Image Source="divider.png" HorizontalOptions="CenterAndExpand"/>
+                </StackLayout>
+
+                <pv:PancakeView CornerRadius="60">
+                    <!--Info-->
+
+
+                    <StackLayout Margin="20">
+                        <Image BackgroundColor="#f1faee" Source="starsDemo.png" Margin="10,-20,10,20"/>
+
+                        <Grid BackgroundColor="#A8DADC">
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="auto"/>
-                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="20"/>
 
                             </Grid.RowDefinitions>
 
@@ -76,7 +85,23 @@
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
 
-                            <Label Text="Professions" Grid.Column="0" Grid.Row="0"/>
+                            
+                            <Label Text="About" Grid.Column="0" Grid.Row="0"/>
+
+                            <Label Text="I'm interested in..." Grid.Column="0" Grid.Row="3"/>
+                            <!--collection of professions-->
+
+                            <Label Text="Skills" Grid.Column="0" Grid.Row="6"/>
+
+                            <Label Text="Background" Grid.Column="0" Grid.Row="9"/>
+
+                            <Label Text="Activity" Grid.Column="0" Grid.Row="12"/>
+
+                            <Label Text="Recommands" Grid.Column="0" Grid.Row="15"/>
+
+
+
+
 
 
                         </Grid>
@@ -85,12 +110,13 @@
 
                     </StackLayout>
 
-                </ScrollView>
-            </pv:PancakeView>
 
-            <!--<Button Command="{Binding}"></Button>-->
-               
+                </pv:PancakeView>
+
+                <!--<Button Command="{Binding}"></Button>-->
+
             </StackLayout>
-       
+        </ScrollView>
+
     </ContentPage.Content>
 </ContentPage>

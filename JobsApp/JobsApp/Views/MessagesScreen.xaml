@@ -4,9 +4,21 @@
              x:Class="JobsApp.Views.MessagesScreen">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            
+            <AbsoluteLayout Margin="0">
+                <BoxView Color="Aquamarine"
+                                         AbsoluteLayout.LayoutBounds="20,20,20,120"/>
+
+
+
+                <BoxView Color="Yellow"
+                                         AbsoluteLayout.LayoutBounds="100,30,30,30"/>
+                <BoxView Color="Red"
+                                         AbsoluteLayout.LayoutBounds="50,50,50,50"/>
+
+
+            </AbsoluteLayout>
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
