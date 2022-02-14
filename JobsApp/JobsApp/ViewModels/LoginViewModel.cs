@@ -166,6 +166,9 @@ namespace JobsApp.ViewModels
             Push?.Invoke(new ForgotPasswordScreen());
         }
 
+
+
+
     }
 }
 
