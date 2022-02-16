@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="JobsApp.Views.BasicUserInfoScreen"
              NavigationPage.HasNavigationBar="False"
+             xmlns:CI="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
              xmlns:local="clr-namespace:JobsApp.ViewModels" BackgroundColor="#F1FAEE">
 
     <ContentPage.BindingContext>
@@ -10,27 +11,39 @@
     </ContentPage.BindingContext>
 
     <ContentPage.Content>
+        
+        
         <ScrollView>
-            
+
             <StackLayout RadioButtonGroup.GroupName="Genders"
                          RadioButtonGroup.SelectedValue="{Binding Gender}">
 
-                <Image x:Name="theImage" Source="{Binding ContactImgSrc}" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1"/>
-                <ImageButton Source="GalleryIcon.png" HorizontalOptions="End" BackgroundColor="White" Grid.Column="0" Grid.Row="0" Command="{Binding PickImageCommand}"/>
-                <ImageButton Source="CameraIcon.png" HorizontalOptions="Start" Grid.Column="1" Grid.Row="0" BackgroundColor="White" Command="{Binding CameraImageCommand}"/>
+               
 
                 <Image Source="logo_inside_app.png" WidthRequest="60" HeightRequest="50" Margin="0,0,350,0"/>
                 <!--Every time the user enters one input another inout is shown up and so on till the basic info is all done -->
-                <Frame>
-                    <Grid RowSpacing="4">
-                        <Label Grid.Row="0" Text="You met us and our vision but now..." TextColor="Blue"/>
+                <Frame BackgroundColor="#E63946">
+                    <Grid RowSpacing="4" BackgroundColor="Transparent">
+                        <Label Grid.Row="0" Text="You met us and our vision but now..."/>
 
-                        <Label Grid.Row="1" Text="Let's get to know you" TextColor="Blue"/>
+                        <Label Grid.Row="1" Text="Let's get to know you"/>
                     </Grid>
                 </Frame>
 
-                
+                <StackLayout Margin="30,30,30,-10">
+
+                    <CI:CircleImage WidthRequest="120" HeightRequest="120" x:Name="theImage" Source="{Binding UserImgSrc}" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1"/>
+
                     
+                    <StackLayout Orientation="Horizontal" BackgroundColor="Transparent" HorizontalOptions="Center">
+                        <ImageButton Command="{Binding PickImageCommand}" Source="GalleryIcon.png" WidthRequest="30" HeightRequest="50" HorizontalOptions="End" BackgroundColor="Transparent"/>
+                        <ImageButton Command="{Binding CameraImageCommand}" Source="CameraIcon.png" WidthRequest="30" HeightRequest="50" HorizontalOptions="Start" BackgroundColor="Transparent"/>
+                    </StackLayout>
+
+                </StackLayout>
+
+
+
                 <Entry Placeholder="First Name" Text="{Binding FirstName}" Margin="30,30,240,10" WidthRequest="1" Keyboard="Chat"/>
                 <Label Text="*Must enter your name" IsVisible="{Binding FirstNameErrorShown}" Style="{StaticResource InvalidWarning}"/>
 

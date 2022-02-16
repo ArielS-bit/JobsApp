@@ -311,15 +311,15 @@ namespace JobsApp.ViewModels
         #endregion Properties
 
         #region Image Source
-        private string contactImgSrc;
+        private string userImgSrc;
 
-        public string ContactImgSrc
+        public string UserImgSrc
         {
-            get => contactImgSrc;
+            get => userImgSrc;
             set
             {
-                contactImgSrc = value;
-                OnPropertyChanged("ContactImgSrc");
+                userImgSrc = value;
+                OnPropertyChanged("UserImgSrc");
             }
         }
        
@@ -457,7 +457,7 @@ namespace JobsApp.ViewModels
             this.NicknameErrorShown = false;
             this.PassErrorShown = false;
             this.PrivateAnswerErrorShown = false;
-
+            this.UserImgSrc = DEFAULT_PHOTO_SRC;
 
 
             
