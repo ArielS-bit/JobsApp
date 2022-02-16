@@ -62,7 +62,7 @@
 
                         <Label TextColor="Black" Text="Connections"/>
                         <!--{Binding Connections}"/>-->
-                        <Label Text="4.5/10"/>
+                        <Label Text="4.5/5"/>
                         
 
                         <Image Source="social.png" Margin="-10,-50,30,30"/>
@@ -76,18 +76,18 @@
                     <!--Info-->
                     
                     <StackLayout Margin="20">
-                        <Image BackgroundColor="#f1faee" Source="starsDemo.png" Margin="10,-20,10,20"/>
+                        <!--<Image BackgroundColor="#f1faee" Source="starsDemo.png" Margin="10,-20,10,20"/>-->
 
                         <Grid>
                             
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="250"/>
                                 <RowDefinition Height="50"/>
-                                <RowDefinition Height="150"/>
+                                <RowDefinition Height="250"/>
                                 <RowDefinition Height="50"/>
-                                <RowDefinition Height="150"/>
+                                <RowDefinition Height="250"/>
                                 <RowDefinition Height="50"/>
-                                <RowDefinition Height="150"/>
+                                <RowDefinition Height="250"/>
                                 <RowDefinition Height="50"/>
                                 <RowDefinition Height="150"/>
                                 <RowDefinition Height="50"/>
@@ -140,7 +140,7 @@
                                  <Frame Style="{StaticResource SectionFrame}" Grid.Row="8">
                                     <Grid>
                                         <Label Text="Recommendations" Style="{StaticResource SectionTitle}"/>
-
+                                            <!--Will be a caruosel of every reccomendation-->
                                         <Label Text="{Binding Recommendations}"/>
                                     </Grid>
                                 </Frame>
