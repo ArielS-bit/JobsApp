@@ -12,6 +12,7 @@ using Xamarin.Forms;
 using Xamarin.Essentials;
 using System.IO;
 
+
 namespace JobsApp.Services
 {
     class JobsAPIProxy
@@ -287,6 +288,29 @@ namespace JobsApp.Services
             {
                 Console.WriteLine(e.Message);
                 return null;
+            }
+        }
+
+        //Upload file to server (only images!)
+        public async Task<bool> UploadImage(Models.FileInfo fileInfo, string targetFileName)
+        {
+            try
+            {
+                var multipartFormDataContent = new MultipartFormDataContent();
+                var fileContent = new ByteArrayContent(File.ReadAllBytes(fileInfo.Name));
+                multipartFormDataContent.Add(fileContent, "file", targetFileName);
+                HttpResponseMessage response = await client.PostAsync($"{this.baseUri}/UploadImage", multipartFormDataContent);
+                if (response.IsSuccessStatusCode)
+                {
+                    return true;
+                }
+                else
+                    return false;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return false;
             }
         }
 

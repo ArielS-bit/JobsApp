@@ -13,10 +13,10 @@ namespace JobsApp.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class BasicUserInfoScreen : ContentPage
     {
-        public BasicUserInfoScreen()
+        public BasicUserInfoScreen(SignUpViewModel context)
         {
-            //this.BindingContext = context;
-            //context.SetImageSourceEvent += OnSetImageSource;
+            this.BindingContext = context;
+            context.SetImageSourceEvent += OnSetImageSource;
             InitializeComponent();
 
 

@@ -11,6 +11,9 @@ using Xamarin.Essentials;
 using System.Linq;
 using JobsApp.ViewModels;
 using JobsApp.Views;
+using System.Collections.ObjectModel;
+
+
 
 namespace JobsApp.ViewModels
 {
@@ -307,6 +310,22 @@ namespace JobsApp.ViewModels
         }
         #endregion Properties
 
+        #region Image Source
+        private string contactImgSrc;
+
+        public string ContactImgSrc
+        {
+            get => contactImgSrc;
+            set
+            {
+                contactImgSrc = value;
+                OnPropertyChanged("ContactImgSrc");
+            }
+        }
+       
+        private const string DEFAULT_PHOTO_SRC = "ProfileIcon.png";
+        #endregion
+
         #region Validation Functions
         private void FirstNameValidation()
         {
@@ -566,7 +585,7 @@ namespace JobsApp.ViewModels
             }
         }
 
-        private const string DEFAULT_PHOTO_SRC = "ProfileIcon.png";
+       
 
 
     }
