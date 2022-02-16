@@ -88,20 +88,23 @@
                             <Frame>
                                 <Label Text="{Binding Skills}"/>
                             </Frame>
-                            <Label Text="Background" Grid.Column="0" Grid.Row="9"/>
-                            <Frame>
-                                <Label Text="{Binding Background}"/>
-                            </Frame>
-
+                            
                             <Label Text="Activity" Grid.Column="0" Grid.Row="12"/>
                             <Frame>
                                 <Label Text="{Binding Activity}"/>
                             </Frame>
 
-                            <Label Text="Recommands" Grid.Column="0" Grid.Row="15"/>
+                            <Label Text="Recommendations" Grid.Column="0" Grid.Row="15"/>
                             <Frame>
-                                <Label Text="{Binding Recoomands}"/>
+                                <Label Text="{Binding Recommendations}"/>
+                            </Frame> 
+                            <Label Text="Pictures from recent jobs" Grid.Column="0" Grid.Row="15"/>
+                            <Frame>
+                                
                             </Frame>
+
+
+
 
 
 
