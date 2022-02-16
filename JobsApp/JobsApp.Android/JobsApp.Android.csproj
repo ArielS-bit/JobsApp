@@ -152,7 +152,7 @@
     <AndroidResource Include="Resources\drawable\backgroundFeed.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\backgroundImg.jpg" />
+    <AndroidResource Include="Resources\drawable\DefaultBackgroundImg.jpg" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\divider.png" />

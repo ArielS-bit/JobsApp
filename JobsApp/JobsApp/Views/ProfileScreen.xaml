@@ -14,15 +14,34 @@
         <local:ProfileViewModel></local:ProfileViewModel>
     </ContentPage.BindingContext>
 
-    
-    
+
+    <ContentPage.Resources>
+        <Style TargetType="Label" x:Key="SectionTitle">
+            <Setter Property="FontFamily" Value="'Zen Kaku Gothic Antique', sans-serif"/>
+            <Setter Property="TextColor" Value="#1D3557"/>
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="FontAttributes" Value="Bold"/>
+            <Setter Property="HorizontalTextAlignment" Value="Start"/>
+            <Setter Property="Margin" Value="30"/>
+            <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+        </Style>
+
+        <Style TargetType="Frame" x:Key="SectionFrame">
+            <Setter Property="CornerRadius" Value="30"/>
+            <Setter Property="BackgroundColor" Value="#A8DADC"/>
+
+        </Style>
+        
+    </ContentPage.Resources>
+
+
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
               
                 <!--make the top smaller when is scrolled down-->
                 <Button Text="Contact Info" ImageSource="ContactIcon.png" WidthRequest="40" HeightRequest="40" BackgroundColor="#f1faee" HorizontalOptions="End" CornerRadius="20"/>
-                <Image Source="backgroundImg" Margin="0,-120,0,0"/>
+                <Image Source="DefaultBackgroundImg.jpg" Margin="0,-120,0,0"/>
                 <Button ImageSource="ProfileIcon.png" Margin="30,-50,300,10" HeightRequest="90" CornerRadius="50"/>
 
                 <!--Should be only when others watch this profile-->
@@ -55,59 +74,87 @@
 
                 <pv:PancakeView CornerRadius="60">
                     <!--Info-->
-
-
+                    
                     <StackLayout Margin="20">
                         <Image BackgroundColor="#f1faee" Source="starsDemo.png" Margin="10,-20,10,20"/>
 
-                        <Grid BackgroundColor="#A8DADC">
+                        <Grid>
+                            
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="20"/>
-                                <RowDefinition Height="20"/>
-
+                                <RowDefinition Height="250"/>
+                                <RowDefinition Height="50"/>
+                                <RowDefinition Height="150"/>
+                                <RowDefinition Height="50"/>
+                                <RowDefinition Height="150"/>
+                                <RowDefinition Height="50"/>
+                                <RowDefinition Height="150"/>
+                                <RowDefinition Height="50"/>
+                                <RowDefinition Height="150"/>
+                                <RowDefinition Height="50"/>
+                                <RowDefinition Height="500"/>
+                               
+                                
                             </Grid.RowDefinitions>
 
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
+                            <Frame Style="{StaticResource SectionFrame}"  Grid.Row="0">
+                                <Grid>
+                                    <Label Text="About" Style="{StaticResource SectionTitle}"/>
 
-                            
-                            <Label Text="About" Grid.Column="0" Grid.Row="0"/>
-                            <Frame>
-                                <Label Text="{Binding AboutUser}"/>
+                                    <Label Text="{Binding AboutUser}"/>
+                                </Grid>
                             </Frame>
 
-                            <Label Text="I'm interested in..." Grid.Column="0" Grid.Row="3"/>
-                            <Frame>
-                                <Label Text="{Binding Intersted}"/>
+                            <BoxView Grid.Row="1" BackgroundColor="Transparent"/>
+
+                            <Frame Style="{StaticResource SectionFrame}" Grid.Row="2">
+                                <Grid>
+                                    <Label Text="I'm interested in..." Style="{StaticResource SectionTitle}"/>
+
+                                    <Label Text="{Binding Intersted}"/>
+                                </Grid>
                             </Frame>
+
+                            <BoxView Grid.Row="3" BackgroundColor="Transparent"/>
+
                             <!--collection of professions-->
+                            <Frame Style="{StaticResource SectionFrame}" Grid.Row="4">
+                                    <Grid>
+                                        <Label Text="Skills" Style="{StaticResource SectionTitle}"/>
 
-                            <Label Text="Skills" Grid.Column="0" Grid.Row="6"/>
-                            <Frame>
-                                <Label Text="{Binding Skills}"/>
-                            </Frame>
-                            
-                            <Label Text="Activity" Grid.Column="0" Grid.Row="12"/>
-                            <Frame>
-                                <Label Text="{Binding Activity}"/>
-                            </Frame>
+                                        <Label Text="{Binding Skills}"/>
+                                    </Grid>
+                                </Frame>
 
-                            <Label Text="Recommendations" Grid.Column="0" Grid.Row="15"/>
-                            <Frame>
-                                <Label Text="{Binding Recommendations}"/>
-                            </Frame> 
-                            <Label Text="Pictures from recent jobs" Grid.Column="0" Grid.Row="15"/>
-                            <Frame>
-                                
-                            </Frame>
+                                <BoxView Grid.Row="5" BackgroundColor="Transparent"/>
 
+                            <Frame Style="{StaticResource SectionFrame}" Grid.Row="6">
+                                    <Grid>
+                                        <Label Text="Activity" Style="{StaticResource SectionTitle}"/>
 
+                                        <Label Text="{Binding Activity}"/>
+                                    </Grid>
+                                </Frame>
 
+                                <BoxView Grid.Row="7" BackgroundColor="Transparent"/>
 
+                                 <Frame Style="{StaticResource SectionFrame}" Grid.Row="8">
+                                    <Grid>
+                                        <Label Text="Recommendations" Style="{StaticResource SectionTitle}"/>
 
+                                        <Label Text="{Binding Recommendations}"/>
+                                    </Grid>
+                                </Frame>
 
+                                <BoxView Grid.Row="9" BackgroundColor="Transparent"/>
+
+                                <Frame Style="{StaticResource SectionFrame}" Grid.Row="10">
+                                    <Grid>
+                                        <!--will be as a caruseal-->
+                                        <Label Text="Pictures from recent jobs" Style="{StaticResource SectionTitle}"/>
+
+                                        <Image Source="HugePicture.png" Margin="30"/>
+                                    </Grid>
+                                </Frame>
 
 
                         </Grid>
