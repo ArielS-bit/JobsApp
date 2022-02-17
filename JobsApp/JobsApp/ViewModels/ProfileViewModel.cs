@@ -188,7 +188,21 @@ namespace JobsApp.ViewModels
         }
         #endregion
 
+        #region Image Source
+        private string userImgSrc;
 
+        public string UserImgSrc
+        {
+            get => userImgSrc;
+            set
+            {
+                userImgSrc = value;
+                OnPropertyChanged("UserImgSrc");
+            }
+        }
+
+        private const string DEFAULT_PHOTO_SRC = "HugePicture.png";//DefaultPhoto.png
+        #endregion
 
         public event Action<Page> Push;
 
@@ -202,19 +216,22 @@ namespace JobsApp.ViewModels
         public ProfileViewModel()
         {
             User u = ((App)Application.Current).CurrentUser;
-            //this.FirstName = u.FirstName;
-            //this.LastName = u.LastName;
-            //this.Gender = u.Gender;
-            //this.Bday = u.Birthday;
-            //this.Email = u.Email;
-            //this.Nickname = u.Nickname;
-            //this.Password = u.Pass;
-            //this.UserTypeID = u.UserTypeId;
-            //this.PrivateAnswer = u.PrivateAnswer;
-            //this.FullName = u.FirstName +" "+ u.LastName;
-            //this.Age = DateTime.Today.Year - u.Birthday.Year;
-            //this.EditMode = false;//Change here
-           // EditCommand = new Command(EditUser);
+            this.UserImgSrc = DEFAULT_PHOTO_SRC;
+            this.FirstName= u.FirstName;
+            this.LastName = u.LastName;
+            this.Nickname = u.Nickname;
+            this.Gender = u.Gender;
+            this.Bday = u.Birthday;
+            this.Email = u.Email;
+            this.Password = u.Pass;
+            this.UserTypeID = u.UserTypeId;
+            this.PrivateAnswer = u.PrivateAnswer;
+            this.FullName = u.FirstName + " " + u.LastName;
+            this.Age = DateTime.Today.Year - u.Birthday.Year;
+            this.EditMode = false;//change here
+            //EditCommand = new Command(EditUser);
+           
+          
 
 
 
@@ -226,6 +243,47 @@ namespace JobsApp.ViewModels
         {
 
             Push?.Invoke(new EditScreen());
+        }
+
+        ///The following command handle the pick photo button
+        FileResult imageFileResult;
+        public event Action<ImageSource> SetImageSourceEvent;
+        public ICommand PickImageCommand => new Command(OnPickImage);
+        public async void OnPickImage()
+        {
+            FileResult result = await MediaPicker.PickPhotoAsync(new MediaPickerOptions()
+            {
+                Title = "Pick a picture"
+            });
+
+            if (result != null)
+            {
+                this.imageFileResult = result;
+
+                var stream = await result.OpenReadAsync();
+                ImageSource imgSource = ImageSource.FromStream(() => stream);
+                if (SetImageSourceEvent != null)
+                    SetImageSourceEvent(imgSource);
+            }
+        }
+
+        ///The following command handle the take photo button
+        public ICommand CameraImageCommand => new Command(OnCameraImage);
+        public async void OnCameraImage()
+        {
+            var result = await MediaPicker.CapturePhotoAsync(new MediaPickerOptions()
+            {
+                Title = "Take a picture"
+            });
+
+            if (result != null)
+            {
+                this.imageFileResult = result;
+                var stream = await result.OpenReadAsync();
+                ImageSource imgSource = ImageSource.FromStream(() => stream);
+                if (SetImageSourceEvent != null)
+                    SetImageSourceEvent(imgSource);
+            }
         }
 
 

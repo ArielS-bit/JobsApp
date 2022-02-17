@@ -4,6 +4,7 @@
              x:Class="JobsApp.Views.BasicUserInfoScreen"
              NavigationPage.HasNavigationBar="False"
              xmlns:CI="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+             xmlns:pv="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              xmlns:local="clr-namespace:JobsApp.ViewModels" BackgroundColor="#F1FAEE">
 
     <ContentPage.BindingContext>
@@ -19,7 +20,7 @@
                          RadioButtonGroup.SelectedValue="{Binding Gender}">
 
                
-
+                
                 <Image Source="logo_inside_app.png" WidthRequest="60" HeightRequest="50" Margin="0,0,350,0"/>
                 <!--Every time the user enters one input another inout is shown up and so on till the basic info is all done -->
                 <Frame BackgroundColor="#E63946">
@@ -32,9 +33,8 @@
 
                 <StackLayout Margin="30,30,30,-10">
 
-                    <CI:CircleImage WidthRequest="120" HeightRequest="120" x:Name="theImage" Source="{Binding UserImgSrc}" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1"/>
-
-                    
+                    <CI:CircleImage x:Name="theImage" Source="{Binding UserImgSrc}" Margin="90,-20,90,-10"/>
+                  
                     <StackLayout Orientation="Horizontal" BackgroundColor="Transparent" HorizontalOptions="Center">
                         <ImageButton Command="{Binding PickImageCommand}" Source="GalleryIcon.png" WidthRequest="30" HeightRequest="50" HorizontalOptions="End" BackgroundColor="Transparent"/>
                         <ImageButton Command="{Binding CameraImageCommand}" Source="CameraIcon.png" WidthRequest="30" HeightRequest="50" HorizontalOptions="Start" BackgroundColor="Transparent"/>
