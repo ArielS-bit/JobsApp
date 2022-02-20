@@ -323,7 +323,7 @@ namespace JobsApp.ViewModels
             }
         }
        
-        private const string DEFAULT_PHOTO_SRC = "ProfileIcon.png";
+        private const string DEFAULT_PHOTO_SRC = "DefualtProfile.png";
         #endregion
 
         #region Validation Functions
@@ -440,8 +440,8 @@ namespace JobsApp.ViewModels
             CountinueCommand = new Command(Continue, IsContinueEnabled);
             //this.FirstName = "";
             //this.LastName = "";
-          //  this.Nickname = "";
-          //  this.Email = "";
+              //  this.Nickname = "";
+              //  this.Email = "";
             this.Gender = "";
             this.Bday = new DateTime(2010,1,3);
            
@@ -522,7 +522,17 @@ namespace JobsApp.ViewModels
             }
             else
             {
+
                 ((App)App.Current).CurrentUser = u;
+                if (imageFileResult !=null)
+                {
+                    bool success = await proxy.UploadImage(new FileInfo()
+                    {
+                        Name = this.imageFileResult.FullPath
+
+                    }, $"{u.UserId}.jpg");
+                        
+                }
                 //App theApp = (App)App.Current;
                 //theApp.CurrentUser = user;
                 Push?.Invoke(new FeedScreen());
