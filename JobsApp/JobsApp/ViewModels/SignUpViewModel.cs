@@ -533,6 +533,10 @@ namespace JobsApp.ViewModels
                     }, $"{u.UserId}.jpg");
                         
                 }
+                else
+                {
+
+                }
                 //App theApp = (App)App.Current;
                 //theApp.CurrentUser = user;
                 Push?.Invoke(new FeedScreen());
