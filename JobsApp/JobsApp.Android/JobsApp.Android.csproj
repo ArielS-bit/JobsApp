@@ -98,9 +98,6 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\launcher_foreground.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\CloseEyePass.png" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\JobsApp\JobsApp.csproj">
       <Project>{7993B2F1-7092-4E4F-A422-582B654B31B1}</Project>
       <Name>JobsApp</Name>
@@ -108,9 +105,6 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\logo_inside_app.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\OpenEyePass.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\HomeIcon.png" />
@@ -177,6 +171,12 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\GalleryIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\VisibleOn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\VisibleOff.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

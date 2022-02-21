@@ -55,19 +55,28 @@
                     <StackLayout Margin="150,-50,20,20" BackgroundColor="Transparent">
 
 
-                        <Label TextColor="Black" Text="Full Name"/>
+                        <Label TextColor="Black" Text="{Binding FullName}"/>
                         <!--{Binding FullName}"/>-->
 
-                        <Label TextColor="Black" Text="Age"/>
+                        <Label TextColor="Black" Text="{Binding Age}"/>
                         <!--{Binding Age}"/>-->
 
-                        <Label TextColor="Black" Text="Connections"/>
+                        <StackLayout Orientation="Horizontal">
+                            <Label TextColor="Black" Text="{Binding Connections}"/>
+                            <Label Text="*"/>
+                            <Image Source="social.png"/>
+                        </StackLayout>
                         <!--{Binding Connections}"/>-->
-                        <Label Text="4.5/5"/>
-                        
 
-                        <Image Source="social.png" Margin="-10,-50,30,30"/>
-                        <Image Source="starRating.png" Margin="-180,-38,100,0" WidthRequest="20" HeightRequest="20"/>
+                        <StackLayout Orientation="Horizontal">
+
+                            <Label Text="{Binding Rating}"/>
+                            <Label Text="/5" Margin="-5,0,0,0"/>
+
+                            <Image Source="starRating.png" WidthRequest="20" HeightRequest="20"/>
+
+                        </StackLayout>
+                       
 
                     </StackLayout>
                     <Image Source="divider.png" HorizontalOptions="CenterAndExpand"/>

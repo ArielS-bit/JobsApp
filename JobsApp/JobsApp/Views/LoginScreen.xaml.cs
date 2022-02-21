@@ -34,5 +34,22 @@ namespace JobsApp.Views
         {
             ForgotPassBtn.BackgroundColor = Color.Accent; //(236, 245, 233);
         }
+
+        private void VisibleOff_Clicked(object sender, EventArgs e)
+        {
+            VisibilityOffSign.IsVisible = false;
+            VisibilityOnSign.IsVisible = true;
+            PasswordHolder.IsPassword = false;
+        }
+
+        private void VisibleOn_Clicked(object sender, EventArgs e)
+        {
+            VisibilityOffSign.IsVisible = true;
+            VisibilityOnSign.IsVisible = false;
+            PasswordHolder.IsPassword = true;
+            
+        }
+
+
     }//צריך להיות עם דברים אינטראקטיבים בכל האפליקציה 
 }

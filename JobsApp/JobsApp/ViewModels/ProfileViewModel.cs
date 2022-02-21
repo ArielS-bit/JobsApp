@@ -173,6 +173,20 @@ namespace JobsApp.ViewModels
             }
         }
 
+        private int connections;
+        public int Connections
+        {
+            get { return connections; }
+            set
+            {
+                if (connections != value)
+                {
+                    connections = value;
+                    OnPropertyChanged("Connections");
+                }
+            }
+        }
+
         private bool editMode;
         public bool EditMode
         {
@@ -186,6 +200,24 @@ namespace JobsApp.ViewModels
                 }
             }
         }
+
+        private double rating;
+        public double Rating
+        {
+            get { return rating; }
+            set
+            {
+                if (rating != value)
+                {
+                    rating = value;
+                    OnPropertyChanged("Rating");
+                }
+            }
+        }
+
+
+
+
         #endregion
 
         #region Image Source
@@ -216,7 +248,7 @@ namespace JobsApp.ViewModels
         public ProfileViewModel()
         {
             User u = ((App)Application.Current).CurrentUser;
-            this.UserImgSrc = DEFAULT_PHOTO_SRC;
+            this.UserImgSrc = DEFAULT_PHOTO_SRC;//proxy function that brings the photo via a path using the user ID
             this.FirstName= u.FirstName;
             this.LastName = u.LastName;
             this.Nickname = u.Nickname;
@@ -230,7 +262,8 @@ namespace JobsApp.ViewModels
             this.Age = DateTime.Today.Year - u.Birthday.Year;
             this.EditMode = false;//change here
             //EditCommand = new Command(EditUser);
-           
+            this.Connections = 10;//Chnage it
+            this.Rating = 0;
           
 
 
