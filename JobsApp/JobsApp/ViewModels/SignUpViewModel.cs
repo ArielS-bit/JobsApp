@@ -438,13 +438,12 @@ namespace JobsApp.ViewModels
         {
             SignUpCommand = new Command(SignUp, IsSignUpEnabled);
             CountinueCommand = new Command(Continue, IsContinueEnabled);
-            //this.FirstName = "";
-            //this.LastName = "";
-              //  this.Nickname = "";
-              //  this.Email = "";
-            this.Gender = "";
+            this.FirstName = "";
+            this.LastName = "";
+            this.Nickname = "";
+            this.Email = "";
+            this.Gender = "Male";
             this.Bday = new DateTime(2010,1,3);
-           
             BdayValidation();
             this.Pass = "";
             this.PrivateAnswer = "";
@@ -458,6 +457,7 @@ namespace JobsApp.ViewModels
             this.PassErrorShown = false;
             this.PrivateAnswerErrorShown = false;
             this.UserImgSrc = DEFAULT_PHOTO_SRC;
+            this.UserTypeID = 3;
 
 
             
