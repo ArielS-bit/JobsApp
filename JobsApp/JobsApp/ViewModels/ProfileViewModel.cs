@@ -249,7 +249,7 @@ namespace JobsApp.ViewModels
         {
             User u = ((App)Application.Current).CurrentUser;
             this.UserImgSrc = DEFAULT_PHOTO_SRC;//proxy function that brings the photo via a path using the user ID
-            this.FirstName= u.FirstName;
+            this.FirstName = u.FirstName;
             this.LastName = u.LastName;
             this.Nickname = u.Nickname;
             this.Gender = u.Gender;

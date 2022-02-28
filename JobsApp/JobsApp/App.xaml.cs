@@ -3,7 +3,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using JobsApp.Models;
 using JobsApp.Views;
-
+using Syncfusion;
 using System.Collections.Generic;
 
 namespace JobsApp
@@ -21,11 +21,11 @@ namespace JobsApp
 
         public App()
         {
-            
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("NTg4MzA2QDMxMzkyZTM0MmUzMG1Ya0hxUmowbVN5TkVaUldpT2pDYldqcFBXTm1PTDFtNUZpcmZjU2pJZVU9");
             InitializeComponent();
             CurrentUser = null;
            
-            MainPage = new NavigationPage(new LoginScreen());
+            MainPage = new NavigationPage(new ProfileScreen());
             
         }
 
