@@ -10,13 +10,11 @@ using Xamarin.Forms.Xaml;
 namespace JobsApp.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class FeedScreen : ContentPage
+    public partial class MainTabView : ContentPage
     {
-        public FeedScreen()
+        public MainTabView()
         {
             InitializeComponent();
-
-
         }
     }
 }

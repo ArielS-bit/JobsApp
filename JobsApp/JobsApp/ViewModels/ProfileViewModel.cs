@@ -249,26 +249,29 @@ namespace JobsApp.ViewModels
         {
             User u = ((App)Application.Current).CurrentUser;
             this.UserImgSrc = DEFAULT_PHOTO_SRC;//proxy function that brings the photo via a path using the user ID
-            this.FirstName = u.FirstName;
-            this.LastName = u.LastName;
-            this.Nickname = u.Nickname;
-            this.Gender = u.Gender;
-            this.Bday = u.Birthday;
-            this.Email = u.Email;
-            this.Password = u.Pass;
-            this.UserTypeID = u.UserTypeId;
-            this.PrivateAnswer = u.PrivateAnswer;
-            this.FullName = u.FirstName + " " + u.LastName;
-            this.Age = DateTime.Today.Year - u.Birthday.Year;
-            this.EditMode = false;//change here
-            //EditCommand = new Command(EditUser);
-            this.Connections = 10;//Chnage it
-            this.Rating = 0;
-          
 
+            if (u!=null)
+            {
 
+            
+                this.FirstName = u.FirstName;
+                this.LastName = u.LastName;
+                this.Nickname = u.Nickname;
+                this.Gender = u.Gender;
+                this.Bday = u.Birthday;
+                this.Email = u.Email;
+                this.Password = u.Pass;
+                this.UserTypeID = u.UserTypeId;
+                this.PrivateAnswer = u.PrivateAnswer;
+                this.FullName = u.FirstName + " " + u.LastName;
+                this.Age = DateTime.Today.Year - u.Birthday.Year;
+                this.EditMode = false;//change here
+                //EditCommand = new Command(EditUser);
+                this.Connections = 10;//Chnage it
+                this.Rating = 0;
+            }
 
-
+            //Push?.Invoke(new ErrorScreen());
 
         }
 

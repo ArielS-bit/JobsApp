@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:pv="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             xmlns:local="clr-namespace:JobsApp.ViewModels"
+             x:Class="JobsApp.Views.ToolsView">
+  
+    
+
+        <ContentPage.BindingContext>
+        <local:ToolsVM></local:ToolsVM>
+        </ContentPage.BindingContext>
+
+
+        <!--תנסה אולי לשים בקובץ של סי שארפ מאחור כאן ולא בוויו מודל ואם אז לחזור למקורי ולשנות בהתאם-->
+        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <Image Source="bg.jpg" Aspect="AspectFill" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+
+            <BoxView Opacity="0.7" BackgroundColor="#95afc0"/>
+
+            <SwipeView x:Name="MainSwipeMenu" BackgroundColor="Transparent">
+
+                <!--<SwipeView.LeftItems>
+                <SwipeItems>
+                    <SwipeItemView>
+                        <StackLayout x:Name="MenuView"
+                                BindableLayout.ItemsSource="{Binding MyMenu}">
+                            <BindableLayout.ItemTemplate>
+                                <DataTemplate>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="{Binding Name}" />
+                                        <Image Source="{Binding Icon}"/>
+                                    </StackLayout>
+                                </DataTemplate>
+                            </BindableLayout.ItemTemplate>
+                        </StackLayout>
+                    </SwipeItemView>
+                </SwipeItems>
+                </SwipeView.LeftItems>-->
+
+
+
+                <SwipeView.LeftItems>
+                    <SwipeItems>
+                        <SwipeItemView>
+                            <StackLayout x:Name="MenuView" Spacing="20" Padding="30" WidthRequest="250" BindableLayout.ItemsSource="{Binding MyMenu}" VerticalOptions="CenterAndExpand">
+                                <BindableLayout.ItemTemplate>
+                                    <DataTemplate x:DataType="local:Menu">
+                                        <StackLayout Orientation="Horizontal">
+                                            <StackLayout.GestureRecognizers>
+                                                <TapGestureRecognizer Tapped="CloseSwipe"/>
+                                            </StackLayout.GestureRecognizers>
+
+                                            <Image Source="{Binding Icon}" HeightRequest="15" WidthRequest="15" HorizontalOptions="Center"
+                                                   VerticalOptions="Center"/>
+
+
+                                            <Label Text="{Binding Name }" HorizontalOptions="Start" VerticalOptions="Center" FontSize="15" TextColor="White"/>
+
+
+
+
+                                        </StackLayout>
+                                    </DataTemplate>
+                                </BindableLayout.ItemTemplate>
+                            </StackLayout>
+
+                        </SwipeItemView>
+                    </SwipeItems>
+                </SwipeView.LeftItems>
+
+                <Grid x:Name="SwipeContent" BackgroundColor="White">
+
+                    <pv:PancakeView x:Name="Pancake" BackgroundColor="White">
+                        <Grid>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+
+                            </Grid>
+
+                            <Grid Padding="30">
+                                <Image x:Name="sideMenu" Source="SideMenuHamburger.png" HeightRequest="18" HorizontalOptions="Start">
+                                    <Image.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="OpenSwipe"/>
+                                    </Image.GestureRecognizers>
+
+
+                                </Image>
+                                <Image Source="ProfileIcon.png" WidthRequest="36" HorizontalOptions="End"/>
+
+                            </Grid>
+                        </Grid>
+
+                    </pv:PancakeView>
+
+
+                    <StackLayout Grid.Row="3" Background="White" Padding="50,0">
+                        <Label Text="My Jobs" FontSize="18" FontAttributes="Bold"/>
+                        <Grid HorizontalOptions="FillAndExpand" ColumnSpacing="20">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <pv:PancakeView Padding="10" BackgroundColor="#c7ecee" CornerRadius="20" HeightRequest="80">
+                                <Grid HorizontalOptions="FillAndExpand">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="*"/>
+
+                                    </Grid.RowDefinitions>
+                                    <StackLayout Orientation="Horizontal" Spacing="10">
+                                        <Image Source="CheckMark.png" HeightRequest="12"/>
+                                        <Label Text="Completed" TextColor="Black" FontSize="12" HorizontalTextAlignment="Center"/>
+                                    </StackLayout>
+                                    <Label Text="25%" TextColor="Black" FontSize="20" HorizontalTextAlignment="End"/>
+                                </Grid>
+                            </pv:PancakeView>
+
+                        </Grid>
+
+
+                    </StackLayout>
+
+                </Grid>
+
+            </SwipeView>
+        </Grid>
+
+    </ContentPage>
