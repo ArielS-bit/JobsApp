@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="JobsApp.Views.LoginScreen" 
              NavigationPage.HasNavigationBar="False"
+             xmlns:fontAwesome="clr-namespace:FontAwesome"
              xmlns:local="clr-namespace:JobsApp.ViewModels" BackgroundColor="#F1FAEE">
 
 
@@ -42,7 +43,8 @@
 
             <Button x:Name="SignUpBtn" Text="Join US" Margin="310,-70,0,0" HeightRequest="45" WidthRequest="80" Style="{StaticResource LoginButton}" Command="{Binding SignUpCommand}"/>
 
-            <Label Text="_ Login _" HorizontalOptions="Center" Margin="10,30,10,10" FontFamily="'Zen Kaku Gothic Antique', sans-serif" FontAttributes="Bold" FontSize="25"/>
+            
+            <Label Text="_ Login _" HorizontalOptions="Center" Margin="10,30,10,10" FontFamily="{x:Static fontAwesome:FontAwesome}" FontAttributes="Bold" FontSize="25"/>
 
 
             <Entry Placeholder="Email" Text="{Binding Email}" Margin="0,30,0,10" HorizontalTextAlignment="Start" Style="{StaticResource LoginEntry}"/>
