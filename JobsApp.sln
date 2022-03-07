@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JobsApp.Android", "JobsApp\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JobsApp.iOS", "JobsApp\JobsApp.iOS\JobsApp.iOS.csproj", "{1CD2FCC6-73A6-4A4D-B518-243B0FE37A90}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JobsApp", "JobsApp\JobsApp\JobsApp.csproj", "{8795318F-8649-407D-B44A-BC1BCC6CA31A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JobsApp", "JobsApp\JobsApp\JobsApp.csproj", "{8795318F-8649-407D-B44A-BC1BCC6CA31A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

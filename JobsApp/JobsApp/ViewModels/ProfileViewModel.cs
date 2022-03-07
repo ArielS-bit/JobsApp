@@ -225,12 +225,16 @@ namespace JobsApp.ViewModels
 
         public string UserImgSrc
         {
-            get => userImgSrc;
-            set
+            get
             {
-                userImgSrc = value;
-                OnPropertyChanged("UserImgSrc");
+                User u = ((App)Application.Current).CurrentUser;
+                return u.ImagePath;
             }
+            //set
+            //{
+            //    userImgSrc = value;
+            //    OnPropertyChanged("UserImgSrc");
+            //}
         }
 
         private const string DEFAULT_PHOTO_SRC = "HugePicture.png";//DefaultPhoto.png
@@ -248,7 +252,7 @@ namespace JobsApp.ViewModels
         public ProfileViewModel()
         {
             User u = ((App)Application.Current).CurrentUser;
-            this.UserImgSrc = DEFAULT_PHOTO_SRC;//proxy function that brings the photo via a path using the user ID
+            //this.UserImgSrc = DEFAULT_PHOTO_SRC;//proxy function that brings the photo via a path using the user ID
 
             if (u!=null)
             {

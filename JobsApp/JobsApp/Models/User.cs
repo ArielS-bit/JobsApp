@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using JobsApp.Services;
 
 namespace JobsApp.Models
 {
@@ -20,5 +20,15 @@ namespace JobsApp.Models
         public virtual UserType UserType { get; set; }
 
         //לבדוק האם ניתן להוסיף ידני לכאן את הרשימה של תחומי עניין 
+
+        //Added
+        public string ImagePath
+        {
+            get
+            {
+                JobsAPIProxy proxy = JobsAPIProxy.CreateProxy();
+                return $"{proxy.GetBasePhotoUri()}{this.UserId}.jpg";
+            }
+        }
     }
 }
