@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="JobsApp.Views.ProfileScreen"
              xmlns:local="clr-namespace:JobsApp.ViewModels"
@@ -9,13 +9,13 @@
              xmlns:CI="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin">
 
     <!--in every icon on every page put three modes of the icons in order to make ux-->
-    
-    <ContentPage.BindingContext>
+
+    <ContentView.BindingContext>
         <local:ProfileViewModel></local:ProfileViewModel>
-    </ContentPage.BindingContext>
+    </ContentView.BindingContext>
 
 
-    <ContentPage.Resources>
+    <ContentView.Resources>
         <Style TargetType="Label" x:Key="SectionTitle">
             <Setter Property="FontFamily" Value="'Zen Kaku Gothic Antique', sans-serif"/>
             <Setter Property="TextColor" Value="#1D3557"/>
@@ -32,10 +32,10 @@
 
         </Style>
         
-    </ContentPage.Resources>
+    </ContentView.Resources>
 
 
-    <ContentPage.Content>
+    <ContentView.Content>
         <ScrollView>
             <StackLayout>
               
@@ -181,5 +181,5 @@
             </StackLayout>
         </ScrollView>
 
-    </ContentPage.Content>
-</ContentPage>
+    </ContentView.Content>
+</ContentView>

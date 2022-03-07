@@ -11,7 +11,7 @@ using JobsApp.ViewModels;
 namespace JobsApp.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class EditScreen : ContentPage
+    public partial class EditScreen : ContentView
     {
         public EditScreen()
         {

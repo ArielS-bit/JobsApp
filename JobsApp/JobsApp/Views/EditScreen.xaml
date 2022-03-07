@@ -1,15 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="JobsApp.Views.EditScreen"
              xmlns:local="clr-namespace:JobsApp.ViewModels"
              xmlns:pv="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView">
 
-    <ContentPage.BindingContext>
+    <ContentView.BindingContext>
         <local:EditViewModel></local:EditViewModel>
-    </ContentPage.BindingContext>
-    
-    <ContentPage.Content>
+    </ContentView.BindingContext>
+
+    <ContentView.Content>
         <pv:PancakeView>
             <StackLayout>
             <Frame>
@@ -85,5 +85,5 @@
 
         </StackLayout>
         </pv:PancakeView>
-    </ContentPage.Content>
-</ContentPage>
+    </ContentView.Content>
+</ContentView>

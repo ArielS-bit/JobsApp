@@ -10,7 +10,7 @@ using Xamarin.Forms.Xaml;
 namespace JobsApp.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class FeedScreen : ContentPage
+    public partial class FeedScreen : ContentView
     {
         public FeedScreen()
         {
