@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using JobsApp.ViewModels;
 
 namespace JobsApp.Views
 {
@@ -15,6 +16,14 @@ namespace JobsApp.Views
         public ProfileView()
         {
             InitializeComponent();
+            ProfileViewModel p = new ProfileViewModel();
+            this.BindingContext = p;
+            p.SetImageSourceEvent += OnSetImageSource;
+        }
+
+        public void OnSetImageSource(ImageSource imgSource)
+        {
+            theImage.Source = imgSource;
         }
     }
 }

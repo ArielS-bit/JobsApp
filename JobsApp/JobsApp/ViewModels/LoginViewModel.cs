@@ -155,7 +155,7 @@ namespace JobsApp.ViewModels
         {
             if (Email == "Admin@gmail.com")
             {
-                Push?.Invoke(new FeedScreen());//נעביר לדף מנהל
+                Push?.Invoke(new AdminScreen());//נעביר לדף מנהל
 
             }
             else

@@ -4,20 +4,8 @@
              x:Class="JobsApp.Views.MessagesScreen">
     <ContentView.Content>
         <StackLayout>
-            
-            <AbsoluteLayout Margin="0">
-                <BoxView Color="Aquamarine"
-                                         AbsoluteLayout.LayoutBounds="20,20,20,120"/>
 
-
-
-                <BoxView Color="Yellow"
-                                         AbsoluteLayout.LayoutBounds="100,30,30,30"/>
-                <BoxView Color="Red"
-                                         AbsoluteLayout.LayoutBounds="50,50,50,50"/>
-
-
-            </AbsoluteLayout>
+            <Label HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
 
         </StackLayout>
     </ContentView.Content>

@@ -6,19 +6,15 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using JobsApp.ViewModels;
 
 namespace JobsApp.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class EditScreen : ContentPage
+    public partial class AdminScreen : ContentPage
     {
-        public EditScreen()
+        public AdminScreen()
         {
             InitializeComponent();
-            EditViewModel e = new EditViewModel();
-            e.Push += (p) => Navigation.PushAsync(p);
-            this.BindingContext = e;
         }
     }
 }

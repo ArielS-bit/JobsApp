@@ -28,7 +28,7 @@
 
 
 
-    <local:FeedScreen Title="Feed" IconImageSource="HomeIcon.png"/>
+    <!--<local:FeedScreen Title="Feed" IconImageSource="HomeIcon.png"/>
 
 
     <local:NotificationsScreen Title="Notifications" IconImageSource="BellOffIcon.png" />
@@ -41,7 +41,7 @@
        
 
    
-            <local:ExPage Title="Jobs" IconImageSource="JobsIcon.png" NavigationPage.HasNavigationBar="True" />
+            <local:ExPage Title="Jobs" IconImageSource="JobsIcon.png" NavigationPage.HasNavigationBar="True" />-->
        
 
 
