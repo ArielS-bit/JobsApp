@@ -12,7 +12,6 @@
             <xct:TabView TabStripPlacement="Bottom">
 
 
-
                 <xct:TabViewItem
                    
                     Text="Tab 1"
@@ -37,7 +36,7 @@
                     TextColor="White"
                     TextColorSelected="Yellow"
                     FontSize="12">
-                    <views:NotificationsScreen/>
+                    <views:NotificationsView/>
                 </xct:TabViewItem>
 
                 <xct:TabViewItem
@@ -46,7 +45,7 @@
                     TextColor="White"
                     TextColorSelected="Yellow"
                     FontSize="12">
-                    <views:ProfileView/>
+                    <views:MessagesView/>
                 </xct:TabViewItem>
 
 
