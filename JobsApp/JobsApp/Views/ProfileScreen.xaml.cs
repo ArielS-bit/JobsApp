@@ -11,7 +11,7 @@ using JobsApp.ViewModels;
 namespace JobsApp.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class ProfileScreen : ContentView
+    public partial class ProfileScreen : ContentPage
     {
         public ProfileScreen()
         {
