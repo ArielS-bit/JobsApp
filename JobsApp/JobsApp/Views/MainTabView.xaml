@@ -17,8 +17,9 @@
                    
                     Text="Tab 1"
                     TextColor="White"
-                    TextColorSelected="Yellow"
+                    TextColorSelected="blue"
                     FontSize="12">
+                    <views:FeedView/>
 
                 </xct:TabViewItem>
 
@@ -30,6 +31,24 @@
                     FontSize="12">
                     <views:ProfileView/>
                 </xct:TabViewItem>
+                <xct:TabViewItem
+                   
+                    Text="Tab 2"
+                    TextColor="White"
+                    TextColorSelected="Yellow"
+                    FontSize="12">
+                    <views:NotificationsScreen/>
+                </xct:TabViewItem>
+
+                <xct:TabViewItem
+                   
+                    Text="Tab 2"
+                    TextColor="White"
+                    TextColorSelected="Yellow"
+                    FontSize="12">
+                    <views:ProfileView/>
+                </xct:TabViewItem>
+
 
             </xct:TabView>
         </Grid>

@@ -6,17 +6,16 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using JobsApp.ViewModels;
 
 namespace JobsApp.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class FeedScreen : ContentView
+    public partial class NotificationsView : ContentView
     {
-        public FeedScreen()
+        public NotificationsView()
         {
             InitializeComponent();
-
-
         }
     }
 }

@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="JobsApp.Views.MessagesScreen">
+             x:Class="JobsApp.Views.NotificationsView">
     <ContentView.Content>
         <StackLayout>
-
-            <Label HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
-
+            <Label Text="Notifications view"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
         </StackLayout>
     </ContentView.Content>
 </ContentView>

@@ -6,13 +6,14 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using JobsApp.ViewModels;
 
 namespace JobsApp.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class NotificationsScreen : ContentView
+    public partial class MessagesView : ContentView
     {
-        public NotificationsScreen()
+        public MessagesView()
         {
             InitializeComponent();
         }

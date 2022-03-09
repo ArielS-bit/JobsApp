@@ -41,7 +41,7 @@
     <EmbeddedResource Update="Views\ExPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\FeedScreen.xaml">
+    <EmbeddedResource Update="Views\FeedView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\ForgotPasswordScreen.xaml">
@@ -59,10 +59,10 @@
     <EmbeddedResource Update="Views\MeetOurApp.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\MessagesScreen.xaml">
+    <EmbeddedResource Update="Views\MessagesView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\NotificationsScreen.xaml">
+    <EmbeddedResource Update="Views\NotificationsView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\ProfileScreen.xaml">
