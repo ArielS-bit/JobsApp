@@ -5,51 +5,47 @@
              xmlns:xctm="clr-namespace:Xamarin.CommunityToolkit.Markup;assembly=Xamarin.CommunityToolkit.Markup"
              x:Class="JobsApp.Views.MainTabView"
              xmlns:views="clr-namespace:JobsApp.Views">
+    
     <ContentPage.Content>
 
         <Grid>
-
-            <xct:TabView TabStripPlacement="Bottom">
-
+            <xct:TabView
+                TabStripPlacement="Bottom"
+                TabStripBackgroundColor="Blue"
+                TabStripHeight="60"
+                TabIndicatorColor="Yellow"
+                TabContentBackgroundColor="Yellow">
 
                 <xct:TabViewItem
-                   
+                    Icon="triangle.png"
                     Text="Tab 1"
                     TextColor="White"
-                    TextColorSelected="blue"
+                    TextColorSelected="Yellow"
                     FontSize="12">
-                    <views:FeedView/>
-
+                    <Grid 
+                        BackgroundColor="Gray">
+                        <Label
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center"
+                            Text="TabContent1" />
+                    </Grid>
                 </xct:TabViewItem>
 
                 <xct:TabViewItem
-                   
+                    Icon="circle.png"
                     Text="Tab 2"
                     TextColor="White"
                     TextColorSelected="Yellow"
                     FontSize="12">
-                    <views:ProfileView/>
+                    <Grid>
+                        <Label    
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center"
+                            Text="TabContent2" />
+                    </Grid>
                 </xct:TabViewItem>
-                <xct:TabViewItem
-                   
-                    Text="Tab 2"
-                    TextColor="White"
-                    TextColorSelected="Yellow"
-                    FontSize="12">
-                    <views:NotificationsView/>
-                </xct:TabViewItem>
-
-                <xct:TabViewItem
-                   
-                    Text="Tab 2"
-                    TextColor="White"
-                    TextColorSelected="Yellow"
-                    FontSize="12">
-                    <views:MessagesView/>
-                </xct:TabViewItem>
-
-
             </xct:TabView>
+
         </Grid>
 
     </ContentPage.Content>

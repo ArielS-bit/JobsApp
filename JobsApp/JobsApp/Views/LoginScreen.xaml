@@ -13,6 +13,7 @@
             <Setter Property="PlaceholderColor" Value="#1D3557"/>
             <Setter Property="TextColor" Value="#1D3557"/>
             <Setter Property="FontSize" Value="18"/>
+            <Setter Property="FontFamily" Value="ThinItalic"/>
             <Setter Property="HorizontalTextAlignment" Value="Start"/>
             <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
             <Setter Property="Opacity" Value="0.7"/>

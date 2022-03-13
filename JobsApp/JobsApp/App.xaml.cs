@@ -6,6 +6,20 @@ using JobsApp.Views;
 using Syncfusion;
 using System.Collections.Generic;
 
+[assembly: XamlCompilation(XamlCompilationOptions.Compile)]
+[assembly: ExportFont("Roboto-Black.ttf", Alias = "Black")]
+[assembly: ExportFont("Roboto-BlackItalic.ttf", Alias = "BlackItalic")]
+[assembly: ExportFont("Roboto-Bold.ttf", Alias = "Bold")]
+[assembly: ExportFont("Roboto-BoldItalic.ttf", Alias = "BoldItalic")]
+[assembly: ExportFont("Roboto-Italic.ttf", Alias = "Italic")]
+[assembly: ExportFont("Roboto-Light.ttf", Alias = "Light")]
+[assembly: ExportFont("Roboto-LightItalic.ttf", Alias = "LightItalic")]
+[assembly: ExportFont("Roboto-Medium.ttf", Alias = "Medium")]
+[assembly: ExportFont("Roboto-MediumItalic.ttf", Alias = "MediumItalic")]
+[assembly: ExportFont("Roboto-Thin.ttf", Alias = "Thin")]
+[assembly: ExportFont("Roboto-ThinItalic", Alias = "ThinItalic")]
+
+
 namespace JobsApp
 {
     public partial class App : Application
@@ -25,7 +39,7 @@ namespace JobsApp
             InitializeComponent();
             CurrentUser = null;
            
-            MainPage = new NavigationPage(new MainTabView());
+            MainPage = new NavigationPage(new LoginScreen());
             
         }
 
