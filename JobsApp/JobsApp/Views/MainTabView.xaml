@@ -13,25 +13,30 @@
         <!--<CI:CircleImage>-->
         <Grid>
 
-
-        
-
-        
             <xct:TabView
                 TabStripPlacement="Bottom"
                 TabStripBackgroundColor="White"
                 TabStripHeight="50"
+                
                 TabIndicatorColor="#8d99ae"
-                TabContentBackgroundColor="#F1FAEE">
+                TabContentBackgroundColor="#F1FAEE"
+                >
 
                 <!--<xct:TabView.TabItems>
                     --><!--<Button ImageSource="ProfileIcon.png" Margin="350,10,10,10" HeightRequest="50" CornerRadius="50"/>--><!--
 
                 </xct:TabView.TabItems>-->
-               
+
                 
+                <!--For notifiations
+                BadgeText="Hello"
+                    BadgeBackgroundColorSelected="Blue"-->
+
                 <xct:TabViewItem
-                    Icon="homeIcon.png" WidthRequest="100">
+                    
+                   
+                    Icon="homeIcon.png" Margin="0,50,0,-40" HeightRequest="120" BackgroundColor="Transparent">
+                    
                     
                     <views:FeedView/>
                 

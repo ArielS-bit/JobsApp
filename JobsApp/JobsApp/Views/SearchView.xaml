@@ -4,7 +4,7 @@
              x:Class="JobsApp.Views.SearchView">
   <ContentView.Content>
       <StackLayout>
-          <Label Text="Hello Xamarin.Forms!" />
+          <Label Text="Search" />
       </StackLayout>
   </ContentView.Content>
 </ContentView>
