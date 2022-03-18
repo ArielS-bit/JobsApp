@@ -21,8 +21,8 @@
                 TabStripPlacement="Bottom"
                 TabStripBackgroundColor="White"
                 TabStripHeight="50"
-                TabIndicatorColor="Yellow"
-                TabContentBackgroundColor="Yellow">
+                TabIndicatorColor="#8d99ae"
+                TabContentBackgroundColor="#F1FAEE">
 
                 <!--<xct:TabView.TabItems>
                     --><!--<Button ImageSource="ProfileIcon.png" Margin="350,10,10,10" HeightRequest="50" CornerRadius="50"/>--><!--
@@ -31,7 +31,7 @@
                
                 
                 <xct:TabViewItem
-                    Icon="HomeIcon.png" WidthRequest="100">
+                    Icon="homeIcon.png" WidthRequest="100">
                     
                     <views:FeedView/>
                 
