@@ -1,49 +1,64 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             xmlns:xct="clr-namespace:Xamarin.CommunityToolkit.UI.Views;assembly=Xamarin.CommunityToolkit"
              xmlns:xctm="clr-namespace:Xamarin.CommunityToolkit.Markup;assembly=Xamarin.CommunityToolkit.Markup"
+             xmlns:CI="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
              x:Class="JobsApp.Views.MainTabView"
-             xmlns:views="clr-namespace:JobsApp.Views">
+             xmlns:views="clr-namespace:JobsApp.Views"
+             NavigationPage.HasNavigationBar="False">
     
     <ContentPage.Content>
 
+        <!--<CI:CircleImage>-->
         <Grid>
+
+
+        
+
+        
             <xct:TabView
                 TabStripPlacement="Bottom"
-                TabStripBackgroundColor="Blue"
-                TabStripHeight="60"
+                TabStripBackgroundColor="White"
+                TabStripHeight="50"
                 TabIndicatorColor="Yellow"
                 TabContentBackgroundColor="Yellow">
 
+                <!--<xct:TabView.TabItems>
+                    --><!--<Button ImageSource="ProfileIcon.png" Margin="350,10,10,10" HeightRequest="50" CornerRadius="50"/>--><!--
+
+                </xct:TabView.TabItems>-->
+               
+                
                 <xct:TabViewItem
-                    Icon="triangle.png"
-                    Text="Tab 1"
-                    TextColor="White"
-                    TextColorSelected="Yellow"
-                    FontSize="12">
-                    <Grid 
-                        BackgroundColor="Gray">
-                        <Label
-                            HorizontalOptions="Center"
-                            VerticalOptions="Center"
-                            Text="TabContent1" />
-                    </Grid>
+                    Icon="HomeIcon.png" WidthRequest="100">
+                    
+                    <views:FeedView/>
+                
+                </xct:TabViewItem> 
+                
+                <xct:TabViewItem
+                    Icon="HomeIcon.png">
+                    
+                    <views:SearchView/>
+                
                 </xct:TabViewItem>
 
                 <xct:TabViewItem
-                    Icon="circle.png"
-                    Text="Tab 2"
-                    TextColor="White"
-                    TextColorSelected="Yellow"
-                    FontSize="12">
-                    <Grid>
-                        <Label    
-                            HorizontalOptions="Center"
-                            VerticalOptions="Center"
-                            Text="TabContent2" />
-                    </Grid>
+                    Icon="HomeIcon.png">
+
+                    <views:NotificationsView/>
+
                 </xct:TabViewItem>
+
+                <xct:TabViewItem
+                    Icon="HomeIcon.png">
+
+                    <views:JobsView/>
+
+                </xct:TabViewItem>
+
+             
             </xct:TabView>
 
         </Grid>

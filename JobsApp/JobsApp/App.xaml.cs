@@ -39,7 +39,7 @@ namespace JobsApp
             InitializeComponent();
             CurrentUser = null;
            
-            MainPage = new NavigationPage(new LoginScreen());
+            MainPage = new NavigationPage(new MainTabView());
             
         }
 
