@@ -128,7 +128,7 @@
 
                         </Grid>
                         <pv:PancakeView x:Name="Pancake" BackgroundColor="Transparent">
-                            <Grid BackgroundColor="Blue">
+                            <Grid BackgroundColor="Transparent">
                                 
                                 <Grid Padding="29" BackgroundColor="Transparent">
                                     <Image x:Name="sideMenu" Source="SideMenuHamburger.png" Margin="-10,-580,0,0" HeightRequest="30" HorizontalOptions="Start">

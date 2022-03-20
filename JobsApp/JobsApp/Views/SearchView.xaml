@@ -3,8 +3,38 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="JobsApp.Views.SearchView">
   <ContentView.Content>
-      <StackLayout>
-          <Label Text="Search" />
-      </StackLayout>
+
+        <Grid Padding="10" Margin="15">
+            
+           
+            
+            <SearchBar Placeholder="ערך לחיפוש">
+                
+            </SearchBar>
+            
+            <StackLayout x:Name="MenuView" Spacing="20" Padding="30" WidthRequest="250" BindableLayout.ItemsSource="{Binding JobOffers}" VerticalOptions="CenterAndExpand">
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate x:DataType="local:SideMenuItem">
+                        <StackLayout Orientation="Horizontal">
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="CloseSwipe"/>
+                            </StackLayout.GestureRecognizers>
+
+                            <ImageButton Source="{Binding Icon}" Command="{Binding Command}" HeightRequest="15" WidthRequest="15" HorizontalOptions="Center"
+                                                   VerticalOptions="Center"/>
+
+
+                            <Label Text="{Binding Name}" HorizontalOptions="Start" VerticalOptions="Center" FontSize="15" TextColor="White"/>
+
+
+
+
+                        </StackLayout>
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+            </StackLayout>
+
+        </Grid>
+      
   </ContentView.Content>
 </ContentView>
