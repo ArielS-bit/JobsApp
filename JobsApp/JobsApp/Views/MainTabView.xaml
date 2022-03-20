@@ -138,7 +138,7 @@
 
                                 </Grid>
 
-                                <Grid Padding="30" BackgroundColor="Transparent">
+                                <Grid Padding="29" BackgroundColor="Transparent">
                                     <Image x:Name="sideMenu" Source="SideMenuHamburger.png" Margin="0,0,0,0" HeightRequest="30" HorizontalOptions="Start">
                                         <Image.GestureRecognizers>
                                             <TapGestureRecognizer Tapped="OpenSwipe"/>
