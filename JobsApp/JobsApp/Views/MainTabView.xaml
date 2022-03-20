@@ -12,6 +12,7 @@
              mc:Ignorable="d"
              xmlns:pv="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              xmlns:local="clr-namespace:JobsApp.ViewModels">
+    
     <ContentPage.BindingContext>
         <local:MainTabViewVM></local:MainTabViewVM>
     </ContentPage.BindingContext>
@@ -22,7 +23,7 @@
         <Grid>
             
             
-            <Button ImageSource="ProfileIcon.png" Margin="320,10,20,650" HeightRequest="50" CornerRadius="50"/>
+            
 
             <!--תנסה אולי לשים בקובץ של סי שארפ מאחור כאן ולא בוויו מודל ואם אז לחזור למקורי ולשנות בהתאם-->
             <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
@@ -80,7 +81,7 @@
 
 
                                 <!--<xct:TabView.TabItems>
-                    -->
+                                    -->
                                 <!--<Button ImageSource="ProfileIcon.png" Margin="350,10,10,10" HeightRequest="50" CornerRadius="50"/>-->
                                 <!--
 
@@ -126,26 +127,17 @@
                             </xct:TabView>
 
                         </Grid>
-                        <pv:PancakeView x:Name="Pancake" BackgroundColor="White">
-                            <Grid>
-                                <Grid>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="auto"/>
-                                        <RowDefinition Height="auto"/>
-                                        <RowDefinition Height="*"/>
-                                        <RowDefinition Height="*"/>
-                                    </Grid.RowDefinitions>
-
-                                </Grid>
-
+                        <pv:PancakeView x:Name="Pancake" BackgroundColor="Transparent">
+                            <Grid BackgroundColor="Blue">
+                                
                                 <Grid Padding="29" BackgroundColor="Transparent">
-                                    <Image x:Name="sideMenu" Source="SideMenuHamburger.png" Margin="0,0,0,0" HeightRequest="30" HorizontalOptions="Start">
+                                    <Image x:Name="sideMenu" Source="SideMenuHamburger.png" Margin="-10,-580,0,0" HeightRequest="30" HorizontalOptions="Start">
                                         <Image.GestureRecognizers>
                                             <TapGestureRecognizer Tapped="OpenSwipe"/>
                                         </Image.GestureRecognizers>
 
                                     </Image>
-                                    <!--<Image Source="ProfileIcon.png" WidthRequest="36" HorizontalOptions="End"/>-->
+                                    <Button ImageSource="ProfileIcon.png" Margin="290,-10,0,540" HeightRequest="50" CornerRadius="50"/>
 
                                 </Grid>
                             </Grid>
