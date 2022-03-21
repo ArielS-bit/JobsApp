@@ -13,13 +13,11 @@
             </SearchBar>
             
             <StackLayout x:Name="MenuView" Spacing="20" Padding="30" WidthRequest="250" BindableLayout.ItemsSource="{Binding JobOffers}" VerticalOptions="CenterAndExpand">
-                <BindableLayout.ItemTemplate>
-                    <DataTemplate x:DataType="local:SideMenuItem">
+                
+                <!--<BindableLayout.ItemTemplate>
+                    --><!--<DataTemplate x:DataType="local:SideMenuItem">
                         <StackLayout Orientation="Horizontal">
-                            <StackLayout.GestureRecognizers>
-                                <TapGestureRecognizer Tapped="CloseSwipe"/>
-                            </StackLayout.GestureRecognizers>
-
+                            
                             <ImageButton Source="{Binding Icon}" Command="{Binding Command}" HeightRequest="15" WidthRequest="15" HorizontalOptions="Center"
                                                    VerticalOptions="Center"/>
 
@@ -30,8 +28,9 @@
 
 
                         </StackLayout>
-                    </DataTemplate>
-                </BindableLayout.ItemTemplate>
+                    </DataTemplate>--><!--
+                </BindableLayout.ItemTemplate>-->
+                
             </StackLayout>
 
         </Grid>

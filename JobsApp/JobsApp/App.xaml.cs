@@ -24,6 +24,8 @@ namespace JobsApp
 {
     public partial class App : Application
     {
+        ////Use it 
+        //https://docs.microsoft.com/en-us/xamarin/android/user-interface/splash-screen
         public User CurrentUser { get; set; }
         public static bool IsDevEnv
         {

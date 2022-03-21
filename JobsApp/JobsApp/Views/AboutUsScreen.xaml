@@ -5,3 +5,9 @@
              xmlns:views="clr-namespace:JobsApp.Views">
     <views:AboutUsView/>
 </ContentPage>
+
+
+<!--https://www.syncfusion.com/essential-xamarin-ui-kit
+    https://github.com/syncfusion/essential-ui-kit-for-xamarin.forms/tree/master/EssentialUIKit/Views/AboutUs
+    https://www.calligraphr.com/en/webapp/app_home/?/fonts
+    https://docs.microsoft.com/en-us/xamarin/android/user-interface/splash-screen-->
