@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using JobsApp.ViewModels;
+using JobsApp.Views;
 
 
 namespace JobsApp.Views
@@ -17,6 +18,7 @@ namespace JobsApp.Views
         public MainTabView()
         {
             InitializeComponent();
+            
         }
 
 

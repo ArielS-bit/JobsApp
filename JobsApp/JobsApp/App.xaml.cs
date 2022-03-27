@@ -40,10 +40,15 @@ namespace JobsApp
             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("NTg4MzA2QDMxMzkyZTM0MmUzMG1Ya0hxUmowbVN5TkVaUldpT2pDYldqcFBXTm1PTDFtNUZpcmZjU2pJZVU9");
             InitializeComponent();
             CurrentUser = null;
-           
-            MainPage = new NavigationPage(new MainTabView());
-            
+
+            MainPage = new NavigationPage(new LoginScreen())
+            {
+                BarBackgroundColor = Color.Yellow
+            };
         }
+
+
+    
 
         protected override void OnStart()
         {

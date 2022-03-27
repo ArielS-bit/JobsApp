@@ -115,7 +115,9 @@ namespace JobsApp.ViewModels
                 ((App)App.Current).CurrentUser = u;
                 //App theApp = (App)App.Current;
                 //theApp.CurrentUser = user;
-                Push?.Invoke(new ProfileScreen());//Change to profile screen
+                Push?.Invoke(new MainTabView());
+                
+                //May Change to profile screen
             }
 
             
