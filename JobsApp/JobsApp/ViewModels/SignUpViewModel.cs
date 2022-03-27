@@ -524,7 +524,7 @@ namespace JobsApp.ViewModels
             {
 
                 ((App)App.Current).CurrentUser = u;
-                if (imageFileResult !=null)
+                if (imageFileResult != null) 
                 {
                     bool success = await proxy.UploadImage(new FileInfo()
                     {
@@ -535,7 +535,7 @@ namespace JobsApp.ViewModels
                 }
                 else
                 {
-
+                   //let's decide for the user the defualt profile picture (might be on the server so not needed in that condition)
                 }
                 //App theApp = (App)App.Current;
                 //theApp.CurrentUser = user;

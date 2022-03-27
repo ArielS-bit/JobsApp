@@ -6,7 +6,7 @@
              xmlns:CI="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
              x:Class="JobsApp.Views.MainTabView"
              xmlns:views="clr-namespace:JobsApp.Views"
-             NavigationPage.HasNavigationBar="True"
+             NavigationPage.HasNavigationBar="False"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
@@ -101,21 +101,21 @@
                                 </xct:TabViewItem>
 
                                 <xct:TabViewItem
-                                    Icon="SearchIcon.png" Margin="0,50,0,-40" HeightRequest="120" BackgroundColor="Transparent">
+                                    Icon="SearchIcon.png" Margin="0,50,0,-40" IconSelected="SerachPlusIcon.png" HeightRequest="120" BackgroundColor="Transparent">
 
                                     <views:SearchView/>
 
                                 </xct:TabViewItem>
 
                                 <xct:TabViewItem
-                                    Icon="AlertIocn.png" Margin="0,50,0,-40" HeightRequest="120" BackgroundColor="Transparent">
+                                    Icon="AlertIocn.png" Margin="0,50,0,-40" IconSelected="NotificationsSelctedIcon.png" HeightRequest="120" BackgroundColor="Transparent">
 
                                     <views:NotificationsView/>
 
                                 </xct:TabViewItem>
 
                                 <xct:TabViewItem
-                                    Icon="JobsIcon.png" Margin="0,50,0,-40" HeightRequest="120" BackgroundColor="Transparent">
+                                    Icon="JobsIcon.png" Margin="0,50,0,-40" IconSelected="JobsSelectedIcon.png" HeightRequest="120" BackgroundColor="Transparent">
 
                                     <views:JobsView/>
 
@@ -136,7 +136,7 @@
 
                                 </Image>
 
-                                <ImageButton Source="ProfileImg.jpeg" Margin="290,10,0,0" CornerRadius="40"/>
+                                <ImageButton Source="{Binding UserImgSrc}" Command="{Binding MoveToProfileCommand}" Margin="290,10,0,0" CornerRadius="40"/>
 
                             </StackLayout>
 

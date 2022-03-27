@@ -15,15 +15,15 @@ namespace JobsApp.Views
     {
         public ProfileView()
         {
-            InitializeComponent();
-            ProfileViewModel p = new ProfileViewModel();
-            this.BindingContext = p;
-            p.SetImageSourceEvent += OnSetImageSource;
+            //InitializeComponent();
+            //ProfileViewModel p = new ProfileViewModel();
+            //this.BindingContext = p;
+            //p.SetImageSourceEvent += OnSetImageSource;
         }
 
-        public void OnSetImageSource(ImageSource imgSource)
-        {
-            theImage.Source = imgSource;
-        }
+        //public void OnSetImageSource(ImageSource imgSource)
+        //{
+        //    theImage.Source = imgSource;
+        //}
     }
 }

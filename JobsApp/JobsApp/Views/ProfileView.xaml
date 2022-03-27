@@ -9,9 +9,6 @@
              xmlns:CI="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
              xmlns:views="clr-namespace:JobsApp.Views">
 
-    <ContentView.BindingContext>
-        <local:ProfileViewModel></local:ProfileViewModel>
-    </ContentView.BindingContext>
 
 
     <ContentView.Resources>

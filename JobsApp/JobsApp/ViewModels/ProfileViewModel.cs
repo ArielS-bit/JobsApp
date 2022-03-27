@@ -269,6 +269,7 @@ namespace JobsApp.ViewModels
                 this.PrivateAnswer = u.PrivateAnswer;
                 this.FullName = u.FirstName + " " + u.LastName;
                 this.Age = DateTime.Today.Year - u.Birthday.Year;
+                
                 this.EditMode = false;//change here
                 //EditCommand = new Command(EditUser);
                 this.Connections = 10;//Chnage it

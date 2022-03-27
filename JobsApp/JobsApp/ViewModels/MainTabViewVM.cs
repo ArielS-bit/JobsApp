@@ -19,7 +19,25 @@ namespace JobsApp.ViewModels
 {
     public class MainTabViewVM : ViewModelBase
     {
+        #region Image Source
+        private string userImgSrc;
 
+        public string UserImgSrc
+        {
+            get
+            {
+                User u = ((App)Application.Current).CurrentUser;
+                return u.ImagePath;
+            }
+            //set
+            //{
+            //    userImgSrc = value;
+            //    OnPropertyChanged("UserImgSrc");
+            //}
+        }
+
+        private const string DEFAULT_PHOTO_SRC = "HugePicture.png";//DefaultPhoto.png
+        #endregion
         public ObservableCollection<SideMenuItem> MyMenu { get; set; }
 
         public MainTabViewVM()
@@ -50,6 +68,8 @@ namespace JobsApp.ViewModels
             };
         }
 
+        public ICommand MoveToProfileCommand => new Command(TransferToProfile);
+
         //Transfer to pages functions
         private void TransferToSettings()
         {
@@ -69,6 +89,11 @@ namespace JobsApp.ViewModels
         private void TransferToSignOut()
         {
             Push?.Invoke(new SignOutScreen());
+        }
+
+        public void TransferToProfile()
+        {
+            Push?.Invoke(new ProfileScreen());
         }
 
         public event Action<Page> Push;

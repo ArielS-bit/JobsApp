@@ -5,13 +5,13 @@
   <ContentView.Content>
 
         <Grid Padding="10" Margin="15">
-            
-           
-            
-            <SearchBar Placeholder="ערך לחיפוש">
-                
-            </SearchBar>
-            
+
+
+
+            <SearchBar Placeholder="Search for emploee, employer, job offer..." BackgroundColor="Transparent" FontSize="18" Margin="-10,40,-10,480" />
+
+
+
             <StackLayout x:Name="MenuView" Spacing="20" Padding="30" WidthRequest="250" BindableLayout.ItemsSource="{Binding JobOffers}" VerticalOptions="CenterAndExpand">
                 
                 <!--<BindableLayout.ItemTemplate>

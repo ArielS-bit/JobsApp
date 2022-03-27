@@ -41,10 +41,10 @@ namespace JobsApp
             InitializeComponent();
             CurrentUser = null;
 
-            MainPage = new NavigationPage(new LoginScreen())
-            {
-                BarBackgroundColor = Color.Yellow
-            };
+            MainPage = new NavigationPage(new BasicUserInfoScreen());
+            //{
+            //    BarBackgroundColor = Color.Transparent
+            //};
         }
 
 
