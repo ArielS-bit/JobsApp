@@ -3,9 +3,7 @@ using Xamarin.Forms.Internals;
 
 namespace EssentialUIKit.Controls
 {
-    /// <summary>
-    /// The Title view
-    /// </summary>
+   
     [Preserve(AllMembers = true)]
     public class TitleView : Grid
     {
@@ -64,7 +62,7 @@ namespace EssentialUIKit.Controls
             this.ColumnSpacing = 2;
             this.RowSpacing = 8;
             this.Padding = new Thickness(0, 8, 0, 0);
-            this.BackgroundColor = (Color)Application.Current.Resources["Gray-Bg"];
+           
 
             this.ColumnDefinitions = new ColumnDefinitionCollection
             {
@@ -81,7 +79,8 @@ namespace EssentialUIKit.Controls
                 new RowDefinition { Height = 1 },
             };
 
-            var boxView = new BoxView { Color = (Color)Application.Current.Resources["Gray-200"] };
+            var boxView = new BoxView();
+            //var boxView = new BoxView { Color = (Color)Application.Current.Gray-200"] };
 
             this.Children.Add(this.LeadingView, 1, 0);
             this.Children.Add(this.Content, 2, 0);
@@ -224,7 +223,7 @@ namespace EssentialUIKit.Controls
                 titleView.titleLabel = new Label
                 {
                     Text = newText,
-                    TextColor = (Color)Application.Current.Resources["Gray-900"],
+                    //TextColor = (Color)Application.Current.Black"],
                     FontSize = 16,
                     Margin = new Thickness(0, 8),
                     FontFamily = "Montserrat-Medium",

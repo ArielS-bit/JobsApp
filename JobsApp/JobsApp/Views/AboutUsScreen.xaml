@@ -1,10 +1,171 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="JobsApp.Views.AboutUsScreen"
-             xmlns:views="clr-namespace:JobsApp.Views">
-    <views:AboutUsView/>
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+            xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            x:Class="JobsApp.Views.AboutUsScreen"
+            xmlns:views="clr-namespace:JobsApp.Views"
+            xmlns:behaviour="clr-namespace:EssentialUIKit.Behaviors"
+            xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
+            xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+            xmlns:control="clr-namespace:EssentialUIKit.Controls"
+            xmlns:listView="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
+            x:Name="aboutUsScrollPage"
+            Title="About Us"
+            NavigationPage.HasNavigationBar="False">
+
+    <!--<ContentPage.ControlTemplate>
+        <ControlTemplate>
+            <StackLayout Spacing="0">
+                --><!--  Title View  --><!--
+                <control:TitleView Title="About Us">
+                    --><!--  Back button command  --><!--
+                    <control:TitleView.LeadingView>
+                        <buttons:SfButton
+                            x:Name="backButton"
+                            Command="{Binding BindingContext.BackButtonCommand, Source={x:Reference aboutUsScrollPage}}"
+                            CommandParameter="{x:Reference backButton}"
+                            Style="{StaticResource IconButtonStyle}"
+                            Text="{StaticResource Back}" />
+                    </control:TitleView.LeadingView>
+                </control:TitleView>
+                <ContentPresenter />
+            </StackLayout>
+        </ControlTemplate>
+    </ContentPage.ControlTemplate>-->
+
+    <ContentPage.Content>
+
+        <ScrollView>
+            <Grid RowDefinitions="Auto, *" RowSpacing="0">
+
+                <!--  Background image  -->
+                <Image
+                    Grid.Row="0"
+                    Aspect="Fill"
+                   
+                    BindingContext="{x:Reference AboutUs}"
+                    HeightRequest="80"
+                    Source="DemoLogo.png" />
+
+                <!--  Product details  -->
+                <StackLayout
+                    x:Name="AboutUs"
+                    Grid.Row="0"
+                    Margin="0,260,0,0"
+                    VerticalOptions="Start">
+
+                    <!--  Header  -->
+                    <Label
+                        Margin="0,40,0,16"
+                        FontSize="20"
+                        LineHeight="{OnPlatform Android=1.25,Default=-1}"
+                        
+                        Text="About Us"
+                        TextColor="#333942" />
+
+                    <!--  Description  -->
+                    <Label
+                        Margin="16,0,16,0"
+                        HorizontalOptions="Start"
+                        HorizontalTextAlignment="Start"
+                        
+                        Text="There is a person who is the hero of every BBQ or family cookout and that is the Grill Master. We always looked up to our Mom or Dad as they tended the grill and looked forward to the day when we could be in charge of charring the meatstuff and searing delicious slices of fresh pineapple. Now that we're adults, it's finally our turn and technology has smiled upon us, giving us a tool that is destined to impress."
+                        TextColor="#606a7b" />
+                </StackLayout>
+
+                <!--  Background image  -->
+                <Image
+                    Grid.Row="1"
+                    Aspect="AspectFill"
+                    HorizontalOptions="Fill"
+                    Source="OurTeam.png"
+                    VerticalOptions="Fill" />
+
+                <!--  To display the team member's details  -->
+                <listView:SfListView
+                    x:Name="OurTeam"
+                    Grid.Row="1"
+                    AutoFitMode="Height"
+                    ItemsSource="{Binding EmployeeDetails}"
+                    SelectionMode="None"
+                    
+                    VerticalOptions="Start">
+
+                    <listView:SfListView.HeaderTemplate>
+                        <DataTemplate>
+                            <!--  Header  -->
+                            <Label
+                                Margin="0,60,0,5"
+                                FontSize="20"
+                                LineHeight="{OnPlatform Android=1.25,
+                                                        Default=-1}"
+                                
+                                Text="Our Team"
+                                TextColor="Yellow" />
+                        </DataTemplate>
+                    </listView:SfListView.HeaderTemplate>
+
+                    <listView:SfListView.ItemTemplate>
+                        <DataTemplate>
+
+                            <!--  Details of each employee  -->
+                            <StackLayout Margin="15,15,15,24" Spacing="0">
+
+                                <!--  Employee image  -->
+                                <border:SfBorder
+                                    Margin="0,0,0,8"
+                                    BorderWidth="0"
+                                    CornerRadius="32"
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="Center">
+                                    
+                                    <Image
+                                        HeightRequest="64"
+                                        WidthRequest="64">
+                                        <Image.Source>
+                                            <UriImageSource
+                                                CacheValidity="14"
+                                                CachingEnabled="true"
+                                                Uri="{Binding Image}" />
+                                        </Image.Source>
+                                    </Image>
+                                </border:SfBorder>
+
+                                <!--  Employee name  -->
+                                <Label
+                                    FontSize="14"
+                                   
+                                    Text="{Binding EmployeeName}"
+                                    TextColor="Black" />
+
+                                <!--  Designation  -->
+                                <Label
+                                    HorizontalOptions="Center"
+                                    HorizontalTextAlignment="Center"
+                                    
+                                    Text="{Binding Designation}"
+                                    TextColor="White"
+                                    VerticalOptions="Start"
+                                    VerticalTextAlignment="Start" />
+
+                            </StackLayout>
+                        </DataTemplate>
+                    </listView:SfListView.ItemTemplate>
+
+                    <listView:SfListView.LayoutManager>
+                        <listView:GridLayout SpanCount="3" />
+                    </listView:SfListView.LayoutManager>
+
+                    <!--  Behavior added to handle scrolling of ListView  -->
+                    <listView:SfListView.Behaviors>
+                        <behaviour:SfListViewExtendHeightBehavior />
+                    </listView:SfListView.Behaviors>
+                </listView:SfListView>
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
 </ContentPage>
+
 
 
 <!--https://www.syncfusion.com/essential-xamarin-ui-kit
