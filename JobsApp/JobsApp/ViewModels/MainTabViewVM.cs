@@ -45,7 +45,7 @@ namespace JobsApp.ViewModels
             MyMenu = new ObservableCollection<SideMenuItem>();
 
             // MyMenu = GetMenus();
-            MyMenu.Add(new SideMenuItem { Name = "Settings", Icon = "SeetingsIcon.png", Command = new Command(TransferToSettings) });
+            MyMenu.Add(new SideMenuItem { Name = "Settings", Icon = "GalleryIcon.png", Command = new Command(TransferToSettings) });
             MyMenu.Add(new SideMenuItem { Name = "About Us", Icon = "AboutIcon.png", Command = new Command(TransferToAbout) });
             MyMenu.Add(new SideMenuItem { Name = "Know Your Rights", Icon = "RightsIcon.png", Command = new Command(TransferToRights) });
             MyMenu.Add(new SideMenuItem { Name = "Sign Out", Icon = "SignOutIcon.png", Command = new Command(TransferToSignOut) });

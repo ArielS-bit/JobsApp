@@ -34,7 +34,7 @@
                     <SwipeView.LeftItems>
                         <SwipeItems>
                             <SwipeItemView>
-                                <StackLayout x:Name="MenuView" Spacing="20" Padding="30" WidthRequest="250" BindableLayout.ItemsSource="{Binding MyMenu}" VerticalOptions="CenterAndExpand">
+                                <StackLayout x:Name="MenuView" BackgroundColor="Blue" Spacing="20" Padding="30" WidthRequest="250" BindableLayout.ItemsSource="{Binding MyMenu}" VerticalOptions="CenterAndExpand">
                                     <BindableLayout.ItemTemplate>
                                         <DataTemplate x:DataType="local:SideMenuItem">
                                             <StackLayout Orientation="Horizontal">
