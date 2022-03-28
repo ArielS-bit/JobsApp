@@ -115,7 +115,7 @@
                                 <border:SfBorder
                                     Margin="0,0,0,8"
                                     BorderWidth="0"
-                                    CornerRadius="32"
+                                    CornerRadius="30"
                                     HorizontalOptions="Center"
                                     VerticalOptions="Center">
                                     
