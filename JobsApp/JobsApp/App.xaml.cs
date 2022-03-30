@@ -41,7 +41,7 @@ namespace JobsApp
             InitializeComponent();
             CurrentUser = null;
 
-            MainPage = new NavigationPage(new AboutUsScreen());//Should be navigating to Splash Screen
+            MainPage = new NavigationPage(new BasicUserInfoScreen());//Should be navigating to Splash Screen
             //{
             //    BarBackgroundColor = Color.Transparent
             //};

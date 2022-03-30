@@ -484,7 +484,7 @@ namespace JobsApp.ViewModels
 
         private async void NavigateToPage(Page obj)
         {
-            await ((App)Application.Current).MainPage.Navigation.PushAsync(obj);
+            await currentApp.MainPage.Navigation.PushAsync(obj);
         }
 
         public void Continue()

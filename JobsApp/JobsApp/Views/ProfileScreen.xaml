@@ -25,9 +25,17 @@
             <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
         </Style>
 
-        <Style TargetType="Frame" x:Key="SectionFrame">
-            <Setter Property="CornerRadius" Value="30"/>
+        <Style TargetType="Frame" x:Key="SectionFrameNoOpacity">
+            <Setter Property="CornerRadius" Value="0"/>
             <Setter Property="BackgroundColor" Value="#A8DADC"/>
+            <Setter Property="Opacity" Value="0.6"/>
+
+        </Style>
+
+        <Style TargetType="Frame" x:Key="SectionFrameWithOpacity">
+            <Setter Property="CornerRadius" Value="0"/>
+            <Setter Property="BackgroundColor" Value="#A8DADC"/>
+            <Setter Property="Opacity" Value="0.6"/>
 
         </Style>
 
@@ -105,7 +113,7 @@
 
                             </Grid.RowDefinitions>
 
-                            <Frame Style="{StaticResource SectionFrame}"  Grid.Row="0">
+                            <Frame Style="{StaticResource SectionFrameNoOpacity}"  Grid.Row="0">
                                 <Grid>
                                     <Label Text="About" Style="{StaticResource SectionTitle}"/>
 
@@ -115,7 +123,7 @@
 
                             <BoxView Grid.Row="1" BackgroundColor="Transparent"/>
 
-                            <Frame Style="{StaticResource SectionFrame}" Grid.Row="2">
+                            <Frame Style="{StaticResource SectionFrameWithOpacity}" Grid.Row="2">
                                 <Grid>
                                     <Label Text="I'm interested in..." Style="{StaticResource SectionTitle}"/>
 
@@ -126,7 +134,7 @@
                             <BoxView Grid.Row="3" BackgroundColor="Transparent"/>
 
                             <!--collection of professions-->
-                            <Frame Style="{StaticResource SectionFrame}" Grid.Row="4">
+                            <Frame Style="{StaticResource SectionFrameNoOpacity}" Grid.Row="4">
                                 <Grid>
                                     <Label Text="Skills" Style="{StaticResource SectionTitle}"/>
 
@@ -136,7 +144,7 @@
 
                             <BoxView Grid.Row="5" BackgroundColor="Transparent"/>
 
-                            <Frame Style="{StaticResource SectionFrame}" Grid.Row="6">
+                            <Frame Style="{StaticResource SectionFrameWithOpacity}" Grid.Row="6">
                                 <Grid>
                                     <Label Text="Activity" Style="{StaticResource SectionTitle}"/>
 
@@ -146,7 +154,7 @@
 
                             <BoxView Grid.Row="7" BackgroundColor="Transparent"/>
 
-                            <Frame Style="{StaticResource SectionFrame}" Grid.Row="8">
+                            <Frame Style="{StaticResource SectionFrameNoOpacity}" Grid.Row="8">
                                 <Grid>
                                     <Label Text="Recommendations" Style="{StaticResource SectionTitle}"/>
                                     <!--Will be a caruosel of every reccomendation-->
@@ -156,7 +164,7 @@
 
                             <BoxView Grid.Row="9" BackgroundColor="Transparent"/>
 
-                            <Frame Style="{StaticResource SectionFrame}" Grid.Row="10">
+                            <Frame Style="{StaticResource SectionFrameWithOpacity}" Grid.Row="10">
                                 <Grid>
                                     <!--will be as a caruseal-->
                                     <Label Text="Pictures from recent jobs" Style="{StaticResource SectionTitle}"/>
