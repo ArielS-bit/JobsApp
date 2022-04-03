@@ -11,11 +11,14 @@ using JobsApp.ViewModels;
 namespace JobsApp.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class NotificationsView : ContentView
+    public partial class AddJobRequest : ContentPage
     {
-        public NotificationsView()
+        public AddJobRequest()
         {
             InitializeComponent();
+            AddJobOfferViewModel a = new AddJobOfferViewModel();
+            this.BindingContext = a;
+            a.Push += (p) => Navigation.PushAsync(p);
         }
     }
 }

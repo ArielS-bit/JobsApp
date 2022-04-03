@@ -11,6 +11,7 @@ namespace JobsApp.ViewModels
     {
         JobsAPIProxy proxy;
         protected App currentApp;
+        public event Action<Page> Push;
 
         public event PropertyChangedEventHandler PropertyChanged;
 

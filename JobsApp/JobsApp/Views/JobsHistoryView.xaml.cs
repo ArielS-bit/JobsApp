@@ -6,15 +6,19 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using JobsApp.ViewModels;
 
 namespace JobsApp.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class JobsView : ContentView
+    public partial class JobsHistoryView : ContentView
     {
-        public JobsView()
+        public JobsHistoryView()
         {
             InitializeComponent();
+            JobsHistoryViewModel j = new JobsHistoryViewModel();
+            this.BindingContext = j;
+            j.Push += (p) => Navigation.PushAsync(p);
         }
     }
 }

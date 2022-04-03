@@ -11,24 +11,14 @@ using JobsApp.ViewModels;
 namespace JobsApp.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class BasicUserInfoScreen : ContentPage
+    public partial class EmployeeProfileScreen : ContentPage
     {
-        public BasicUserInfoScreen()
+        public EmployeeProfileScreen()
         {
-           
             InitializeComponent();
-            SignUpViewModel s = new SignUpViewModel();
+            EmployeeProfileViewModel s = new EmployeeProfileViewModel();
             this.BindingContext = s;
             s.Push += (p) => Navigation.PushAsync(p);
-            s.SetImageSourceEvent += OnSetImageSource;
-
-
-
-        }
-
-        public void OnSetImageSource(ImageSource imgSource)
-        {
-            theImage.Source = imgSource;
         }
     }
 }

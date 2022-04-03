@@ -18,7 +18,9 @@ namespace JobsApp.Views
         public MainTabView()
         {
             InitializeComponent();
-            
+            MainTabViewVM m = new MainTabViewVM();
+            this.BindingContext = m;
+            m.Push += (p) => Navigation.PushAsync(p);
         }
 
 

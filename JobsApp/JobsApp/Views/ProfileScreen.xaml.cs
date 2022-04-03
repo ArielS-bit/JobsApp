@@ -16,9 +16,10 @@ namespace JobsApp.Views
         public ProfileScreen()
         {
             InitializeComponent();
-            ProfileViewModel p = new ProfileViewModel();
-            this.BindingContext = p;
-            p.SetImageSourceEvent += OnSetImageSource;
+            ProfileViewModel r = new ProfileViewModel();
+            this.BindingContext = r;
+            r.Push += (p) => Navigation.PushAsync(p);
+            r.SetImageSourceEvent += OnSetImageSource;
         }
 
         public void OnSetImageSource(ImageSource imgSource)

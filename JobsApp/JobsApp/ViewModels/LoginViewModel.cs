@@ -78,16 +78,13 @@ namespace JobsApp.ViewModels
             Email = "";
             Password = "";
             IsAnswerValid = "";
-            Push += NavigateToPage;
+            
 
         }
         public event Action<Page> Push;
         public ICommand LoginCommand => new Command(Login);
 
-        private async void NavigateToPage(Page obj)
-        {
-            await ((App)Application.Current).MainPage.Navigation.PushAsync(obj);
-        }
+      
 
         //private string serverStatus;
         //public string ServerStatus
@@ -115,7 +112,7 @@ namespace JobsApp.ViewModels
                 ((App)App.Current).CurrentUser = u;
                 //App theApp = (App)App.Current;
                 //theApp.CurrentUser = user;
-                Push?.Invoke(new ProfileScreen());
+                Push?.Invoke(new MainTabView());
 
                 //May Change to profile screen
             }
