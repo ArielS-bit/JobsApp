@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 
 
+
 namespace JobsApp.Models
 {
     public partial class JobOffer
@@ -15,8 +16,12 @@ namespace JobsApp.Models
         public int CategoryId { get; set; }
         public int EmployerId { get; set; }
         public bool Applied { get; set; }
-        public string Topic { get; set; }
-        public string Content { get; set; }
+        public int NumApplied { get; set; }
+        public string Profession { get; set; }
+        public string JobTitle { get; set; }
+        public int RequiredAge { get; set; }
+        public int RequiredEmployees { get; set; }
+        public string JobOfferDescription { get; set; }
         public bool IsPrivate { get; set; }
         public int JobOfferStatusId { get; set; }
         public int CommentId { get; set; }
@@ -26,6 +31,6 @@ namespace JobsApp.Models
         public virtual Employer Employer { get; set; }
         public virtual JobOfferStatus JobOfferStatus { get; set; }
         public virtual Comment Comment { get; set; }
-        public virtual List<JobApplication> JobApplications { get; set; }
+        public virtual ICollection<JobApplication> JobApplications { get; set; }
     }
 }

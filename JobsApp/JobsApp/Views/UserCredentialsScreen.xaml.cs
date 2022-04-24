@@ -16,10 +16,11 @@ namespace JobsApp.Views
         public UserCredentialsScreen()
         {
             InitializeComponent();
+            this.BindingContext = this;
             
-           
-            
-            
+
+
+
         }
     }
 }

@@ -1,12 +1,37 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="JobsApp.Views.AddJobOffer">
+             x:Class="JobsApp.Views.AddJobOffer"
+             xmlns:local="clr-namespace:JobsApp.ViewModels">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            
+            <Label Text="Add Job Offer" HorizontalOptions="CenterAndExpand"/>
+
+            <Entry Placeholder="Job Title" Text="{Binding JobTitle}"/>
+
+            <Picker Placeholder="Profession"/>
+            
+
+            <Entry Placeholder="Job dESCRIPTION" Text="{Binding JobOfferDescription}"/>
+
+            <Label Text="Upload Job Offer Image"/>
+            <Image Source="{Binding JobOfferImgSrc}"/>
+
+            <Label Text="Must be from "/>
+            <Entry Text="{Binding RequiredAge}"/> 
+
+            <Label Text="Amount of required employees: "/>
+            <Entry Text="{Binding RequiredEmployees}"/>
+
+
+
+            <Button x:Name="AddJobOfferBtn" Text="Add Job Offer" Command="{Binding AddJobOfferCommand}" Style="{StaticResource LoginButton}" HeightRequest="45" CornerRadius="50" />
+
+
+
+
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

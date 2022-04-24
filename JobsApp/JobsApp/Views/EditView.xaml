@@ -5,9 +5,7 @@
              xmlns:local="clr-namespace:JobsApp.ViewModels"
              xmlns:pv="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView">
   
-    <ContentView.BindingContext>
-        <local:EditViewModel></local:EditViewModel>
-    </ContentView.BindingContext>
+   
 
     <ContentView.Content>
         <pv:PancakeView>
