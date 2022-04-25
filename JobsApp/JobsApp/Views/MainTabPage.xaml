@@ -15,9 +15,9 @@
 
     <!--<TabbedPage.ToolbarItems>
         <ToolbarItem Name="SideMenu" Order="Primary" IconImageSource="bellOffIcon.png" Priority="0"/>
-    </TabbedPage.ToolbarItems>-->
+    </TabbedPage.ToolbarItems>
 
-    <!--<NavigationPage.ToolbarItems>
+    <NavigationPage.ToolbarItems>
         <ToolbarItem Text="Abra" Order="Secondary"/>
     </NavigationPage.ToolbarItems>-->
 

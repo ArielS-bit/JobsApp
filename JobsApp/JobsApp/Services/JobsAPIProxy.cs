@@ -314,6 +314,34 @@ namespace JobsApp.Services
             }
         }
 
+        public async Task<LookUps> GetLookupsAsync()
+        {
+            try
+            {
+                HttpResponseMessage response = await this.client.GetAsync($"{this.baseUri}/GetLookups");
+                if (response.IsSuccessStatusCode)
+                {
+                    JsonSerializerOptions options = new JsonSerializerOptions
+                    {
+                        ReferenceHandler = ReferenceHandler.Preserve, //avoid reference loops!
+                        PropertyNameCaseInsensitive = true
+                    };
+                    string content = await response.Content.ReadAsStringAsync();
+                    LookUps obj = JsonSerializer.Deserialize<LookUps>(content, options);
+                    return obj;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return null;
+            }
+        }
+
         //public async Task<bool> ChangePassAsync(string email, string newPass)
         //{
         //    try

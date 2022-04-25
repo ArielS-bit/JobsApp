@@ -49,6 +49,8 @@ namespace JobsApp.ViewModels
         }
         public event Action<Page> Push;
 
+        //Insert as whole categories table and then the categoryID will be in the JobOffer
+
         private string profession;
         public string Profession
         {
@@ -127,7 +129,7 @@ namespace JobsApp.ViewModels
         {
             JobsAPIProxy proxy = JobsAPIProxy.CreateProxy();
 
-            JobOffer MyJobOffer = new JobOffer() {Applied = false, Category= profession, Profession = Profession, CategoryId=3, Employer = this.currentApp.CurrentUser.UserId, IsPrivate=false, JobOfferDescription = JobOfferDescription, JobTitle=JobTitle, NumApplied = RequiredEmployees, RequiredAge = RequiredAge};
+            JobOffer MyJobOffer = new JobOffer() {Applied = false, CategoryId=3, Employer = this.currentApp.CurrentUser.UserId, IsPrivate=false, JobOfferDescription = JobOfferDescription, JobTitle=JobTitle, NumApplied = RequiredEmployees, RequiredAge = RequiredAge};
              u = await proxy.SignUpAsync(MyUser);
 
             if (u == null)
