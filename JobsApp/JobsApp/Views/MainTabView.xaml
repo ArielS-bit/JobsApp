@@ -96,28 +96,28 @@
                                      Icon="HomeIcon.png" Margin="0,50,0,-40" HeightRequest="120" BackgroundColor="Transparent">
 
 
-                                    <views:FeedView/>
+                                    <views:EmployeeFeedView/>
 
                                 </xct:TabViewItem>
 
                                 <xct:TabViewItem
                                     Icon="SearchIcon.png" Margin="0,50,0,-40" IconSelected="SerachPlusIcon.png" HeightRequest="120" BackgroundColor="Transparent">
 
-                                    <views:SearchView/>
+                                    <views:EmployeeSearchView/>
 
                                 </xct:TabViewItem>
 
                                 <xct:TabViewItem
                                     Icon="AlertIocn.png" Margin="0,50,0,-40" IconSelected="NotificationsSelctedIcon.png" HeightRequest="120" BackgroundColor="Transparent">
 
-                                    <views:NotificationsView/>
+                                    <views:EmployeeNotificationsView/>
 
                                 </xct:TabViewItem>
 
                                 <xct:TabViewItem
                                     Icon="JobsIcon.png" Margin="0,50,0,-40" IconSelected="JobsSelectedIcon.png" HeightRequest="120" BackgroundColor="Transparent">
 
-                                    <views:JobsView/>
+                                    <views:JobsHistoryView/>
 
                                 </xct:TabViewItem>
 

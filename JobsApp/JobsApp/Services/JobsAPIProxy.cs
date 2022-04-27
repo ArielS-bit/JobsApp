@@ -342,6 +342,43 @@ namespace JobsApp.Services
             }
         }
 
+        public async Task<JobOffer> AddJobOfferAsync(JobOffer jobOffer)
+        {
+            try
+            {
+                JsonSerializerOptions options = new JsonSerializerOptions
+                {
+                    ReferenceHandler = ReferenceHandler.Preserve,
+                    Encoder = JavaScriptEncoder.Create(UnicodeRanges.Hebrew, UnicodeRanges.BasicLatin),//Remove
+                    PropertyNameCaseInsensitive = true
+                };
+                string jsonObject = JsonSerializer.Serialize<JobOffer>(jobOffer, options);
+                StringContent content = new StringContent(jsonObject, Encoding.UTF8, "application/json");
+
+                HttpResponseMessage response = await this.client.PostAsync($"{this.baseUri}/AddJobOffer", content);
+                if (response.IsSuccessStatusCode)
+                {
+                    options = new JsonSerializerOptions
+                    {
+                        ReferenceHandler = ReferenceHandler.Preserve, //avoid reference loops!
+                        PropertyNameCaseInsensitive = true
+                    };
+                    string contentU = await response.Content.ReadAsStringAsync();
+                    JobOffer j = JsonSerializer.Deserialize<JobOffer>(contentU, options);
+                    return j;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return null;
+            }
+        }
+
         //public async Task<bool> ChangePassAsync(string email, string newPass)
         //{
         //    try

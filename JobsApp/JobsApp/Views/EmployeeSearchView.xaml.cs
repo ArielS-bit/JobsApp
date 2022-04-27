@@ -11,12 +11,12 @@ using JobsApp.ViewModels;
 namespace JobsApp.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class EmployerSearchScreen : ContentView
+    public partial class EmployeeSearchView : ContentView
     {
-        public EmployerSearchScreen()
+        public EmployeeSearchView()
         {
             InitializeComponent();
-            EmployerSearchViewModel l = new EmployerSearchViewModel();
+            EmployeeSearchViewModel l = new EmployeeSearchViewModel();
             l.Push += (p) => Navigation.PushAsync(p);
             this.BindingContext = l;
         }

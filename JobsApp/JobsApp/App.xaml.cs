@@ -43,7 +43,7 @@ namespace JobsApp
             InitializeComponent();
             CurrentUser = null;
 
-            MainPage = new NavigationPage(new BasicUserInfoScreen());//Should be navigating to Splash Screen
+            MainPage = new NavigationPage(new AddJobOffer());//Should be navigating to Splash Screen
             //{
             //    BarBackgroundColor = Color.Transparent
             //};
@@ -54,16 +54,16 @@ namespace JobsApp
 
         protected async override void OnStart()
         {
-            JobsAPIProxy proxy = JobsAPIProxy.CreateProxy();
-            this.LookupTables = await proxy.GetLookupsAsync();
-            if (LookupTables == null)
-            {
-                ViewModels.ServerStatusViewModel vm = new ViewModels.ServerStatusViewModel();
-                vm.ServerStatus = "אירעה שגיאה בהתחברות לשרת";
-                MainPage = new Views.ServerStatusPage(vm);
-            }
-            else
-                MainPage = new NavigationPage(new MainTabPage());
+            //JobsAPIProxy proxy = JobsAPIProxy.CreateProxy();
+            //this.LookupTables = await proxy.GetLookupsAsync();
+            //if (LookupTables == null)
+            //{
+            //    ViewModels.ServerStatusViewModel vm = new ViewModels.ServerStatusViewModel();
+            //    vm.ServerStatus = "אירעה שגיאה בהתחברות לשרת";
+            //    MainPage = new Views.ServerStatusPage(vm);
+            //}
+            //else
+            //    MainPage = new NavigationPage(new MainTabPage());
         }
 
         protected override void OnSleep()

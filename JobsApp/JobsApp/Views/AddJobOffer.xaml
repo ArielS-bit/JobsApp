@@ -10,7 +10,8 @@
 
             <Entry Placeholder="Job Title" Text="{Binding JobTitle}"/>
 
-            <Picker Placeholder="Profession"/>
+            <Picker/>
+            <!--Placeholder="Profession"-->
             
 
             <Entry Placeholder="Job dESCRIPTION" Text="{Binding JobOfferDescription}"/>
@@ -26,7 +27,7 @@
 
 
 
-            <Button x:Name="AddJobOfferBtn" Text="Add Job Offer" Command="{Binding AddJobOfferCommand}" Style="{StaticResource LoginButton}" HeightRequest="45" CornerRadius="50" />
+            <Button x:Name="AddJobOfferBtn" Text="Add Job Offer" Command="{Binding AddJobOfferCommand}" HeightRequest="45" CornerRadius="50" />
 
 
 

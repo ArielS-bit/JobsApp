@@ -150,22 +150,23 @@ namespace JobsApp.ViewModels
             }
             else
             {
+                //Insert Job Offer Image
+                //if (imageFileResult != null)
+                //{
+                //    bool success = await proxy.UploadImage(new FileInfo()
+                //    {
+                //        Name = this.imageFileResult.FullPath
 
-                if (imageFileResult != null)
-                {
-                    bool success = await proxy.UploadImage(new FileInfo()
-                    {
-                        Name = this.imageFileResult.FullPath
+                //    }, $"{MyJobOffer.EmployerId}.jpg");
 
-                    }, $"{MyJobOffer.EmployerId}.jpg");
-
-                }
-                else
-                {
-                    //let's decide for the user the defualt profile picture (might be on the server so not needed in that condition)
-                }
+                //}
+                //else
+                //{
+                //    //let's decide for the user the defualt profile picture (might be on the server so not needed in that condition)
+                //}
                 //App theApp = (App)App.Current;
                 //theApp.CurrentUser = user;
+                await Application.Current.MainPage.DisplayAlert("SUCCESS!", "", "Yay");
                 Push?.Invoke(new MainTabView());
             }
 

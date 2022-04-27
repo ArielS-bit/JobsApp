@@ -26,6 +26,15 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Views\EmployeeSearchView.xaml.cs">
+      <DependentUpon>EmployeeSearchView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\EmployerSearchView.xaml.cs">
+      <DependentUpon>EmployerSearchView.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
     <EmbeddedResource Update="Views\AboutUsScreen.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
@@ -56,7 +65,7 @@
     <EmbeddedResource Update="Views\EmployeeProfileScreen.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\EmployeeSearchScreen.xaml">
+    <EmbeddedResource Update="Views\EmployeeSearchView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\EmployerNotificationsView.xaml">
@@ -65,7 +74,7 @@
     <EmbeddedResource Update="Views\EmployerProfileScreen.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\EmployerSearchScreen.xaml">
+    <EmbeddedResource Update="Views\EmployerSearchView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\ExPage.xaml">
