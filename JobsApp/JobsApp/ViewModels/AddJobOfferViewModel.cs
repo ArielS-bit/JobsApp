@@ -129,24 +129,35 @@ namespace JobsApp.ViewModels
         {
             JobsAPIProxy proxy = JobsAPIProxy.CreateProxy();
 
-            JobOffer MyJobOffer = new JobOffer() {Applied = false, CategoryId=3, Employer = this.currentApp.CurrentUser.UserId, IsPrivate=false, JobOfferDescription = JobOfferDescription, JobTitle=JobTitle, NumApplied = RequiredEmployees, RequiredAge = RequiredAge};
-             u = await proxy.SignUpAsync(MyUser);
+            JobOffer MyJobOffer = new JobOffer() { 
+                Applied = false, 
+                CommentId = 0, 
+                CategoryId = 3, 
+                EmployerId = this.currentApp.CurrentUser.UserId, 
+                IsPrivate = false, 
+                JobOfferDescription = JobOfferDescription, 
+                JobTitle = JobTitle, 
+                NumApplied = 0, 
+                RequiredEmployees = RequiredEmployees, 
+                RequiredAge = RequiredAge, 
+                JobOfferId = 0 };//CategoryID and JobOfferID should be taken as well
+             
+            JobOffer j = await proxy.AddJobOfferAsync(MyJobOffer);
 
-            if (u == null)
+            if (j == null)
             {
-                await Application.Current.MainPage.DisplayAlert("Sign Up Failed!", "Email or username invalid", "OK");
+                await Application.Current.MainPage.DisplayAlert("Adding job offer Failed!", "Invalid input", "I'LL FIX IT!");
             }
             else
             {
 
-                ((App)App.Current).CurrentUser = u;
                 if (imageFileResult != null)
                 {
                     bool success = await proxy.UploadImage(new FileInfo()
                     {
                         Name = this.imageFileResult.FullPath
 
-                    }, $"{u.UserId}.jpg");
+                    }, $"{MyJobOffer.EmployerId}.jpg");
 
                 }
                 else
