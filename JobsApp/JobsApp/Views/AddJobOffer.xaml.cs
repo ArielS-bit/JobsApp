@@ -19,7 +19,16 @@ namespace JobsApp.Views
             AddJobOfferViewModel a = new AddJobOfferViewModel();
             this.BindingContext = a;
             a.Push += (p) => Navigation.PushAsync(p);
-        
+
+            var professionsList = new List<string>();
+            professionsList.Add("Dog Walking");
+            professionsList.Add("Babysitter");
+            professionsList.Add("Other");
+            //Add using this list on the DB
+
+
+            var picker = new Picker { Title = "Select a profession", TitleColor = Color.Red };
+            picker.ItemsSource = professionsList;
         }
     }
 }

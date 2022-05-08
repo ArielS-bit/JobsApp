@@ -6,9 +6,22 @@
   <ContentView.Content>
       <StackLayout>
           <Label Text="Jobs History!" HorizontalOptions="CenterAndExpand"/>
-          
-          
-          
-      </StackLayout>
+            <StackLayout x:Name="JobsHistoryView" BackgroundColor="Blue" Spacing="20" Padding="30" WidthRequest="250" BindableLayout.ItemsSource="{Binding JobOffer}" VerticalOptions="CenterAndExpand">
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate x:DataType="local:">
+                        <StackLayout Orientation="Horizontal">
+
+                            <Label Text="{Binding Name}" HorizontalOptions="Start" VerticalOptions="Center" FontSize="15" TextColor="White"/>
+
+
+
+
+                        </StackLayout>
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+            </StackLayout>
+
+
+        </StackLayout>
   </ContentView.Content>
 </ContentView>

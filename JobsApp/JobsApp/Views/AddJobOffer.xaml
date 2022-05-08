@@ -10,8 +10,10 @@
 
             <Entry Placeholder="Job Title" Text="{Binding JobTitle}"/>
 
-            <Picker/>
-            <!--Placeholder="Profession"-->
+            <Picker x:Name="picker" Title="Select a profession" TitleColor="Red"/>
+
+
+            <!--Pick a date-->
             
 
             <Entry Placeholder="Job dESCRIPTION" Text="{Binding JobOfferDescription}"/>
