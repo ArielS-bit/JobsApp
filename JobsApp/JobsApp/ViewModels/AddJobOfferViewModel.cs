@@ -85,6 +85,19 @@ namespace JobsApp.ViewModels
             }
         }
 
+        private List<Category> categories;
+        public List<Category> Categories
+        {
+            get { return categories; }
+            set
+            {
+                categories = value;
+                OnPropertyChanged("Categories");
+            }
+        }
+
+
+
 
 
         #endregion
