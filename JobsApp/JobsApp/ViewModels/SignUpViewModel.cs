@@ -430,8 +430,8 @@ namespace JobsApp.ViewModels
         public Command CountinueCommand { get; }
         public Command SignUpCommand { get; }
         //public Command<string> GetGenderCommand { get; set; }
-        public Command<string> GetEmployeeInterests { get; set; }
-        public Command<string> GetEmployerInterests { get; set; }
+        //public Command<string> GetEmployeeInterests { get; set; }
+        //public Command<string> GetEmployerInterests { get; set; }
 
 
         public SignUpViewModel()
@@ -448,14 +448,14 @@ namespace JobsApp.ViewModels
             this.Pass = "";
             this.PrivateAnswer = "";
            
-            this.EmailErrorShown = false;
-            this.FirstNameErrorShown = false;
+            //this.EmailErrorShown = false;
+            //this.FirstNameErrorShown = false;
             
-            this.BdayErrorShown = false;
-            this.LastNameErrorShown = false;
-            this.NicknameErrorShown = false;
-            this.PassErrorShown = false;
-            this.PrivateAnswerErrorShown = false;
+            //this.BdayErrorShown = false;
+            //this.LastNameErrorShown = false;
+            //this.NicknameErrorShown = false;
+            //this.PassErrorShown = false;
+            //this.PrivateAnswerErrorShown = false;
             this.UserImgSrc = DEFAULT_PHOTO_SRC;
             this.UserTypeID = 3;
 
@@ -463,7 +463,7 @@ namespace JobsApp.ViewModels
             
             //enableBtn = false;
 
-            Push += NavigateToPage;
+            //Push += NavigateToPage;
             //GetGenderCommand = new Command<string>((g)=>GenderInput(g));//sending a parameter additionly to the function
             //GetEmployeeInterests = new Command<string>((g)=>EmployeeInterests(g));//sending a parameter additionly to the function
             //GetEmployerInterests = new Command<string>((g)=>EmployerInterests(g));//sending a parameter additionly to the function
@@ -482,10 +482,10 @@ namespace JobsApp.ViewModels
             
         }
 
-        private async void NavigateToPage(Page obj)
-        {
-            await currentApp.MainPage.Navigation.PushAsync(obj);
-        }
+        //private async void NavigateToPage(Page obj)
+        //{
+        //    await currentApp.MainPage.Navigation.PushAsync(obj);
+        //}
 
         public void Continue()
         {

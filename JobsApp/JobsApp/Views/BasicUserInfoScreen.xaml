@@ -18,7 +18,7 @@
 
                
                 
-                <Image Source="logo_inside_app.png" WidthRequest="60" HeightRequest="50" Margin="0,0,350,0"/>
+                <Image Source="NormalScaleLogo.png" WidthRequest="60" HeightRequest="50" Margin="0,0,350,0"/>
                 <!--Every time the user enters one input another inout is shown up and so on till the basic info is all done -->
                 <Frame BackgroundColor="#E63946">
                     <Grid RowSpacing="4" BackgroundColor="Transparent">
