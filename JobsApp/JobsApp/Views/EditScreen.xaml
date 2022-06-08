@@ -4,6 +4,7 @@
              x:Class="JobsApp.Views.EditScreen"
             xmlns:views="clr-namespace:JobsApp.Views">
 
+    <!--מסך פשוט שקופץ לאחר לחיצה על כפתור עריכה וכמו דף הרשמה פשוט כבר הכל מלא וניתן לערוך ואז לטעון מחדש את דף הפרופיל-->
     <views:EditView/>
 
 

@@ -14,7 +14,7 @@ namespace JobsApp.Models
 
         public int EmployerId { get; set; }
         public int UserId { get; set; }
-        public bool IsEmployee { get; set; }
+        
 
         public virtual JobOffer JobOffer { get; set; }
         public virtual List<JobApplication> JobApplications { get; set; }

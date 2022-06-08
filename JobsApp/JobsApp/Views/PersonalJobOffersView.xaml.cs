@@ -8,22 +8,17 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using JobsApp.ViewModels;
 
-namespace JobsApp.Views
+namespace JobsApp.ViewModels
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class MeetOurApp : ContentPage
+    public partial class PersonalJobOffersView : ContentView
     {
-        public MeetOurApp()
+        public PersonalJobOffersView()
         {
             InitializeComponent();
-            MeetOurAppViewModel l = new MeetOurAppViewModel();
+            PersonalJobOffersViewModel l = new PersonalJobOffersViewModel();
             l.Push += (p) => Navigation.PushAsync(p);
             this.BindingContext = l;
-        }
-
-        private void Button_Clicked(object sender, EventArgs e)
-        {
-            
         }
     }
 }

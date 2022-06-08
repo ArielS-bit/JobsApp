@@ -16,7 +16,7 @@ namespace JobsApp.Views
         public AddJobRequest()
         {
             InitializeComponent();
-            AddJobOfferViewModel a = new AddJobOfferViewModel();
+            AddJobRequestViewModel a = new AddJobRequestViewModel();
             this.BindingContext = a;
             a.Push += (p) => Navigation.PushAsync(p);
         }

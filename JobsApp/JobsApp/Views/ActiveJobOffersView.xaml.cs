@@ -11,19 +11,14 @@ using JobsApp.ViewModels;
 namespace JobsApp.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class MeetOurApp : ContentPage
+    public partial class ActiveJobOffersView : ContentView
     {
-        public MeetOurApp()
+        public ActiveJobOffersView()
         {
             InitializeComponent();
-            MeetOurAppViewModel l = new MeetOurAppViewModel();
+            ActiveJobOffersViewModel l = new ActiveJobOffersViewModel();
             l.Push += (p) => Navigation.PushAsync(p);
             this.BindingContext = l;
-        }
-
-        private void Button_Clicked(object sender, EventArgs e)
-        {
-            
         }
     }
 }
