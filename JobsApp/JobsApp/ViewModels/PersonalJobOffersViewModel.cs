@@ -17,7 +17,12 @@ namespace JobsApp.ViewModels
 {
     class PersonalJobOffersViewModel : ViewModelBase
     {
+        public PersonalJobOffersViewModel()
+        {
+
+        }
+        public event Action<Page> Push;
     }
 
-    public event Action<Page> Push;
+    
 }

@@ -20,9 +20,9 @@ namespace JobsApp
             var sub = new AbsoluteLayout();
             splashImage = new Image
             {
-                Source = "DemoLogo.png",
-                WidthRequest = 80,
-                HeightRequest = 80
+                Source = "NormalScaleLogo.png",
+                WidthRequest = 50,
+                HeightRequest = 50
             };
             AbsoluteLayout.SetLayoutFlags(splashImage,
                AbsoluteLayoutFlags.PositionProportional);
@@ -31,7 +31,7 @@ namespace JobsApp
 
             sub.Children.Add(splashImage);
 
-            this.BackgroundColor = Color.FromHex("#dfe6e9");
+            this.BackgroundColor = Color.FromHex("#829ec6");
             this.Content = sub;
         }
 
@@ -40,10 +40,10 @@ namespace JobsApp
         {
             base.OnAppearing();
 
-            await splashImage.ScaleTo(1, 2000); //Time-consuming processes such as initialization
-            await splashImage.ScaleTo(0.6, 1500, Easing.Linear);
-            await splashImage.ScaleTo(80, 1200, Easing.Linear);
-            Application.Current.MainPage = new NavigationPage(new LoginScreen());    //After loading  MainPage it gets Navigated to our new Page
+            await splashImage.ScaleTo(1, 1500); //Time-consuming processes such as initialization
+            await splashImage.ScaleTo(4, 100, Easing.SinOut);
+            await splashImage.ScaleTo(500, 100, Easing.SinOut);
+            Application.Current.MainPage = new NavigationPage(new MeetOurApp());    //After loading  MainPage it gets Navigated to our new Page
         }
     }
 }

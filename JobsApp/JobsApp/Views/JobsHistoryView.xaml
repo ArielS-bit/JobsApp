@@ -7,7 +7,7 @@
     
   <ContentView.Content>
       <StackLayout>
-          <Label Text="Jobs History!" HorizontalOptions="CenterAndExpand"/>
+          <!--<Label Text="Jobs History!" HorizontalOptions="CenterAndExpand"/>
             <StackLayout x:Name="JobsHistoryView" BackgroundColor="Blue" Spacing="20" Padding="30" WidthRequest="250" BindableLayout.ItemsSource="{Binding JobOffer}" VerticalOptions="CenterAndExpand">
                 <BindableLayout.ItemTemplate>
                     <DataTemplate x:DataType="models:JobOffer">
@@ -22,7 +22,7 @@
                         </StackLayout>
                     </DataTemplate>
                 </BindableLayout.ItemTemplate>
-            </StackLayout>
+            </StackLayout>-->
 
 
         </StackLayout>
