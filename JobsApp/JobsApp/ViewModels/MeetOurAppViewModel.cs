@@ -17,21 +17,27 @@ namespace JobsApp.ViewModels
 {
     class MeetOurAppViewModel:ViewModelBase
     {
-        public event Action<Page> Push;
-        public Command NavigateToSognUp => new Command(GetPage);
+       
         public MeetOurAppViewModel()
         {
-            Push += NavigateToPage;
+            //Push += NavigateToPage;
         }
-        public void GetPage()
+        public event Action<Page> Push;
+        public ICommand NavigateToLogInCommand => new Command(GetLogInPage);
+        public ICommand NavigateToSignUpCommand => new Command(GetSignUpPage);
+        public void GetLogInPage()
+        {
+            Push?.Invoke(new LoginScreen());
+        }
+        public void GetSignUpPage()
         {
             Push?.Invoke(new BasicUserInfoScreen());
         }
 
-        private async void NavigateToPage(Page obj)
-        {
-            await ((App)Application.Current).MainPage.Navigation.PushAsync(obj);
-        }
+        //private async void NavigateToPage(Page obj)
+        //{
+        //    await ((App)Application.Current).MainPage.Navigation.PushAsync(obj);
+        //}
 
 
     }

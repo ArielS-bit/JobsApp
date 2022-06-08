@@ -17,13 +17,17 @@ namespace JobsApp.Views
         {
             InitializeComponent();
             MeetOurAppViewModel l = new MeetOurAppViewModel();
-            l.Push += (p) => Navigation.PushAsync(p);
             this.BindingContext = l;
+            l.Push += (p) => Navigation.PushAsync(p);
+            
+
+            Stck.IsVisible = false;
         }
 
         private void Button_Clicked(object sender, EventArgs e)
         {
-            
+
+            Stck.IsVisible = true;
         }
     }
 }

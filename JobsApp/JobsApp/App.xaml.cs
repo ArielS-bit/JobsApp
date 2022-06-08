@@ -4,6 +4,7 @@ using Xamarin.Forms.Xaml;
 using JobsApp.Models;
 using JobsApp.Views;
 using JobsApp.Services;
+using Xamarin.Essentials;
 using Syncfusion;
 using System.Collections.Generic;
 
@@ -43,10 +44,12 @@ namespace JobsApp
             InitializeComponent();
             CurrentUser = null;
 
-            MainPage = new NavigationPage(new SplashScreen());//Should be navigating to Splash Screen
-            //{
-            //    BarBackgroundColor = Color.Transparent
-            //};
+            MainPage = new NavigationPage(new MeetOurApp());//Should be navigating to Splash Screen
+                                                            //{
+                                                            //    BarBackgroundColor = Color.Transparent
+                                                            //};
+
+           
         }
 
 
@@ -64,6 +67,20 @@ namespace JobsApp
             //}
             //else
             //    MainPage = new NavigationPage(new MainTabPage());
+
+            //try
+            //{
+            //    var userToken = await SecureStorage.GetAsync("user_token");
+            //    if (userToken != null) 
+            //    {
+            //        //the user should be pulled out from the secure storage
+            //    }
+
+            //}
+            //catch (Exception e)
+            //{
+            //    // Possible that device doesn't support secure storage on device.
+            //}
         }
 
         protected override void OnSleep()

@@ -17,7 +17,7 @@ namespace JobsApp.ViewModels
 {
     class LoginViewModel:ViewModelBase
     {
-        
+        #region Properties
         private string email;
 
         public string Email
@@ -65,7 +65,7 @@ namespace JobsApp.ViewModels
                 OnPropertyChanged("EmailErrorShown");
             }
         }
-
+        #endregion
 
         private void EmailVaidation()
         {
@@ -78,7 +78,7 @@ namespace JobsApp.ViewModels
             Email = "";
             Password = "";
             IsAnswerValid = "";
-            
+            EmailErrorShown = false;
 
         }
         public event Action<Page> Push;
@@ -105,11 +105,22 @@ namespace JobsApp.ViewModels
 
             if (u == null)
             {
-                await Application.Current.MainPage.DisplayAlert("Login Failed!", "Email or username invalid", "OK");
+                await Application.Current.MainPage.DisplayAlert("Login Failed!", "Email or password invalid", "OK");
             }
             else
             {
                 ((App)App.Current).CurrentUser = u;
+                
+                    //try
+                    //{
+                    //    await SecureStorage.SetAsync("user_token", "secret-user-token-value");
+                    //}
+                    //catch (Exception e)
+                    //{
+                    //    // Possible that device doesn't support secure storage on device.
+                    //}
+                
+               
                 //App theApp = (App)App.Current;
                 //theApp.CurrentUser = user;
                 Push?.Invoke(new MainTabView());
@@ -152,16 +163,16 @@ namespace JobsApp.ViewModels
         public ICommand SignUpCommand => new Command(SignUp);
         private void SignUp()
         {
-            if (Email == "Admin@gmail.com")
-            {
-                Push?.Invoke(new AdminScreen());//נעביר לדף מנהל
+            //if (Email == "Admin@gmail.com")
+            //{
+            //    Push?.Invoke(new AdminScreen());//נעביר לדף מנהל
 
-            }
-            else
-            {
+            //}
+            //else
+            //{
                 Push?.Invoke(new BasicUserInfoScreen());
 
-            }
+          //  }
         }
 
         public ICommand ForgotPassCommand => new Command(ForgotPassword);

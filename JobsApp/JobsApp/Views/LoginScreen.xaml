@@ -6,9 +6,7 @@
              xmlns:fontAwesome="clr-namespace:FontAwesome"
              xmlns:local="clr-namespace:JobsApp.ViewModels" BackgroundColor="#F1FAEE">
 
-    <ContentPage.BindingContext>
-        <local:LoginViewModel></local:LoginViewModel>
-    </ContentPage.BindingContext>
+    
 
         <ContentPage.Resources>
         <Style TargetType="Entry" x:Key="LoginEntry">
@@ -43,12 +41,12 @@
         <StackLayout Padding="5" Spacing="5">
         <!--<Label Text="Logo" FontFamily="'Zen Kaku Gothic Antique', sans-serif" FontSize="25" TextColor="Black" Margin="0,12,20,30"/>-->
         <!--Do it-->         <!--<Button ImageSource="logo_inside_app.png" WidthRequest="50" HeightRequest="0" Margin="0,170,0,10"/>--> 
-        <Image Source="logo_inside_app" WidthRequest="90" HeightRequest="85" Margin="0,0,320,0"/>
+        <Image Source="NormalScaleLogo.png" Margin="-10,-10,-10,0"/>
 
-            <Button x:Name="SignUpBtn" Text="Join US" Margin="310,-70,0,0" HeightRequest="45" WidthRequest="80" Style="{StaticResource LoginButton}" Command="{Binding SignUpCommand}"/>
+            <Button x:Name="SignUpBtn" Text="Join US" Margin="310,0,0,0" HeightRequest="45" WidthRequest="80" Style="{StaticResource LoginButton}" Command="{Binding SignUpCommand}"/>
 
             <!--FontFamily="{x:Static fontAwesome:FontAwesome}"-->
-            <Label Text="_ Login _" HorizontalOptions="Center" Margin="10,30,10,10"  FontAttributes="Bold" FontSize="25"/>
+            <Label Text="_ Login _" HorizontalOptions="Center" Margin="10,0,10,10"  FontAttributes="Bold" FontSize="25"/>
 
 
             <Entry Placeholder="Email" Text="{Binding Email}" Margin="0,30,0,10" HorizontalTextAlignment="Start" Style="{StaticResource LoginEntry}"/>
@@ -61,16 +59,16 @@
             <ImageButton x:Name="VisibilityOffSign" Source="VisibleOff.png" IsVisible="true" Clicked="VisibleOff_Clicked" Margin="320,-45,-10,20"/>
             <ImageButton x:Name="VisibilityOnSign" Source="VisibleOn.png" IsVisible="false" Clicked="VisibleOn_Clicked" BackgroundColor="Transparent" Margin="320,-45,-10,20"/>
             
-            <Button x:Name="ForgotPassBtn" Text="Forgot password?!" Clicked="ForgotPassButton_Clicked" BackgroundColor="Transparent" TextColor="Black" Style="{StaticResource LoginButton}" Command="{Binding ForgotPassCommand}"/>
+            <Button x:Name="ForgotPassBtn" Text="Forgot password?!" BackgroundColor="Transparent" TextColor="Black" Style="{StaticResource LoginButton}" Command="{Binding ForgotPassCommand}"/>
 
-            <CheckBox IsChecked="True" />
+            <CheckBox IsChecked="True" /> <!--Should be with the brain-->
             <Label Text="Remember me" FontAttributes="Bold" Margin="40,-32,0,0" TextColor="#457B9D"/>
 
         <!--Add functionality-->
         <!--Add isMouseOver/hover-->
           
 
-            <Button x:Name="LogInBtn" Padding="-20" Text="Continue" Style="{StaticResource LoginButton}" Margin="150,25,80,10" HeightRequest="45" CornerRadius="50" BackgroundColor="#457B9D" Command="{Binding LoginCommand}" />
+            <Button x:Name="LogInBtn" Padding="-20" Text="I'm back!" Style="{StaticResource LoginButton}" Margin="150,25,80,10" HeightRequest="45" CornerRadius="50" BackgroundColor="#457B9D" Command="{Binding LoginCommand}" />
 
         
 

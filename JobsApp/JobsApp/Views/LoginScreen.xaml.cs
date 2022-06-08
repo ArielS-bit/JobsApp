@@ -30,10 +30,10 @@ namespace JobsApp.Views
             entry.IsPassword = true;
         }
 
-        private void ForgotPassButton_Clicked(object sender, EventArgs e)
-        {
-            ForgotPassBtn.BackgroundColor = Color.Accent; //(236, 245, 233);
-        }
+        //private void ForgotPassButton_Clicked(object sender, EventArgs e)
+        //{
+        //    ForgotPassBtn.BackgroundColor = Color.Accent; //(236, 245, 233);
+        //}
 
         private void VisibleOff_Clicked(object sender, EventArgs e)
         {

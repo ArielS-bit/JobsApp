@@ -2,24 +2,34 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="JobsApp.Views.MeetOurApp"
-             xmlns:local="clr-namespace:JobsApp.ViewModels">
+             xmlns:local="clr-namespace:JobsApp.ViewModels"
+             NavigationPage.HasNavigationBar="False">
 
-    <ContentPage.BindingContext>
-        <local:MeetOurAppViewModel></local:MeetOurAppViewModel>
-    </ContentPage.BindingContext>
-
+    
     <ContentPage.Content>
         <StackLayout>
             <!--Show functions that can be done in the app, show the vision in a carousel effect-->
 
+
+            <Image Source="NormalScaleLogo.png" WidthRequest="90" HeightRequest="85"/>
+
+            <Image Source="MeetOurAppImage1.png"/>
             
+            <Frame>
+                <Label Text="Nowdays, most of the teenagers want to start working. However, there are many businesses who deny to hire them. It creats a huge problem! We are here to change it!"/>
+            </Frame>
 
           
-          
+            
+            <Button x:Name="MainBtn" Text="Let's GO!" BackgroundColor="#457B9D" Clicked="Button_Clicked"/>
 
-                        <Button Text="sIGN uP!" Command="{Binding NavigateToSognUp}"  BackgroundColor="#457B9D" />
+            <StackLayout x:Name="Stck" HorizontalOptions="Center" Margin="50" Orientation="Horizontal">
 
+                <Button x:Name="LogInBtn" Command="{Binding NavigateToLogInCommand}" Text="Log In"/>
+                <Button x:Name="SignUpBtn" Command="{Binding NavigateToSignUpCommand}" Text="Join our community"/>
+            
+            </StackLayout>
 
-                    </StackLayout>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>
