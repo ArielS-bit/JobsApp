@@ -17,7 +17,7 @@ using System.Collections.ObjectModel;
 
 namespace JobsApp.ViewModels
 {
-    class SignUpViewModel:ViewModelBase
+    public class SignUpViewModel:ViewModelBase
     {
         public event Action<Page> Push;
 
@@ -308,6 +308,42 @@ namespace JobsApp.ViewModels
                 OnPropertyChanged("EmployerQuestionsShown");
             }
         }
+
+        private Category selectedCategory;
+
+
+        private ObservableCollection<string> myCategories;
+        public ObservableCollection<string> MyCategories 
+        { 
+            get => myCategories;
+            set
+            {
+                myCategories = value;
+                OnPropertyChanged("MyCategories");
+            }
+        }
+
+        private string category;
+        public string Category
+        {
+            get => category;
+
+            set
+            {
+                if (category != value)
+                {
+                    category = value;
+                    PickCategory();
+                    OnPropertyChanged("Category");
+                }
+               
+            }
+        }
+
+        private List<Category> categories;
+
+        public event Action OnAppearing;
+
         #endregion Properties
 
         #region Image Source
@@ -447,6 +483,7 @@ namespace JobsApp.ViewModels
             BdayValidation();
             this.Pass = "";
             this.PrivateAnswer = "";
+
            
             //this.EmailErrorShown = false;
             //this.FirstNameErrorShown = false;
@@ -458,6 +495,8 @@ namespace JobsApp.ViewModels
             //this.PrivateAnswerErrorShown = false;
             this.UserImgSrc = DEFAULT_PHOTO_SRC;
             this.UserTypeID = 3;
+            MyCategories = new ObservableCollection<string>();
+            OnAppearing += GetCategories;
 
 
             
@@ -491,7 +530,7 @@ namespace JobsApp.ViewModels
         {
 
             
-            Push?.Invoke(new UserCredentialsScreen() { BindingContext = this });
+            Push?.Invoke(new UserCredentialsScreen(this));
 
         }
 
@@ -509,11 +548,35 @@ namespace JobsApp.ViewModels
         
         }
 
+        private async void GetCategories()
+        {
+            JobsAPIProxy proxy = JobsAPIProxy.CreateProxy();
+            categories = await proxy.GetCategories();
+            MyCategories = new ObservableCollection<string>();
+            foreach(Category category in categories)
+            {
+                MyCategories.Add(category.CategoryName);
+
+            }
+
+        }
+        public void OnAppearingFunc()
+        {
+            OnAppearing?.Invoke();
+        }
+
+        private void PickCategory()
+        {
+            selectedCategory = categories.Where(c => c.CategoryName == category).FirstOrDefault();
+
+
+        }
+
         public async void SignUp()
         {
             JobsAPIProxy proxy = JobsAPIProxy.CreateProxy();
 
-            User MyUser = new User() {FirstName = firstName, LastName = lastName, Birthday = bday, UserTypeId=userTypeID, Email = email, Gender = gender, Nickname = nickname, Pass = pass, PrivateAnswer = privateAnswer };  
+            User MyUser = new User() {FirstName = firstName, LastName = lastName, Birthday = bday, UserTypeId=userTypeID, Profession = Category, Email = email, Gender = gender, Nickname = nickname, Pass = pass, PrivateAnswer = privateAnswer };  
             User u = await proxy.SignUpAsync(MyUser);
 
             if (u == null)

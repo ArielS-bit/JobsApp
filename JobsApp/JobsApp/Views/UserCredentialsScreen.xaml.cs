@@ -13,14 +13,19 @@ namespace JobsApp.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class UserCredentialsScreen : ContentPage
     {
-        public UserCredentialsScreen()
+        public UserCredentialsScreen(SignUpViewModel s)
         {
             InitializeComponent();
-            this.BindingContext = this;
+            this.BindingContext = s;
             
 
 
 
+        }
+
+        protected override void OnAppearing()
+        {
+            ((SignUpViewModel)this.BindingContext).OnAppearingFunc();
         }
     }
 }

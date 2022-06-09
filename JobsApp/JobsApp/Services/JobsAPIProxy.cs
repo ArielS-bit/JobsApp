@@ -234,7 +234,35 @@ namespace JobsApp.Services
             }
         }
 
-        
+        public async Task<List<Category>> GetCategories()
+        {
+            try
+            {
+                HttpResponseMessage response = await this.client.GetAsync($"{this.baseUri}/GetCategories");
+                if (response.IsSuccessStatusCode)
+                {
+                    JsonSerializerOptions options = new JsonSerializerOptions
+                    {
+                        ReferenceHandler = ReferenceHandler.Preserve, //avoid reference loops!
+                        PropertyNameCaseInsensitive = true
+                    };
+                    string content = await response.Content.ReadAsStringAsync();
+                    List<Category> b = JsonSerializer.Deserialize<List<Category>>(content, options);
+                    return b;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return null;
+            }
+        }
+
+
         public async Task<bool> IsPetNameExistAsync(string email, string petName)
         {
             try
