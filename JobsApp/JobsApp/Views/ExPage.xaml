@@ -16,7 +16,7 @@
         <Label Text="{Binding Str}" FontSize="20" TextColor="#bdc3c7" HorizontalOptions="Center" Margin="40,40,40,20"></Label>
 
 
-        <Button x:Name="btn" Text="Goo!" Command="{Binding ShowCommand}" CornerRadius="18" Opacity="0.8" BackgroundColor="#Black" BorderWidth="0.5" HorizontalOptions="Center"/>
+        <Button x:Name="btn" Text="Go!" Command="{Binding ShowCommand}" CornerRadius="18" Opacity="0.8" BackgroundColor="#Black" BorderWidth="0.5" HorizontalOptions="Center"/>
 
 
 
