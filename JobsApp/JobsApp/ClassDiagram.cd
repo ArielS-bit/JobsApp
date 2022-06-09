@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="JobsApp.Models.Category">
+    <Position X="9.5" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgAAgAAAAAAAAAAACAAAAAAAAAAAIAAAAA=</HashCode>
+      <FileName>Models\Category.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JobsApp.Models.Comment" Collapsed="true">
+    <Position X="1.75" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAABggAAAAAAAAAAAAAAAAAAAAiAAIAAIAAAAA=</HashCode>
+      <FileName>Models\Comment.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JobsApp.Models.Employee" Collapsed="true">
+    <Position X="3.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAIAAAAAAAAAAgACAAAAAEAAAAAAgACAAA=</HashCode>
+      <FileName>Models\Employee.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JobsApp.Models.Employer" Collapsed="true">
+    <Position X="5.25" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgAAAAAAAQAAAgAAAAAAAAAAAAAAoAAAAA=</HashCode>
+      <FileName>Models\Employer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JobsApp.Models.FileInfo" Collapsed="true">
+    <Position X="7" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAARAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\FileInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JobsApp.Models.InterstedInRequest" Collapsed="true">
+    <Position X="1.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgCAAAABAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\InterstedInRequest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JobsApp.Models.JobApplication" Collapsed="true">
+    <Position X="3.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAQgAAAAAAAQACAAACAAAAAAAAAIAAAQCAAA=</HashCode>
+      <FileName>Models\JobApplication.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JobsApp.Models.JobApplicationStatus" Collapsed="true">
+    <Position X="5.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAAAAAAAAAAAAAQAAAAAAAAAAAAAAgAAAAA=</HashCode>
+      <FileName>Models\JobApplicationStatus.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JobsApp.Models.JobOffer" Collapsed="true">
+    <Position X="7" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ASAEEAAEQgEAAgAAAAYAAQAAAAAAAACgAAIAAgAICAA=</HashCode>
+      <FileName>Models\JobOffer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JobsApp.Models.JobOfferStatus" Collapsed="true">
+    <Position X="1.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAEAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAA=</HashCode>
+      <FileName>Models\JobOfferStatus.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JobsApp.Models.JobRequest" Collapsed="true">
+    <Position X="3.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQgEEAAEAgAAAgAAAAQAAAAACAAAAAAgAAAAACACqAA=</HashCode>
+      <FileName>Models\JobRequest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JobsApp.Models.LookUps" Collapsed="true">
+    <Position X="5.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\LookUps.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JobsApp.Models.Rating" Collapsed="true">
+    <Position X="7" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIABAAAAAAAAAACAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Rating.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JobsApp.Models.User" Collapsed="true">
+    <Position X="1.75" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAEAAACYAAACAAAAAAIgAAAAICAAAAAAgAAAAAAo=</HashCode>
+      <FileName>Models\User.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JobsApp.Models.UserType" Collapsed="true">
+    <Position X="3.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\UserType.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
