@@ -4,7 +4,8 @@
              x:Class="JobsApp.Views.EmployerHistoryJobs">
   <ContentView.Content>
       <StackLayout>
-          <Label Text="Hello Xamarin.Forms!" />
+          <Label Text="Jobs History"/>
+          
       </StackLayout>
   </ContentView.Content>
 </ContentView>
