@@ -5,7 +5,39 @@
   <ContentView.Content>
       <StackLayout>
           <Label Text="Jobs History"/>
-          
-      </StackLayout>
+            <RefreshView x:Name="refreshView"
+             Command="{Binding RefreshCommand}"
+             IsRefreshing="{Binding IsRefreshing}">
+                <CollectionView EmptyView="There is no job history yet" x:Name="JobsCollection" ItemsSource="{Binding Jobs}" SelectionMode="Single" BackgroundColor="White"
+                                SelectionChangedCommand="{Binding ShowJobOffer}">
+                    <!--<CollectionView.ItemsLayout>
+                        <GridItemsLayout Span="1" Orientation="Vertical" />
+                    </CollectionView.ItemsLayout>-->
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                           
+                                
+                                <Grid Margin="7">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="50"/>
+                                        <RowDefinition Height="50"/>
+                                    </Grid.RowDefinitions>
+                                    <Label Text="{Binding Path=JobOfferName, StringFormat='{0}'}" HorizontalTextAlignment="Start" FontSize="Caption"  Grid.Row="0" Grid.Column="0"/>
+                                    <Label Text="{Binding Path=NumApplied, StringFormat='{0}'}" HorizontalTextAlignment="Start" FontSize="Caption" FontAttributes="Bold" Grid.Row="1" Grid.Column="0" Margin="0,0,5,0"/>
+                                    <Image Source="{Binding ImgSource}" Grid.Column="1" Grid.RowSpan="2" Grid.Row="0"/>
+                                </Grid>
+
+                            
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </RefreshView>
+
+
+        </StackLayout>
   </ContentView.Content>
 </ContentView>
