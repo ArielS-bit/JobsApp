@@ -123,7 +123,7 @@ namespace JobsApp.ViewModels
                
                 //App theApp = (App)App.Current;
                 //theApp.CurrentUser = user;
-                Push?.Invoke(new MainTabView());
+                Push?.Invoke(new AddJobOffer());
 
                 //May Change to profile screen
             }

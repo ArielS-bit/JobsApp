@@ -61,8 +61,8 @@
             
             <Button x:Name="ForgotPassBtn" Text="Forgot password?!" BackgroundColor="Transparent" TextColor="Black" Style="{StaticResource LoginButton}" Command="{Binding ForgotPassCommand}"/>
 
-            <CheckBox IsChecked="True" /> <!--Should be with the brain-->
-            <Label Text="Remember me" FontAttributes="Bold" Margin="40,-32,0,0" TextColor="#457B9D"/>
+            <!--<CheckBox IsChecked="True" /> --><!--Should be with the brain-->
+            <!--<Label Text="Remember me" FontAttributes="Bold" Margin="40,-32,0,0" TextColor="#457B9D"/>-->
 
         <!--Add functionality-->
         <!--Add isMouseOver/hover-->

@@ -543,7 +543,7 @@ namespace JobsApp.ViewModels
 
         private bool IsSignUpEnabled()//change to a better algorithem that covers all situations
         {
-           return !(PrivateAnswerErrorShown || NicknameErrorShown || PassErrorShown || UserTypeIDErrorShown || EmailErrorShown);
+           return !(NicknameErrorShown || PassErrorShown || UserTypeIDErrorShown || EmailErrorShown);
            
         
         }
@@ -600,6 +600,7 @@ namespace JobsApp.ViewModels
                 {
                    //let's decide for the user the defualt profile picture (might be on the server so not needed in that condition)
                 }
+               
                 //App theApp = (App)App.Current;
                 //theApp.CurrentUser = user;
                 Push?.Invoke(new MainTabView());

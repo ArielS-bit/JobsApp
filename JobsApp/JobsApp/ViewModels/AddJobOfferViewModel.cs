@@ -11,15 +11,30 @@ using Xamarin.Essentials;
 using System.Linq;
 using JobsApp.ViewModels;
 using JobsApp.Views;
+using System.Collections.ObjectModel;
 
 
 namespace JobsApp.ViewModels
 {
     class AddJobOfferViewModel : ViewModelBase
     {
+        public event Action<Page> Push;
+        public event Action Pop;
+
+
+        public event Action OnAppearing;
         #region Constructor
         public AddJobOfferViewModel()
         {
+            JobTitle = "";
+            JobOfferDescription = "";
+            StartingDate = DateTime.Today;
+            EndingDate = DateTime.Today;
+            Category = "";
+            IsPrivate = false;
+            SelectedEmployee = null;//לבדוק אם הגיע פרמטר אז לשים פה אם לא אז ככה
+            MyCategories = new ObservableCollection<string>();
+            OnAppearing += GetCategories;
 
         }
         #endregion
@@ -47,20 +62,67 @@ namespace JobsApp.ViewModels
                 OnPropertyChanged("JobOfferDescription");
             }
         }
-        public event Action<Page> Push;
 
-        //Insert as whole categories table and then the categoryID will be in the JobOffer
-
-        private string profession;
-        public string Profession
+        private DateTime startingDate;
+        public DateTime StartingDate
         {
-            get { return profession; }
+            get => startingDate;
             set
             {
-                profession = value;
-                OnPropertyChanged("Profession");
+                startingDate = value;
+                OnPropertyChanged("StartingDate");
             }
         }
+
+        private DateTime endingDate;
+        public DateTime EndingDate
+        {
+            get => endingDate;
+            set
+            {
+                endingDate = value;
+                OnPropertyChanged("EndingDate");
+            }
+        }
+
+        private Category selectedCategory;
+
+
+        private ObservableCollection<string> myCategories;
+        public ObservableCollection<string> MyCategories
+        {
+            get => myCategories;
+            set
+            {
+                myCategories = value;
+                OnPropertyChanged("MyCategories");
+            }
+        }
+
+        private string category;
+        public string Category
+        {
+            get => category;
+
+            set
+            {
+                if (category != value)
+                {
+                    category = value;
+                    if (categories!=null)
+                    {
+                        PickCategory();
+                    }
+                    
+                    OnPropertyChanged("Category");
+                }
+
+            }
+        }
+
+        private List<Category> categories;
+
+      
 
         //Must be from this age and above
         private int requiredAge;
@@ -85,16 +147,29 @@ namespace JobsApp.ViewModels
             }
         }
 
-        private List<Category> categories;
-        public List<Category> Categories
+        private bool isPrivate;
+        public bool IsPrivate
         {
-            get { return categories; }
+            get { return isPrivate; }
             set
             {
-                categories = value;
-                OnPropertyChanged("Categories");
+                isPrivate = value;
+                OnPropertyChanged("IsPrivate");
             }
         }
+
+        private Employee selectedEmployee;
+        public Employee SelectedEmployee
+        {
+            get { return selectedEmployee; }
+            set 
+            {
+                selectedEmployee = value;
+                OnPropertyChanged("SelectedEmployee");
+            }
+        }
+
+
 
 
 
@@ -111,49 +186,70 @@ namespace JobsApp.ViewModels
         #endregion
 
         #region Image Source
-        private string userImgSrc;
+        private string jobOfferImgSrc;
 
-        public string UserImgSrc
+        public string JobOfferImgSrc
         {
-            get
+            get => jobOfferImgSrc;
+            set
             {
-                User u = ((App)Application.Current).CurrentUser;
-                return u.ImagePath;
+                jobOfferImgSrc = value;
+                OnPropertyChanged("JobOfferImgSrc");
             }
-            //set
-            //{
-            //    userImgSrc = value;
-            //    OnPropertyChanged("UserImgSrc");
-            //}
         }
 
-        private const string DEFAULT_PHOTO_SRC = "HugePicture.png";//DefaultPhoto.png
+        private const string DEFAULT_PHOTO_SRC = "DefualtProfile.png";
         #endregion
 
         #region Commands
 
-        public ICommand LoginCommand => new Command(AddJobOffer);
+        public ICommand AddJobOfferCommand => new Command(AddJobOffer);
 
         #endregion
 
         #region Functions
+        private async void GetCategories()
+        {
+            JobsAPIProxy proxy = JobsAPIProxy.CreateProxy();
+            categories = await proxy.GetCategories();
+            MyCategories = new ObservableCollection<string>();
+            foreach (Category category in categories)
+            {
+                MyCategories.Add(category.CategoryName);
+
+            }
+
+        }
+        public void OnAppearingFunc()
+        {
+            OnAppearing?.Invoke();
+        }
+
+        private void PickCategory()
+        {
+            selectedCategory = categories.Where(c => c.CategoryName == category).FirstOrDefault();
+
+
+        }
 
         public async void AddJobOffer()
         {
             JobsAPIProxy proxy = JobsAPIProxy.CreateProxy();
 
             JobOffer MyJobOffer = new JobOffer() { 
-                Applied = false, 
-                CommentId = 0, 
-                CategoryId = 3, 
+                Applied = false,
+                CategoryId = selectedCategory.CategoryId, 
                 EmployerId = this.currentApp.CurrentUser.UserId, 
                 IsPrivate = false, 
                 JobOfferDescription = JobOfferDescription, 
-                JobTitle = JobTitle, 
-                NumApplied = 0, 
+                JobTitle = JobTitle,
+                NumApplied = 0,
                 RequiredEmployees = RequiredEmployees, 
-                RequiredAge = RequiredAge, 
-                JobOfferId = 0 };//CategoryID and JobOfferID should be taken as well
+                RequiredAge = RequiredAge,
+                JobOfferStatusId = 1,
+                StartingDate = StartingDate,
+                EndingDate=EndingDate
+                 };
              
             JobOffer j = await proxy.AddJobOfferAsync(MyJobOffer);
 
@@ -164,28 +260,70 @@ namespace JobsApp.ViewModels
             else
             {
                 //Insert Job Offer Image
-                //if (imageFileResult != null)
-                //{
-                //    bool success = await proxy.UploadImage(new FileInfo()
-                //    {
-                //        Name = this.imageFileResult.FullPath
+                if (imageFileResult != null)
+                {
+                    bool success = await proxy.UploadImage(new FileInfo()
+                    {
+                        Name = this.imageFileResult.FullPath
 
-                //    }, $"{MyJobOffer.EmployerId}.jpg");
+                    }, $"{MyJobOffer.EmployerId}.jpg");
 
-                //}
-                //else
-                //{
-                //    //let's decide for the user the defualt profile picture (might be on the server so not needed in that condition)
-                //}
+                }
+                else
+                {
+                    //let's decide for the user the defualt profile picture (might be on the server so not needed in that condition)
+                }
                 //App theApp = (App)App.Current;
                 //theApp.CurrentUser = user;
-                await Application.Current.MainPage.DisplayAlert("SUCCESS!", "", "Yay");
-                Push?.Invoke(new MainTabView());
+                await Application.Current.MainPage.DisplayAlert("SUCCESS!", "You've successfully uploaded a job offer", "Yay");
+
+                Pop?.Invoke();
             }
 
             //Push?.Invoke(new FeedScreen());
 
 
+        }
+
+        ///The following command handle the pick photo button
+        FileResult imageFileResult;
+        public event Action<ImageSource> SetImageSourceEvent;
+        public ICommand PickImageCommand => new Command(OnPickImage);
+        public async void OnPickImage()
+        {
+            FileResult result = await MediaPicker.PickPhotoAsync(new MediaPickerOptions()
+            {
+                Title = "Pick a picture"
+            });
+
+            if (result != null)
+            {
+                this.imageFileResult = result;
+
+                var stream = await result.OpenReadAsync();
+                ImageSource imgSource = ImageSource.FromStream(() => stream);
+                if (SetImageSourceEvent != null)
+                    SetImageSourceEvent(imgSource);
+            }
+        }
+
+        ///The following command handle the take photo button
+        public ICommand CameraImageCommand => new Command(OnCameraImage);
+        public async void OnCameraImage()
+        {
+            var result = await MediaPicker.CapturePhotoAsync(new MediaPickerOptions()
+            {
+                Title = "Take a picture"
+            });
+
+            if (result != null)
+            {
+                this.imageFileResult = result;
+                var stream = await result.OpenReadAsync();
+                ImageSource imgSource = ImageSource.FromStream(() => stream);
+                if (SetImageSourceEvent != null)
+                    SetImageSourceEvent(imgSource);
+            }
         }
         #endregion
 

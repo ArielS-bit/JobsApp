@@ -2,39 +2,66 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="JobsApp.Views.AddJobOffer"
-             xmlns:local="clr-namespace:JobsApp.ViewModels">
+             xmlns:local="clr-namespace:JobsApp.ViewModels"
+             xmlns:CI="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin">
+
     <ContentPage.Content>
-        <StackLayout>
-            
-            <Label Text="Add Job Offer" HorizontalOptions="CenterAndExpand"/>
+        <ScrollView>
+            <StackLayout>
 
-            <Entry Placeholder="Job Title" Text="{Binding JobTitle}"/>
-
-            <Picker x:Name="picker" Title="Select a profession" TitleColor="Red"/>
+                <Label Text="Add Job Offer" HorizontalOptions="CenterAndExpand"/>
 
 
-            <!--Pick a date-->
-            
+                <Entry Placeholder="Job Title" Text="{Binding JobTitle}"/>
 
-            <Entry Placeholder="Job dESCRIPTION" Text="{Binding JobOfferDescription}"/>
+                <Picker x:Name="picker" Title="Select a profession" ItemsSource="{Binding MyCategories}" SelectedItem="{Binding Category}" TitleColor="Red"/>
 
-            <Label Text="Upload Job Offer Image"/>
-            <Image Source="{Binding JobOfferImgSrc}"/>
 
-            <Label Text="Must be from "/>
-            <Entry Text="{Binding RequiredAge}"/> 
-
-            <Label Text="Amount of required employees: "/>
-            <Entry Text="{Binding RequiredEmployees}"/>
+                <!--Pick a date-->
+                <StackLayout Orientation="Horizontal"/>
+                <DatePicker Date="{Binding StartingDate}"/>
+                <Label Text="-"/>
+                <DatePicker Date="{Binding EndingDate}"/>
 
 
 
-            <Button x:Name="AddJobOfferBtn" Text="Add Job Offer" Command="{Binding AddJobOfferCommand}" HeightRequest="45" CornerRadius="50" />
+                <Entry Placeholder="Job Description" Text="{Binding JobOfferDescription}"/>
+
+                <Label Text="Upload Job Offer Image"/>
+                <StackLayout Margin="30,30,30,-10">
+
+                    <CI:CircleImage x:Name="theImage" Source="{Binding JobOfferImgSrc}" Margin="90,-20,90,-10"/>
+
+                    <StackLayout Orientation="Horizontal" BackgroundColor="Transparent" HorizontalOptions="Center">
+                        <ImageButton Command="{Binding PickImageCommand}" Source="GalleryIcon.png" WidthRequest="30" HeightRequest="50" HorizontalOptions="End" BackgroundColor="Transparent"/>
+                        <ImageButton Command="{Binding CameraImageCommand}" Source="CameraIcon.png" WidthRequest="30" HeightRequest="50" HorizontalOptions="Start" BackgroundColor="Transparent"/>
+                    </StackLayout>
+
+                </StackLayout>
+
+
+                <Label Text="Age must be from "/>
+                <Entry Keyboard="Telephone" Placeholder="Minimum Age" Text="{Binding RequiredAge}"/>
+
+                <Label Text="Amount of required employees: "/>
+                <Entry Keyboard="Telephone" Placeholder="How many do you need?" Text="{Binding RequiredEmployees}"/>
+
+
+                <StackLayout>
+                    <CheckBox IsChecked="{Binding IsPrivate}"/>
+                    <Label Text="Is it a private job offer?"/>
+
+                </StackLayout>
+
+
+                <Button x:Name="AddJobOfferBtn" Text="Add Job Offer" Command="{Binding AddJobOfferCommand}" HeightRequest="45" CornerRadius="50" />
 
 
 
 
 
-        </StackLayout>
+
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

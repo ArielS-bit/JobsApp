@@ -19,6 +19,7 @@ namespace JobsApp.Views
             AddJobOfferViewModel a = new AddJobOfferViewModel();
             this.BindingContext = a;
             a.Push += (p) => Navigation.PushAsync(p);
+            a.Pop += () => Navigation.PopAsync();
 
             var professionsList = new List<string>();
             professionsList.Add("Dog Walking");
@@ -29,6 +30,11 @@ namespace JobsApp.Views
 
             var picker = new Picker { Title = "Select a profession", TitleColor = Color.Red };
             picker.ItemsSource = professionsList;
+        }
+
+        protected override void OnAppearing()
+        {
+            ((AddJobOfferViewModel)this.BindingContext).OnAppearingFunc();
         }
     }
 }

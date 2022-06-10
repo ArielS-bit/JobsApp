@@ -20,5 +20,7 @@ namespace JobsApp.Views
             l.Push += (p) => Navigation.PushAsync(p);
             this.BindingContext = l;
         }
+
+
     }
 }
