@@ -19,7 +19,7 @@
 
                 <!--Pick a date-->
                 <StackLayout Orientation="Horizontal"/>
-                <DatePicker Date="{Binding StartingDate}"/>
+                <DatePicker Date="{Binding StartingDate, StringFormat='{dd,MM,YYYY}'}"/>
                 <Label Text="-"/>
                 <DatePicker Date="{Binding EndingDate}"/>
 

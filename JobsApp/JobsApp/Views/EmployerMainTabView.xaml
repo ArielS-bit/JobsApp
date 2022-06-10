@@ -4,7 +4,7 @@
              xmlns:xct="clr-namespace:Xamarin.CommunityToolkit.UI.Views;assembly=Xamarin.CommunityToolkit"
              xmlns:xctm="clr-namespace:Xamarin.CommunityToolkit.Markup;assembly=Xamarin.CommunityToolkit.Markup"
              xmlns:CI="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
-             x:Class="JobsApp.Views.MainTabView"
+             x:Class="JobsApp.Views.EmployerMainTabView"
              xmlns:views="clr-namespace:JobsApp.Views"
              NavigationPage.HasNavigationBar="False"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
@@ -12,16 +12,16 @@
              mc:Ignorable="d"
              xmlns:pv="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              xmlns:local="clr-namespace:JobsApp.ViewModels">
-    
+
     <ContentPage.BindingContext>
         <local:MainTabViewVM></local:MainTabViewVM>
     </ContentPage.BindingContext>
-    
+
     <ContentPage.Content>
 
         <!--<CI:CircleImage>-->
         <Grid>
-            
+
 
             <!--תנסה אולי לשים בקובץ של סי שארפ מאחור כאן ולא בוויו מודל ואם אז לחזור למקורי ולשנות בהתאם-->
             <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
@@ -62,7 +62,7 @@
 
                     <Grid x:Name="SwipeContent" BackgroundColor="White">
 
-                       
+
 
                         <!--content goes here-->
                         <Grid>
@@ -86,7 +86,7 @@
                                     </xct:TabView.TabItems>-->
 
 
-                                                    <!--For notifiations
+                                <!--For notifiations
                                     BadgeText="Hello"
                                         BadgeBackgroundColorSelected="Blue"-->
 
@@ -103,21 +103,21 @@
                                 <xct:TabViewItem
                                     Icon="SearchIcon.png" Margin="0,50,0,-40" IconSelected="SerachPlusIcon.png" HeightRequest="120" BackgroundColor="Transparent">
 
-                                    <views:EmployeeSearchView/>
+                                    <views:SearchEmployeeView/>
 
                                 </xct:TabViewItem>
 
                                 <xct:TabViewItem
                                     Icon="AlertIocn.png" Margin="0,50,0,-40" IconSelected="NotificationsSelctedIcon.png" HeightRequest="120" BackgroundColor="Transparent">
 
-                                    <views:EmployeeNotificationsView/>
+                                    <views:ActiveJobOffersView/>
 
                                 </xct:TabViewItem>
 
                                 <xct:TabViewItem
                                     Icon="JobsIcon.png" Margin="0,50,0,-40" IconSelected="JobsSelectedIcon.png" HeightRequest="120" BackgroundColor="Transparent">
 
-                                    <views:JobsHistoryView/>
+                                    <views:EmployerHistoryJobs/>
 
                                 </xct:TabViewItem>
 
@@ -140,7 +140,7 @@
 
                             </StackLayout>
 
-                            </pv:PancakeView>
+                        </pv:PancakeView>
 
 
                     </Grid>
@@ -149,7 +149,7 @@
             </Grid>
 
 
-            
+
         </Grid>
 
     </ContentPage.Content>

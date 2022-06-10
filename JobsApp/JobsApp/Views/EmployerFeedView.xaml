@@ -1,10 +1,105 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="JobsApp.Views.EmployerFeedView">
+             xmlns:CI="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+             x:Class="JobsApp.Views.EmployerFeedView"
+             x:Name="thePage">
   <ContentView.Content>
-      <StackLayout>
-          <Label Text="Hello Xamarin.Forms!" />
-      </StackLayout>
+
+        <StackLayout>
+
+            <Label Text="Your Job Offers"/>
+            
+            <ScrollView HeightRequest="960">
+                
+                <StackLayout HeightRequest="960">
+
+
+                    <RefreshView x:Name="RefreshView" Command="{Binding RefreshCommand}" IsRefreshing="{Binding IsRefresh}">
+                        
+                        <CollectionView x:Name="JobOffersCollectionV" ItemsSource="{Binding JobOffersList}" SelectionMode="Single" SelectionChangedCommand="{Binding SelectionChanged}" SelectionChangedCommandParameter="{Binding Source={x:Reference JobOffersCollectionV},Path=SelectedItem}" >
+
+                            <CollectionView.ItemsLayout>
+                                <GridItemsLayout Span="1" Orientation="Vertical" />
+                            </CollectionView.ItemsLayout>
+                            
+                            <CollectionView.ItemTemplate>
+
+                                <DataTemplate>
+
+
+                                    <Grid Padding="10">
+
+                                        <Grid.RowDefinitions>
+
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+
+                                        </Grid.RowDefinitions>
+
+                                        <Grid.ColumnDefinitions>
+
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="Auto" />
+
+
+                                        </Grid.ColumnDefinitions>
+
+                                        <CI:CircleImage x:Name="theImage" Source="{Binding JobOfferImgSrc}" Grid.Column="0"/>
+
+                                        <!--Maybe add little titles-->
+                                        <Label Text="{Binding JobTitle}" FontSize="25" TextDecorations="Underline" Grid.Column="1" Grid.Row="0"  TextColor="#487eb0" />
+
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label Text="Job Offer Serial Number"/>
+                                            <Label Text="{Binding JobOfferID}" FontSize="25" TextDecorations="Underline" Grid.Column="1" Grid.Row="0"  TextColor="#487eb0" />
+
+                                        </StackLayout>
+                                        
+                                        <Label Text="{Binding Category}" FontSize="18" FontAttributes="Italic" Grid.Column="1" Grid.Row="1" TextColor="#44bd32" />
+
+
+
+                                        <StackLayout Grid.Column="2" Grid.Row="0" Orientation="Horizontal">
+
+                                            <Label Text="{Binding NumApplied}"/>
+                                            <Label Text="/"/>
+                                            <Label Text="{Binding RequiredEmployees}"/>
+
+                                        </StackLayout>
+
+                                        <Frame Grid.Column="2" Grid.Row="1">
+                                            <Label Text="{Binding JobOfferDescription}"/>
+                                        </Frame>
+
+
+                                    </Grid>
+
+
+                                </DataTemplate>
+
+                            </CollectionView.ItemTemplate>
+
+                        </CollectionView>
+                    </RefreshView>
+
+
+                </StackLayout>
+                
+            </ScrollView>
+            
+            <Button ImageSource="PlusIcon.png" Command="{Binding AddJobOffer}"/>
+
+            <Label Text="Jobs Requests from Potential Employees"/>
+            <ScrollView HeightRequest="960">
+            
+            
+            </ScrollView>
+
+
+
+
+
+        </StackLayout>
   </ContentView.Content>
 </ContentView>

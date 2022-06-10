@@ -17,8 +17,13 @@ namespace JobsApp.Views
         {
             InitializeComponent();
             EmployerFeedViewModel l = new EmployerFeedViewModel();
-            l.Push += (p) => Navigation.PushAsync(p);
             this.BindingContext = l;
+            l.Push += (p) => Navigation.PushAsync(p);
+
+        }
+        protected void OnAppearing()//לשים override
+        {
+            ((EmployerFeedViewModel)this.BindingContext).OnAppearingFunc();
         }
     }
 }

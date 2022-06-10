@@ -23,5 +23,20 @@ namespace JobsApp.ViewModels
         }
 
         public event Action<Page> Push;
+
+        #region Properties
+        private JobOffer preSelectedJobOffer;
+        public JobOffer PreSelectedJobOffer
+        {
+            get => preSelectedJobOffer;
+            set 
+            {
+                preSelectedJobOffer = value;
+                OnPropertyChanged("PreSelectedJobOffer");
+            }
+        }
+        #endregion
+
     }
 }
+
