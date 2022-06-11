@@ -19,9 +19,9 @@
                     <StackLayout>
 
 
-                        <RefreshView x:Name="RefreshView" Command="{Binding RefreshCommand}" IsRefreshing="{Binding IsRefresh}">
+                        <RefreshView x:Name="refreshView" Command="{Binding RefreshCommand}" IsRefreshing="{Binding IsRefresh}">
 
-                            <CollectionView x:Name="JobOffersCollectionV" ItemsSource="{Binding JobOffersList}" SelectionMode="Single" SelectionChangedCommand="{Binding SelectionChanged}" SelectionChangedCommandParameter="{Binding Source={x:Reference JobOffersCollectionV},Path=SelectedItem}" >
+                            <CollectionView x:Name="jobOffersCollectionV" ItemsSource="{Binding JobOffersList}" SelectionMode="Single" SelectionChangedCommand="{Binding SelectionChanged}" SelectionChangedCommandParameter="{Binding Source={x:Reference JobOffersCollectionV},Path=SelectedItem}" >
 
                                 <!--<CollectionView.ItemsLayout>
                                     <GridItemsLayout Span="15" Orientation="Vertical" />
@@ -92,6 +92,7 @@
                 </ScrollView>
             </StackLayout>
 
+            <!--<BoxView Opacity="0.6" WidthRequest="50" BackgroundColor="#A8DADC"/>-->
             <Button ImageSource="PlusIcon.png" BackgroundColor="Transparent" Margin="280,-70,-45,0" Command="{Binding NavigateToAddJobOfferCommand}"/>
 
             <Label Text="Jobs Requests from Potential Employees" HorizontalOptions="Center"/>

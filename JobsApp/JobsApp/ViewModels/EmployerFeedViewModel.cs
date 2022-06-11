@@ -33,6 +33,7 @@ namespace JobsApp.ViewModels
 
         public event Action<Page> Push;
         public event Action Pop;
+        public event Action ClearSelection;
        
 
         #region Properties
@@ -112,7 +113,18 @@ namespace JobsApp.ViewModels
                 OnPropertyChanged("RequiredEmployees");
             }
         }
-       
+
+        private int numApplied;
+        public int NumApplied
+        {
+            get { return numApplied; }
+            set
+            {
+                numApplied = value;
+                OnPropertyChanged("NumApplied");
+            }
+        }
+
 
         public ObservableCollection<JobOffer> JobOffersList { get; set; }
 
@@ -171,7 +183,17 @@ namespace JobsApp.ViewModels
             Page w = new WatchJobOfferScreen();
             w.BindingContext = new WatchJobOfferViewModel()
             {
-                PreSelectedJobOffer = j
+                SelectedJobOffer = j,
+                JobTitle = j.JobTitle,
+                JobOfferDescription=j.JobOfferDescription,
+                EndingDate=j.EndingDate,
+                StartingDate=j.StartingDate,
+                Category=j.Category.CategoryName,
+                IsPrivate=j.IsPrivate,
+                RequiredEmployees=(int)j.RequiredEmployees,
+                RequiredAge=(int)j.RequiredAge,
+                NumApplied=j.NumApplied
+                
             };
             Push?.Invoke(w);
 
@@ -183,6 +205,10 @@ namespace JobsApp.ViewModels
         private void NavigateToAddJobOffer()
         {
             Push?.Invoke(new AddJobOffer());
+            if (ClearSelection!=null)
+            {
+                ClearSelection();
+            }
         }
 
         #endregion

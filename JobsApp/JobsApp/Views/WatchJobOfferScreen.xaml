@@ -1,12 +1,198 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="JobsApp.Views.WatchJobOfferScreen">
+             x:Class="JobsApp.Views.WatchJobOfferScreen"
+             xmlns:CI="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+            xmlns:local="clr-namespace:JobsApp.ViewModels">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Watch!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <ScrollView>
+            <StackLayout>
+                <Grid x:Name="JobOfferFirstDetails" Padding="10">
+
+                    <Grid.RowDefinitions>
+
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="50" />
+                        <RowDefinition Height="50" />
+                        <RowDefinition Height="20" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="20" />
+                        <!--לשים תמונה של קו בכל השורה הזו-->
+
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                       
+
+
+                    </Grid.ColumnDefinitions>
+
+                    
+                  
+
+                    <Label Text="Job Offer Details" FontSize="25" Grid.Row="0" Grid.Column="0" Margin="40"/>
+                    
+                    <!--Add binding JobOfferImgSrc and jobofferid to here becuase else it won't work-->
+                    <CI:CircleImage x:Name="theImage" Source="NormalScaleLogo.png" Grid.Row="0" Grid.Column="1"/>
+
+
+                    <!--Maybe add little titles-->
+                    <Label Grid.Column="0" Grid.Row="1">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Job Title: "/>
+                                <Span Text="{Binding JobTitle}"/>
+
+                            </FormattedString>
+
+                        </Label.FormattedText>
+                    </Label>
+                    
+                    
+
+                    <Label Grid.Row="2">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Job's Category: "/>
+                                <Span Text="{Binding Category}"/>
+
+                            </FormattedString>
+
+                        </Label.FormattedText>
+                    </Label>
+
+                    <StackLayout Grid.Column="1" Grid.Row="1" Orientation="Horizontal">
+
+                        <Label FontSize="20" Text="{Binding NumApplied}"/>
+                        <Label FontSize="20" Text="/"/>
+                        <Label FontSize="20" Text="{Binding RequiredEmployees}"/>
+                        <Label FontSize="15" Margin="0,5,0,0" Text="Applied"/>
+
+
+                    </StackLayout>
+
+                    
+
+                    <Label Text="The job offer is private!" Grid.Row="3" TextColor="red" IsVisible="{Binding IsPrivate}" />
+
+                    <Label Grid.Row="2" Grid.Column="1">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Starts on "/>
+                                <Span FontAttributes="Bold" Text="{Binding StartingDate, StringFormat='{0:MMMM dd, yyyy}'}"/>
+                                <Span Text=" - Ends on "/>
+                                <Span FontAttributes="Bold" Text="{Binding EndingDate , StringFormat='{0:MMMM dd, yyyy}'}"/>
+
+                            </FormattedString>
+                            
+                        </Label.FormattedText>
+                    </Label>
+                    <Frame BackgroundColor="Beige" Grid.Row="4">
+                        <Label FontSize="15" Text="{Binding JobOfferDescription}"/>
+                    </Frame>
+
+
+                </Grid>
+
+                <StackLayout>
+                    
+                    <Label Text="Job Offer Employees" HorizontalOptions="Center"/>
+                    
+                    <Grid x:Name="JobOfferEmployees" Padding="10">
+
+
+                        <Grid.RowDefinitions>
+
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*" />
+
+
+                        </Grid.ColumnDefinitions>
+
+
+                        <StackLayout>
+                            <RefreshView x:Name="RfreshV" Command="{Binding RefreshCommand}" IsRefreshing="{Binding IsRefresh}" >
+                                <CollectionView BackgroundColor="GreenYellow" x:Name="EmployeesCollectionV" ItemsSource="{Binding JobOfferEmployees}" SelectionMode="Single" SelectionChangedCommand="{Binding SelectionChanged}" SelectionChangedCommandParameter="{Binding Source={x:Reference ColView},Path=SelectedItem}" >
+                                    
+                                    <CollectionView.ItemsLayout>
+                                        <GridItemsLayout Span="1" Orientation="Vertical" />
+                                    </CollectionView.ItemsLayout>
+
+                                    <CollectionView.ItemTemplate>
+                                        
+                                        <DataTemplate>
+                                            
+                                            <SwipeView>
+                                                
+                                                <SwipeView.LeftItems>
+                                                    
+                                                    <SwipeItems>
+                                                        
+                                                        <SwipeItem Text="Delete"
+                                                             Command="{Binding Source={x:Reference ColView},Path=BindingContext.DeleteCommand}"
+                                                             CommandParameter="{Binding}"
+                                                              BackgroundColor="Coral" IconImageSource="Delete.png">
+
+                                                        </SwipeItem>
+                                                        
+                                                    </SwipeItems>
+                                                    
+                                                </SwipeView.LeftItems>
+                                                
+                                                <Grid Padding="10">
+                                                    
+                                                    <Grid.RowDefinitions>
+                                                        
+                                                        <RowDefinition Height="*" />
+                                                        <RowDefinition Height="*" />
+                                                        
+                                                    </Grid.RowDefinitions>
+                                                    
+                                                    <Grid.ColumnDefinitions>
+                                                        
+                                                        <ColumnDefinition Width="*" />
+                                                        <ColumnDefinition Width="*" />
+                                                        
+                                                    </Grid.ColumnDefinitions>
+
+                                                    <Image Grid.RowSpan="2"
+                                                       Source="{Binding ImageUrl}"
+                                                       Aspect="AspectFill"
+                                                       HeightRequest="60"
+                                                       WidthRequest="60" />
+                                                    <Label Grid.Column="1"
+                                                       Text="{Binding Name}"
+                                                       FontAttributes="Bold" />
+                                                    <Label Grid.Row="1"
+                                                       Grid.Column="1"
+                                                       Text="{Binding Location}"
+                                                       FontAttributes="Italic"
+                                                       VerticalOptions="End" />     
+                                                </Grid>
+                                            </SwipeView>
+                                        </DataTemplate>
+                                    </CollectionView.ItemTemplate>
+                                </CollectionView>
+                            </RefreshView>
+                        </StackLayout>
+
+                    </Grid>
+                    
+                    
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
