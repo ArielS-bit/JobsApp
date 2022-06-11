@@ -290,6 +290,33 @@ namespace JobsApp.Services
             }
         }
 
+        public async Task<List<JobOffer>> GetJobOfferEmployeesAsync(int JobOfferID)
+        {
+            try
+            {
+                HttpResponseMessage response = await this.client.GetAsync($"{this.baseUri}/GetJobOfferEmployees?JobOfferId={JobOfferID}");
+                if (response.IsSuccessStatusCode)
+                {
+                    JsonSerializerOptions options = new JsonSerializerOptions
+                    {
+                        ReferenceHandler = ReferenceHandler.Preserve, //avoid reference loops!
+                        PropertyNameCaseInsensitive = true
+                    };
+                    string content = await response.Content.ReadAsStringAsync();
+                    List<JobOffer> b = JsonSerializer.Deserialize<List<JobOffer>>(content, options);
+                    return b;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return null;
+            }
+        }
 
         public async Task<bool> IsPetNameExistAsync(string email, string petName)
         {

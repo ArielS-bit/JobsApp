@@ -123,7 +123,7 @@
 
 
                         <StackLayout>
-                            <RefreshView x:Name="RfreshV" Command="{Binding RefreshCommand}" IsRefreshing="{Binding IsRefresh}" >
+                           
                                 <CollectionView BackgroundColor="GreenYellow" x:Name="EmployeesCollectionV" ItemsSource="{Binding JobOfferEmployees}" SelectionMode="Single" SelectionChangedCommand="{Binding SelectionChanged}" SelectionChangedCommandParameter="{Binding Source={x:Reference ColView},Path=SelectedItem}" >
                                     
                                     <CollectionView.ItemsLayout>
@@ -140,10 +140,7 @@
                                                     
                                                     <SwipeItems>
                                                         
-                                                        <SwipeItem Text="Delete"
-                                                             Command="{Binding Source={x:Reference ColView},Path=BindingContext.DeleteCommand}"
-                                                             CommandParameter="{Binding}"
-                                                              BackgroundColor="Coral" IconImageSource="Delete.png">
+                                                        <SwipeItem Text="{Binding JobOfferStatus.JobOfferStatus}">
 
                                                         </SwipeItem>
                                                         
@@ -157,35 +154,80 @@
                                                         
                                                         <RowDefinition Height="*" />
                                                         <RowDefinition Height="*" />
-                                                        
+                                                        <RowDefinition Height="*" />
+
                                                     </Grid.RowDefinitions>
                                                     
                                                     <Grid.ColumnDefinitions>
                                                         
                                                         <ColumnDefinition Width="*" />
                                                         <ColumnDefinition Width="*" />
-                                                        
+                                                        <ColumnDefinition Width="*" />
+
                                                     </Grid.ColumnDefinitions>
 
-                                                    <Image Grid.RowSpan="2"
-                                                       Source="{Binding ImageUrl}"
-                                                       Aspect="AspectFill"
-                                                       HeightRequest="60"
-                                                       WidthRequest="60" />
-                                                    <Label Grid.Column="1"
-                                                       Text="{Binding Name}"
-                                                       FontAttributes="Bold" />
-                                                    <Label Grid.Row="1"
-                                                       Grid.Column="1"
-                                                       Text="{Binding Location}"
-                                                       FontAttributes="Italic"
-                                                       VerticalOptions="End" />     
-                                                </Grid>
+                                                <!--Add binding JobOfferImgSrc and jobofferid to here becuase else it won't work-->
+                                                <CI:CircleImage x:Name="theImage" Source="NormalScaleLogo.png" Grid.Row="1" Grid.Column="0"/>
+
+
+                                                <Label Grid.Row="2" Grid.Column="1">
+                                                    <Label.FormattedText>
+                                                        <FormattedString>
+                                                            <Span Text="Full Name: "/>
+                                                            <Span FontAttributes="Bold" Text="{Binding FirstName}"/>
+                                                            <Span FontAttributes="Bold" Text="{Binding LastName}"/>
+
+                                                        </FormattedString>
+
+                                                    </Label.FormattedText>
+                                                </Label>
+
+
+                                                <Label Grid.Row="2" Grid.Column="1">
+                                                    <Label.FormattedText>
+                                                        <FormattedString>
+                                                            
+                                                            <Span Text="Nickname: "/>
+                                                            <Span FontAttributes="Bold" Text="{Binding Nickname}"/>
+                                                           
+                                                        </FormattedString>
+
+                                                    </Label.FormattedText>
+                                                </Label>
+
+                                                <Label Grid.Row="2" Grid.Column="1">
+                                                    <Label.FormattedText>
+                                                        <FormattedString>
+
+                                                            <Span Text="Age: "/>
+                                                            <Span FontAttributes="Bold" Text="{Binding Age}"/>
+
+                                                        </FormattedString>
+
+                                                    </Label.FormattedText>
+                                                </Label>
+
+
+                                                <Label Grid.Row="2" Grid.Column="1">
+                                                    <Label.FormattedText>
+                                                        <FormattedString>
+
+                                                            <Span Text="Rating: "/>
+                                                            <Span FontAttributes="Bold" Text="{Binding Rating}"/>
+
+                                                        </FormattedString>
+
+                                                    </Label.FormattedText>
+                                                </Label>
+
+
+
+                                            </Grid>
                                             </SwipeView>
                                         </DataTemplate>
                                     </CollectionView.ItemTemplate>
                                 </CollectionView>
-                            </RefreshView>
+                            
                         </StackLayout>
 
                     </Grid>

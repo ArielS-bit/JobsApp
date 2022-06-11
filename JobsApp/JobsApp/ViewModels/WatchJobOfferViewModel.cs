@@ -11,6 +11,7 @@ using Xamarin.Essentials;
 using System.Linq;
 using JobsApp.ViewModels;
 using JobsApp.Views;
+using System.Collections.ObjectModel;
 
 
 namespace JobsApp.ViewModels
@@ -19,6 +20,8 @@ namespace JobsApp.ViewModels
     {
         public WatchJobOfferViewModel()
         {
+            JobOfferEmployees = new ObservableCollection<Employee>();
+            GetJobOfferEmployees();
            
 
         }
@@ -26,6 +29,8 @@ namespace JobsApp.ViewModels
         public event Action<Page> Push;
 
         #region Properties
+        //Properties of job offer
+
         //JobOffer that has been selected in the previous page (FeedView)
         private JobOffer selectedJobOffer;
         public JobOffer SelectedJobOffer
@@ -146,6 +151,52 @@ namespace JobsApp.ViewModels
         }
 
 
+        //Properties of job offer's employee
+        private string firstName;
+        public string FirstName
+        {
+            get => firstName;
+            set
+            {
+                firstName = value;
+                OnPropertyChanged("FirstName");
+            }
+        }
+        private string lastName;
+        public string LastName
+        {
+            get => lastName;
+            set
+            {
+                lastName = value;
+                OnPropertyChanged("LastName");
+            }
+        }
+        private string nickname;
+        public string Nickname
+        {
+            get => nickname;
+            set
+            {
+                nickname = value;
+                OnPropertyChanged("Nickname");
+            }
+        }
+        private int age;
+        public int Age
+        {
+            get => age;
+            set
+            {
+                age = value;
+                OnPropertyChanged("Age");
+            }
+        }
+
+        public ObservableCollection<Employee> JobOfferEmployees { get; set; }
+
+
+
         #endregion
 
         #region Image Source
@@ -167,6 +218,23 @@ namespace JobsApp.ViewModels
         }
 
         private const string DEFAULT_PHOTO_SRC = "HugePicture.png";//DefaultPhoto.png
+        #endregion
+
+
+
+        #region Functions
+        public async void GetJobOfferEmployees()
+        {
+            JobsAPIProxy proxy = JobsAPIProxy.CreateProxy();
+            List<Employee> employees = await proxy.GetJobOfferEmployeesAsync(selectedJobOffer.JobOfferId);
+            foreach (Employee e in employees)
+            {
+                JobOfferEmployees.Add(e);
+            }
+
+
+        }
+
         #endregion
     }
 }
