@@ -127,7 +127,7 @@
                         </Grid>
                         <pv:PancakeView x:Name="Pancake" BackgroundColor="Transparent">
 
-                            <StackLayout Orientation="Horizontal" Margin="0,0,0,600" BackgroundColor="Transparent">
+                            <StackLayout Orientation="Horizontal" Margin="0,-20,0,600">
 
                                 <Image x:Name="sideMenu" Source="SideMenuHamburger.png" HeightRequest="30" HorizontalOptions="Start" Margin="10">
                                     <Image.GestureRecognizers>
@@ -136,8 +136,8 @@
 
                                 </Image>
 
-                                <ImageButton Source="{Binding UserImgSrc}" Command="{Binding MoveToProfileCommand}" Margin="290,10,0,0" CornerRadius="40"/>
-
+                                <CI:CircleImage Source="{Binding UserImgSrc}"  HeightRequest="100" Margin="270,0,0,0"/>
+                                <Button Command="{Binding MoveToProfileCommand}" BackgroundColor="Transparent" WidthRequest="70" Margin="-80,40,0,40"/>
                             </StackLayout>
 
                         </pv:PancakeView>

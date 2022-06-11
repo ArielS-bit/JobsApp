@@ -21,9 +21,9 @@ namespace JobsApp.Views
             l.Push += (p) => Navigation.PushAsync(p);
 
         }
-        protected void OnAppearing()//לשים override
-        {
-            ((EmployerFeedViewModel)this.BindingContext).OnAppearingFunc();
-        }
+        //protected override void OnAppearing()//לשים override
+        //{
+        //    ((EmployerFeedViewModel)this.BindingContext).OnAppearingFunc();
+        //}
     }
 }

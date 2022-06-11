@@ -123,7 +123,9 @@ namespace JobsApp.ViewModels
                
                 //App theApp = (App)App.Current;
                 //theApp.CurrentUser = user;
-                Push?.Invoke(new MainTabView());
+
+                //Check if it is an employer or employee
+                Push?.Invoke(new EmployerMainTabView());
 
                 //May Change to profile screen
             }

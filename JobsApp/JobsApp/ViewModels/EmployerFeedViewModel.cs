@@ -23,26 +23,17 @@ namespace JobsApp.ViewModels
             JobOffersList = new ObservableCollection<JobOffer>();
             CreateJobOffersList();
             isRefresh = false;
-            MyCategories = new ObservableCollection<string>();
-            OnAppearing += GetCategories;
             JobTitle = "";
             JobOfferDescription = "";
             Category = "";
-            JobOfferID = 0;
             
 
         }
 
 
-
         public event Action<Page> Push;
         public event Action Pop;
-        public event Action OnAppearing;
-
-        public void OnAppearingFunc()
-        {
-            OnAppearing?.Invoke();
-        }
+       
 
         #region Properties
 
@@ -82,31 +73,6 @@ namespace JobsApp.ViewModels
             }
         }
 
-        
-      
-        public ObservableCollection<string> MyCategories { get; set; }
-
-        private int categoryID;
-        public int CategoryID
-        {
-            get => categoryID;
-
-            set
-            {
-                if (categoryID != value)
-                {
-                    categoryID = value;
-                    //if (categories != null)
-                    //{
-                    //    PickCategory();
-                    //}
-
-                    OnPropertyChanged("CategoryID");
-                }
-
-            }
-        }
-
         private string category;
         public string Category
         {
@@ -117,24 +83,11 @@ namespace JobsApp.ViewModels
                 if (category != value)
                 {
                     category = value;
-                    if (categories != null)
-                    {
-                        CategoryID = JobOffersList.Where(j=> j.JobOfferId==jobOfferID).FirstOrDefault().CategoryId;
-                        GetCategoryName();
-                    }
-                    else
-                    {
-                        Category = "Unable to load specific category, try again later!";
-                    }
-
                     OnPropertyChanged("Category");
                 }
 
             }
         }
-
-        private List<Category> categories;
-
 
 
         //Must be from this age and above
@@ -159,16 +112,7 @@ namespace JobsApp.ViewModels
                 OnPropertyChanged("RequiredEmployees");
             }
         }
-        private int jobOfferID;
-        public int JobOfferID
-        {
-            get { return jobOfferID; }
-            set
-            {
-                jobOfferID = value;
-                OnPropertyChanged("JobOfferID");
-            }
-        }
+       
 
         public ObservableCollection<JobOffer> JobOffersList { get; set; }
 
@@ -242,29 +186,6 @@ namespace JobsApp.ViewModels
         }
 
         #endregion
-
-        private async void GetCategories()
-        {
-            JobsAPIProxy proxy = JobsAPIProxy.CreateProxy();
-            categories = await proxy.GetCategories();
-            MyCategories = new ObservableCollection<string>();
-            foreach (Category category in categories)
-            {
-                MyCategories.Add(category.CategoryName);
-
-            }
-
-        }
-        
-
-        private void GetCategoryName()
-        {
-            
-            Category = categories.Where(c => c.CategoryId == categoryID).FirstOrDefault().CategoryName;
-            
-
-        }
-
 
 
     }

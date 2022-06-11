@@ -8,7 +8,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using JobsApp.ViewModels;
 
-namespace JobsApp.ViewModels
+namespace JobsApp.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PersonalJobOffersView : ContentView
