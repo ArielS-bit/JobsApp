@@ -494,7 +494,7 @@ namespace JobsApp.ViewModels
             //this.PassErrorShown = false;
             //this.PrivateAnswerErrorShown = false;
             this.UserImgSrc = DEFAULT_PHOTO_SRC;
-            this.UserTypeID = 3;
+            this.UserTypeID = 2;
             MyCategories = new ObservableCollection<string>();
             OnAppearing += GetCategories;
 

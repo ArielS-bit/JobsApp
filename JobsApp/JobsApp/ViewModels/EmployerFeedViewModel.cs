@@ -205,7 +205,7 @@ namespace JobsApp.ViewModels
         private void NavigateToAddJobOffer()
         {
             Push?.Invoke(new AddJobOffer());
-            if (ClearSelection!=null)
+            if (ClearSelection != null)
             {
                 ClearSelection();
             }

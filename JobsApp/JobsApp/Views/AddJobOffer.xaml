@@ -12,7 +12,7 @@
                 <Label Text="Add Job Offer" HorizontalOptions="CenterAndExpand"/>
 
 
-                <Entry Placeholder="Job Title" Text="{Binding JobTitle}"/>
+                <Entry Placeholder="Job Title" Text="{Binding JobTitle}" Style="{StaticResource BasicEntry}"/>
 
                 <Picker x:Name="picker" Title="Select a profession" ItemsSource="{Binding MyCategories}" SelectedItem="{Binding Category}" TitleColor="Red"/>
 
@@ -25,7 +25,7 @@
 
 
 
-                <Entry Placeholder="Job Description" Text="{Binding JobOfferDescription}"/>
+                <Entry Placeholder="Job Description" Style="{StaticResource BasicEntry}" Text="{Binding JobOfferDescription}"/>
 
                 <Label Text="Upload Job Offer Image"/>
                 <StackLayout Margin="30,30,30,-10">
@@ -41,10 +41,10 @@
 
 
                 <Label Text="Age must be from "/>
-                <Entry Keyboard="Telephone" Placeholder="Minimum Age" Text="{Binding RequiredAge}"/>
+                <Entry Keyboard="Telephone" Style="{StaticResource BasicEntry}" Placeholder="Minimum Age" Text="{Binding RequiredAge}"/>
 
                 <Label Text="Amount of required employees: "/>
-                <Entry Keyboard="Telephone" Placeholder="How many do you need?" Text="{Binding RequiredEmployees}"/>
+                <Entry Keyboard="Telephone" Style="{StaticResource BasicEntry}" Placeholder="How many do you need?" Text="{Binding RequiredEmployees}"/>
 
 
                 <StackLayout>
@@ -54,7 +54,7 @@
                 </StackLayout>
 
 
-                <Button x:Name="AddJobOfferBtn" Text="Add Job Offer" Command="{Binding AddJobOfferCommand}" HeightRequest="45" CornerRadius="50" />
+                <Button x:Name="AddJobOfferBtn" Text="Add Job Offer" Command="{Binding AddJobOfferCommand}" Style="{StaticResource LoginButton}" HeightRequest="45" CornerRadius="50" />
 
 
 

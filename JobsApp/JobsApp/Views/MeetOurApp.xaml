@@ -25,8 +25,8 @@
 
             <StackLayout x:Name="Stck" HorizontalOptions="Center" Margin="50" Orientation="Horizontal">
 
-                <Button x:Name="LogInBtn" Command="{Binding NavigateToLogInCommand}" Text="Log In"/>
-                <Button x:Name="SignUpBtn" Command="{Binding NavigateToSignUpCommand}" Text="Join our community"/>
+                <Button x:Name="LogInBtn" Style="{StaticResource LoginButton}" Command="{Binding NavigateToLogInCommand}" Text="Log In"/>
+                <Button x:Name="SignUpBtn" Style="{StaticResource LoginButton}" Command="{Binding NavigateToSignUpCommand}" Text="Join our community"/>
             
             </StackLayout>
 

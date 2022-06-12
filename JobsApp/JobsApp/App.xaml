@@ -17,6 +17,18 @@
 
         </Style>
 
+        <Style TargetType="Button" x:Key="LoginButton">
+            <Setter Property="FontAttributes" Value="Bold"/>
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+            <Setter Property="TextColor" Value="#F1FAEE"/>
+            <Setter Property="BackgroundColor" Value="#1D3557"/>
+            <Setter Property="HorizontalOptions" Value="Start"/>
+            <Setter Property="CornerRadius" Value="50"/>
+
+
+        </Style>
+
         <Style TargetType="Label" x:Key="InvalidWarning">
             <Setter Property="FontFamily" Value="'Zen Kaku Gothic Antique', sans-serif"/>
             <Setter Property="TextColor" Value="#c23616"/>

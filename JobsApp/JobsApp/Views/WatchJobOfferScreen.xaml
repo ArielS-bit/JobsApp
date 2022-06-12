@@ -123,8 +123,8 @@
 
 
                         <StackLayout>
-                           
-                                <CollectionView BackgroundColor="GreenYellow" x:Name="EmployeesCollectionV" ItemsSource="{Binding JobOfferEmployees}" SelectionMode="Single" SelectionChangedCommand="{Binding SelectionChanged}" SelectionChangedCommandParameter="{Binding Source={x:Reference ColView},Path=SelectedItem}" >
+
+                            <CollectionView BackgroundColor="GreenYellow" x:Name="EmployeesCollectionV" ItemsSource="{Binding JobOfferEmployees}" SelectionMode="Single" SelectionChangedCommand="{Binding SelectionChanged}" SelectionChangedCommandParameter="{Binding Source={x:Reference EmployeesCollectionV},Path=SelectedItem}" >
                                     
                                     <CollectionView.ItemsLayout>
                                         <GridItemsLayout Span="1" Orientation="Vertical" />

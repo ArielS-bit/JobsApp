@@ -21,7 +21,7 @@
 
                         <RefreshView x:Name="refreshView" Command="{Binding RefreshCommand}" IsRefreshing="{Binding IsRefresh}">
 
-                            <CollectionView x:Name="jobOffersCollectionV" ItemsSource="{Binding JobOffersList}" SelectionMode="Single" SelectionChangedCommand="{Binding SelectionChanged}" SelectionChangedCommandParameter="{Binding Source={x:Reference JobOffersCollectionV},Path=SelectedItem}" >
+                            <CollectionView x:Name="jobOffersCollectionV" ItemsSource="{Binding JobOffersList}" SelectionMode="Single" SelectionChangedCommand="{Binding SelectionChanged}" SelectionChangedCommandParameter="{Binding Source={x:Reference jobOffersCollectionV},Path=SelectedItem}" >
 
                                 <!--<CollectionView.ItemsLayout>
                                     <GridItemsLayout Span="15" Orientation="Vertical" />

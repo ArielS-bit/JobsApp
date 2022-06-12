@@ -273,11 +273,43 @@ namespace JobsApp.ViewModels
                 this.EditMode = false;//change here
                 //EditCommand = new Command(EditUser);
                 this.Connections = 10;//Chnage it
-                this.Rating = 0;
+                this.Rating = 1;
+
+
+                if (currentApp.CurrentUser.UserType.UserTypeName=="Employer" && IsEmployee(directedTo))
+                {
+                    Push?.Invoke(new EmployeeProfileScreen());
+                }
+                if (currentApp.CurrentUser.UserType.UserTypeName == "Employer" && IsEmployer(directedTo))
+                {
+                    Push?.Invoke(new EmployerProfileScreen());
+
+                }
+                if (currentApp.CurrentUser.UserType.UserTypeName == "Employee" && IsEmployee(directedTo))
+                {
+                    Push?.Invoke(new EmployeeProfileScreen());
+
+                }
+                if (currentApp.CurrentUser.UserType.UserTypeName == "Employee" && IsEmployer(directedTo))
+                {
+                    Push?.Invoke(new EmployerProfileScreen());
+
+                }
             }
 
             //Push?.Invoke(new ErrorScreen());
 
+        }
+
+        private User directedTo;
+        public User DirectedTo
+        {
+            get => directedTo;
+            set
+            {
+                directedTo = value;
+                OnPropertyChanged("DirectedTo");
+            }
         }
 
         public async void EditUser()
@@ -325,6 +357,16 @@ namespace JobsApp.ViewModels
                 if (SetImageSourceEvent != null)
                     SetImageSourceEvent(imgSource);
             }
+        }
+
+        private bool IsEmployee(User u)
+        {
+            return false;
+        }
+
+        private bool IsEmployer(User u)
+        {
+            return false;
         }
 
 

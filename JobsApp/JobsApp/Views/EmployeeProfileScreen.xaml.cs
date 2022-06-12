@@ -16,7 +16,7 @@ namespace JobsApp.Views
         public EmployeeProfileScreen()
         {
             InitializeComponent();
-            EmployeeProfileViewModel s = new EmployeeProfileViewModel();
+            ProfileViewModel s = new ProfileViewModel();
             this.BindingContext = s;
             s.Push += (p) => Navigation.PushAsync(p);
         }

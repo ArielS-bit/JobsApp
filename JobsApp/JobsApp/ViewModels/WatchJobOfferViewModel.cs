@@ -226,11 +226,11 @@ namespace JobsApp.ViewModels
         public async void GetJobOfferEmployees()
         {
             JobsAPIProxy proxy = JobsAPIProxy.CreateProxy();
-            List<Employee> employees = await proxy.GetJobOfferEmployeesAsync(selectedJobOffer.JobOfferId);
-            foreach (Employee e in employees)
-            {
-                JobOfferEmployees.Add(e);
-            }
+            //List<Employee> employees = await proxy.GetJobOfferEmployeesAsync(selectedJobOffer.JobOfferId);
+            //foreach (Employee e in employees)
+            //{
+            //    JobOfferEmployees.Add(e);
+            //}
 
 
         }
