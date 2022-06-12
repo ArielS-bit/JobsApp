@@ -49,7 +49,7 @@
                 <StackLayout>
 
                     <!--make the top smaller when is scrolled down-->
-                    <Button Text="Contact Info" ImageSource="ContactIcon.png" WidthRequest="40" HeightRequest="40" BackgroundColor="#f1faee" HorizontalOptions="End" CornerRadius="20"/>
+                    <Button Text="Contact Info" ImageSource="ContactIcon.png" Command="{Binding ContactUserCommand}" WidthRequest="40" HeightRequest="40" BackgroundColor="Transparent" HorizontalOptions="End" CornerRadius="20"/>
                     <Image Source="DefaultBackgroundImg.jpg" Margin="0,-120,0,0"/>
                     <CI:CircleImage x:Name="theImage" Source="{Binding UserImgSrc}" Margin="30,-50,300,10" HeightRequest="90"/>
                     <!--On the edit mode there will be an option to change photo-->

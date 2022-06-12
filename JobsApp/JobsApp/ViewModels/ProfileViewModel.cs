@@ -256,8 +256,6 @@ namespace JobsApp.ViewModels
 
             if (u!=null)
             {
-
-            
                 this.FirstName = u.FirstName;
                 this.LastName = u.LastName;
                 this.Nickname = u.Nickname;
@@ -268,12 +266,15 @@ namespace JobsApp.ViewModels
                 this.UserTypeID = u.UserTypeId;
                 this.PrivateAnswer = u.PrivateAnswer;
                 this.FullName = u.FirstName + " " + u.LastName;
-                this.Age = DateTime.Today.Year - u.Birthday.Year;
+                this.Age = u.Age;
                 
                 this.EditMode = false;//change here
                 //EditCommand = new Command(EditUser);
                 this.Connections = 10;//Chnage it
                 this.Rating = 1;
+                isRefresh = false;
+                ContactUserCommand = new Command(ContactWithUser);
+
 
 
                 //if (currentApp.CurrentUser.UserType.UserTypeName=="Employer" && IsEmployee(directedTo))
@@ -389,39 +390,27 @@ namespace JobsApp.ViewModels
         public ICommand RefreshCommand => new Command(Refresh);
         private void Refresh()
         {
-            if (u != null)
-            {
-
-
-                this.FirstName = u.FirstName;
-                this.LastName = u.LastName;
-                this.Nickname = u.Nickname;
-                this.Gender = u.Gender;
-                this.Bday = u.Birthday;
-                this.Email = u.Email;
-                this.Password = u.Pass;
-                this.UserTypeID = u.UserTypeId;
-                this.PrivateAnswer = u.PrivateAnswer;
-                this.FullName = u.FirstName + " " + u.LastName;
-                this.Age = DateTime.Today.Year - u.Birthday.Year;
-
-                this.EditMode = false;//change here
-                //EditCommand = new Command(EditUser);
-                this.Connections = 10;//Chnage it
-                this.Rating = 1;
-
-
-
-
-            }
-            JobOffersList.Clear();
-
-            CreateJobOffersList();
+            GetUpdatedUserInfo();
 
             IsRefresh = false;
         }
 
+        public void GetUpdatedUserInfo()
+        {
+            this.FirstName = ((App)Application.Current).CurrentUser.FirstName;
+            this.LastName = ((App)Application.Current).CurrentUser.LastName;
+            this.Password = ((App)Application.Current).CurrentUser.Pass;
+            this.FullName = ((App)Application.Current).CurrentUser.FirstName + " " + ((App)Application.Current).CurrentUser.LastName;
 
+        }
+
+        public ICommand ContactUserCommand { get; set; }
+
+        private async void ContactWithUser()
+        {
+            await Application.Current.MainPage.DisplayAlert("User's email is shown below:", this.Email, "Alright");
+
+        }
 
 
     }
