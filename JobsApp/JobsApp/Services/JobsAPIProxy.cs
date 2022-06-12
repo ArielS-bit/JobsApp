@@ -140,6 +140,43 @@ namespace JobsApp.Services
                 return null;
             }
         }
+        
+        public async Task<bool> EditProfileAsync(User u)
+        {
+            try
+            {
+                JsonSerializerOptions options = new JsonSerializerOptions
+                {
+                    ReferenceHandler = ReferenceHandler.Preserve,
+                    Encoder = JavaScriptEncoder.Create(UnicodeRanges.Hebrew, UnicodeRanges.BasicLatin),
+                    PropertyNameCaseInsensitive = true
+                };
+                string jsonObject = JsonSerializer.Serialize<User>(u, options);
+                StringContent content = new StringContent(jsonObject, Encoding.UTF8, "application/json");
+
+                HttpResponseMessage response = await this.client.PostAsync($"{this.baseUri}/EditProfile", content);
+                if (response.IsSuccessStatusCode)
+                {
+                    options = new JsonSerializerOptions
+                    {
+                        ReferenceHandler = ReferenceHandler.Preserve, //avoid reference loops!
+                        PropertyNameCaseInsensitive = true
+                    };
+                    string contentU = await response.Content.ReadAsStringAsync();
+                    bool e = JsonSerializer.Deserialize<bool>(contentU, options);
+                    return e;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return false;
+            }
+        }
 
         public async Task<User> SignUpAsync(User u)
         {

@@ -136,7 +136,7 @@
 
                                 </Image>
 
-                                <CI:CircleImage Source="{Binding UserImgSrc}"  HeightRequest="100" Margin="270,0,0,0"/>
+                                <CI:CircleImage Source="{Binding UserImgSrc}" HeightRequest="100" Margin="270,0,0,0"/>
                                 <Button Command="{Binding MoveToProfileCommand}" BackgroundColor="Transparent" WidthRequest="70" Margin="-80,40,0,40"/>
                             </StackLayout>
 

@@ -26,7 +26,12 @@ namespace JobsApp.Views
         {
             theImage.Source = imgSource;
         }
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+          
 
+        }
 
     }
 }

@@ -25,7 +25,7 @@
 
 
 
-                <Entry Placeholder="Job Description" Style="{StaticResource BasicEntry}" Text="{Binding JobOfferDescription}"/>
+                <Entry Placeholder="Job Description" Text="{Binding JobOfferDescription}"/>
 
                 <Label Text="Upload Job Offer Image"/>
                 <StackLayout Margin="30,30,30,-10">

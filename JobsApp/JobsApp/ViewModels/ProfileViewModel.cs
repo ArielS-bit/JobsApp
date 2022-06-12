@@ -276,30 +276,47 @@ namespace JobsApp.ViewModels
                 this.Rating = 1;
 
 
-                if (currentApp.CurrentUser.UserType.UserTypeName=="Employer" && IsEmployee(directedTo))
-                {
-                    Push?.Invoke(new EmployeeProfileScreen());
-                }
-                if (currentApp.CurrentUser.UserType.UserTypeName == "Employer" && IsEmployer(directedTo))
-                {
-                    Push?.Invoke(new EmployerProfileScreen());
+                //if (currentApp.CurrentUser.UserType.UserTypeName=="Employer" && IsEmployee(directedTo))
+                //{
+                //    Push?.Invoke(new EmployeeProfileScreen());
+                //}
+                //if (currentApp.CurrentUser.UserType.UserTypeName == "Employer" && IsEmployer(directedTo))
+                //{
+                //    Push?.Invoke(new EmployerProfileScreen());
 
-                }
-                if (currentApp.CurrentUser.UserType.UserTypeName == "Employee" && IsEmployee(directedTo))
-                {
-                    Push?.Invoke(new EmployeeProfileScreen());
+                //}
+                //if (currentApp.CurrentUser.UserType.UserTypeName == "Employee" && IsEmployee(directedTo))
+                //{
+                //    Push?.Invoke(new EmployeeProfileScreen());
 
-                }
-                if (currentApp.CurrentUser.UserType.UserTypeName == "Employee" && IsEmployer(directedTo))
-                {
-                    Push?.Invoke(new EmployerProfileScreen());
+                //}
+                //if (currentApp.CurrentUser.UserType.UserTypeName == "Employee" && IsEmployer(directedTo))
+                //{
+                //    Push?.Invoke(new EmployerProfileScreen());
 
-                }
+                //}
+
+
             }
 
             //Push?.Invoke(new ErrorScreen());
 
         }
+
+        private bool isRefresh;
+        public bool IsRefresh
+        {
+            get { return isRefresh; }
+            set
+            {
+                if (IsRefresh != value)
+                {
+                    isRefresh = value;
+                    OnPropertyChanged("IsRefresh");
+                }
+            }
+        }
+
 
         private User directedTo;
         public User DirectedTo
@@ -367,6 +384,41 @@ namespace JobsApp.ViewModels
         private bool IsEmployer(User u)
         {
             return false;
+        }
+
+        public ICommand RefreshCommand => new Command(Refresh);
+        private void Refresh()
+        {
+            if (u != null)
+            {
+
+
+                this.FirstName = u.FirstName;
+                this.LastName = u.LastName;
+                this.Nickname = u.Nickname;
+                this.Gender = u.Gender;
+                this.Bday = u.Birthday;
+                this.Email = u.Email;
+                this.Password = u.Pass;
+                this.UserTypeID = u.UserTypeId;
+                this.PrivateAnswer = u.PrivateAnswer;
+                this.FullName = u.FirstName + " " + u.LastName;
+                this.Age = DateTime.Today.Year - u.Birthday.Year;
+
+                this.EditMode = false;//change here
+                //EditCommand = new Command(EditUser);
+                this.Connections = 10;//Chnage it
+                this.Rating = 1;
+
+
+
+
+            }
+            JobOffersList.Clear();
+
+            CreateJobOffersList();
+
+            IsRefresh = false;
         }
 
 

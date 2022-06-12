@@ -43,150 +43,153 @@
 
 
     <ContentPage.Content>
-        <ScrollView>
-            <StackLayout>
+        <RefreshView x:Name="refreshView" Command="{Binding RefreshCommand}" IsRefreshing="{Binding IsRefresh}">
 
-                <!--make the top smaller when is scrolled down-->
-                <Button Text="Contact Info" ImageSource="ContactIcon.png" WidthRequest="40" HeightRequest="40" BackgroundColor="#f1faee" HorizontalOptions="End" CornerRadius="20"/>
-                <Image Source="DefaultBackgroundImg.jpg" Margin="0,-120,0,0"/>
-                <CI:CircleImage x:Name="theImage" Source="{Binding UserImgSrc}" Margin="30,-50,300,10" HeightRequest="90"/>
-                <!--On the edit mode there will be an option to change photo-->
-
-                <!--Should be only when others watch this profile-->
-                <!--Like a card coming out from the edge or a pop up-->
-
-
-                <Button ImageSource="EditIcon.png"  BackgroundColor="Transparent" Command="{Binding EditCommand}" Margin="330,-45,10,0"/>
-
+            <ScrollView>
                 <StackLayout>
-                    <StackLayout Margin="150,-50,20,20" BackgroundColor="Transparent">
+
+                    <!--make the top smaller when is scrolled down-->
+                    <Button Text="Contact Info" ImageSource="ContactIcon.png" WidthRequest="40" HeightRequest="40" BackgroundColor="#f1faee" HorizontalOptions="End" CornerRadius="20"/>
+                    <Image Source="DefaultBackgroundImg.jpg" Margin="0,-120,0,0"/>
+                    <CI:CircleImage x:Name="theImage" Source="{Binding UserImgSrc}" Margin="30,-50,300,10" HeightRequest="90"/>
+                    <!--On the edit mode there will be an option to change photo-->
+
+                    <!--Should be only when others watch this profile-->
+                    <!--Like a card coming out from the edge or a pop up-->
 
 
-                        <Label TextColor="Black" Text="{Binding FullName}"/>
-                        <!--{Binding FullName}"/>-->
+                    <Button ImageSource="EditIcon.png"  BackgroundColor="Transparent" Command="{Binding EditCommand}" Margin="330,-45,10,0"/>
 
-                        <Label TextColor="Black" Text="{Binding Age}"/>
-                        <!--{Binding Age}"/>-->
+                    <StackLayout>
+                        <StackLayout Margin="150,-50,20,20" BackgroundColor="Transparent">
 
-                        <StackLayout Orientation="Horizontal">
-                            <Label TextColor="Black" Text="{Binding Connections}"/>
-                            <Label Text="*"/>
-                            <Image Source="social.png"/>
+
+                            <Label TextColor="Black" Text="{Binding FullName}"/>
+                            <!--{Binding FullName}"/>-->
+
+                            <Label TextColor="Black" Text="{Binding Age}"/>
+                            <!--{Binding Age}"/>-->
+
+                            <StackLayout Orientation="Horizontal">
+                                <Label TextColor="Black" Text="{Binding Connections}"/>
+                                <Label Text="*"/>
+                                <Image Source="social.png"/>
+                            </StackLayout>
+                            <!--{Binding Connections}"/>-->
+
+                            <StackLayout Orientation="Horizontal">
+
+                                <Label Text="{Binding Rating}"/>
+                                <Label Text="/5" Margin="-5,0,0,0"/>
+
+                                <Image Source="starRating.png" WidthRequest="20" HeightRequest="20"/>
+
+                            </StackLayout>
+
+
                         </StackLayout>
-                        <!--{Binding Connections}"/>-->
-
-                        <StackLayout Orientation="Horizontal">
-
-                            <Label Text="{Binding Rating}"/>
-                            <Label Text="/5" Margin="-5,0,0,0"/>
-
-                            <Image Source="starRating.png" WidthRequest="20" HeightRequest="20"/>
-
-                        </StackLayout>
-
-
+                        <Image Source="divider.png" HorizontalOptions="CenterAndExpand"/>
                     </StackLayout>
-                    <Image Source="divider.png" HorizontalOptions="CenterAndExpand"/>
+
+                    <pv:PancakeView CornerRadius="60">
+                        <!--Info-->
+
+                        <StackLayout Margin="20">
+                            <!--<Image BackgroundColor="#f1faee" Source="starsDemo.png" Margin="10,-20,10,20"/>-->
+
+                            <Grid>
+
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="250"/>
+                                    <RowDefinition Height="50"/>
+                                    <RowDefinition Height="250"/>
+                                    <RowDefinition Height="50"/>
+                                    <RowDefinition Height="250"/>
+                                    <RowDefinition Height="50"/>
+                                    <RowDefinition Height="250"/>
+                                    <RowDefinition Height="50"/>
+                                    <RowDefinition Height="150"/>
+                                    <RowDefinition Height="50"/>
+                                    <RowDefinition Height="500"/>
+
+
+                                </Grid.RowDefinitions>
+
+                                <Frame Style="{StaticResource SectionFrameNoOpacity}"  Grid.Row="0">
+                                    <Grid>
+                                        <Label Text="About" Style="{StaticResource SectionTitle}"/>
+
+                                        <Label Text="{Binding AboutUser}"/>
+                                    </Grid>
+                                </Frame>
+
+                                <BoxView Grid.Row="1" BackgroundColor="Transparent"/>
+
+                                <Frame Style="{StaticResource SectionFrameWithOpacity}" Grid.Row="2">
+                                    <Grid>
+                                        <Label Text="I'm interested in..." Style="{StaticResource SectionTitle}"/>
+
+                                        <Label Text="{Binding Intersted}"/>
+                                    </Grid>
+                                </Frame>
+
+                                <BoxView Grid.Row="3" BackgroundColor="Transparent"/>
+
+                                <!--collection of professions-->
+                                <Frame Style="{StaticResource SectionFrameNoOpacity}" Grid.Row="4">
+                                    <Grid>
+                                        <Label Text="Skills" Style="{StaticResource SectionTitle}"/>
+
+                                        <Label Text="{Binding Skills}"/>
+                                    </Grid>
+                                </Frame>
+
+                                <BoxView Grid.Row="5" BackgroundColor="Transparent"/>
+
+                                <Frame Style="{StaticResource SectionFrameWithOpacity}" Grid.Row="6">
+                                    <Grid>
+                                        <Label Text="Activity" Style="{StaticResource SectionTitle}"/>
+
+                                        <Label Text="{Binding Activity}"/>
+                                    </Grid>
+                                </Frame>
+
+                                <BoxView Grid.Row="7" BackgroundColor="Transparent"/>
+
+                                <Frame Style="{StaticResource SectionFrameNoOpacity}" Grid.Row="8">
+                                    <Grid>
+                                        <Label Text="Recommendations" Style="{StaticResource SectionTitle}"/>
+                                        <!--Will be a caruosel of every reccomendation-->
+                                        <Label Text="{Binding Recommendations}"/>
+                                    </Grid>
+                                </Frame>
+
+                                <BoxView Grid.Row="9" BackgroundColor="Transparent"/>
+
+                                <Frame Style="{StaticResource SectionFrameWithOpacity}" Grid.Row="10">
+                                    <Grid>
+                                        <!--will be as a caruseal-->
+                                        <Label Text="Pictures from recent jobs" Style="{StaticResource SectionTitle}"/>
+
+                                        <Image Source="HugePicture.png" Margin="30"/>
+                                    </Grid>
+                                </Frame>
+
+
+                            </Grid>
+
+
+
+                        </StackLayout>
+
+
+                    </pv:PancakeView>
+
+                    <!--<Button Command="{Binding}"></Button>-->
+
                 </StackLayout>
-
-                <pv:PancakeView CornerRadius="60">
-                    <!--Info-->
-
-                    <StackLayout Margin="20">
-                        <!--<Image BackgroundColor="#f1faee" Source="starsDemo.png" Margin="10,-20,10,20"/>-->
-
-                        <Grid>
-
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="250"/>
-                                <RowDefinition Height="50"/>
-                                <RowDefinition Height="250"/>
-                                <RowDefinition Height="50"/>
-                                <RowDefinition Height="250"/>
-                                <RowDefinition Height="50"/>
-                                <RowDefinition Height="250"/>
-                                <RowDefinition Height="50"/>
-                                <RowDefinition Height="150"/>
-                                <RowDefinition Height="50"/>
-                                <RowDefinition Height="500"/>
-
-
-                            </Grid.RowDefinitions>
-
-                            <Frame Style="{StaticResource SectionFrameNoOpacity}"  Grid.Row="0">
-                                <Grid>
-                                    <Label Text="About" Style="{StaticResource SectionTitle}"/>
-
-                                    <Label Text="{Binding AboutUser}"/>
-                                </Grid>
-                            </Frame>
-
-                            <BoxView Grid.Row="1" BackgroundColor="Transparent"/>
-
-                            <Frame Style="{StaticResource SectionFrameWithOpacity}" Grid.Row="2">
-                                <Grid>
-                                    <Label Text="I'm interested in..." Style="{StaticResource SectionTitle}"/>
-
-                                    <Label Text="{Binding Intersted}"/>
-                                </Grid>
-                            </Frame>
-
-                            <BoxView Grid.Row="3" BackgroundColor="Transparent"/>
-
-                            <!--collection of professions-->
-                            <Frame Style="{StaticResource SectionFrameNoOpacity}" Grid.Row="4">
-                                <Grid>
-                                    <Label Text="Skills" Style="{StaticResource SectionTitle}"/>
-
-                                    <Label Text="{Binding Skills}"/>
-                                </Grid>
-                            </Frame>
-
-                            <BoxView Grid.Row="5" BackgroundColor="Transparent"/>
-
-                            <Frame Style="{StaticResource SectionFrameWithOpacity}" Grid.Row="6">
-                                <Grid>
-                                    <Label Text="Activity" Style="{StaticResource SectionTitle}"/>
-
-                                    <Label Text="{Binding Activity}"/>
-                                </Grid>
-                            </Frame>
-
-                            <BoxView Grid.Row="7" BackgroundColor="Transparent"/>
-
-                            <Frame Style="{StaticResource SectionFrameNoOpacity}" Grid.Row="8">
-                                <Grid>
-                                    <Label Text="Recommendations" Style="{StaticResource SectionTitle}"/>
-                                    <!--Will be a caruosel of every reccomendation-->
-                                    <Label Text="{Binding Recommendations}"/>
-                                </Grid>
-                            </Frame>
-
-                            <BoxView Grid.Row="9" BackgroundColor="Transparent"/>
-
-                            <Frame Style="{StaticResource SectionFrameWithOpacity}" Grid.Row="10">
-                                <Grid>
-                                    <!--will be as a caruseal-->
-                                    <Label Text="Pictures from recent jobs" Style="{StaticResource SectionTitle}"/>
-
-                                    <Image Source="HugePicture.png" Margin="30"/>
-                                </Grid>
-                            </Frame>
-
-
-                        </Grid>
-
-
-
-                    </StackLayout>
-
-
-                </pv:PancakeView>
-
-                <!--<Button Command="{Binding}"></Button>-->
-
-            </StackLayout>
-        </ScrollView>
+            </ScrollView>
+        </RefreshView>
 
 
     </ContentPage.Content>

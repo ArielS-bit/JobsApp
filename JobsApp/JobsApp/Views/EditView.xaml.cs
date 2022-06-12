@@ -19,6 +19,9 @@ namespace JobsApp.Views
             EditViewModel e = new EditViewModel();
             e.Push += (p) => Navigation.PushAsync(p);
             this.BindingContext = e;
+            e.Pop += () => Navigation.PopAsync();
+
+
         }
     }
 }

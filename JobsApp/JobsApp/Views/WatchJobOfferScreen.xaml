@@ -50,21 +50,21 @@
 
                         </Label.FormattedText>
                     </Label>
-                    
-                    
 
-                    <Label Grid.Row="2">
+
+
+                    <Label Style="{StaticResource BasicLabel}" Grid.Row="2">
                         <Label.FormattedText>
                             <FormattedString>
-                                <Span Style="{StaticResource BasicLabel}" Text="Job's Category: "/>
-                                <Span Style="{StaticResource BasicLabel}" Text="{Binding Category}"/>
+                                <Span Text="Job's Category: "/>
+                                <Span Text="{Binding Category}"/>
 
                             </FormattedString>
 
                         </Label.FormattedText>
                     </Label>
 
-                    <StackLayout Style="{StaticResource BasicLabel}" Grid.Column="1" Grid.Row="1" Orientation="Horizontal">
+                    <StackLayout Grid.Column="1" Grid.Row="1" Orientation="Horizontal">
 
                         <Label FontSize="20" Text="{Binding NumApplied}"/>
                         <Label FontSize="20" Text="/"/>
@@ -97,7 +97,7 @@
 
                 </Grid>
 
-                <StackLayout>
+                <!--<StackLayout>
                     
                     <Label Text="Job Offer Employees" HorizontalOptions="Center"/>
                     
@@ -166,7 +166,7 @@
 
                                                     </Grid.ColumnDefinitions>
 
-                                                <!--Add binding JobOfferImgSrc and jobofferid to here becuase else it won't work-->
+                                                --><!--Add binding JobOfferImgSrc and jobofferid to here becuase else it won't work--><!--
                                                 <CI:CircleImage x:Name="theImage" Source="NormalScaleLogo.png" Grid.Row="1" Grid.Column="0"/>
 
 
@@ -228,12 +228,12 @@
                                     </CollectionView.ItemTemplate>
                                 </CollectionView>
                             
-                        </StackLayout>
+                        </StackLayout>-->
 
-                    </Grid>
+                    <!--</Grid>
                     
                     
-                </StackLayout>
+                </StackLayout>-->
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>
