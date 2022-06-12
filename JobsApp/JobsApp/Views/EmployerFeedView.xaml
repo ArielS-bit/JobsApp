@@ -2,7 +2,7 @@
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:CI="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
-             x:Class="JobsApp.Views.EmployerFeedView"
+             x:Class="JobsApp.Views.EmployerFeedView" BackgroundColor="#457B9D"
              x:Name="thePage">
 
    
@@ -14,7 +14,7 @@
             <StackLayout>
                 <Label Text="Your Job Offers" Padding="50" HorizontalOptions="Center"/>
 
-                <ScrollView HeightRequest="300" BackgroundColor="Green">
+                <ScrollView HeightRequest="300" BackgroundColor="#1D3557">
 
                     <StackLayout>
 
@@ -54,25 +54,25 @@
                                             <CI:CircleImage x:Name="theImage" Margin="0,-110,10,0" Source="NormalScaleLogo.png" Grid.Row="1" Grid.Column="0"/><!--Add binding JobOfferImgSrc and jobofferid to here becuase else it won't work-->
 
                                             <!--Maybe add little titles-->
-                                            <Label Text="{Binding JobTitle}" FontSize="20" Grid.Column="1" Grid.Row="0"  TextColor="#487eb0" />
+                                            <Label Text="{Binding JobTitle}" Style="{StaticResource BasicLabel}" FontSize="20" Grid.Column="1" Grid.Row="0"  TextColor="#487eb0" />
 
-                                            
-                                            <Label Text="{Binding Category.CategoryName}" FontSize="20" FontAttributes="Italic" Grid.Column="1" Grid.Row="1" TextColor="#44bd32" />
+
+                                            <Label Text="{Binding Category.CategoryName}" Style="{StaticResource BasicLabel}" FontSize="20" FontAttributes="Italic" Grid.Column="1" Grid.Row="1" TextColor="#44bd32" />
 
 
 
                                             <StackLayout Grid.Column="2" Grid.Row="0" Orientation="Horizontal">
 
-                                                <Label FontSize="20" Text="{Binding NumApplied}"/>
+                                                <Label FontSize="20" Style="{StaticResource BasicLabel}" Text="{Binding NumApplied}"/>
                                                 <Label FontSize="20" Text="/"/>
-                                                <Label FontSize="20" Text="{Binding RequiredEmployees}"/>
+                                                <Label FontSize="20" Style="{StaticResource BasicLabel}" Text="{Binding RequiredEmployees}"/>
                                                 <Label FontSize="15" Margin="0,5,0,0" Text="Applied"/>
 
 
                                             </StackLayout>
 
                                             <Frame Grid.Column="2" BackgroundColor="Beige" Grid.Row="1" >
-                                                <Label FontSize="10" Text="{Binding JobOfferDescription}"/>
+                                                <Label FontSize="10" Style="{StaticResource BasicLabel}" Text="{Binding JobOfferDescription}"/>
                                             </Frame>
 
 

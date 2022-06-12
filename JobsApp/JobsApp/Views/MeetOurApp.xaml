@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="JobsApp.Views.MeetOurApp"
              xmlns:local="clr-namespace:JobsApp.ViewModels"
-             NavigationPage.HasNavigationBar="False">
+             NavigationPage.HasNavigationBar="False" BackgroundColor="#457B9D">
 
     
     <ContentPage.Content>
@@ -13,15 +13,15 @@
 
             <Image Source="NormalScaleLogo.png" WidthRequest="90" HeightRequest="85"/>
 
-            <Image Source="MeetOurAppImage1.png"/>
+            <Image Source="MeetOurAppImage1.png" Margin="30"/>
             
             <Frame>
-                <Label Text="Nowdays, most of the teenagers want to start working. However, there are many businesses who deny to hire them. It creats a huge problem! We are here to change it!"/>
+                <Label FontSize="30" Text="Nowdays, most of the teenagers want to start working. However, there are many businesses who deny to hire them. It creats a huge problem! We are here to change it!"/>
             </Frame>
 
-          
-            
-            <Button x:Name="MainBtn" Text="Let's GO!" BackgroundColor="#457B9D" Clicked="Button_Clicked"/>
+
+
+            <Button x:Name="MainBtn" Text="Let's GO!" Style="{StaticResource LoginButton}" BackgroundColor="#457B9D" Clicked="Button_Clicked"/>
 
             <StackLayout x:Name="Stck" HorizontalOptions="Center" Margin="50" Orientation="Horizontal">
 

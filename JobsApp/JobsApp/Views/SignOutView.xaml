@@ -4,7 +4,7 @@
              x:Class="JobsApp.Views.SignOutView">
   <ContentView.Content>
       <StackLayout>
-          <Label Text="Hello Xamarin.Forms!" />
-      </StackLayout>
+            <Button Text="Sign Out!" Command="{Binding SignOutCommand}"/>
+        </StackLayout>
   </ContentView.Content>
 </ContentView>

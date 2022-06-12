@@ -39,5 +39,15 @@
             
         </Style>
 
+        <Style TargetType="Label" x:Key="BasicLabel">
+            <Setter Property="FontFamily" Value="'Zen Kaku Gothic Antique', sans-serif"/>
+            <Setter Property="TextColor" Value="#F1FAEE"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="HorizontalTextAlignment" Value="Start"/>
+            <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+            <Setter Property="Opacity" Value="1"/>
+
+        </Style>
+
     </Application.Resources>
 </Application>

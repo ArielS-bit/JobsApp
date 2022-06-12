@@ -56,15 +56,15 @@
                     <Label Grid.Row="2">
                         <Label.FormattedText>
                             <FormattedString>
-                                <Span Text="Job's Category: "/>
-                                <Span Text="{Binding Category}"/>
+                                <Span Style="{StaticResource BasicLabel}" Text="Job's Category: "/>
+                                <Span Style="{StaticResource BasicLabel}" Text="{Binding Category}"/>
 
                             </FormattedString>
 
                         </Label.FormattedText>
                     </Label>
 
-                    <StackLayout Grid.Column="1" Grid.Row="1" Orientation="Horizontal">
+                    <StackLayout Style="{StaticResource BasicLabel}" Grid.Column="1" Grid.Row="1" Orientation="Horizontal">
 
                         <Label FontSize="20" Text="{Binding NumApplied}"/>
                         <Label FontSize="20" Text="/"/>
