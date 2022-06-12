@@ -58,7 +58,7 @@
                     <!--Like a card coming out from the edge or a pop up-->
 
 
-                    <Button ImageSource="EditIcon.png"  BackgroundColor="Transparent" Command="{Binding EditCommand}" Margin="330,-45,10,0"/>
+                    <Button ImageSource="EditIcon.png" BackgroundColor="Red" IsVisible="{Binding IsEditVisible}" Command="{Binding EditCommand}" Margin="330,-45,10,0"/>
 
                     <StackLayout>
                         <StackLayout Margin="150,-50,20,20" BackgroundColor="Transparent">

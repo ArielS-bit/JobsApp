@@ -17,7 +17,7 @@
                 <Image Source="MeetOurAppImage1.png" Margin="30"/>
 
                 <Frame>
-                    <Label FontSize="30" Text="Nowdays, most of the teenagers want to start working. However, there are many businesses who deny to hire them. It creats a huge problem! We are here to change it!"/>
+                    <Label FontSize="15" Text="Nowdays, most of the teenagers want to start working. However, there are many businesses who deny to hire them. It creats a huge problem! We are here to change it!"/>
                 </Frame>
 
 

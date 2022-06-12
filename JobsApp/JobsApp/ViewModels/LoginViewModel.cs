@@ -110,22 +110,32 @@ namespace JobsApp.ViewModels
             else
             {
                 ((App)App.Current).CurrentUser = u;
-                
-                    //try
-                    //{
-                    //    await SecureStorage.SetAsync("user_token", "secret-user-token-value");
-                    //}
-                    //catch (Exception e)
-                    //{
-                    //    // Possible that device doesn't support secure storage on device.
-                    //}
-                
-               
+
+                //try
+                //{
+                //    await SecureStorage.SetAsync("user_token", "secret-user-token-value");
+                //}
+                //catch (Exception e)
+                //{
+                //    // Possible that device doesn't support secure storage on device.
+                //}
+
+
                 //App theApp = (App)App.Current;
                 //theApp.CurrentUser = user;
 
-                //Check if it is an employer or employee
-                Push?.Invoke(new EmployerMainTabView());
+                //Checks if it is an employer or employee
+                bool isEmployer = await proxy.IsEmployer(u.UserId);
+                if (isEmployer)
+                {
+                    Push?.Invoke(new EmployerMainTabView());
+
+                }
+                else
+                {
+                    Push?.Invoke(new EmployeeMainTabView());
+
+                }
 
                 //May Change to profile screen
             }

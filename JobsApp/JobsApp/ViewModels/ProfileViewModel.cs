@@ -215,6 +215,21 @@ namespace JobsApp.ViewModels
             }
         }
 
+        private bool isEditVisible;
+        public bool IsEditVisible
+        {
+            get { return isEditVisible; }
+            set
+            {
+
+                isEditVisible = value;
+                OnPropertyChanged("IsEditVisible");
+                
+            }
+        }
+
+
+
 
 
 
@@ -245,7 +260,7 @@ namespace JobsApp.ViewModels
         #region Commands
 
 
-        public ICommand EditCommand => new Command(EditUser);
+        public ICommand EditCommand { get; set; }
 
         #endregion
 
@@ -274,6 +289,7 @@ namespace JobsApp.ViewModels
                 this.Rating = 1;
                 isRefresh = false;
                 ContactUserCommand = new Command(ContactWithUser);
+                EditCommand = new Command(EditUser);
 
 
 
@@ -333,7 +349,7 @@ namespace JobsApp.ViewModels
         public async void EditUser()
         {
 
-            Push?.Invoke(new EditScreen());
+            Push?.Invoke(new EditView());
         }
 
         ///The following command handle the pick photo button

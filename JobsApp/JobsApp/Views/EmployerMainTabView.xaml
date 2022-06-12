@@ -137,7 +137,7 @@
                                 </Image>
 
                                 <CI:CircleImage Source="{Binding UserImgSrc}" HeightRequest="100" Margin="270,0,0,0"/>
-                                <Button Command="{Binding MoveToProfileCommand}" BackgroundColor="Transparent" WidthRequest="70" Margin="-80,40,0,40"/>
+                                <Button Command="{Binding MoveToProfileCommand}" BackgroundColor="Transparent" WidthRequest="50" Margin="-60,0,-20,15"/>
                             </StackLayout>
 
                         </pv:PancakeView>

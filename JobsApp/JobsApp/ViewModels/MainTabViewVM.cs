@@ -93,7 +93,23 @@ namespace JobsApp.ViewModels
 
         public void TransferToProfile()
         {
-            Push?.Invoke(new ProfileScreen());
+            Page p = new ProfileScreen();
+            User u = ((App)Application.Current).CurrentUser;
+            p.BindingContext = new ProfileViewModel()
+            {
+                IsEditVisible=true,
+                FirstName=u.FirstName,
+                LastName=u.LastName,
+                Age=u.Age, 
+                Bday=u.Birthday, 
+                Nickname=u.Nickname, 
+                Password=u.Pass, 
+                Email=u.Email, 
+                FullName=u.FirstName+ " "+u.LastName, 
+                Gender=u.Gender
+
+            };
+            Push?.Invoke(p);
         }
 
         public event Action<Page> Push;

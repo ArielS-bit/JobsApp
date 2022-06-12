@@ -136,7 +136,7 @@
 
                                 </Image>
 
-                                <ImageButton Source="{Binding UserImgSrc}" Command="{Binding MoveToProfileCommand}" Margin="290,10,0,0" CornerRadius="40"/>
+                                <ImageButton Source="{Binding UserImgSrc}" Command="{Binding MoveToProfileCommand}" Margin="-60,0,-20,15" CornerRadius="40"/>
 
                             </StackLayout>
 

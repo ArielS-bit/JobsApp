@@ -600,10 +600,20 @@ namespace JobsApp.ViewModels
                 {
                    //let's decide for the user the defualt profile picture (might be on the server so not needed in that condition)
                 }
-               
+
                 //App theApp = (App)App.Current;
                 //theApp.CurrentUser = user;
-                Push?.Invoke(new MainTabView());
+                bool isEmployer = await proxy.IsEmployer(u.UserId);
+                if (isEmployer)
+                {
+                    Push?.Invoke(new EmployerMainTabView());
+
+                }
+                else
+                {
+                    Push?.Invoke(new EmployeeMainTabView());
+
+                }
             }
 
             //Push?.Invoke(new FeedScreen());
