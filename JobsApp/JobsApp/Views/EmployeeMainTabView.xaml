@@ -9,7 +9,7 @@
              NavigationPage.HasNavigationBar="False"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d"
+             mc:Ignorable="d" BackgroundColor="#F1FAEE"
              xmlns:pv="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              xmlns:local="clr-namespace:JobsApp.ViewModels">
 
@@ -34,7 +34,7 @@
                     <SwipeView.LeftItems>
                         <SwipeItems>
                             <SwipeItemView>
-                                <StackLayout x:Name="MenuView" BackgroundColor="Blue" Spacing="20" Padding="30" WidthRequest="250" BindableLayout.ItemsSource="{Binding MyMenu}" VerticalOptions="CenterAndExpand">
+                                <StackLayout x:Name="MenuView" BackgroundColor="Transparent" Spacing="20" Padding="30" WidthRequest="250" BindableLayout.ItemsSource="{Binding MyMenu}" VerticalOptions="CenterAndExpand">
                                     <BindableLayout.ItemTemplate>
                                         <DataTemplate x:DataType="local:SideMenuItem">
                                             <StackLayout Orientation="Horizontal">
@@ -42,7 +42,8 @@
                                                     <TapGestureRecognizer Tapped="CloseSwipe"/>
                                                 </StackLayout.GestureRecognizers>
 
-                                                <ImageButton Source="{Binding Icon}" Command="{Binding Command}" HeightRequest="15" WidthRequest="15" HorizontalOptions="Center"
+
+                                                <ImageButton x:Name="Btn" Source="{Binding Icon}" BackgroundColor="Transparent" Command="{Binding Command}" Clicked="Btn_Clicked" HeightRequest="15" WidthRequest="15" HorizontalOptions="Center"
                                                    VerticalOptions="Center"/>
 
 
@@ -93,7 +94,7 @@
                                 <xct:TabViewItem
                     
                    
-                                     Icon="HomeIcon.png" Margin="0,50,0,-40" HeightRequest="120" BackgroundColor="Transparent">
+                                     Icon="HomeIcon.png" IconSelected="HomeIcon.png" Margin="0,50,0,-40" HeightRequest="80" BackgroundColor="Transparent">
 
 
                                     <views:EmployeeFeedView/>
@@ -127,7 +128,7 @@
                         </Grid>
                         <pv:PancakeView x:Name="Pancake" BackgroundColor="Transparent">
 
-                            <StackLayout Orientation="Horizontal" Margin="0,0,0,600" BackgroundColor="Transparent">
+                            <StackLayout Orientation="Horizontal" Margin="0,-20,0,600">
 
                                 <Image x:Name="sideMenu" Source="SideMenuHamburger.png" HeightRequest="30" HorizontalOptions="Start" Margin="10">
                                     <Image.GestureRecognizers>
@@ -136,8 +137,8 @@
 
                                 </Image>
 
-                                <ImageButton Source="{Binding UserImgSrc}" Command="{Binding MoveToProfileCommand}" Margin="-60,0,-20,15" CornerRadius="40"/>
-
+                                <CI:CircleImage Source="{Binding UserImgSrc}" Margin="270,0,0,0" WidthRequest="50"/>
+                                <Button Command="{Binding MoveToProfileCommand}" BackgroundColor="Yellow" WidthRequest="50" Margin="-60"/>
                             </StackLayout>
 
                         </pv:PancakeView>

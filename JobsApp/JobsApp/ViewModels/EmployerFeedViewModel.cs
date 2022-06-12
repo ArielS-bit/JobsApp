@@ -20,6 +20,7 @@ namespace JobsApp.ViewModels
 
         public EmployerFeedViewModel()
         {
+            isEmpty = false;
             JobOffersList = new ObservableCollection<JobOffer>();
             CreateJobOffersList();
             isRefresh = false;
@@ -125,6 +126,21 @@ namespace JobsApp.ViewModels
             }
         }
 
+        private bool isEmpty;
+        public bool IsEmpty
+        {
+            get { return isEmpty; }
+            set
+            {
+                isEmpty = value;
+                OnPropertyChanged("IsEmpty");
+            }
+        }
+
+
+
+
+
 
         public ObservableCollection<JobOffer> JobOffersList { get; set; }
 
@@ -161,6 +177,11 @@ namespace JobsApp.ViewModels
             foreach (JobOffer j in m)
             {
                 JobOffersList.Add(j);
+                IsEmpty = false;
+            }
+            if (JobOffersList==null)
+            {
+                IsEmpty = true;
             }
         }
 

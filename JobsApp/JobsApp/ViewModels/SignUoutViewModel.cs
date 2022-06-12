@@ -16,18 +16,23 @@ namespace JobsApp.ViewModels
 {
     class SignUoutViewModel:ViewModelBase
     {
+
         public SignUoutViewModel()
         {
 
         }
 
         public ICommand SignOutCommand => new Command(SignOut);
+        public event Action<Page> Push;
+
 
         public async void SignOut()
         {
             JobsAPIProxy proxy = JobsAPIProxy.CreateProxy();
 
             currentApp.CurrentUser = null;
+            Push?.Invoke(new LoginScreen());
+
         }
     }
 }

@@ -8,7 +8,7 @@
             xmlns:controls="clr-namespace:EssentialUIKit.Controls"
             xmlns:local="clr-namespace:JobsApp.ViewModels"
             x:Name="SettingsPage"
-            NavigationPage.HasNavigationBar="False">
+            NavigationPage.HasNavigationBar="True">
 
     <ContentPage.Content>
 

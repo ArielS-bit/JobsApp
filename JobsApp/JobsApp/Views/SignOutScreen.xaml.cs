@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using JobsApp.ViewModels;
 
 namespace JobsApp.Views
 {
@@ -15,6 +16,9 @@ namespace JobsApp.Views
         public SignOutScreen()
         {
             InitializeComponent();
+            SignUoutViewModel r = new SignUoutViewModel();
+            this.BindingContext = r;
+            r.Push += (p) => Navigation.PushAsync(p);
         }
     }
 }

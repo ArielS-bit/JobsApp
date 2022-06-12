@@ -13,6 +13,8 @@
 
             <StackLayout>
                 <Label Text="Your Job Offers" Padding="50" HorizontalOptions="Center"/>
+                <Label IsVisible="{Binding IsEmpty}" Text="You don't have any job offers yet!" TextColor="Red"/>
+
 
                 <ScrollView HeightRequest="300" BackgroundColor="#1D3557">
 

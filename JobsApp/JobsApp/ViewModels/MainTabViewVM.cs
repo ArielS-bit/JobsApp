@@ -45,8 +45,7 @@ namespace JobsApp.ViewModels
             MyMenu = new ObservableCollection<SideMenuItem>();
 
             // MyMenu = GetMenus();
-            MyMenu.Add(new SideMenuItem { Name = "Settings", Icon = "GalleryIcon.png", Command = new Command(TransferToSettings) });
-            MyMenu.Add(new SideMenuItem { Name = "About Us", Icon = "AboutIcon.png", Command = new Command(TransferToAbout) });
+            MyMenu.Add(new SideMenuItem { Name = "About Us", Icon = "InfoIcon.png", Command = new Command(TransferToAbout) });
             MyMenu.Add(new SideMenuItem { Name = "Know Your Rights", Icon = "RightsIcon.png", Command = new Command(TransferToRights) });
             MyMenu.Add(new SideMenuItem { Name = "Sign Out", Icon = "SignOutIcon.png", Command = new Command(TransferToSignOut) });
 
@@ -55,26 +54,23 @@ namespace JobsApp.ViewModels
 
 
         // public List<Menu> MyMenu { get; set; }
-        private List<SideMenuItem> GetMenus()
-        {
-            return new List<SideMenuItem>
-            {
-                new SideMenuItem{Name="Home", Icon="HomeIcon.png"},//IconImageSource="{OnPlatform Android=ic_SerachIcon}"
-                new SideMenuItem{Name="Notifications", Icon="bellOffIcon.png"},
-                new SideMenuItem{Name="Jobs", Icon="JobsIcon.png"},
-                new SideMenuItem{Name="Profile", Icon="ProfileIcon.png"}
+        //private List<SideMenuItem> GetMenus()
+        //{
+        //    return new List<SideMenuItem>
+        //    {
+        //        new SideMenuItem{Name="Home", Icon="HomeIcon.png"},//IconImageSource="{OnPlatform Android=ic_SerachIcon}"
+        //        new SideMenuItem{Name="Notifications", Icon="bellOffIcon.png"},
+        //        new SideMenuItem{Name="Jobs", Icon="JobsIcon.png"},
+        //        new SideMenuItem{Name="Profile", Icon="ProfileIcon.png"}
 
 
-            };
-        }
+        //    };
+        //}
 
         public ICommand MoveToProfileCommand => new Command(TransferToProfile);
 
         //Transfer to pages functions
-        private void TransferToSettings()
-        {
-            Push?.Invoke(new SettingsScreen());
-        }
+       
 
         private void TransferToAbout()
         {

@@ -70,5 +70,11 @@ namespace JobsApp.Views
             Pancake.CornerRadius = 0;
             await SwipeContent.ScaleYTo(1, 300, Easing.SinIn);
         }
+
+        private void Btn_Clicked(object sender, EventArgs e)
+        {
+             CloseSwipe(sender,e);
+
+        }
     }
 }

@@ -2,7 +2,15 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="JobsApp.Views.RightsScreen"
+              Title="Your rights"
+            NavigationPage.HasNavigationBar="True"
               xmlns:views="clr-namespace:JobsApp.Views">
-    <views:RightsView/>
+    <ContentPage.Content>
+
+        <ScrollView>
+        <Image WidthRequest="100" HeightRequest="100" Source="RightsDoc.png"/>
+        </ScrollView>
+
+    </ContentPage.Content>
    
 </ContentPage>
