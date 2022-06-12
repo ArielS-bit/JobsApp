@@ -12,7 +12,7 @@
     <ContentPage.Content>
 
         <Frame>
-            <Label Text="We believe in harnessing science for human good. And so we work day and night, around the world, to deliver answers for all your health questions—whether you're a provider, drug developer, hospital, medical researcher or patient. That means everything from advancing diagnostic testing, to helping launch new drugs, to offering new perspectives through data, all drawing from a deep well of scientific expertise. So when you need trusted information to make clear, confident health decisions, consider us your source."/>
+            <Label FontSize="18" TextColor="#1D3557" Text="We believe in harnessing science for human good. And so we work day and night, around the world, to deliver answers for all your health questions—whether you're a provider, drug developer, hospital, medical researcher or patient. That means everything from advancing diagnostic testing, to helping launch new drugs, to offering new perspectives through data, all drawing from a deep well of scientific expertise. So when you need trusted information to make clear, confident health decisions, consider us your source."/>
         </Frame>
         
     </ContentPage.Content>

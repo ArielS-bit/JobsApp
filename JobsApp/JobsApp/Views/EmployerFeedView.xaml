@@ -95,7 +95,7 @@
             </StackLayout>
 
             <!--<BoxView Opacity="0.6" WidthRequest="50" BackgroundColor="#A8DADC"/>-->
-            <Button ImageSource="PlusIcon.png" BackgroundColor="Transparent" Margin="280,-70,-45,0" Command="{Binding NavigateToAddJobOfferCommand}"/>
+            <Button ImageSource="PlusIcon.png" BackgroundColor="Transparent" Margin="280,-10,-45,20" Command="{Binding NavigateToAddJobOfferCommand}"/>
 
             <Label Text="Jobs Requests from Potential Employees" HorizontalOptions="Center"/>
             <ScrollView>

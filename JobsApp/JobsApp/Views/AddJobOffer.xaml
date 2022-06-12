@@ -9,6 +9,8 @@
         <ScrollView>
             <StackLayout>
 
+                <Image Source="NormalScaleLogo.png" Margin="-10,-10,-10,0"/>
+
                 <Label Text="Add Job Offer" HorizontalOptions="CenterAndExpand"/>
 
 

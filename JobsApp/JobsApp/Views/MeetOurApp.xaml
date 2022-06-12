@@ -17,17 +17,17 @@
                 <Image Source="MeetOurAppImage1.png" Margin="30"/>
 
                 <Frame>
-                    <Label FontSize="15" Text="Nowdays, most of the teenagers want to start working. However, there are many businesses who deny to hire them. It creats a huge problem! We are here to change it!"/>
+                    <Label FontSize="13" Text="Nowdays, most of the teenagers want to start working. However, there are many businesses who deny to hire them. It creats a huge problem! We are here to change it!"/>
                 </Frame>
 
 
 
-                <Button x:Name="MainBtn" Text="Let's GO!" BackgroundColor="#457B9D" Clicked="Button_Clicked"/>
+                <Button x:Name="MainBtn" Text="Let's GO!" Style="{StaticResource LoginButton}" BackgroundColor="#457B9D" Clicked="Button_Clicked"/>
 
                 <StackLayout x:Name="Stck" HorizontalOptions="Center" Orientation="Horizontal">
 
-                    <Button x:Name="LogInBtn"  Command="{Binding NavigateToLogInCommand}" Text="Log In"/>
-                    <Button x:Name="SignUpBtn"  Command="{Binding NavigateToSignUpCommand}" Text="Join our community"/>
+                    <Button x:Name="LogInBtn" Style="{StaticResource LoginButton}" Command="{Binding NavigateToLogInCommand}" Text="Log In"/>
+                    <Button x:Name="SignUpBtn" Style="{StaticResource LoginButton}" Command="{Binding NavigateToSignUpCommand}" Text="Join our community"/>
 
                 </StackLayout>
 

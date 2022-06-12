@@ -5,7 +5,23 @@
              xmlns:local="clr-namespace:JobsApp.ViewModels" BackgroundColor="#F1FAEE"
              xmlns:pv="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView">
 
+    <ContentPage.Resources>
+        <Style TargetType="Entry" x:Key="EditEntry">
+            <Setter Property="FontFamily" Value="'Zen Kaku Gothic Antique', sans-serif"/>
+            
+            <Setter Property="TextColor" Value="#1D3557"/>
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="FontFamily" Value="ThinItalic"/>
+            <Setter Property="HorizontalTextAlignment" Value="Start"/>
+            <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+            <Setter Property="Opacity" Value="0.7"/>
+            <Setter Property="Margin" Value="15,15"/>
+            <Setter Property="BackgroundColor" Value="Transparent"/>
+            <Setter Property="MaxLength" Value="30"/>
+            <Setter Property="Keyboard" Value="Email"/>
 
+        </Style>
+    </ContentPage.Resources>
 
     <ContentPage.Content>
         <pv:PancakeView>
@@ -26,20 +42,20 @@
 
                     <Frame BorderColor="White" BackgroundColor="Transparent" CornerRadius="30" Margin="90,10">
 
-                        <Entry Text="{Binding FirstName}" Margin="-15,-15" BackgroundColor="Transparent"/>
+                        <Entry Text="{Binding FirstName}" Style="{StaticResource EditEntry}"/>
                     </Frame>
                     <!--</yummy:PancakeView>-->
                     <Label Text="Last Name"/>
                     <Frame BorderColor="White" BackgroundColor="Transparent" CornerRadius="30" Margin="90,10">
 
-                        <Entry Text="{Binding LastName}" Margin="-15,-15" BackgroundColor="Transparent"/>
+                    <Entry Text="{Binding LastName}" Style="{StaticResource EditEntry}"/>
                     </Frame>
 
 
                     <Label Text="Password" />
                     <Frame BorderColor="White" BackgroundColor="Transparent" CornerRadius="30" Margin="90,10">
 
-                        <Entry Text="{Binding Password}" Margin="-15,-15" BackgroundColor="Transparent"/>
+                    <Entry Text="{Binding Password}" Style="{StaticResource EditEntry}"/>
                     </Frame>
 
 
