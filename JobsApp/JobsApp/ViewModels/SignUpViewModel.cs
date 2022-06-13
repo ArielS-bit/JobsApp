@@ -596,10 +596,7 @@ namespace JobsApp.ViewModels
                     }, $"{u.UserId}.jpg");
                         
                 }
-                else
-                {
-                   //let's decide for the user the defualt profile picture (might be on the server so not needed in that condition)
-                }
+               
 
                 //App theApp = (App)App.Current;
                 //theApp.CurrentUser = user;

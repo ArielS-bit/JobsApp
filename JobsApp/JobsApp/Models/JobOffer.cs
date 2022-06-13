@@ -1,5 +1,7 @@
-﻿using System;
+﻿using JobsApp.Services;
+using System;
 using System.Collections.Generic;
+
 
 
 
@@ -26,6 +28,16 @@ namespace JobsApp.Models
         public DateTime StartingDate { get; set; }
         public DateTime EndingDate { get; set; }
         public int? CommentId { get; set; }
+
+        public string ImagePath
+        {
+            get
+            {
+                Random r = new Random();
+                JobsAPIProxy proxy = JobsAPIProxy.CreateProxy();
+                return $"http://10.0.2.2:27556/JobOfferImages/{this.JobOfferId}.jpg?{r.Next()}";
+            }
+        }
 
         public virtual Category Category { get; set; }
         public virtual Comment CommentNavigation { get; set; }

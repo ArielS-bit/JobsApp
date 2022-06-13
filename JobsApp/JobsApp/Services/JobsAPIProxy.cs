@@ -439,14 +439,17 @@ namespace JobsApp.Services
         }
 
         //Upload file to server (only images!)
-        public async Task<bool> UploadImage(Models.FileInfo fileInfo, string targetFileName)
+        public async Task<bool> UploadImage(Models.FileInfo fileInfo, string targetFileName, bool jobOfferFolder = false)
         {
             try
             {
+                string folder = "UploadImage";
+                if (jobOfferFolder)
+                    folder = "UploadImageJob";
                 var multipartFormDataContent = new MultipartFormDataContent();
                 var fileContent = new ByteArrayContent(File.ReadAllBytes(fileInfo.Name));
                 multipartFormDataContent.Add(fileContent, "file", targetFileName);
-                HttpResponseMessage response = await client.PostAsync($"{this.baseUri}/UploadImage", multipartFormDataContent);
+                HttpResponseMessage response = await client.PostAsync($"{this.baseUri}/{folder}", multipartFormDataContent);
                 if (response.IsSuccessStatusCode)
                 {
                     return true;

@@ -53,7 +53,7 @@
 
                                             </Grid.ColumnDefinitions>
 
-                                            <CI:CircleImage x:Name="theImage" Margin="0,-110,10,0" Source="NormalScaleLogo.png" Grid.Row="1" Grid.Column="0"/><!--Add binding JobOfferImgSrc and jobofferid to here becuase else it won't work-->
+                                            <CI:CircleImage x:Name="theImage" Margin="0,-110,10,0" Source="{Binding ImagePath}" Grid.Row="1" Grid.Column="0"/><!--Add binding JobOfferImgSrc and jobofferid to here becuase else it won't work-->
 
                                             <!--Maybe add little titles-->
                                             <Label Text="{Binding JobTitle}" Style="{StaticResource BasicLabel}" FontSize="20" Grid.Column="1" Grid.Row="0"  TextColor="#487eb0" />

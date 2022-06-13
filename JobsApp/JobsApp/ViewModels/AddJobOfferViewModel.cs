@@ -21,7 +21,7 @@ namespace JobsApp.ViewModels
         public event Action<Page> Push;
         public event Action Pop;
 
-
+        
         public event Action OnAppearing;
         #region Constructor
         public AddJobOfferViewModel()
@@ -30,11 +30,12 @@ namespace JobsApp.ViewModels
             JobOfferDescription = "";
             StartingDate = DateTime.Today;
             EndingDate = DateTime.Today;
-            Category = "";
+            //Category = "";
             IsPrivate = false;
             SelectedEmployee = null;//לבדוק אם הגיע פרמטר אז לשים פה אם לא אז ככה
             MyCategories = new ObservableCollection<string>();
-            OnAppearing += GetCategories;
+            GetCategories();
+            JobOfferImgSrc = DEFAULT_PHOTO_SRC;
 
         }
         #endregion
@@ -198,7 +199,7 @@ namespace JobsApp.ViewModels
             }
         }
 
-        private const string DEFAULT_PHOTO_SRC = "DefualtProfile.png";
+        private const string DEFAULT_PHOTO_SRC = "NormalScaleLogo.png";
         #endregion
 
         #region Commands
@@ -266,13 +267,10 @@ namespace JobsApp.ViewModels
                     {
                         Name = this.imageFileResult.FullPath
 
-                    }, $"{MyJobOffer.EmployerId}.jpg");
+                    }, $"{j.JobOfferId}.jpg", true);
 
                 }
-                else
-                {
-                    //let's decide for the user the defualt profile picture (might be on the server so not needed in that condition)
-                }
+                
                 //App theApp = (App)App.Current;
                 //theApp.CurrentUser = user;
                 await Application.Current.MainPage.DisplayAlert("SUCCESS!", "You've successfully uploaded a job offer", "Yay");

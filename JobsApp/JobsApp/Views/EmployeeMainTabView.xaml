@@ -13,9 +13,7 @@
              xmlns:pv="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              xmlns:local="clr-namespace:JobsApp.ViewModels">
 
-    <ContentPage.BindingContext>
-        <local:MainTabViewVM></local:MainTabViewVM>
-    </ContentPage.BindingContext>
+   
 
     <ContentPage.Content>
 

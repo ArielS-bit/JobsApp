@@ -349,7 +349,9 @@ namespace JobsApp.ViewModels
         public async void EditUser()
         {
 
-            Push?.Invoke(new EditView());
+            //Push?.Invoke(new EditView());
+            Page p = new EditView();
+            await App.Current.MainPage.Navigation.PushAsync(p);
         }
 
         ///The following command handle the pick photo button

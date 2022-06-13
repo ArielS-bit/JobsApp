@@ -146,24 +146,24 @@ namespace JobsApp.ViewModels
 
 
         #region Image Source
-        private string jobOfferImgSrc;
+        //private string jobOfferImgSrc;
+        
+        //public string JobOfferImgSrc
+        //{
+        //    get
+        //    {
+                
+        //        //User u = ((App)Application.Current).CurrentUser;
+        //        //return u.ImagePath;
+        //    }
+        //    //set
+        //    //{
+        //    //    userImgSrc = value;
+        //    //    OnPropertyChanged("UserImgSrc");
+        //    //}
+        //}
 
-        public string JobOfferImgSrc
-        {
-            get
-            {
-                return null;
-                //User u = ((App)Application.Current).CurrentUser;
-                //return u.ImagePath;
-            }
-            //set
-            //{
-            //    userImgSrc = value;
-            //    OnPropertyChanged("UserImgSrc");
-            //}
-        }
-
-        private const string DEFAULT_PHOTO_SRC = "HugePicture.png";//DefaultPhoto.png
+        //private const string DEFAULT_PHOTO_SRC = "HugePicture.png";//DefaultPhoto.png
         #endregion
 
 
@@ -183,6 +183,7 @@ namespace JobsApp.ViewModels
             {
                 IsEmpty = true;
             }
+            OnPropertyChanged("JobOffersList");
         }
 
         #region Commands and functions 
@@ -213,7 +214,8 @@ namespace JobsApp.ViewModels
                 IsPrivate=j.IsPrivate,
                 RequiredEmployees=(int)j.RequiredEmployees,
                 RequiredAge=(int)j.RequiredAge,
-                NumApplied=j.NumApplied
+                NumApplied=j.NumApplied,
+                ImagePath=j.ImagePath
                 
             };
             Push?.Invoke(w);

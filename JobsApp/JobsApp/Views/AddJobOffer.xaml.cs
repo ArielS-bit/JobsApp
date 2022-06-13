@@ -20,7 +20,7 @@ namespace JobsApp.Views
             this.BindingContext = a;
             a.Push += (p) => Navigation.PushAsync(p);
             a.Pop += () => Navigation.PopAsync();
-
+            a.SetImageSourceEvent += OnSetImageSource;
             var professionsList = new List<string>();
             professionsList.Add("Dog Walking");
             professionsList.Add("Babysitter");
@@ -34,7 +34,18 @@ namespace JobsApp.Views
 
         protected override void OnAppearing()
         {
-            ((AddJobOfferViewModel)this.BindingContext).OnAppearingFunc();
+            theScroll.ScrollToAsync(AddJobOfferBtn, ScrollToPosition.End, true);
+            //((AddJobOfferViewModel)this.BindingContext).OnAppearingFunc();
         }
+
+        public void OnSetImageSource(ImageSource imgSource)
+        {
+            AddJobOfferBtn.IsVisible = false;
+            theImage.Source = imgSource;
+            AddJobOfferBtn.IsVisible = true;
+            theScroll.ScrollToAsync(AddJobOfferBtn, ScrollToPosition.End, true);
+        }
+
+        
     }
 }

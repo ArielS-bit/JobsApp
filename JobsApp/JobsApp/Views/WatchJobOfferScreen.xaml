@@ -36,7 +36,7 @@
                     <Label Text="Job Offer Details" FontSize="25" Grid.Row="0" Grid.Column="0" Margin="40"/>
                     
                     <!--Add binding JobOfferImgSrc and jobofferid to here becuase else it won't work-->
-                    <CI:CircleImage x:Name="theImage" Source="NormalScaleLogo.png" Grid.Row="0" Grid.Column="1"/>
+                    <CI:CircleImage x:Name="theImage" Source="{Binding ImagePath}" Grid.Row="0" Grid.Column="1"/>
 
 
                     <!--Maybe add little titles-->

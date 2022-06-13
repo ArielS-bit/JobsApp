@@ -43,6 +43,17 @@ namespace JobsApp.ViewModels
             }
         }
 
+        private string imagePath;
+        public string ImagePath
+        {
+            get => imagePath;
+            set
+            {
+                imagePath = value;
+                OnPropertyChanged("ImagePath");
+            }
+        }
+
 
         private string jobTitle;
         public string JobTitle
