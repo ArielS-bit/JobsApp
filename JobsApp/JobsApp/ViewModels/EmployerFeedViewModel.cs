@@ -179,7 +179,7 @@ namespace JobsApp.ViewModels
                 JobOffersList.Add(j);
                 IsEmpty = false;
             }
-            if (JobOffersList==null)
+            if (JobOffersList.Count()==0)
             {
                 IsEmpty = true;
             }
